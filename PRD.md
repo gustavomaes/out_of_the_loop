@@ -12,32 +12,36 @@
 
 **Objetivo principal:** Permitir que um grupo aja como "jogadores por dentro" (sabem uma palavra secreta) e um jogador como "fora" (não sabe a palavra). O grupo precisa descobrir quem está fora; o fora precisa se passar por membro do grupo e adivinhar a palavra secreta.
 
+> **Contexto de uso:** O app roda em um único aparelho compartilhado entre todos os jogadores presencialmente.
+
 ---
 
 ## 2. Funcionalidades Principais
 
-### 2.1 Criação de Sala / Lobby
-- Definir uma categoria (ex: alimentos, filmes, animais, etc.)
+### 2.1 Tela Inicial
 
-### 2.2 Configurar partida
+- Botão **Jogar**
+- Botão **Como Jogar**
 
+### 2.2 Configurar Partida
+
+- Escolher uma categoria (lista com 20 categorias disponíveis)
 - Definir número de rodadas (padrão: 5)
-- Cadastrar nome dos jogadores (é necessário apenas o nome)
-- Botão de iniciar partida fica ativo com apenas com 3+ jogadores cadastrados
+- Cadastrar nome dos jogadores (apenas o nome, sem login)
+- Botão **Iniciar Partida** fica ativo somente com 3+ jogadores cadastrados
 
 ### 2.3 Distribuição de Papéis (por rodada)
 
 - Sistema escolhe **aleatoriamente** 1 jogador como **"fora"** (out of the loop)
 - Os outros jogadores são **"dentro"** (in the loop)
-- **Dentro:** recebem a mesma palavra secreta
-- **Fora:** recebe apenas uma mensagem informando para ele que ele é o **"fora"** e que deve agir naturalmente
+- **Dentro:** recebem a palavra secreta
+- **Fora:** recebe apenas a mensagem "Você está FORA do círculo — aja naturalmente"
 
 ### 2.4 Banco de Palavras e Perguntas
 
-- Mínimo de 20 categorias
-- Mínimo de 200 palavras secretas por categorias
-- Para cada palavra secreta, deve existir uma lista de:
-  - 3–9 perguntas associadas (ex: "Com que frequência você usa isso?") **Minimo de 1 pergunta por jogador cadastrado**
+- **20 categorias**, com **30 palavras secretas cada** (600 palavras no total)
+- Para cada palavra secreta, deve existir uma lista de **3–9 perguntas associadas**
+- Regra: **mínimo de 1 pergunta por jogador cadastrado** na rodada
 
 **Estrutura de dados:**
 
@@ -49,44 +53,56 @@
     "Você gosta de comer isso com as mãos?",
     "Qual a primeira memória que você tem disso?",
     "Isso é mais comum no café da manhã ou jantar?"
-  ],
+  ]
 }
 ```
 
-### 2.5 Fases do Jogo (por rodada)
+---
 
-#### Fase 1 – Revelação dos Papéis
+## 3. Fases do Jogo (por rodada)
 
-Cada jogador vê na tela:
+### Fase 1 – Revelação dos Papéis
 
-- Se é **dentro:** palavra secreta + "Você está por dentro"
-- Se é **fora:** "Você está FORA do círculo"
+O aparelho é passado de mão em mão. Para cada jogador, o sistema exibe:
 
-#### Fase 2 – Respostas Públicas
+- Tela com o nome do jogador e botão **"Visualizar minha palavra"**
+- Ao tocar: mostra a palavra secreta (se dentro) ou a mensagem de "fora"
+- Botão **"Próximo jogador"** para passar o aparelho
+- O sistema define a ordem automaticamente até todos terem visto
 
-- Sistema mostra uma pergunta por vez (tempo opcional: 30s)
-- O sistema escolhe um jogador para responder aquela pergunta
-- Número de perguntas: **Número de jogadores por rodada**
+> A mecânica é baseada na confiança dos jogadores — não há bloqueio técnico entre visualizações.
 
-#### Fase 3 – Discussão / Votação
+### Fase 2 – Respostas Públicas
 
-- Todos votam em quem acham que é o jogador fora
-- Cada jogador pode votar uma única vez,
-- Voto secreto → ao final, revela total de votos por jogador
+- Sistema exibe uma pergunta por vez
+- O sistema indica qual jogador deve responder aquela pergunta
+- O jogador responde em voz alta (sem digitar no app)
+- Número de perguntas = **número de jogadores** (máximo 9)
+- Timer opcional de 30s por pergunta
 
-#### Fase 4 – Exibição da Pontuação da Rodada
+### Fase 3 – Votação
 
-- Mostrar quem era o fora
-- Mostrar respostas e votos (resumo)
-- Mostrar pontos ganhos por cada jogador nesta rodada
+- O aparelho é passado de mão em mão
+- Cada jogador vê seu nome na tela e escolhe em quem votar (lista de jogadores)
+- Cada jogador vota uma única vez
+- Voto secreto → ao final, o app revela o total de votos por jogador
 
-#### Fase 5 – Adivinhação pelo Fora
+### Fase 4 – Exibição dos Resultados da Rodada
 
-Se o jogador "fora" não for descoberto:
-Deve descobrir ele acha que era a palavra secreta.
+- Revelar quem era o jogador "fora"
+- Exibir resumo das perguntas e votos
+- Exibir pontos ganhos por cada jogador nesta rodada
 
+### Fase 5 – Adivinhação pelo Fora *(somente se o fora não foi descoberto)*
 
-### 2.5 Pontuação (regras fixas)
+- O jogador "fora" fala em voz alta a palavra que ele acha que é a secreta
+- O grupo confirma se acertou ou errou
+- O app exibe dois botões: **"Acertou"** / **"Errou"**
+- Quem toca no botão pode ser qualquer jogador do grupo
+
+---
+
+## 4. Pontuação (regras fixas)
 
 **Jogadores "dentro":**
 
@@ -100,71 +116,89 @@ Deve descobrir ele acha que era a palavra secreta.
 | Evento | Pontos |
 |---|---|
 | Não foi descoberto pela maioria | +50 |
-| Adivinhar a palavra secreta correta no final | +125 |
+| Adivinhar a palavra secreta correta | +125 |
 
-### 2.6 Progressão de Partida
+---
+
+## 5. Progressão de Partida
 
 Ao final de cada rodada:
 
 - Atualiza pontuação total acumulada
 - Sorteia novo jogador "fora" para a próxima rodada
-- Palavra secreta deve ser diferente da rodada anterior (evitar repetição imediata)
+- Palavra secreta deve ser diferente das rodadas anteriores (sem repetição na mesma partida)
 
-Ao final da última rodada (ex: rodada 5):
+Ao final da última rodada:
 
-- Mostra ranking final com pontuação total
-- Botão: "Nova partida" / "Voltar ao lobby"
+- Exibe ranking final com pontuação total
+- Botões: **"Nova partida"** / **"Voltar ao início"**
 
 ---
 
-## 3. Fluxo de Telas (UI/UX mínimo)
+## 6. Fluxo de Telas
 
 1. **Tela inicial** – Jogar / Como jogar
-2. **Categorias** – Lista de categorias
-3. **Tela de papel (preparação)** – Mostra palavra / fora
-4. **Tela de pergunta** – Pergunta + jogador que deve responder
-5. **Tela de votação** – Nome do Jogador e lista de jogadores, votar em 1. Passar o aparelho para o próximo jogador votar
-6. **Tela de resultados da rodada**
-7. **Tela de ranking final**
+2. **Configurar partida** – Escolher categoria, número de rodadas, cadastrar jogadores
+3. **Revelação dos papéis** – Passar o aparelho para cada jogador ver sua palavra
+4. **Tela de pergunta** – Exibe pergunta + nome do jogador que deve responder em voz alta
+5. **Tela de votação** – Passar o aparelho para cada jogador votar
+6. **Tela de resultados da rodada** – Revelar fora, votos, pontuação
+7. **Tela de adivinhação** *(condicional)* – Botões "Acertou" / "Errou"
+8. **Tela de ranking final**
+9. **Tela de configurações** – Alteração de idioma
 
 ---
 
-## 4. Regras Não-Negociáveis (falhas comuns a evitar)
+## 7. Regras Não-Negociáveis
 
 - O fora **nunca** vê a palavra secreta antes da fase de adivinhação.
 - Jogadores dentro **não podem ver** quem é o fora antes da votação (a menos que adivinhem).
-- A mesma palavra secreta **não deve se repetir** na mesma partida entre rodadas diferentes.
-- O fora **não participa** da fase de adivinhação como se fosse "dentro".
+- A mesma palavra secreta **não deve se repetir** na mesma partida.
+- A fase de adivinhação **só ocorre** se o fora não foi descoberto pela maioria.
 - **Maioria = mais da metade** dos jogadores.
   - Ex: 5 jogadores → maioria = 3 votos no fora.
-  - Se todos votarem em pessoas diferentes e ninguém tiver maioria → fora escapa (+50), ninguém ganha +100.
+  - Se ninguém atingir maioria → fora escapa (+50), ninguém ganha +100.
 
 ---
 
-## 5. Requisitos Técnicos
+## 8. Requisitos Técnicos
 
-### Backend
+- **Totalmente offline** — sem login, sem internet
+- **SQLite local** para armazenar categorias, palavras e perguntas
+- Histórico de palavras por partida para evitar repetição entre rodadas
+- Timer global configurável (padrão: 30s por pergunta/votação)
 
-- SQLite local
-- Histórico de palavras por sala para evitar repetição
-- Historico de partidas
-- Timer global (ex: 30s por resposta/votação)
+### 8.1 Localização (i18n)
+
+O app deve suportar 4 idiomas, selecionáveis na tela de configurações:
+
+| Idioma | Código |
+|---|---|
+| Português (Brasil) | `pt-BR` |
+| Inglês | `en` |
+| Espanhol | `es` |
+| Hindi (Indiano) | `hi` |
+
+- O idioma padrão deve ser detectado automaticamente pelo sistema operacional, com fallback para `pt-BR`
+- A alteração de idioma é aplicada imediatamente, sem reiniciar o app
+- **Todo o conteúdo do app deve ser localizado:** textos de interface, mensagens de fase, botões, categorias, palavras secretas e perguntas
+- Cada idioma deve ter seu próprio banco de palavras e perguntas completo (600 palavras × 4 idiomas)
 
 ---
 
-## 6. Exemplo de Rodada (para testes)
+## 9. Exemplo de Rodada
 
-**Jogadores:** Ana, Bruno, Carla, Daniel (4 players)  
-**Palavra:** "sorvete"  
-**Fora:** Daniel
+**Jogadores:** Ana, Bruno, Carla, Daniel (4 players)
+**Categoria:** Comida | **Palavra:** "sorvete" | **Fora:** Daniel
 
-**Perguntas exibidas:**
-1. Isso é mais comum no verão ou inverno?
-2. Você come isso com colher ou com as mãos?
-3. Que sabor você mais gosta disso?
+**Perguntas e respostas (em voz alta):**
 
-**Respostas (Daniel inventa):**
-- "Os dois" *(estranho → levanta suspeita)*
+| Pergunta | Jogador | Resposta |
+|---|---|---|
+| Isso é mais comum no verão ou inverno? | Ana | "Verão, com certeza" |
+| Você come isso com colher ou com as mãos? | Bruno | "Colher" |
+| Que sabor você mais gosta disso? | Carla | "Chocolate" |
+| Você comeria isso todo dia? | Daniel | "Os dois..." *(levanta suspeita)* |
 
 **Votação:**
 
@@ -175,26 +209,23 @@ Ao final da última rodada (ex: rodada 5):
 | Carla | Daniel |
 | Daniel | Ana |
 
-**Resultado:**
-- 3 votos em Daniel → maioria acertou
-- Daniel não escapa (sem +50)
-- Daniel tenta adivinhar: lista = [sorvete, bolo, pudim, mousse]
-- Daniel escolhe "sorvete" → acertou (**+125**)
+**Resultado:** 3 votos em Daniel → maioria acertou → fase de adivinhação não ocorre
 
-**Pontuação final da rodada:**
+**Pontuação da rodada:**
 
-| Jogador | Pontos |
-|---|---|
-| Ana | +25 +100 = **125** |
-| Bruno | **125** |
-| Carla | **125** |
-| Daniel | **125** |
+| Jogador | Detalhamento | Total |
+|---|---|---|
+| Ana | +25 (voto certo) +100 (maioria) | **125** |
+| Bruno | +25 +100 | **125** |
+| Carla | +25 +100 | **125** |
+| Daniel | — | **0** |
 
 ---
 
-## 7. Observações Finais para o Agente de IA
+## 10. Prioridades de Desenvolvimento
 
-- ❌ Não desenvolver sistema de login, o app deve rodar totalmente offline com SQLite local lidando com as categorias e palavras.
-- ✅ **Prioridade 1:** fazer o fluxo completo de 1 rodada funcionar com 3+ jogadores reais.
-- ✅ **Prioridade 2:** sistema de pontuação e regra de maioria.
-- ✅ **Prioridade 3:** banco de palavras expansível.
+- ✅ **Prioridade 1:** Fluxo completo de 1 rodada com 3+ jogadores
+- ✅ **Prioridade 2:** Sistema de pontuação e regra de maioria
+- ✅ **Prioridade 3:** Banco de palavras completo e expansível
+- ❌ Sem sistema de login
+- ❌ Sem funcionalidades online ou multiplayer remoto
