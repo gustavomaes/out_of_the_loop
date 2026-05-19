@@ -18,6 +18,46 @@
   "playAgain": "Nova partida",
   "backToHome": "Voltar ao inicio",
   "settings": "Configuracoes",
+  "settingsScreenTitle": "CONFIGURAÇÕES",
+  "settingsSectionLanguage": "IDIOMA",
+  "settingsSectionAudio": "ÁUDIO",
+  "settingsSectionTimer": "TIMER",
+  "settingsSectionAbout": "SOBRE",
+  "settingsMusic": "Música",
+  "settingsSoundEffects": "Efeitos Sonoros",
+  "settingsTermsOfUse": "Termos de Uso",
+  "settingsPrivacy": "Privacidade",
+  "settingsAppVersionLabel": "Versão do App",
+  "settingsAppVersionValue": "v0.1.0",
+  "settingsLanguagePortuguese": "Português",
+  "settingsLanguageEnglish": "English",
+  "settingsLanguageSpanish": "Español",
+  "settingsLanguageHindi": "Hindi",
+  "settingsUseTimer": "Usar timer",
+  "settingsTimerSeconds": "{seconds} segundos por turno",
+  "@settingsTimerSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "language": "Idioma",
-  "timer": "Timer"
+  "timer": "Timer",
+  "howToPlayScreenTitle": "COMO JOGAR",
+  "howToPlayKapow": "KA-POW!",
+  "howToPlaySecretTitle": "O SEGREDO",
+  "howToPlaySecretBodyBefore": "Cada jogador vê a palavra secreta, exceto um... que está ",
+  "howToPlaySecretBodyHighlight": "Fora do Loop!",
+  "howToPlayQuestionTitle": "A PERGUNTA",
+  "howToPlayQuestionBodyBefore": "Responda perguntas engraçadas sobre a palavra sem dar na cara o que é. ",
+  "howToPlayQuestionBodyEmphasis": "Seja esperto!",
+  "howToPlayVoteTitle": "A VOTAÇÃO",
+  "howToPlayVoteBodyBefore": "Tente descobrir quem não sabe de nada e ",
+  "howToPlayVoteBodyHighlight": "VOTE!",
+  "howToPlayVoteBodyAfter": " Aponte o dedo sem medo.",
+  "howToPlayOutcomeTitle": "O DESFECHO",
+  "howToPlayOutcomeBodyBefore": "Se o 'Fora do Loop' adivinhar a palavra no final, ",
+  "howToPlayOutcomeBodyHighlight": "ele ganha",
+  "howToPlayOutcomeBodyAfter": " e vira o mestre!"
 }

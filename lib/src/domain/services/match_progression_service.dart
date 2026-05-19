@@ -42,6 +42,7 @@ final class MatchProgressionService {
       outPlayerId: currentRound.outPlayerId,
       secretWord: currentRound.secretWord,
       questions: currentRound.questions,
+      questionTurns: currentRound.questionTurns,
       phase: RoundPhase.complete,
       votes: currentRound.votes,
       scoreEvents: result.scoreEvents,

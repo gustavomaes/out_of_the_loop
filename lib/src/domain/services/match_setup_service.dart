@@ -30,6 +30,44 @@ final class MatchSetupService {
     return 1;
   }
 
+  static int maxRoundCountFor({
+    required int playerCount,
+    required int questionsPerPlayer,
+    required List<SecretWord> categoryWords,
+  }) {
+    if (categoryWords.isEmpty) {
+      return MatchSetup.minRoundCount;
+    }
+
+    final effectivePlayerCount = playerCount < MatchSetup.minPlayers
+        ? MatchSetup.minPlayers
+        : playerCount;
+    final questionsNeeded = effectivePlayerCount * questionsPerPlayer;
+    final playableWords = categoryWords
+        .where((word) => word.questions.length >= questionsNeeded)
+        .length;
+
+    return playableWords.clamp(
+      MatchSetup.minRoundCount,
+      MatchSetup.maxRoundCount,
+    );
+  }
+
+  static int effectiveRoundCount({
+    required int roundCount,
+    required int maxRoundCount,
+    required bool touched,
+  }) {
+    final recommended = MatchSetup.recommendedRoundCount.clamp(
+      MatchSetup.minRoundCount,
+      maxRoundCount,
+    );
+    if (!touched) {
+      return recommended;
+    }
+    return roundCount.clamp(MatchSetup.minRoundCount, maxRoundCount);
+  }
+
   static int maxQuestionsPerPlayerFor({
     required int playerCount,
     required List<SecretWord> categoryWords,

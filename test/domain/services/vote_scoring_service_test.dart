@@ -164,6 +164,12 @@ RoundState _round({required String outPlayerId, required List<Vote> votes}) {
     questions: [
       Question(id: 'q1', wordId: 'pizza', text: _localized('Question')),
     ],
+    questionTurns: [
+      QuestionTurn(
+        question: Question(id: 'q1', wordId: 'pizza', text: _localized('Question')),
+        playerId: 'p0',
+      ),
+    ],
     phase: RoundPhase.results,
     votes: votes,
   );

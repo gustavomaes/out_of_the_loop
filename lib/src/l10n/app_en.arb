@@ -18,6 +18,46 @@
   "playAgain": "Play again",
   "backToHome": "Back to home",
   "settings": "Settings",
+  "settingsScreenTitle": "SETTINGS",
+  "settingsSectionLanguage": "LANGUAGE",
+  "settingsSectionAudio": "AUDIO",
+  "settingsSectionTimer": "TIMER",
+  "settingsSectionAbout": "ABOUT",
+  "settingsMusic": "Music",
+  "settingsSoundEffects": "Sound Effects",
+  "settingsTermsOfUse": "Terms of Use",
+  "settingsPrivacy": "Privacy",
+  "settingsAppVersionLabel": "App Version",
+  "settingsAppVersionValue": "v0.1.0",
+  "settingsLanguagePortuguese": "Portuguese",
+  "settingsLanguageEnglish": "English",
+  "settingsLanguageSpanish": "Spanish",
+  "settingsLanguageHindi": "Hindi",
+  "settingsUseTimer": "Use timer",
+  "settingsTimerSeconds": "{seconds} seconds per turn",
+  "@settingsTimerSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "language": "Language",
-  "timer": "Timer"
+  "timer": "Timer",
+  "howToPlayScreenTitle": "HOW TO PLAY",
+  "howToPlayKapow": "KA-POW!",
+  "howToPlaySecretTitle": "THE SECRET",
+  "howToPlaySecretBodyBefore": "Every player sees the secret word, except one... who is ",
+  "howToPlaySecretBodyHighlight": "Out of the Loop!",
+  "howToPlayQuestionTitle": "THE QUESTION",
+  "howToPlayQuestionBodyBefore": "Answer funny questions about the word without making it too obvious. ",
+  "howToPlayQuestionBodyEmphasis": "Be clever!",
+  "howToPlayVoteTitle": "THE VOTE",
+  "howToPlayVoteBodyBefore": "Try to spot who knows nothing and ",
+  "howToPlayVoteBodyHighlight": "VOTE!",
+  "howToPlayVoteBodyAfter": " Point the finger with confidence.",
+  "howToPlayOutcomeTitle": "THE FINALE",
+  "howToPlayOutcomeBodyBefore": "If the 'Out of the Loop' player guesses the word at the end, ",
+  "howToPlayOutcomeBodyHighlight": "they win",
+  "howToPlayOutcomeBodyAfter": " and become the mastermind!"
 }

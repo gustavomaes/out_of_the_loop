@@ -9,12 +9,16 @@ class AppShell extends StatelessWidget {
     required this.routeName,
     required this.title,
     required this.child,
+    this.appBar,
+    this.bodyPadding = const EdgeInsets.all(AppSpacing.md),
     super.key,
   });
 
   final String routeName;
   final String title;
   final Widget child;
+  final PreferredSizeWidget? appBar;
+  final EdgeInsetsGeometry bodyPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +27,9 @@ class AppShell extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(title: Text(title), centerTitle: true),
+      appBar: appBar ?? AppBar(title: Text(title), centerTitle: true),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.md),
-          child: child,
-        ),
+        child: Padding(padding: bodyPadding, child: child),
       ),
       bottomNavigationBar: showBottomNavigation
           ? _DiscoveryNavigationBar(currentRoute: routeName)

@@ -72,6 +72,8 @@ void main() {
       );
 
       expect(round.questions, hasLength(6));
+      expect(round.questionTurns, hasLength(6));
+      expect(round.questionTurns.first.playerId, isNot(round.outPlayerId));
     });
 
     test('throws when no playable words remain', () {

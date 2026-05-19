@@ -1,6 +1,7 @@
 abstract final class AppRoutes {
   static const home = '/';
   static const categories = '/categories';
+  static const matchSetup = '/match-setup';
   static const players = '/players';
   static const gameReveal = '/game/reveal';
   static const gameQuestions = '/game/questions';
@@ -14,6 +15,7 @@ abstract final class AppRoutes {
   static const all = <String>[
     home,
     categories,
+    matchSetup,
     players,
     gameReveal,
     gameQuestions,

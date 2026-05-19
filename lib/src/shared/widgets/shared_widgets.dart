@@ -1,3 +1,5 @@
+export 'otl_brutalist_app_bar.dart';
+export 'otl_brutalist_surface.dart';
 export 'otl_button.dart';
 export 'otl_card.dart';
 export 'otl_text_field.dart';

@@ -14,8 +14,10 @@ import '../features/home/home_screen.dart';
 import '../features/how_to_play/how_to_play_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/setup/category_selection_screen.dart';
+import '../features/setup/match_setup_screen.dart';
 import '../features/setup/player_setup_screen.dart';
 import '../domain/models/models.dart';
+import '../domain/services/match_setup_service.dart';
 import '../theme/app_tokens.dart';
 import 'app_routes.dart';
 import 'app_shell.dart';
@@ -82,15 +84,29 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
           if (!context.mounted) {
             return;
           }
+          Navigator.of(context).pushNamed(AppRoutes.matchSetup);
+        },
+      ),
+      AppRoutes.matchSetup => MatchSetupScreen(
+        categoryWords: _flow.categoryWords,
+        onContinue: (roundCount, questionsPerPlayer) {
+          _flow.configureMatch(
+            roundCount: roundCount,
+            questionsPerPlayer: questionsPerPlayer,
+          );
           Navigator.of(context).pushNamed(AppRoutes.players);
         },
       ),
       AppRoutes.players => PlayerSetupScreen(
-        roundCount: _flow.roundCount,
+        roundCount:
+            _flow.pendingRoundCount ?? MatchSetup.recommendedRoundCount,
+        questionsPerPlayer: _flow.pendingQuestionsPerPlayer ??
+            MatchSetupService.recommendedQuestionsPerPlayer(0),
         categoryWords: _flow.categoryWords,
-        onStart: (players, questionsPerPlayer) {
+        onStart: (players, roundCount, questionsPerPlayer) {
           _flow.startMatch(
             players,
+            roundCount: roundCount,
             questionsPerPlayer: questionsPerPlayer,
           );
           Navigator.of(context).pushNamed(AppRoutes.gameReveal);
@@ -111,7 +127,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
         AppRoutes.gameQuestions,
         () => QuestionRoundScreen(
           players: _flow.players,
-          questions: _flow.currentRound!.questions,
+          questionTurns: _flow.currentRound!.questionTurns,
           language: _flow.language,
           timerSettings: _flow.timerSettings,
           onComplete: () =>
@@ -153,9 +169,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
           ).pushNamedAndRemoveUntil(AppRoutes.home, (_) => false);
         },
       ),
-      AppRoutes.howToPlay => HowToPlayScreen(
-        onDone: () => Navigator.of(context).maybePop(),
-      ),
+      AppRoutes.howToPlay => const HowToPlayScreen(),
       AppRoutes.settings => SettingsScreen(
         initialLanguage: _flow.language,
         initialTimerSettings: _flow.timerSettings,
@@ -186,6 +200,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
         players: _flow.players,
         round: _flow.currentRound!,
         result: result,
+        totalRoundCount: _flow.setup?.roundCount,
         onContinue: () => _finishRound(context, result),
         onGuess: () => Navigator.of(context).pushNamed(AppRoutes.gameGuess),
       ),
@@ -230,6 +245,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
 const _routeTitles = <String, String>{
   AppRoutes.home: 'OUT OF THE LOOP',
   AppRoutes.categories: 'Categories',
+  AppRoutes.matchSetup: 'Match Setup',
   AppRoutes.players: 'Players',
   AppRoutes.gameReveal: 'Secret Reveal',
   AppRoutes.gameQuestions: 'Questions',

@@ -118,6 +118,40 @@ void main() {
       },
     );
 
+    test('limits max round count to playable words in the category', () {
+      expect(
+        MatchSetupService.maxRoundCountFor(
+          playerCount: 4,
+          questionsPerPlayer: 1,
+          categoryWords: [
+            _word('pizza', questionCount: 4),
+            _word('sushi', questionCount: 3),
+            _word('taco', questionCount: 4),
+          ],
+        ),
+        2,
+      );
+    });
+
+    test('clamps custom round count to category capacity', () {
+      expect(
+        MatchSetupService.effectiveRoundCount(
+          roundCount: 5,
+          maxRoundCount: 2,
+          touched: true,
+        ),
+        2,
+      );
+      expect(
+        MatchSetupService.effectiveRoundCount(
+          roundCount: 5,
+          maxRoundCount: 5,
+          touched: false,
+        ),
+        MatchSetup.recommendedRoundCount,
+      );
+    });
+
     test('validates round count against playable content capacity', () {
       final result = service.validate(
         players: _players(4),

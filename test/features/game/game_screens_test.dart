@@ -40,7 +40,7 @@ void main() {
     expect(find.textContaining('FORA'), findsOneWidget);
   });
 
-  testWidgets('question round advances through player questions', (
+  testWidgets('question round advances through turns on one screen', (
     tester,
   ) async {
     var completed = false;
@@ -49,7 +49,11 @@ void main() {
       _TestApp(
         child: QuestionRoundScreen(
           players: _players,
-          questions: _questions,
+          questionTurns: _questionTurns(
+            players: _players,
+            questions: _questions,
+            playerOrder: const ['p1', 'p2', 'p3'],
+          ),
           onComplete: () => completed = true,
         ),
       ),
@@ -60,9 +64,21 @@ void main() {
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
+    expect(find.text('NEXT QUESTION'), findsOneWidget);
+    expect(find.text('Answer recorded. Ready for the next turn.'), findsOneWidget);
+
+    await tester.tap(find.text('NEXT QUESTION'));
+    await tester.pumpAndSettle();
 
     expect(find.text('Bia answers'), findsOneWidget);
     expect(find.text('QUESTION 2 OF 3'), findsOneWidget);
+
+    await tester.tap(find.text('DONE ANSWERING'));
+    await tester.pump();
+    await tester.tap(find.text('NEXT QUESTION'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Caio answers'), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
@@ -72,7 +88,7 @@ void main() {
     expect(completed, isTrue);
   });
 
-  testWidgets('question round rotates players across multiple rounds', (
+  testWidgets('question round supports multiple turns per player', (
     tester,
   ) async {
     var completed = false;
@@ -95,7 +111,11 @@ void main() {
       _TestApp(
         child: QuestionRoundScreen(
           players: players,
-          questions: questions,
+          questionTurns: _questionTurns(
+            players: players,
+            questions: questions,
+            playerOrder: const ['p1', 'p2', 'p3', 'p1', 'p2', 'p3'],
+          ),
           onComplete: () => completed = true,
         ),
       ),
@@ -104,21 +124,18 @@ void main() {
     expect(find.text('QUESTION 1 OF 6'), findsOneWidget);
     expect(find.text('Ana answers'), findsOneWidget);
 
-    await tester.tap(find.text('DONE ANSWERING'));
-    await tester.pump();
+    await _advanceQuestion(tester);
     expect(find.text('Bia answers'), findsOneWidget);
 
-    await tester.tap(find.text('DONE ANSWERING'));
-    await tester.pump();
+    await _advanceQuestion(tester);
     expect(find.text('Caio answers'), findsOneWidget);
 
-    await tester.tap(find.text('DONE ANSWERING'));
-    await tester.pump();
+    await _advanceQuestion(tester);
     expect(find.text('Ana answers'), findsOneWidget);
     expect(find.text('QUESTION 4 OF 6'), findsOneWidget);
 
-    await tester.tap(find.text('DONE ANSWERING'));
-    await tester.pump();
+    await _advanceQuestion(tester);
+    await _advanceQuestion(tester);
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
     await tester.tap(find.text('GO TO VOTING'));
@@ -136,7 +153,11 @@ void main() {
         _TestApp(
           child: QuestionRoundScreen(
             players: _players,
-            questions: [_questions.first],
+            questionTurns: _questionTurns(
+              players: _players,
+              questions: [_questions.first],
+              playerOrder: const ['p1'],
+            ),
             timerSettings: const TimerSettings(durationSeconds: 12),
             remainingSeconds: 0,
             onComplete: () => completed = true,
@@ -150,6 +171,8 @@ void main() {
         findsOneWidget,
       );
 
+      await tester.tap(find.text('DONE ANSWERING'));
+      await tester.pump();
       await tester.tap(find.text('GO TO VOTING'));
       await tester.pump();
 
@@ -233,6 +256,11 @@ void main() {
       outPlayerId: 'p2',
       secretWord: _word,
       questions: _questions,
+      questionTurns: _questionTurns(
+        players: _players,
+        questions: _questions,
+        playerOrder: const ['p1', 'p2', 'p3'],
+      ),
       phase: RoundPhase.results,
       votes: const [
         Vote(voterId: 'p1', suspectId: 'p2'),
@@ -261,6 +289,39 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('+125'), findsWidgets);
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: RoundResultsScreen(
+          players: _players,
+          round: discoveredRound,
+          result: discovered,
+          totalRoundCount: 3,
+        ),
+      ),
+    );
+    expect(find.text('Ir para rodada 2'), findsOneWidget);
+
+    final finalDiscoveredRound = RoundState(
+      roundNumber: 3,
+      outPlayerId: discoveredRound.outPlayerId,
+      secretWord: discoveredRound.secretWord,
+      questions: discoveredRound.questions,
+      questionTurns: discoveredRound.questionTurns,
+      phase: discoveredRound.phase,
+      votes: discoveredRound.votes,
+    );
+    await tester.pumpWidget(
+      _TestApp(
+        child: RoundResultsScreen(
+          players: _players,
+          round: finalDiscoveredRound,
+          result: discovered,
+          totalRoundCount: 3,
+        ),
+      ),
+    );
+    expect(find.text('Ver placar final'), findsOneWidget);
 
     RoundResult? guessedResult;
     await tester.pumpWidget(
@@ -321,6 +382,27 @@ void main() {
   });
 }
 
+Future<void> _advanceQuestion(WidgetTester tester) async {
+  await tester.tap(find.text('DONE ANSWERING'));
+  await tester.pump();
+  await tester.tap(find.text('NEXT QUESTION'));
+  await tester.pumpAndSettle();
+}
+
+List<QuestionTurn> _questionTurns({
+  required List<Player> players,
+  required List<Question> questions,
+  required List<String> playerOrder,
+}) {
+  return List.generate(
+    questions.length,
+    (index) => QuestionTurn(
+      question: questions[index],
+      playerId: playerOrder[index],
+    ),
+  );
+}
+
 Future<void> _tapVoteButtonFor(WidgetTester tester, String playerName) async {
   final card = find.ancestor(
     of: find.text(playerName),
@@ -379,6 +461,11 @@ final _round = RoundState(
   outPlayerId: 'p2',
   secretWord: _word,
   questions: _questions,
+  questionTurns: _questionTurns(
+    players: _players,
+    questions: _questions,
+    playerOrder: const ['p1', 'p2', 'p3'],
+  ),
   phase: RoundPhase.reveal,
 );
 
@@ -387,6 +474,11 @@ final _roundWithVotes = RoundState(
   outPlayerId: 'p2',
   secretWord: _word,
   questions: _questions,
+  questionTurns: _questionTurns(
+    players: _players,
+    questions: _questions,
+    playerOrder: const ['p1', 'p2', 'p3'],
+  ),
   phase: RoundPhase.results,
   votes: const [
     Vote(voterId: 'p1', suspectId: 'p3'),

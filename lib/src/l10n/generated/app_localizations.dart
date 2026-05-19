@@ -211,6 +211,108 @@ abstract class AppLocalizations {
   /// **'Configuracoes'**
   String get settings;
 
+  /// No description provided for @settingsScreenTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'CONFIGURAÇÕES'**
+  String get settingsScreenTitle;
+
+  /// No description provided for @settingsSectionLanguage.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'IDIOMA'**
+  String get settingsSectionLanguage;
+
+  /// No description provided for @settingsSectionAudio.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'ÁUDIO'**
+  String get settingsSectionAudio;
+
+  /// No description provided for @settingsSectionTimer.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TIMER'**
+  String get settingsSectionTimer;
+
+  /// No description provided for @settingsSectionAbout.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'SOBRE'**
+  String get settingsSectionAbout;
+
+  /// No description provided for @settingsMusic.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Música'**
+  String get settingsMusic;
+
+  /// No description provided for @settingsSoundEffects.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Efeitos Sonoros'**
+  String get settingsSoundEffects;
+
+  /// No description provided for @settingsTermsOfUse.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Termos de Uso'**
+  String get settingsTermsOfUse;
+
+  /// No description provided for @settingsPrivacy.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Privacidade'**
+  String get settingsPrivacy;
+
+  /// No description provided for @settingsAppVersionLabel.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Versão do App'**
+  String get settingsAppVersionLabel;
+
+  /// No description provided for @settingsAppVersionValue.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'v0.1.0'**
+  String get settingsAppVersionValue;
+
+  /// No description provided for @settingsLanguagePortuguese.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Português'**
+  String get settingsLanguagePortuguese;
+
+  /// No description provided for @settingsLanguageEnglish.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'English'**
+  String get settingsLanguageEnglish;
+
+  /// No description provided for @settingsLanguageSpanish.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Español'**
+  String get settingsLanguageSpanish;
+
+  /// No description provided for @settingsLanguageHindi.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Hindi'**
+  String get settingsLanguageHindi;
+
+  /// No description provided for @settingsUseTimer.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Usar timer'**
+  String get settingsUseTimer;
+
+  /// No description provided for @settingsTimerSeconds.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{seconds} segundos por turno'**
+  String settingsTimerSeconds(int seconds);
+
   /// No description provided for @language.
   ///
   /// In pt_BR, this message translates to:
@@ -222,6 +324,102 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'Timer'**
   String get timer;
+
+  /// No description provided for @howToPlayScreenTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'COMO JOGAR'**
+  String get howToPlayScreenTitle;
+
+  /// No description provided for @howToPlayKapow.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'KA-POW!'**
+  String get howToPlayKapow;
+
+  /// No description provided for @howToPlaySecretTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O SEGREDO'**
+  String get howToPlaySecretTitle;
+
+  /// No description provided for @howToPlaySecretBodyBefore.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Cada jogador vê a palavra secreta, exceto um... que está '**
+  String get howToPlaySecretBodyBefore;
+
+  /// No description provided for @howToPlaySecretBodyHighlight.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Fora do Loop!'**
+  String get howToPlaySecretBodyHighlight;
+
+  /// No description provided for @howToPlayQuestionTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'A PERGUNTA'**
+  String get howToPlayQuestionTitle;
+
+  /// No description provided for @howToPlayQuestionBodyBefore.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Responda perguntas engraçadas sobre a palavra sem dar na cara o que é. '**
+  String get howToPlayQuestionBodyBefore;
+
+  /// No description provided for @howToPlayQuestionBodyEmphasis.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Seja esperto!'**
+  String get howToPlayQuestionBodyEmphasis;
+
+  /// No description provided for @howToPlayVoteTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'A VOTAÇÃO'**
+  String get howToPlayVoteTitle;
+
+  /// No description provided for @howToPlayVoteBodyBefore.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Tente descobrir quem não sabe de nada e '**
+  String get howToPlayVoteBodyBefore;
+
+  /// No description provided for @howToPlayVoteBodyHighlight.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'VOTE!'**
+  String get howToPlayVoteBodyHighlight;
+
+  /// No description provided for @howToPlayVoteBodyAfter.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **' Aponte o dedo sem medo.'**
+  String get howToPlayVoteBodyAfter;
+
+  /// No description provided for @howToPlayOutcomeTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O DESFECHO'**
+  String get howToPlayOutcomeTitle;
+
+  /// No description provided for @howToPlayOutcomeBodyBefore.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Se o \'Fora do Loop\' adivinhar a palavra no final, '**
+  String get howToPlayOutcomeBodyBefore;
+
+  /// No description provided for @howToPlayOutcomeBodyHighlight.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'ele ganha'**
+  String get howToPlayOutcomeBodyHighlight;
+
+  /// No description provided for @howToPlayOutcomeBodyAfter.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **' e vira o mestre!'**
+  String get howToPlayOutcomeBodyAfter;
 }
 
 class _AppLocalizationsDelegate

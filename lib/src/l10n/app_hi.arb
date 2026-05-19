@@ -18,6 +18,46 @@
   "playAgain": "फिर खेलें",
   "backToHome": "होम पर वापस",
   "settings": "सेटिंग्स",
+  "settingsScreenTitle": "सेटिंग्स",
+  "settingsSectionLanguage": "भाषा",
+  "settingsSectionAudio": "ऑडियो",
+  "settingsSectionTimer": "टाइमर",
+  "settingsSectionAbout": "के बारे में",
+  "settingsMusic": "संगीत",
+  "settingsSoundEffects": "ध्वनि प्रभाव",
+  "settingsTermsOfUse": "उपयोग की शर्तें",
+  "settingsPrivacy": "गोपनीयता",
+  "settingsAppVersionLabel": "ऐप संस्करण",
+  "settingsAppVersionValue": "v0.1.0",
+  "settingsLanguagePortuguese": "पुर्तगाली",
+  "settingsLanguageEnglish": "अंग्रेज़ी",
+  "settingsLanguageSpanish": "स्पेनिश",
+  "settingsLanguageHindi": "हिंदी",
+  "settingsUseTimer": "टाइमर उपयोग करें",
+  "settingsTimerSeconds": "प्रति मोड़ {seconds} सेकंड",
+  "@settingsTimerSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "language": "भाषा",
-  "timer": "टाइमर"
+  "timer": "टाइमर",
+  "howToPlayScreenTitle": "कैसे खेलें",
+  "howToPlayKapow": "धमाका!",
+  "howToPlaySecretTitle": "रहस्य",
+  "howToPlaySecretBodyBefore": "हर खिलाड़ी गुप्त शब्द देखता है, सिवाय एक के... जो ",
+  "howToPlaySecretBodyHighlight": "लूप से बाहर है!",
+  "howToPlayQuestionTitle": "सवाल",
+  "howToPlayQuestionBodyBefore": "शब्द के बारे में मज़ेदार सवालों के जवाब दें, बिना सब कुछ बता दिए। ",
+  "howToPlayQuestionBodyEmphasis": "चतुर बनो!",
+  "howToPlayVoteTitle": "वोट",
+  "howToPlayVoteBodyBefore": "पहचानें कौन कुछ नहीं जानता और ",
+  "howToPlayVoteBodyHighlight": "वोट करें!",
+  "howToPlayVoteBodyAfter": " बेझिझक उंगली उठाएं।",
+  "howToPlayOutcomeTitle": "अंत",
+  "howToPlayOutcomeBodyBefore": "अगर 'लूप से बाहर' खिलाड़ी अंत में शब्द सही अनुमान लगाए, तो ",
+  "howToPlayOutcomeBodyHighlight": "वह जीतता है",
+  "howToPlayOutcomeBodyAfter": " और मास्टरमाइंड बन जाता है!"
 }

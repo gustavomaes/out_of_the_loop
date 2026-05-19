@@ -12,6 +12,7 @@ class RoundResultsScreen extends StatelessWidget {
     required this.players,
     required this.round,
     required this.result,
+    this.totalRoundCount,
     this.language = SupportedLanguage.ptBr,
     this.onContinue,
     this.onGuess,
@@ -21,6 +22,7 @@ class RoundResultsScreen extends StatelessWidget {
   final List<Player> players;
   final RoundState round;
   final RoundResult result;
+  final int? totalRoundCount;
   final SupportedLanguage language;
   final VoidCallback? onContinue;
   final VoidCallback? onGuess;
@@ -93,7 +95,9 @@ class RoundResultsScreen extends StatelessWidget {
             ),
           const SizedBox(height: AppSpacing.xl),
           OtlButton.primary(
-            label: result.wasOutFoundByMajority ? 'CONTINUE' : 'GUESS WORD',
+            label: result.wasOutFoundByMajority
+                ? _continueLabel
+                : 'GUESS WORD',
             onPressed: result.wasOutFoundByMajority
                 ? onContinue
                 : onGuess ??
@@ -104,6 +108,17 @@ class RoundResultsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String get _continueLabel {
+    final roundCount = totalRoundCount;
+    if (roundCount == null) {
+      return 'CONTINUE';
+    }
+    if (round.roundNumber >= roundCount) {
+      return 'Ver placar final';
+    }
+    return 'Ir para rodada ${round.roundNumber + 1}';
   }
 
   int _pointsFor(String playerId) {

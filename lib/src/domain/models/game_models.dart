@@ -93,6 +93,23 @@ final class Question {
   int get hashCode => Object.hash(id, wordId, text);
 }
 
+final class QuestionTurn {
+  const QuestionTurn({required this.question, required this.playerId});
+
+  final Question question;
+  final String playerId;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is QuestionTurn &&
+          question == other.question &&
+          playerId == other.playerId;
+
+  @override
+  int get hashCode => Object.hash(question, playerId);
+}
+
 final class SecretWord {
   SecretWord({
     required this.id,
@@ -149,6 +166,9 @@ final class MatchSetup {
 
   static const minPlayers = 3;
   static const maxPlayers = 9;
+  static const minRoundCount = 1;
+  static const maxRoundCount = 5;
+  static const recommendedRoundCount = 3;
   static const minQuestionsPerPlayer = 1;
   static const maxQuestionsPerPlayer = 3;
 
@@ -237,10 +257,12 @@ final class RoundState {
     required this.outPlayerId,
     required this.secretWord,
     required List<Question> questions,
+    required List<QuestionTurn> questionTurns,
     required this.phase,
     List<Vote> votes = const [],
     List<ScoreEvent> scoreEvents = const [],
   }) : questions = List.unmodifiable(questions),
+       questionTurns = List.unmodifiable(questionTurns),
        votes = List.unmodifiable(votes),
        scoreEvents = List.unmodifiable(scoreEvents);
 
@@ -248,6 +270,7 @@ final class RoundState {
   final String outPlayerId;
   final SecretWord secretWord;
   final List<Question> questions;
+  final List<QuestionTurn> questionTurns;
   final RoundPhase phase;
   final List<Vote> votes;
   final List<ScoreEvent> scoreEvents;
@@ -260,6 +283,7 @@ final class RoundState {
           outPlayerId == other.outPlayerId &&
           secretWord == other.secretWord &&
           _listEquals(questions, other.questions) &&
+          _listEquals(questionTurns, other.questionTurns) &&
           phase == other.phase &&
           _listEquals(votes, other.votes) &&
           _listEquals(scoreEvents, other.scoreEvents);
@@ -270,6 +294,7 @@ final class RoundState {
     outPlayerId,
     secretWord,
     Object.hashAll(questions),
+    Object.hashAll(questionTurns),
     phase,
     Object.hashAll(votes),
     Object.hashAll(scoreEvents),

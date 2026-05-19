@@ -1,40 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/domain/models/models.dart';
 import 'package:outoftheloop/src/features/settings/settings_screen.dart';
+import 'package:outoftheloop/src/l10n/generated/app_localizations.dart';
+import 'package:outoftheloop/src/l10n/out_of_the_loop_localizations.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
 void main() {
-  testWidgets('renders language options and timer controls', (tester) async {
+  testWidgets('renders Figma-aligned settings sections and controls', (
+    tester,
+  ) async {
     SupportedLanguage? selectedLanguage;
     TimerSettings? selectedTimer;
+    bool? musicEnabled;
+    bool? soundEffectsEnabled;
 
     await tester.pumpWidget(
       _TestApp(
         child: SettingsScreen(
           onLanguageChanged: (language) => selectedLanguage = language,
           onTimerChanged: (timer) => selectedTimer = timer,
+          onMusicEnabledChanged: (value) => musicEnabled = value,
+          onSoundEffectsEnabledChanged: (value) =>
+              soundEffectsEnabled = value,
         ),
       ),
     );
 
-    expect(find.text('Portuguese (Brazil)'), findsOneWidget);
-    expect(find.text('English'), findsOneWidget);
-    expect(find.text('Spanish'), findsOneWidget);
-    expect(find.text('Hindi'), findsOneWidget);
-    expect(find.text('Use timer'), findsOneWidget);
+    expect(find.text('CONFIGURAÇÕES'), findsOneWidget);
+    expect(find.text('IDIOMA'), findsOneWidget);
+    expect(find.text('ÁUDIO'), findsOneWidget);
+    expect(find.text('Português'), findsOneWidget);
+    expect(find.text('Música'), findsOneWidget);
+    expect(find.text('Efeitos Sonoros'), findsOneWidget);
 
+    await tester.tap(find.text('Português'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('English'));
-    await tester.pump();
-    await tester.drag(find.byType(ListView), const Offset(0, -180));
-    await tester.pump();
-    await tester.tap(find.text('Use timer'));
-    await tester.pump();
-
-    await tester.scrollUntilVisible(find.textContaining('out of scope'), 200);
-    expect(find.textContaining('out of scope'), findsOneWidget);
+    await tester.pumpAndSettle();
 
     expect(selectedLanguage, SupportedLanguage.en);
+    expect(find.text('English'), findsOneWidget);
+
+    await tester.tap(find.text('Música'));
+    await tester.pump();
+    expect(musicEnabled, isTrue);
+
+    await tester.tap(find.text('Efeitos Sonoros'));
+    await tester.pump();
+    expect(soundEffectsEnabled, isFalse);
+
+    await tester.scrollUntilVisible(find.text('SOBRE'), 200);
+    expect(find.text('SOBRE'), findsOneWidget);
+    expect(find.text('Termos de Uso'), findsOneWidget);
+    expect(find.text('Privacidade'), findsOneWidget);
+    expect(find.text('v0.1.0'), findsOneWidget);
+
+    await tester.scrollUntilVisible(find.text('Usar timer'), 200);
+    await tester.tap(find.text('Usar timer'));
+    await tester.pump();
+
     expect(selectedTimer?.enabled, isFalse);
   });
 }
@@ -46,6 +72,17 @@ class _TestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: OutOfTheLoopTheme.dark, home: child);
+    return MaterialApp(
+      theme: OutOfTheLoopTheme.dark,
+      locale: OutOfTheLoopLocalizations.fallbackLocale,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: OutOfTheLoopLocalizations.supportedLocales,
+      home: child,
+    );
   }
 }

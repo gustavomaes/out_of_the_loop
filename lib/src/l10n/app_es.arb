@@ -18,6 +18,46 @@
   "playAgain": "Jugar de nuevo",
   "backToHome": "Volver al inicio",
   "settings": "Configuracion",
+  "settingsScreenTitle": "CONFIGURACIÓN",
+  "settingsSectionLanguage": "IDIOMA",
+  "settingsSectionAudio": "AUDIO",
+  "settingsSectionTimer": "TEMPORIZADOR",
+  "settingsSectionAbout": "ACERCA DE",
+  "settingsMusic": "Música",
+  "settingsSoundEffects": "Efectos de sonido",
+  "settingsTermsOfUse": "Términos de uso",
+  "settingsPrivacy": "Privacidad",
+  "settingsAppVersionLabel": "Versión de la app",
+  "settingsAppVersionValue": "v0.1.0",
+  "settingsLanguagePortuguese": "Portugués",
+  "settingsLanguageEnglish": "Inglés",
+  "settingsLanguageSpanish": "Español",
+  "settingsLanguageHindi": "Hindi",
+  "settingsUseTimer": "Usar temporizador",
+  "settingsTimerSeconds": "{seconds} segundos por turno",
+  "@settingsTimerSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "language": "Idioma",
-  "timer": "Timer"
+  "timer": "Timer",
+  "howToPlayScreenTitle": "CÓMO JUGAR",
+  "howToPlayKapow": "¡PUM!",
+  "howToPlaySecretTitle": "EL SECRETO",
+  "howToPlaySecretBodyBefore": "Cada jugador ve la palabra secreta, excepto uno... que está ",
+  "howToPlaySecretBodyHighlight": "¡Fuera del Loop!",
+  "howToPlayQuestionTitle": "LA PREGUNTA",
+  "howToPlayQuestionBodyBefore": "Responde preguntas divertidas sobre la palabra sin revelarla del todo. ",
+  "howToPlayQuestionBodyEmphasis": "¡Sé listo!",
+  "howToPlayVoteTitle": "LA VOTACIÓN",
+  "howToPlayVoteBodyBefore": "Intenta descubrir quién no sabe nada y ",
+  "howToPlayVoteBodyHighlight": "¡VOTA!",
+  "howToPlayVoteBodyAfter": " Señala sin miedo.",
+  "howToPlayOutcomeTitle": "EL DESENLACE",
+  "howToPlayOutcomeBodyBefore": "Si el 'Fuera del Loop' adivina la palabra al final, ",
+  "howToPlayOutcomeBodyHighlight": "gana",
+  "howToPlayOutcomeBodyAfter": " ¡y se convierte en el cerebro!"
 }

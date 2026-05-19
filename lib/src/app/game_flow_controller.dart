@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import '../data/content/local_content_repository.dart';
 import '../domain/models/models.dart';
 import '../domain/services/services.dart';
@@ -14,8 +12,6 @@ class GameFlowController {
        roundGenerationService =
            roundGenerationService ?? RoundGenerationService();
 
-  static const defaultRoundCount = 5;
-
   final LocalContentRepository repository;
   final RoundGenerationService roundGenerationService;
   final MatchProgressionService progressionService;
@@ -28,8 +24,17 @@ class GameFlowController {
   MatchSetup? setup;
   MatchState? match;
   RoundResult? currentResult;
+  int? pendingRoundCount;
+  int? pendingQuestionsPerPlayer;
 
-  int get roundCount => min(defaultRoundCount, max(1, categoryWords.length));
+  void configureMatch({
+    required int roundCount,
+    required int questionsPerPlayer,
+  }) {
+    pendingRoundCount = roundCount;
+    pendingQuestionsPerPlayer = questionsPerPlayer;
+  }
+
   List<Player> get players => match?.players ?? setup?.players ?? const [];
   RoundState? get currentRound => match?.currentRound;
   bool get hasActiveRound => currentRound != null && match != null;
@@ -39,7 +44,11 @@ class GameFlowController {
     categoryWords = await repository.wordsForCategory(category.id, language);
   }
 
-  void startMatch(List<Player> players, {required int questionsPerPlayer}) {
+  void startMatch(
+    List<Player> players, {
+    required int roundCount,
+    required int questionsPerPlayer,
+  }) {
     final category = selectedCategory;
     if (category == null) {
       throw StateError('Select a category before starting a match.');
@@ -69,6 +78,7 @@ class GameFlowController {
         outPlayerId: round.outPlayerId,
         secretWord: round.secretWord,
         questions: round.questions,
+        questionTurns: round.questionTurns,
         phase: RoundPhase.results,
         votes: votes,
       ),
@@ -116,6 +126,8 @@ class GameFlowController {
     setup = null;
     match = null;
     currentResult = null;
+    pendingRoundCount = null;
+    pendingQuestionsPerPlayer = null;
   }
 
   void _startNextRound() {

@@ -118,6 +118,10 @@ RoundState _round({
     outPlayerId: outPlayerId,
     secretWord: secretWord,
     questions: secretWord.questions,
+    questionTurns: [
+      for (final question in secretWord.questions)
+        QuestionTurn(question: question, playerId: 'p0'),
+    ],
     phase: RoundPhase.reveal,
   );
 }

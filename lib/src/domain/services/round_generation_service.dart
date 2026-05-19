@@ -1,11 +1,15 @@
 import 'dart:math';
 
 import '../models/models.dart';
+import 'question_turn_planner.dart';
 
 final class RoundGenerationService {
-  RoundGenerationService({Random? random}) : _random = random ?? Random();
+  RoundGenerationService({Random? random, QuestionTurnPlanner? questionTurnPlanner})
+    : _random = random ?? Random(),
+      _questionTurnPlanner = questionTurnPlanner ?? QuestionTurnPlanner(random: random);
 
   final Random _random;
+  final QuestionTurnPlanner _questionTurnPlanner;
 
   RoundState generateRound({
     required int roundNumber,
@@ -32,12 +36,18 @@ final class RoundGenerationService {
 
     final outPlayer = players[_random.nextInt(players.length)];
     final secretWord = validWords[_random.nextInt(validWords.length)];
+    final questions = secretWord.questions.take(questionsNeeded).toList();
 
     return RoundState(
       roundNumber: roundNumber,
       outPlayerId: outPlayer.id,
       secretWord: secretWord,
-      questions: secretWord.questions.take(questionsNeeded).toList(),
+      questions: questions,
+      questionTurns: _questionTurnPlanner.planTurns(
+        players: players,
+        questions: questions,
+        outPlayerId: outPlayer.id,
+      ),
       phase: RoundPhase.reveal,
     );
   }

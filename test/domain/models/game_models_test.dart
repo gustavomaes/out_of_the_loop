@@ -119,6 +119,9 @@ void main() {
         outPlayerId: 'p2',
         secretWord: secretWord,
         questions: const [question],
+        questionTurns: const [
+          QuestionTurn(question: question, playerId: 'p1'),
+        ],
         phase: RoundPhase.voting,
         votes: [vote],
         scoreEvents: [scoreEvent],

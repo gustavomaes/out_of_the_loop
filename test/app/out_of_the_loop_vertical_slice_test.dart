@@ -16,6 +16,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('PLAY'));
     await tester.pumpAndSettle();
+    await tester.tap(find.text('CONTINUE'));
+    await tester.pumpAndSettle();
 
     for (final name in ['Ana', 'Bia', 'Caio']) {
       await tester.enterText(find.byType(TextField), name);
@@ -45,8 +47,10 @@ void main() {
         find.text('QUESTION ${index + 1} OF 6'),
         findsOneWidget,
       );
+      await tester.tap(find.text('DONE ANSWERING'));
+      await tester.pump();
       await tester.tap(
-        find.text(index == 5 ? 'GO TO VOTING' : 'DONE ANSWERING'),
+        find.text(index == 5 ? 'GO TO VOTING' : 'NEXT QUESTION'),
       );
       await tester.pumpAndSettle();
     }

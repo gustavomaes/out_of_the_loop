@@ -52,5 +52,7 @@ void main() {
     expect(localizations.revealMyWord, 'Visualizar minha palavra');
     expect(localizations.confirmVotes, 'Confirmar votos');
     expect(localizations.settings, 'Configuracoes');
+    expect(localizations.howToPlayScreenTitle, 'COMO JOGAR');
+    expect(localizations.howToPlaySecretBodyHighlight, 'Fora do Loop!');
   });
 }

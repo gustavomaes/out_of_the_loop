@@ -10,6 +10,7 @@ void main() {
     expect(AppRoutes.all, const [
       '/',
       '/categories',
+      '/match-setup',
       '/players',
       '/game/reveal',
       '/game/questions',
@@ -74,6 +75,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('PLAY'));
     await tester.pumpAndSettle();
+    await tester.tap(find.text('CONTINUE'));
+    await tester.pumpAndSettle();
 
     for (final name in ['Ana', 'Bia', 'Caio']) {
       await tester.enterText(find.byType(TextField), name);
@@ -93,8 +96,10 @@ void main() {
     }
 
     for (var index = 0; index < 6; index += 1) {
+      await tester.tap(find.text('DONE ANSWERING'));
+      await tester.pump();
       await tester.tap(
-        find.text(index == 5 ? 'GO TO VOTING' : 'DONE ANSWERING'),
+        find.text(index == 5 ? 'GO TO VOTING' : 'NEXT QUESTION'),
       );
       await tester.pumpAndSettle();
     }
@@ -143,7 +148,11 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('English'), findsOneWidget);
-    expect(find.text('45 seconds per turn'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('TIMER'), 200);
+    expect(find.text('Use timer'), findsOneWidget);
+    await tester.tap(find.text('Use timer'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('45 seconds per turn'), findsOneWidget);
   });
 }
 

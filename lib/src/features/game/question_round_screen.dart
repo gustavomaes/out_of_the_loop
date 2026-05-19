@@ -9,7 +9,7 @@ import '../../theme/app_tokens.dart';
 class QuestionRoundScreen extends StatefulWidget {
   const QuestionRoundScreen({
     required this.players,
-    required this.questions,
+    required this.questionTurns,
     this.language = SupportedLanguage.ptBr,
     this.timerSettings = const TimerSettings(),
     this.remainingSeconds,
@@ -18,7 +18,7 @@ class QuestionRoundScreen extends StatefulWidget {
   });
 
   final List<Player> players;
-  final List<Question> questions;
+  final List<QuestionTurn> questionTurns;
   final SupportedLanguage language;
   final TimerSettings timerSettings;
   final int? remainingSeconds;
@@ -29,14 +29,19 @@ class QuestionRoundScreen extends StatefulWidget {
 }
 
 class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
-  var _questionIndex = 0;
+  var _turnIndex = 0;
+  var _awaitingNextQuestion = false;
 
-  bool get _isLastQuestion => _questionIndex == widget.questions.length - 1;
+  bool get _isLastTurn => _turnIndex == widget.questionTurns.length - 1;
+
+  QuestionTurn get _currentTurn => widget.questionTurns[_turnIndex];
+
+  Player get _currentPlayer => widget.players.firstWhere(
+    (player) => player.id == _currentTurn.playerId,
+  );
 
   @override
   Widget build(BuildContext context) {
-    final question = widget.questions[_questionIndex];
-    final player = widget.players[_questionIndex % widget.players.length];
     final remainingSeconds =
         widget.remainingSeconds ?? widget.timerSettings.durationSeconds;
     final timerExpired = widget.timerSettings.enabled && remainingSeconds == 0;
@@ -48,31 +53,44 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'QUESTION ${_questionIndex + 1} OF ${widget.questions.length}',
+            'QUESTION ${_turnIndex + 1} OF ${widget.questionTurns.length}',
             style: AppTypography.emphasis,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: AppSpacing.md),
-          OtlCard(
-            selected: true,
-            child: Column(
-              children: [
-                PlayerAvatar(name: player.name, seed: player.avatarSeed),
-                const SizedBox(height: AppSpacing.sm),
-                Text(
-                  '${player.name} answers',
-                  style: AppTypography.h2.copyWith(color: AppColors.primaryMain),
-                ),
-                const SizedBox(height: AppSpacing.lg),
-                Text(
-                  question.text.valueFor(widget.language),
-                  style: AppTypography.h3,
-                  textAlign: TextAlign.center,
-                ),
-              ],
+          Expanded(
+            child: AnimatedSwitcher(
+              duration: AppDurations.normal,
+              switchInCurve: AppCurves.defaultCurve,
+              switchOutCurve: AppCurves.defaultCurve,
+              transitionBuilder: (child, animation) {
+                final offsetAnimation = Tween<Offset>(
+                  begin: const Offset(0.12, 0),
+                  end: Offset.zero,
+                ).animate(
+                  CurvedAnimation(
+                    parent: animation,
+                    curve: AppCurves.defaultCurve,
+                  ),
+                );
+
+                return FadeTransition(
+                  opacity: animation,
+                  child: SlideTransition(
+                    position: offsetAnimation,
+                    child: child,
+                  ),
+                );
+              },
+              child: _QuestionTurnCard(
+                key: ValueKey('turn-$_turnIndex'),
+                player: _currentPlayer,
+                question: _currentTurn.question,
+                language: widget.language,
+                answered: _awaitingNextQuestion,
+              ),
             ),
           ),
-          const SizedBox(height: AppSpacing.xl),
           if (widget.timerSettings.enabled) ...[
             Center(
               child: CircularTimer(
@@ -88,23 +106,87 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
                 textAlign: TextAlign.center,
               ),
             ],
-            const SizedBox(height: AppSpacing.xl),
+            const SizedBox(height: AppSpacing.lg),
           ],
-          const Spacer(),
           OtlButton.primary(
-            label: _isLastQuestion ? 'GO TO VOTING' : 'DONE ANSWERING',
-            onPressed: _advance,
+            label: _primaryButtonLabel,
+            onPressed: _onPrimaryPressed,
           ),
         ],
       ),
     );
   }
 
-  void _advance() {
-    if (_isLastQuestion) {
+  String get _primaryButtonLabel {
+    if (_awaitingNextQuestion) {
+      return _isLastTurn ? 'GO TO VOTING' : 'NEXT QUESTION';
+    }
+    return 'DONE ANSWERING';
+  }
+
+  void _onPrimaryPressed() {
+    if (!_awaitingNextQuestion) {
+      setState(() => _awaitingNextQuestion = true);
+      return;
+    }
+
+    if (_isLastTurn) {
       widget.onComplete?.call();
       return;
     }
-    setState(() => _questionIndex += 1);
+
+    setState(() {
+      _turnIndex += 1;
+      _awaitingNextQuestion = false;
+    });
+  }
+}
+
+class _QuestionTurnCard extends StatelessWidget {
+  const _QuestionTurnCard({
+    required this.player,
+    required this.question,
+    required this.language,
+    required this.answered,
+    super.key,
+  });
+
+  final Player player;
+  final Question question;
+  final SupportedLanguage language;
+  final bool answered;
+
+  @override
+  Widget build(BuildContext context) {
+    return OtlCard(
+      selected: true,
+      accented: answered,
+      accentColor: AppColors.secondaryMain,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          PlayerAvatar(name: player.name, seed: player.avatarSeed),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            '${player.name} answers',
+            style: AppTypography.h2.copyWith(color: AppColors.primaryMain),
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          Text(
+            question.text.valueFor(language),
+            style: AppTypography.h3,
+            textAlign: TextAlign.center,
+          ),
+          if (answered) ...[
+            const SizedBox(height: AppSpacing.lg),
+            Text(
+              'Answer recorded. Ready for the next turn.',
+              style: AppTypography.label,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ],
+      ),
+    );
   }
 }

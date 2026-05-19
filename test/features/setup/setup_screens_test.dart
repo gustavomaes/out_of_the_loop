@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/data/content/local_content_repository.dart';
 import 'package:outoftheloop/src/domain/models/models.dart';
 import 'package:outoftheloop/src/features/setup/category_selection_screen.dart';
+import 'package:outoftheloop/src/features/setup/match_setup_screen.dart';
 import 'package:outoftheloop/src/features/setup/player_setup_screen.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
@@ -33,23 +34,66 @@ void main() {
     expect(selectedCategory?.id, 'food');
   });
 
+  testWidgets('match setup exposes round and question selectors', (
+    tester,
+  ) async {
+    int? continuedRoundCount;
+    int? continuedQuestionsPerPlayer;
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: MatchSetupScreen(
+          onContinue: (roundCount, questionsPerPlayer) {
+            continuedRoundCount = roundCount;
+            continuedQuestionsPerPlayer = questionsPerPlayer;
+          },
+        ),
+      ),
+    );
+
+    expect(find.text('CONFIGURAR PARTIDA'), findsOneWidget);
+    expect(find.text('RODADAS NA PARTIDA'), findsOneWidget);
+    expect(find.text('Rodadas: 3'), findsOneWidget);
+    expect(find.text('2 perguntas'), findsOneWidget);
+    expect(_buttonLabeled(tester, 'CONTINUE').enabled, isTrue);
+
+    await tester.ensureVisible(find.byKey(const Key('round_count_5')));
+    await tester.tap(find.byKey(const Key('round_count_5')));
+    await tester.pumpAndSettle();
+    expect(find.text('Rodadas: 5'), findsOneWidget);
+    await tester.tap(find.text('3 perguntas'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('CONTINUE'));
+    await tester.pump();
+
+    expect(continuedRoundCount, 5);
+    expect(continuedQuestionsPerPlayer, 3);
+  });
+
   testWidgets('player setup enables start after third valid player', (
     tester,
   ) async {
     List<Player>? startedPlayers;
+    int? startedRoundCount;
     int? startedQuestionsPerPlayer;
 
     await tester.pumpWidget(
       _TestApp(
         child: PlayerSetupScreen(
-          onStart: (players, questionsPerPlayer) {
+          roundCount: MatchSetup.recommendedRoundCount,
+          questionsPerPlayer: 2,
+          onStart: (players, roundCount, questionsPerPlayer) {
             startedPlayers = players;
+            startedRoundCount = roundCount;
             startedQuestionsPerPlayer = questionsPerPlayer;
           },
         ),
       ),
     );
 
+    expect(find.text('QUEM VAI JOGAR?'), findsOneWidget);
+    expect(find.text('RODADAS NA PARTIDA'), findsNothing);
     expect(_buttonLabeled(tester, 'START MATCH').enabled, isFalse);
 
     for (final name in ['Ana', 'Bia', 'Caio']) {
@@ -59,14 +103,15 @@ void main() {
     }
 
     expect(find.text('3/9 players ready'), findsOneWidget);
-    expect(find.text('6 perguntas nesta rodada'), findsOneWidget);
-    expect(find.text('2 perguntas'), findsOneWidget);
+    expect(find.text('3 rodadas na partida'), findsOneWidget);
+    expect(find.text('6 perguntas por rodada'), findsOneWidget);
     expect(_buttonLabeled(tester, 'START MATCH').enabled, isTrue);
 
     await tester.tap(find.text('START MATCH'));
     await tester.pump();
 
     expect(startedPlayers, hasLength(3));
+    expect(startedRoundCount, MatchSetup.recommendedRoundCount);
     expect(startedQuestionsPerPlayer, 2);
     expect(startedPlayers!.map((player) => player.name).toList(), [
       'Caio',
@@ -75,15 +120,19 @@ void main() {
     ]);
   });
 
-  testWidgets('player setup passes custom questions per player on start', (
+  testWidgets('player setup passes custom round and question counts on start', (
     tester,
   ) async {
+    int? startedRoundCount;
     int? startedQuestionsPerPlayer;
 
     await tester.pumpWidget(
       _TestApp(
         child: PlayerSetupScreen(
-          onStart: (_, questionsPerPlayer) {
+          roundCount: 5,
+          questionsPerPlayer: 3,
+          onStart: (_, roundCount, questionsPerPlayer) {
+            startedRoundCount = roundCount;
             startedQuestionsPerPlayer = questionsPerPlayer;
           },
         ),
@@ -96,20 +145,27 @@ void main() {
       await tester.pump();
     }
 
-    await tester.tap(find.text('3 perguntas'));
-    await tester.pump();
-    expect(find.text('9 perguntas nesta rodada'), findsOneWidget);
+    expect(find.text('5 rodadas na partida'), findsOneWidget);
+    expect(find.text('9 perguntas por rodada'), findsOneWidget);
 
     await tester.tap(find.text('START MATCH'));
     await tester.pump();
 
+    expect(startedRoundCount, 5);
     expect(startedQuestionsPerPlayer, 3);
   });
 
   testWidgets('player setup recommends one question for five players', (
     tester,
   ) async {
-    await tester.pumpWidget(_TestApp(child: PlayerSetupScreen()));
+    await tester.pumpWidget(
+      _TestApp(
+        child: PlayerSetupScreen(
+          roundCount: MatchSetup.recommendedRoundCount,
+          questionsPerPlayer: 2,
+        ),
+      ),
+    );
 
     for (var index = 1; index <= 5; index += 1) {
       await tester.enterText(find.byType(TextField), 'Player $index');
@@ -117,18 +173,21 @@ void main() {
       await tester.pump();
     }
 
-    expect(find.text('1 pergunta'), findsOneWidget);
-    expect(find.text('5 perguntas nesta rodada'), findsOneWidget);
-    expect(
-      find.textContaining('Recomendado para 5 jogadores: 1 pergunta por jogador'),
-      findsOneWidget,
-    );
+    expect(find.text('3 rodadas na partida'), findsOneWidget);
+    expect(find.text('5 perguntas por rodada'), findsOneWidget);
   });
 
   testWidgets('player setup reports duplicate and tenth-player attempts', (
     tester,
   ) async {
-    await tester.pumpWidget(_TestApp(child: PlayerSetupScreen()));
+    await tester.pumpWidget(
+      _TestApp(
+        child: PlayerSetupScreen(
+          roundCount: MatchSetup.recommendedRoundCount,
+          questionsPerPlayer: 2,
+        ),
+      ),
+    );
 
     await tester.enterText(find.byType(TextField), 'Ana');
     await tester.tap(find.text('ADD'));
