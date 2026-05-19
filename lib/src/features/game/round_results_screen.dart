@@ -12,6 +12,7 @@ class RoundResultsScreen extends StatelessWidget {
     required this.players,
     required this.round,
     required this.result,
+    this.language = SupportedLanguage.ptBr,
     this.onContinue,
     this.onGuess,
     super.key,
@@ -20,21 +21,36 @@ class RoundResultsScreen extends StatelessWidget {
   final List<Player> players;
   final RoundState round;
   final RoundResult result;
+  final SupportedLanguage language;
   final VoidCallback? onContinue;
   final VoidCallback? onGuess;
 
   @override
   Widget build(BuildContext context) {
     final outPlayer = _playerById(players, result.outPlayerId);
+    final secretWord = round.secretWord.value.valueFor(language);
 
     return AppShell(
       routeName: AppRoutes.gameResults,
       title: 'Round Results',
-      child: ListView(
-        children: [
-          Text('The out player was', style: AppTypography.label),
-          const SizedBox(height: AppSpacing.xs),
-          Text(outPlayer.name, style: AppTypography.h1),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+          Text('ROUND RESULTS', style: AppTypography.emphasis),
+          const SizedBox(height: AppSpacing.sm),
+          OtlCard(
+            accented: true,
+            accentColor: AppColors.secondaryMain,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('The out player was', style: AppTypography.label),
+                const SizedBox(height: AppSpacing.xs),
+                Text(outPlayer.name, style: AppTypography.h1),
+              ],
+            ),
+          ),
           const SizedBox(height: AppSpacing.md),
           OtlCard(
             selected: result.wasOutFoundByMajority,
@@ -43,6 +59,17 @@ class RoundResultsScreen extends StatelessWidget {
                   ? 'The group found the out player by majority.'
                   : 'The out player escaped the majority vote.',
               style: AppTypography.bodyLarge,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          OtlCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('SECRET WORD', style: AppTypography.emphasis),
+                const SizedBox(height: AppSpacing.xs),
+                Text(secretWord, style: AppTypography.h2),
+              ],
             ),
           ),
           const SizedBox(height: AppSpacing.lg),
@@ -73,7 +100,8 @@ class RoundResultsScreen extends StatelessWidget {
                       () =>
                           Navigator.of(context).pushNamed(AppRoutes.gameGuess),
           ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -112,7 +140,8 @@ class GuessScreen extends StatelessWidget {
           Text('${outPlayer.name}, guess the word', style: AppTypography.h2),
           const SizedBox(height: AppSpacing.md),
           OtlCard(
-            selected: true,
+            accented: true,
+            accentColor: AppColors.secondaryMain,
             child: Text(
               'Say the secret word out loud. The group decides if you got it right.',
               style: AppTypography.bodyLarge,

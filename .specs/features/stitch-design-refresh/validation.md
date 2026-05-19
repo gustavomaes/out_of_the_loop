@@ -1,7 +1,7 @@
 # Stitch Design Refresh Validation
 
 **Spec**: `.specs/features/stitch-design-refresh/spec.md`
-**Status**: Phase 1 foundation complete
+**Status**: Phase 2 screen refresh complete
 **Last updated**: 2026-05-18
 
 ---
@@ -87,6 +87,22 @@ Gate results:
 
 - `analyze_files` on the full project via Dart MCP: pass, no errors.
 - `flutter test test/theme test/shared/widgets/otl_primitives_test.dart test/shared/widgets/timers test/app/out_of_the_loop_app_test.dart` via Dart MCP: pass, 16 tests.
+
+---
+
+## Phase 2 Screen Refresh Review
+
+- T08 Home: centered hero title with party backdrop, removed competing intro card, primary/secondary CTAs centered.
+- T09 Setup: lime-forward category selection, numbered player rows, glow-framed start CTA, accessible error semantics.
+- T10 Game reveal/question: magenta secret lock state, pass-the-phone copy, active-player avatar and timer hierarchy.
+- T11 Voting: secret-vote context card, refreshed candidate selection states, gameplay rules unchanged.
+- T12 Results/leaderboard: distinct out-player, majority, secret-word, vote and points sections; winner spotlight on final board.
+- T13 How-to/settings: accented rule cards, lime language selection, polished timer slider theme.
+
+Gate results:
+
+- `flutter analyze`: pass.
+- `flutter test test/features/home test/features/setup test/features/game test/features/how_to_play test/features/settings`: pass, 13 tests.
 
 ---
 

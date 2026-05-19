@@ -68,6 +68,8 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Text('PICK A CATEGORY', style: AppTypography.emphasis),
+              const SizedBox(height: AppSpacing.xs),
               const Text('Pick a Category', style: AppTypography.h2),
               const SizedBox(height: AppSpacing.md),
               Expanded(
@@ -77,6 +79,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                     crossAxisCount: 2,
                     crossAxisSpacing: AppSpacing.md,
                     mainAxisSpacing: AppSpacing.md,
+                    childAspectRatio: 0.95,
                   ),
                   itemBuilder: (context, index) {
                     final category = categories[index];
@@ -86,20 +89,28 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                       onTap: () => setState(() => _selectedCategory = category),
                       child: OtlCard(
                         selected: selected,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.md,
+                          vertical: AppSpacing.lg,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               _iconFor(category.iconKey),
                               color: selected
-                                  ? AppColors.secondaryMain
-                                  : AppColors.primaryMain,
-                              size: 32,
+                                  ? AppColors.primaryMain
+                                  : AppColors.textTertiary,
+                              size: 36,
                             ),
                             const SizedBox(height: AppSpacing.sm),
                             Text(
                               category.name.valueFor(widget.language),
-                              style: AppTypography.h3,
+                              style: AppTypography.h3.copyWith(
+                                color: selected
+                                    ? AppColors.textPrimary
+                                    : AppColors.textSecondary,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],

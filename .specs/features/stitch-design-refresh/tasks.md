@@ -1,7 +1,7 @@
 # Stitch Design Refresh Tasks
 
 **Spec**: `.specs/features/stitch-design-refresh/spec.md`
-**Status**: Phase 1 complete
+**Status**: Phase 2 complete
 
 ---
 
@@ -231,13 +231,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] `OUT OF THE LOOP` is the dominant centered element.
-- [ ] Start and how-to actions are centered and visually prioritized.
-- [ ] Bottom navigation does not compete with the main CTAs.
+- [x] `OUT OF THE LOOP` is the dominant centered element.
+- [x] Start and how-to actions are centered and visually prioritized.
+- [x] Bottom navigation does not compete with the main CTAs.
 
 **Tests**: `flutter test test/features/home`
 **Gate**: quick widget gate
 **Verify**: Home screen tests pass.
+**Status**: Complete
 
 ---
 
@@ -251,13 +252,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Category grid visually matches the Stitch-inspired card direction.
-- [ ] Player setup remains fast, readable, and validates 3-9 players.
-- [ ] CTA disabled/enabled states are preserved.
+- [x] Category grid visually matches the Stitch-inspired card direction.
+- [x] Player setup remains fast, readable, and validates 3-9 players.
+- [x] CTA disabled/enabled states are preserved.
 
 **Tests**: `flutter test test/features/setup`
 **Gate**: quick widget gate
 **Verify**: Setup screen tests pass.
+**Status**: Complete
 
 ---
 
@@ -271,13 +273,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Reveal screen emphasizes `TOP SECRET`/handoff before revealing.
-- [ ] Out player still never sees the word.
-- [ ] Question screen highlights active player, prompt, timer and primary action.
+- [x] Reveal screen emphasizes `TOP SECRET`/handoff before revealing.
+- [x] Out player still never sees the word.
+- [x] Question screen highlights active player, prompt, timer and primary action.
 
 **Tests**: `flutter test test/features/game/game_screens_test.dart`
 **Gate**: quick widget gate
 **Verify**: Targeted game screen tests pass.
+**Status**: Complete
 
 ---
 
@@ -291,13 +294,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Active voter context is visually prominent.
-- [ ] Candidate cards and selected states use refreshed tokens.
-- [ ] Vote secrecy and self-vote restrictions remain intact.
+- [x] Active voter context is visually prominent.
+- [x] Candidate cards and selected states use refreshed tokens.
+- [x] Vote secrecy and self-vote restrictions remain intact.
 
 **Tests**: `flutter test test/features/game/game_screens_test.dart`
 **Gate**: quick widget gate
 **Verify**: Targeted voting tests pass.
+**Status**: Complete
 
 ---
 
@@ -311,13 +315,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Vote totals, out player, word and score changes are visually distinct.
-- [ ] Guess branch stays conditional.
-- [ ] Final leaderboard highlights winner without changing scoring order.
+- [x] Vote totals, out player, word and score changes are visually distinct.
+- [x] Guess branch stays conditional.
+- [x] Final leaderboard highlights winner without changing scoring order.
 
 **Tests**: `flutter test test/features/game/game_screens_test.dart`
 **Gate**: quick widget gate
 **Verify**: Targeted results/leaderboard tests pass.
+**Status**: Complete
 
 ---
 
@@ -331,13 +336,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] How-to cards are visually aligned with new card system.
-- [ ] Settings keeps only language and timer preferences.
-- [ ] No Pro/login/audio/light-theme controls are introduced.
+- [x] How-to cards are visually aligned with new card system.
+- [x] Settings keeps only language and timer preferences.
+- [x] No Pro/login/audio/light-theme controls are introduced.
 
 **Tests**: `flutter test test/features/how_to_play test/features/settings`
 **Gate**: quick widget gate
 **Verify**: How-to and settings tests pass.
+**Status**: Complete
 
 ---
 

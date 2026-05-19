@@ -35,12 +35,36 @@ class FinalLeaderboardScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text('GAME OVER', style: AppTypography.h1),
+          Text('GAME OVER', style: AppTypography.emphasis),
           const SizedBox(height: AppSpacing.sm),
           if (winner != null)
-            Text(
-              '${winner.name} wins!',
-              style: AppTypography.h2.copyWith(color: AppColors.secondaryMain),
+            OtlCard(
+              accented: true,
+              accentColor: AppColors.secondaryMain,
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.emoji_events,
+                    color: AppColors.primaryMain,
+                    size: 40,
+                  ),
+                  const SizedBox(width: AppSpacing.md),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('WINNER', style: AppTypography.emphasis),
+                        Text(
+                          '${winner.name} wins!',
+                          style: AppTypography.h2.copyWith(
+                            color: AppColors.textPrimary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           const SizedBox(height: AppSpacing.lg),
           Expanded(
@@ -54,7 +78,14 @@ class FinalLeaderboardScreen extends StatelessWidget {
                   selected: isWinner,
                   child: Row(
                     children: [
-                      Text('#${index + 1}', style: AppTypography.emphasis),
+                      Text(
+                        '#${index + 1}',
+                        style: AppTypography.emphasis.copyWith(
+                          color: isWinner
+                              ? AppColors.primaryMain
+                              : AppColors.textTertiary,
+                        ),
+                      ),
                       const SizedBox(width: AppSpacing.md),
                       PlayerAvatar(name: player.name, seed: player.avatarSeed),
                       const SizedBox(width: AppSpacing.md),
@@ -63,15 +94,18 @@ class FinalLeaderboardScreen extends StatelessWidget {
                           player.name,
                           style: AppTypography.body.copyWith(
                             color: isWinner
-                                ? AppColors.secondaryMain
-                                : AppColors.textPrimary,
+                                ? AppColors.textPrimary
+                                : AppColors.textSecondary,
                           ),
                         ),
                       ),
                       Text(
                         '${player.totalScore} pts',
                         style: AppTypography.body.copyWith(
-                          color: AppColors.success,
+                          color: isWinner
+                              ? AppColors.primaryMain
+                              : AppColors.success,
+                          fontWeight: isWinner ? FontWeight.w700 : null,
                         ),
                       ),
                     ],

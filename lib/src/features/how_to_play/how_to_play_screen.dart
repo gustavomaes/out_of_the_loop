@@ -17,6 +17,8 @@ class HowToPlayScreen extends StatelessWidget {
       title: 'How To Play',
       child: ListView(
         children: [
+          Text('COMO JOGAR', style: AppTypography.emphasis),
+          const SizedBox(height: AppSpacing.xs),
           const Text('Como Jogar', style: AppTypography.h2),
           const SizedBox(height: AppSpacing.sm),
           Text(
@@ -29,6 +31,7 @@ class HowToPlayScreen extends StatelessWidget {
             title: 'O SEGREDO',
             body:
                 'Um jogador esta fora do loop. Todos os outros recebem a mesma palavra secreta.',
+            accented: true,
           ),
           const _RuleCard(
             icon: Icons.question_answer_outlined,
@@ -64,21 +67,29 @@ class _RuleCard extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.body,
+    this.accented = false,
   });
 
   final IconData icon;
   final String title;
   final String body;
+  final bool accented;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: AppSpacing.md),
       child: OtlCard(
+        accented: accented,
+        accentColor: AppColors.secondaryMain,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, color: AppColors.primaryMain),
+            Icon(
+              icon,
+              color: accented ? AppColors.secondaryMain : AppColors.primaryMain,
+              size: 32,
+            ),
             const SizedBox(width: AppSpacing.md),
             Expanded(
               child: Column(

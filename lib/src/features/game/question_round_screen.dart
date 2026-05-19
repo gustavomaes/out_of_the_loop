@@ -48,8 +48,8 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Question ${_questionIndex + 1} of ${widget.questions.length}',
-            style: AppTypography.label,
+            'QUESTION ${_questionIndex + 1} OF ${widget.questions.length}',
+            style: AppTypography.emphasis,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: AppSpacing.md),
@@ -57,7 +57,12 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
             selected: true,
             child: Column(
               children: [
-                Text('${player.name} answers', style: AppTypography.h2),
+                PlayerAvatar(name: player.name, seed: player.avatarSeed),
+                const SizedBox(height: AppSpacing.sm),
+                Text(
+                  '${player.name} answers',
+                  style: AppTypography.h2.copyWith(color: AppColors.primaryMain),
+                ),
                 const SizedBox(height: AppSpacing.lg),
                 Text(
                   question.text.valueFor(widget.language),

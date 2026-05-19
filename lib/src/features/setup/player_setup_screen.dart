@@ -56,6 +56,8 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Text('QUEM VAI JOGAR?', style: AppTypography.emphasis),
+          const SizedBox(height: AppSpacing.xs),
           const Text('Quem vai jogar?', style: AppTypography.h2),
           const SizedBox(height: AppSpacing.xs),
           Text('3-9 jogadores', style: AppTypography.body),
@@ -75,10 +77,13 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
           ),
           if (_latestError != null) ...[
             const SizedBox(height: AppSpacing.sm),
-            Text(
-              _messageFor(_latestError!),
-              key: const Key('player_setup_error'),
-              style: AppTypography.bodySmall.copyWith(color: AppColors.error),
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                _messageFor(_latestError!),
+                key: const Key('player_setup_error'),
+                style: AppTypography.bodySmall.copyWith(color: AppColors.error),
+              ),
             ),
           ],
           const SizedBox(height: AppSpacing.lg),
@@ -89,8 +94,16 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
               itemBuilder: (context, index) {
                 final player = _players[index];
                 return OtlCard(
+                  selected: index == _players.length - 1,
                   child: Row(
                     children: [
+                      Text(
+                        '${index + 1}',
+                        style: AppTypography.emphasis.copyWith(
+                          color: AppColors.primaryMain,
+                        ),
+                      ),
+                      const SizedBox(width: AppSpacing.md),
                       PlayerAvatar(name: player.name, seed: player.avatarSeed),
                       const SizedBox(width: AppSpacing.md),
                       Expanded(
@@ -112,10 +125,23 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
             style: AppTypography.label,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: AppSpacing.sm),
-          OtlButton.primary(
-            label: 'START MATCH',
-            onPressed: canStart ? () => widget.onStart?.call(_players) : null,
+          const SizedBox(height: AppSpacing.md),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: AppColors.backgroundSecondary,
+              borderRadius: AppRadius.borderLg,
+              border: Border.all(color: AppColors.borderDefault),
+              boxShadow: canStart ? AppShadows.glow : AppShadows.none,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(AppSpacing.md),
+              child: OtlButton.primary(
+                label: 'START MATCH',
+                onPressed: canStart
+                    ? () => widget.onStart?.call(_players)
+                    : null,
+              ),
+            ),
           ),
         ],
       ),

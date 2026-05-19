@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/app_routes.dart';
 import '../../app/app_shell.dart';
+import '../../shared/widgets/otl_party_backdrop.dart';
 import '../../shared/widgets/shared_widgets.dart';
 import '../../theme/app_tokens.dart';
 
@@ -16,57 +17,55 @@ class HomeScreen extends StatelessWidget {
     return AppShell(
       routeName: AppRoutes.home,
       title: 'OUT OF THE LOOP',
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                'OUT OF THE LOOP',
-                style: AppTypography.h1,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: AppSpacing.sm),
-              Text(
-                'A party game of secrets, clues, and suspicious friends.',
-                style: AppTypography.body,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: AppSpacing.x2l),
-              OtlCard(
-                selected: true,
-                child: Column(
-                  children: [
-                    const Icon(
-                      Icons.visibility_off,
-                      color: AppColors.secondaryMain,
-                      size: 48,
+      child: OtlPartyBackdrop(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 360),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'OUT OF THE LOOP',
+                    style: AppTypography.h1.copyWith(
+                      letterSpacing: 2,
+                      shadows: const [
+                        Shadow(
+                          color: Color(0x99C8FF2E),
+                          blurRadius: 12,
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: AppSpacing.md),
-                    Text(
-                      'Pass the phone, reveal your role, then find who is out.',
-                      style: AppTypography.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  Text(
+                    'A party game of secrets, clues, and suspicious friends.',
+                    style: AppTypography.body,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: AppSpacing.x3l),
+                  OtlButton.primary(
+                    label: 'START GAME',
+                    onPressed:
+                        onStartGame ??
+                        () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.categories),
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  OtlButton.outline(
+                    label: 'HOW TO PLAY',
+                    onPressed:
+                        onHowToPlay ??
+                        () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.howToPlay),
+                  ),
+                ],
               ),
-              const SizedBox(height: AppSpacing.xl),
-              OtlButton.primary(
-                label: 'START GAME',
-                onPressed:
-                    onStartGame ??
-                    () => Navigator.of(context).pushNamed(AppRoutes.categories),
-              ),
-              const SizedBox(height: AppSpacing.md),
-              OtlButton.outline(
-                label: 'HOW TO PLAY',
-                onPressed:
-                    onHowToPlay ??
-                    () => Navigator.of(context).pushNamed(AppRoutes.howToPlay),
-              ),
-            ],
+            ),
           ),
         ),
       ),

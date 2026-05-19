@@ -35,6 +35,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       title: 'Settings',
       child: ListView(
         children: [
+          Text('CONFIGURACOES', style: AppTypography.emphasis),
+          const SizedBox(height: AppSpacing.xs),
           const Text('Configuracoes', style: AppTypography.h2),
           const SizedBox(height: AppSpacing.lg),
           OtlCard(
@@ -91,6 +93,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 SwitchListTile(
                   value: _timerSettings.enabled,
                   activeThumbColor: AppColors.primaryMain,
+                  activeTrackColor: AppColors.overlayGlowStrong,
                   contentPadding: EdgeInsets.zero,
                   title: Text(
                     'Use timer',
@@ -109,18 +112,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                 ),
-                Slider(
-                  value: _timerSettings.durationSeconds.toDouble(),
-                  min: 10,
-                  max: 60,
-                  divisions: 5,
-                  activeColor: AppColors.primaryMain,
-                  inactiveColor: AppColors.backgroundTertiary,
-                  label: '${_timerSettings.durationSeconds}s',
-                  onChanged: (value) => _updateTimer(
-                    TimerSettings(
-                      enabled: _timerSettings.enabled,
-                      durationSeconds: value.round(),
+                SliderTheme(
+                  data: SliderThemeData(
+                    activeTrackColor: AppColors.primaryMain,
+                    inactiveTrackColor: AppColors.backgroundTertiary,
+                    thumbColor: AppColors.primaryMain,
+                    overlayColor: AppColors.overlayGlow,
+                    valueIndicatorColor: AppColors.primaryMain,
+                    valueIndicatorTextStyle: AppTypography.label.copyWith(
+                      color: AppColors.backgroundPrimary,
+                    ),
+                  ),
+                  child: Slider(
+                    value: _timerSettings.durationSeconds.toDouble(),
+                    min: 10,
+                    max: 60,
+                    divisions: 5,
+                    label: '${_timerSettings.durationSeconds}s',
+                    onChanged: (value) => _updateTimer(
+                      TimerSettings(
+                        enabled: _timerSettings.enabled,
+                        durationSeconds: value.round(),
+                      ),
                     ),
                   ),
                 ),

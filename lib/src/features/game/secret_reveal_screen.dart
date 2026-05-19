@@ -40,14 +40,32 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('TOP SECRET', style: AppTypography.emphasis),
-          const SizedBox(height: AppSpacing.sm),
-          Text('${_activePlayer.name}\'s turn', style: AppTypography.h2),
+          Center(
+            child: Column(
+              children: [
+                Text('TOP SECRET', style: AppTypography.emphasis),
+                const SizedBox(height: AppSpacing.sm),
+                Text('${_activePlayer.name}\'s turn', style: AppTypography.h2),
+                const SizedBox(height: AppSpacing.xs),
+                Text(
+                  'Pass the phone — only ${_activePlayer.name} should look.',
+                  style: AppTypography.bodySmall,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
           const SizedBox(height: AppSpacing.lg),
           Expanded(
             child: Center(
               child: OtlCard(
                 selected: _revealed,
+                accented: !_revealed,
+                accentColor: AppColors.secondaryMain,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.lg,
+                  vertical: AppSpacing.x2l,
+                ),
                 child: AnimatedSwitcher(
                   duration: AppDurations.fast,
                   child: _revealed
@@ -102,9 +120,16 @@ class _HiddenRole extends StatelessWidget {
         const Icon(
           Icons.lock_outline,
           color: AppColors.secondaryMain,
-          size: 56,
+          size: 64,
         ),
         const SizedBox(height: AppSpacing.md),
+        Text(
+          'TOP SECRET',
+          style: AppTypography.emphasis.copyWith(
+            color: AppColors.secondaryMain,
+          ),
+        ),
+        const SizedBox(height: AppSpacing.sm),
         Text(
           'Make sure nobody else is looking.',
           style: AppTypography.bodyLarge,

@@ -48,12 +48,25 @@ class _VotingScreenState extends State<VotingScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text('WHO IS OUT OF THE LOOP?', style: AppTypography.h2),
-          const SizedBox(height: AppSpacing.xs),
-          Text(
-            _allVotesCollected
-                ? 'All votes are in. Reveal the totals next.'
-                : '${_activeVoter.name}, choose secretly.',
-            style: AppTypography.body,
+          const SizedBox(height: AppSpacing.md),
+          OtlCard(
+            accented: !_allVotesCollected,
+            accentColor: AppColors.secondaryMain,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('SECRET VOTE', style: AppTypography.emphasis),
+                const SizedBox(height: AppSpacing.xs),
+                Text(
+                  _allVotesCollected
+                      ? 'All votes are in. Reveal the totals next.'
+                      : '${_activeVoter.name}, choose secretly.',
+                  style: AppTypography.bodyLarge.copyWith(
+                    color: AppColors.textPrimary,
+                  ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: AppSpacing.md),
           if (widget.timerSettings.enabled) ...[
