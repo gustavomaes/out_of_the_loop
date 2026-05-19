@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_routes.dart';
 import '../../l10n/generated/app_localizations.dart';
-import '../../theme/brutalist_theme.dart';
-import '../../theme/display_typography.dart';
+import '../icons/icons.dart';
+import '../../theme/theme.dart';
 
 /// Figma-aligned discovery bottom bar (PLAY / CATEGORIES / PROFILE).
 class OtlDiscoveryBottomBar extends StatelessWidget {
@@ -156,6 +156,7 @@ class _InactiveNavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final labelStyle = DisplayTypography.bottomNavLabel(
       color: BrutalistColors.sectionLabel,
+      fontSize: 10,
     );
 
     return Material(
@@ -201,7 +202,10 @@ class _ActiveNavPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final labelStyle = DisplayTypography.bottomNavLabel(color: Colors.black);
+    final labelStyle = DisplayTypography.bottomNavLabel(
+      color: Colors.black,
+      fontSize: 10,
+    );
     final content = Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: _horizontalPadding,
@@ -219,11 +223,7 @@ class _ActiveNavPill extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          Text(
-            item.label,
-            style: labelStyle,
-            textAlign: TextAlign.center,
-          ),
+          Text(item.label, style: labelStyle, textAlign: TextAlign.center),
         ],
       ),
     );
@@ -253,10 +253,7 @@ class _ActiveNavPill extends StatelessWidget {
               DecoratedBox(
                 decoration: BoxDecoration(
                   color: BrutalistColors.lime,
-                  border: Border.all(
-                    color: Colors.black,
-                    width: _borderWidth,
-                  ),
+                  border: Border.all(color: Colors.black, width: _borderWidth),
                 ),
                 child: content,
               ),
@@ -269,10 +266,7 @@ class _ActiveNavPill extends StatelessWidget {
 }
 
 class _DiscoveryNavIconWidget extends StatelessWidget {
-  const _DiscoveryNavIconWidget({
-    required this.icon,
-    required this.color,
-  });
+  const _DiscoveryNavIconWidget({required this.icon, required this.color});
 
   final _DiscoveryNavIcon icon;
   final Color color;
@@ -281,12 +275,12 @@ class _DiscoveryNavIconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (icon) {
       _DiscoveryNavIcon.play => Icon(
-        Icons.sports_esports_outlined,
+        OtlIcons.navPlay,
         size: 24,
         color: color,
       ),
       _DiscoveryNavIcon.profile => Icon(
-        Icons.person_outline,
+        OtlIcons.navProfile,
         size: 22,
         color: color,
       ),
@@ -314,29 +308,17 @@ class _CategoriesNavIcon extends StatelessWidget {
           Positioned(
             top: 0,
             left: 5,
-            child: Icon(
-              Icons.change_history,
-              size: 11,
-              color: color,
-            ),
+            child: Icon(OtlIcons.navCategoriesTriangle, size: 11, color: color),
           ),
           Positioned(
             left: 0,
             bottom: 0,
-            child: Icon(
-              Icons.square,
-              size: 10,
-              color: color,
-            ),
+            child: Icon(OtlIcons.navCategoriesSquare, size: 10, color: color),
           ),
           Positioned(
             right: 0,
             bottom: 1,
-            child: Icon(
-              Icons.circle,
-              size: 9,
-              color: color,
-            ),
+            child: Icon(OtlIcons.navCategoriesCircle, size: 9, color: color),
           ),
         ],
       ),

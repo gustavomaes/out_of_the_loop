@@ -261,13 +261,125 @@ class AppLocalizationsHi extends AppLocalizations {
   String get whoIsOutOfTheLoop => 'लूप से बाहर कौन है?';
 
   @override
-  String get confirmVotes => 'वोट पक्का करें';
+  String get votingHeadlineWhoIs => 'कौन है';
 
   @override
-  String get roundResults => 'राउंड के नतीजे';
+  String get votingHeadlineOutOf => 'लूप से';
+
+  @override
+  String get votingHeadlineTheLoop => 'बाहर?';
+
+  @override
+  String get votingSubtitleLine1 =>
+      'इम्पोस्टर को ढूंढें! उस खिलाड़ी को वोट दें';
+
+  @override
+  String get votingSubtitleLine2 => 'जो आपको लगता है गुप्त शब्द';
+
+  @override
+  String get votingSubtitleLine3 => 'नहीं जानता।';
+
+  @override
+  String get votingVote => 'वोट';
+
+  @override
+  String get votingYou => 'आप';
+
+  @override
+  String get votingCannotVoteSelf => 'खुद को वोट नहीं कर सकते';
+
+  @override
+  String get votingTimeToVote => 'वोट का समय';
+
+  @override
+  String votingTimeSeconds(int seconds) {
+    return '$secondsसे';
+  }
+
+  @override
+  String get votingTimerExpiredLine1 => 'समय समाप्त।';
+
+  @override
+  String get votingTimerExpiredLine2 => 'तैयार होने पर अपना वोट दें।';
+
+  @override
+  String get confirmVotes => 'वोट की पुष्टि करें';
+
+  @override
+  String get roundResults => 'राउंड परिणाम';
+
+  @override
+  String get roundResultsHeadlineAccent => 'राउंड';
+
+  @override
+  String get roundResultsHeadlineMain => 'परिणाम';
+
+  @override
+  String get roundResultsOutPlayerLabel => 'बाहर का खिलाड़ी था';
+
+  @override
+  String get roundResultsMajorityFound =>
+      'समूह ने बहुमत से बाहर के खिलाड़ी को पहचान लिया।';
+
+  @override
+  String get roundResultsMajorityEscaped =>
+      'बाहर का खिलाड़ी बहुमत वोट से बच गया।';
+
+  @override
+  String get roundResultsVoteTotals => 'कुल वोट';
+
+  @override
+  String get roundResultsRoundPoints => 'राउंड अंक';
+
+  @override
+  String roundResultsVoteCount(int count) {
+    return '$count वोट';
+  }
+
+  @override
+  String roundResultsPointsGain(int points) {
+    return '+$points';
+  }
+
+  @override
+  String get roundResultsContinue => 'जारी रखें';
+
+  @override
+  String roundResultsGoToRound(int roundNumber) {
+    return 'राउंड $roundNumber पर जाएं';
+  }
+
+  @override
+  String get roundResultsViewFinalScore => 'अंतिम स्कोर देखें';
 
   @override
   String get guessWord => 'शब्द का अनुमान लगाएं';
+
+  @override
+  String get guessHeadlineAccent => 'शब्द';
+
+  @override
+  String get guessHeadlineMain => 'अनुमान';
+
+  @override
+  String guessPlayerTurn(String name) {
+    return '$name की बारी';
+  }
+
+  @override
+  String get guessInstructionLine1 => 'गुप्त शब्द जोर से बोलें।';
+
+  @override
+  String get guessInstructionLine2 => 'समूह तय करता है कि आपने';
+
+  @override
+  String get guessInstructionLine3 => 'सही अनुमान लगाया या नहीं।';
+
+  @override
+  String get guessCorrectButton => 'सही';
+
+  @override
+  String get guessWrongButton => 'गलत';
 
   @override
   String get correct => 'सही';
@@ -279,7 +391,26 @@ class AppLocalizationsHi extends AppLocalizations {
   String get playAgain => 'फिर खेलें';
 
   @override
-  String get backToHome => 'होम पर वापस';
+  String get backToHome => 'होम पर वापस जाएं';
+
+  @override
+  String resultsWinnerWins(String name) {
+    return '$name जीते!';
+  }
+
+  @override
+  String get resultsTheMastermind => 'मास्टरमाइंड';
+
+  @override
+  String get resultsSecretWordWas => 'गुप्त शब्द था:';
+
+  @override
+  String resultsOutPlayerWas(String name) {
+    return '$name लूप से बाहर थे!';
+  }
+
+  @override
+  String get resultsLeaderboard => 'लीडरबोर्ड';
 
   @override
   String get settings => 'सेटिंग्स';

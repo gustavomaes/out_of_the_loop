@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/display_typography.dart';
+import '../../theme/theme.dart';
 
 /// Figma-aligned neubrutalist pill button for the home screen.
 class OtlBrutalistPillButton extends StatelessWidget {
@@ -10,6 +10,7 @@ class OtlBrutalistPillButton extends StatelessWidget {
     required this.backgroundColor,
     required this.foregroundColor,
     required this.icon,
+    this.borderRadius = 32,
     super.key,
   });
 
@@ -18,12 +19,15 @@ class OtlBrutalistPillButton extends StatelessWidget {
   final Color backgroundColor;
   final Color foregroundColor;
   final IconData icon;
+  final double borderRadius;
 
   static const _height = 64.0;
   static const _shadowOffset = 8.0;
 
   @override
   Widget build(BuildContext context) {
+    final radius = BorderRadius.circular(borderRadius);
+
     return SizedBox(
       width: double.infinity,
       height: _height + _shadowOffset,
@@ -38,7 +42,7 @@ class OtlBrutalistPillButton extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.circular(32),
+                borderRadius: radius,
               ),
             ),
           ),
@@ -51,11 +55,11 @@ class OtlBrutalistPillButton extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                 onTap: onPressed,
-                borderRadius: BorderRadius.circular(32),
+                borderRadius: radius,
                 child: Ink(
                   decoration: BoxDecoration(
                     color: backgroundColor,
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: radius,
                     border: Border.all(color: Colors.black, width: 4),
                   ),
                   child: Row(

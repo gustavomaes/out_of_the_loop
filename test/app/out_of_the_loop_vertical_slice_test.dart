@@ -57,16 +57,14 @@ void main() {
 
     for (var index = 0; index < 3; index += 1) {
       await tester.tap(find.text('VOTE').first);
-      await tester.pump();
-      await tester.tap(find.text('CONFIRM VOTE'));
       await tester.pumpAndSettle();
     }
     await tester.tap(find.text('CONFIRM VOTES'));
     await tester.pumpAndSettle();
 
-    expect(find.text('The out player was'), findsOneWidget);
-    expect(find.text('Vote totals'), findsOneWidget);
-    expect(find.text('Round points'), findsOneWidget);
+    expect(find.text('THE OUT PLAYER WAS'), findsOneWidget);
+    expect(find.text('VOTE TOTALS'), findsOneWidget);
+    expect(find.text('ROUND POINTS'), findsOneWidget);
   });
 }
 

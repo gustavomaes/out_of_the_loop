@@ -267,13 +267,125 @@ class AppLocalizationsPt extends AppLocalizations {
   String get whoIsOutOfTheLoop => 'Quem esta fora do loop?';
 
   @override
-  String get confirmVotes => 'Confirmar votos';
+  String get votingHeadlineWhoIs => 'QUEM ESTA';
 
   @override
-  String get roundResults => 'Resultado da rodada';
+  String get votingHeadlineOutOf => 'FORA DO';
 
   @override
-  String get guessWord => 'Adivinhe a palavra';
+  String get votingHeadlineTheLoop => 'LOOP?';
+
+  @override
+  String get votingSubtitleLine1 => 'Ache o impostor! Vote no jogador';
+
+  @override
+  String get votingSubtitleLine2 => 'que voce acha que nao sabe a palavra';
+
+  @override
+  String get votingSubtitleLine3 => 'secreta.';
+
+  @override
+  String get votingVote => 'VOTAR';
+
+  @override
+  String get votingYou => 'VOCE';
+
+  @override
+  String get votingCannotVoteSelf => 'NAO PODE VOTAR EM SI';
+
+  @override
+  String get votingTimeToVote => 'HORA DE VOTAR';
+
+  @override
+  String votingTimeSeconds(int seconds) {
+    return '${seconds}s';
+  }
+
+  @override
+  String get votingTimerExpiredLine1 => 'O tempo acabou.';
+
+  @override
+  String get votingTimerExpiredLine2 =>
+      'Registre seu voto quando estiver pronto.';
+
+  @override
+  String get confirmVotes => 'CONFIRMAR VOTOS';
+
+  @override
+  String get roundResults => 'RESULTADO DA RODADA';
+
+  @override
+  String get roundResultsHeadlineAccent => 'RESULTADO';
+
+  @override
+  String get roundResultsHeadlineMain => 'DA RODADA';
+
+  @override
+  String get roundResultsOutPlayerLabel => 'O JOGADOR FORA ERA';
+
+  @override
+  String get roundResultsMajorityFound =>
+      'O grupo encontrou o jogador fora por maioria.';
+
+  @override
+  String get roundResultsMajorityEscaped =>
+      'O jogador fora escapou da votacao por maioria.';
+
+  @override
+  String get roundResultsVoteTotals => 'TOTAL DE VOTOS';
+
+  @override
+  String get roundResultsRoundPoints => 'PONTOS DA RODADA';
+
+  @override
+  String roundResultsVoteCount(int count) {
+    return '$count votos';
+  }
+
+  @override
+  String roundResultsPointsGain(int points) {
+    return '+$points';
+  }
+
+  @override
+  String get roundResultsContinue => 'CONTINUAR';
+
+  @override
+  String roundResultsGoToRound(int roundNumber) {
+    return 'IR PARA RODADA $roundNumber';
+  }
+
+  @override
+  String get roundResultsViewFinalScore => 'VER PLACAR FINAL';
+
+  @override
+  String get guessWord => 'ADIVINHE A PALAVRA';
+
+  @override
+  String get guessHeadlineAccent => 'ADIVINHE';
+
+  @override
+  String get guessHeadlineMain => 'A PALAVRA';
+
+  @override
+  String guessPlayerTurn(String name) {
+    return 'Vez de $name';
+  }
+
+  @override
+  String get guessInstructionLine1 => 'Diga a palavra secreta em voz alta.';
+
+  @override
+  String get guessInstructionLine2 => 'O grupo decide se voce';
+
+  @override
+  String get guessInstructionLine3 => 'acertou.';
+
+  @override
+  String get guessCorrectButton => 'ACERTOU';
+
+  @override
+  String get guessWrongButton => 'ERROU';
 
   @override
   String get correct => 'Acertou';
@@ -282,10 +394,29 @@ class AppLocalizationsPt extends AppLocalizations {
   String get wrong => 'Errou';
 
   @override
-  String get playAgain => 'Nova partida';
+  String get playAgain => 'NOVA PARTIDA';
 
   @override
-  String get backToHome => 'Voltar ao inicio';
+  String get backToHome => 'VOLTAR AO INÍCIO';
+
+  @override
+  String resultsWinnerWins(String name) {
+    return '$name venceu!';
+  }
+
+  @override
+  String get resultsTheMastermind => 'O MESTRE';
+
+  @override
+  String get resultsSecretWordWas => 'A PALAVRA SECRETA ERA:';
+
+  @override
+  String resultsOutPlayerWas(String name) {
+    return '$name estava Fora do Loop!';
+  }
+
+  @override
+  String get resultsLeaderboard => 'PLACAR';
 
   @override
   String get settings => 'Configuracoes';
@@ -665,13 +796,125 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get whoIsOutOfTheLoop => 'Quem esta fora do loop?';
 
   @override
-  String get confirmVotes => 'Confirmar votos';
+  String get votingHeadlineWhoIs => 'QUEM ESTA';
 
   @override
-  String get roundResults => 'Resultado da rodada';
+  String get votingHeadlineOutOf => 'FORA DO';
 
   @override
-  String get guessWord => 'Adivinhe a palavra';
+  String get votingHeadlineTheLoop => 'LOOP?';
+
+  @override
+  String get votingSubtitleLine1 => 'Ache o impostor! Vote no jogador';
+
+  @override
+  String get votingSubtitleLine2 => 'que voce acha que nao sabe a palavra';
+
+  @override
+  String get votingSubtitleLine3 => 'secreta.';
+
+  @override
+  String get votingVote => 'VOTAR';
+
+  @override
+  String get votingYou => 'VOCE';
+
+  @override
+  String get votingCannotVoteSelf => 'NAO PODE VOTAR EM SI';
+
+  @override
+  String get votingTimeToVote => 'HORA DE VOTAR';
+
+  @override
+  String votingTimeSeconds(int seconds) {
+    return '${seconds}s';
+  }
+
+  @override
+  String get votingTimerExpiredLine1 => 'O tempo acabou.';
+
+  @override
+  String get votingTimerExpiredLine2 =>
+      'Registre seu voto quando estiver pronto.';
+
+  @override
+  String get confirmVotes => 'CONFIRMAR VOTOS';
+
+  @override
+  String get roundResults => 'RESULTADO DA RODADA';
+
+  @override
+  String get roundResultsHeadlineAccent => 'RESULTADO';
+
+  @override
+  String get roundResultsHeadlineMain => 'DA RODADA';
+
+  @override
+  String get roundResultsOutPlayerLabel => 'O JOGADOR FORA ERA';
+
+  @override
+  String get roundResultsMajorityFound =>
+      'O grupo encontrou o jogador fora por maioria.';
+
+  @override
+  String get roundResultsMajorityEscaped =>
+      'O jogador fora escapou da votacao por maioria.';
+
+  @override
+  String get roundResultsVoteTotals => 'TOTAL DE VOTOS';
+
+  @override
+  String get roundResultsRoundPoints => 'PONTOS DA RODADA';
+
+  @override
+  String roundResultsVoteCount(int count) {
+    return '$count votos';
+  }
+
+  @override
+  String roundResultsPointsGain(int points) {
+    return '+$points';
+  }
+
+  @override
+  String get roundResultsContinue => 'CONTINUAR';
+
+  @override
+  String roundResultsGoToRound(int roundNumber) {
+    return 'IR PARA RODADA $roundNumber';
+  }
+
+  @override
+  String get roundResultsViewFinalScore => 'VER PLACAR FINAL';
+
+  @override
+  String get guessWord => 'ADIVINHE A PALAVRA';
+
+  @override
+  String get guessHeadlineAccent => 'ADIVINHE';
+
+  @override
+  String get guessHeadlineMain => 'A PALAVRA';
+
+  @override
+  String guessPlayerTurn(String name) {
+    return 'Vez de $name';
+  }
+
+  @override
+  String get guessInstructionLine1 => 'Diga a palavra secreta em voz alta.';
+
+  @override
+  String get guessInstructionLine2 => 'O grupo decide se voce';
+
+  @override
+  String get guessInstructionLine3 => 'acertou.';
+
+  @override
+  String get guessCorrectButton => 'ACERTOU';
+
+  @override
+  String get guessWrongButton => 'ERROU';
 
   @override
   String get correct => 'Acertou';
@@ -680,10 +923,29 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get wrong => 'Errou';
 
   @override
-  String get playAgain => 'Nova partida';
+  String get playAgain => 'NOVA PARTIDA';
 
   @override
-  String get backToHome => 'Voltar ao inicio';
+  String get backToHome => 'VOLTAR AO INÍCIO';
+
+  @override
+  String resultsWinnerWins(String name) {
+    return '$name venceu!';
+  }
+
+  @override
+  String get resultsTheMastermind => 'O MESTRE';
+
+  @override
+  String get resultsSecretWordWas => 'A PALAVRA SECRETA ERA:';
+
+  @override
+  String resultsOutPlayerWas(String name) {
+    return '$name estava Fora do Loop!';
+  }
+
+  @override
+  String get resultsLeaderboard => 'PLACAR';
 
   @override
   String get settings => 'Configuracoes';

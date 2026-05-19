@@ -118,8 +118,6 @@ void main() {
 
     for (var index = 0; index < 3; index += 1) {
       await tester.tap(find.text('VOTE').first);
-      await tester.pump();
-      await tester.tap(find.text('CONFIRM VOTE'));
       await tester.pumpAndSettle();
     }
     await tester.tap(find.text('CONFIRM VOTES'));

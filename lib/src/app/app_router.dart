@@ -202,6 +202,7 @@ class AppRouter {
               round: flow.currentRound!,
               result: result,
               totalRoundCount: flow.setup?.roundCount,
+              language: flow.setup?.language ?? flow.language,
               onContinue: () => _finishRound(context, flow, onFlowChanged),
               onGuess: () => context.push(AppRoutes.gameGuess),
             ),
@@ -225,19 +226,28 @@ class AppRouter {
       GoRoute(
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameFinal,
-        builder: (context, state) => FinalLeaderboardScreen(
-          players: flow.finalRanking(),
-          onNewMatch: () {
-            flow.resetMatch();
-            onFlowChanged();
-            context.goDiscoveryTab(AppRoutes.categories);
-          },
-          onBackHome: () {
-            flow.resetMatch();
-            onFlowChanged();
-            context.goDiscoveryTab(AppRoutes.home);
-          },
-        ),
+        builder: (context, state) {
+          final lastRound = flow.lastCompletedRound;
+          final outPlayerId = lastRound?.outPlayerId;
+          return FinalLeaderboardScreen(
+            players: flow.finalRanking(),
+            secretWord: lastRound?.secretWord,
+            outPlayer: outPlayerId == null
+                ? null
+                : flow.playerById(outPlayerId),
+            language: flow.setup?.language ?? flow.language,
+            onNewMatch: () {
+              flow.resetMatch();
+              onFlowChanged();
+              context.goDiscoveryTab(AppRoutes.categories);
+            },
+            onBackHome: () {
+              flow.resetMatch();
+              onFlowChanged();
+              context.goDiscoveryTab(AppRoutes.home);
+            },
+          );
+        },
       ),
       GoRoute(
         parentNavigatorKey: _rootNavigatorKey,

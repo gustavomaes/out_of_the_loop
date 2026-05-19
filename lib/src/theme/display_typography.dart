@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Figma-aligned display typography (Rubik + Plus Jakarta Sans).
+/// Figma-aligned display typography (Rubik, Plus Jakarta Sans, Space Grotesk).
+///
+/// Preset index (add new styles here when duplicated 2+ times):
+/// - **Shell / nav**: [bottomNavLabel], [rubikDiscoveryAppBarTitle]
+/// - **Home**: [rubikHomeTitle], [rubikHomeButton]
+/// - **Setup**: [rubikCategoryTitle], [rubikPlayerSetupTitle], …
+/// - **Game flow**: [rubikSecretRevealHeading], [rubikVotingHeadlineMain], …
+/// - **Results**: [rubikResultsWinnerTitle], [spaceGroteskResultsSectionLabel], …
 abstract final class DisplayTypography {
   static TextStyle rubikTitle({
     required Color color,
@@ -48,6 +55,16 @@ abstract final class DisplayTypography {
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
       color: color,
+    );
+  }
+
+  /// Figma discovery / brutalist app bar title (Rubik 28 / 32, -1.4 tracking).
+  static TextStyle rubikDiscoveryAppBarTitle({required Color color}) {
+    return rubikTitle(
+      color: color,
+      fontSize: 28,
+      height: 32 / 28,
+      letterSpacing: -1.4,
     );
   }
 
@@ -249,6 +266,140 @@ abstract final class DisplayTypography {
 
   /// Figma player turn chip (Space Grotesk Bold 14 / 20, 1.4 tracking).
   static TextStyle spaceGroteskTurnChip({required Color color}) {
+    return spaceGroteskSectionLabel(color: color);
+  }
+
+  /// Figma voting headline line 1 (Rubik ExtraBold 28 / 32).
+  static TextStyle rubikVotingHeadlineAccent({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 28,
+      height: 32 / 28,
+      fontWeight: FontWeight.w800,
+      letterSpacing: -0.96,
+      color: color,
+    );
+  }
+
+  /// Figma voting headline lines 2–3 (Rubik Black 48 / 60).
+  static TextStyle rubikVotingHeadlineMain({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 48,
+      height: 60 / 48,
+      fontWeight: FontWeight.w900,
+      letterSpacing: -0.96,
+      color: color,
+    );
+  }
+
+  /// Figma voting subtitle (Plus Jakarta Sans Regular 16 / 24).
+  static TextStyle plusJakartaVotingSubtitle({required Color color}) {
+    return GoogleFonts.plusJakartaSans(
+      fontSize: 16,
+      height: 24 / 16,
+      fontWeight: FontWeight.w400,
+      color: color,
+    );
+  }
+
+  /// Figma voting player name (Plus Jakarta Sans Bold 18 / 28).
+  static TextStyle plusJakartaVotingPlayerName({required Color color}) {
+    return GoogleFonts.plusJakartaSans(
+      fontSize: 18,
+      height: 28 / 18,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma voting self hint (Space Grotesk Bold 10 / 15).
+  static TextStyle spaceGroteskVotingSelfHint({required Color color}) {
+    return GoogleFonts.spaceGrotesk(
+      fontSize: 10,
+      height: 15 / 10,
+      fontWeight: FontWeight.w700,
+      letterSpacing: 1,
+      color: color,
+    );
+  }
+
+  /// Figma voting card button (Rubik Bold 20 / 24).
+  static TextStyle rubikVotingButton({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 20,
+      height: 24 / 20,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma voting timer seconds (Rubik ExtraBold 28 / 32).
+  static TextStyle rubikVotingTimerSeconds({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 28,
+      height: 32 / 28,
+      fontWeight: FontWeight.w800,
+      color: color,
+    );
+  }
+
+  /// Figma game results winner title (Rubik ExtraBold 28 / 32).
+  static TextStyle rubikResultsWinnerTitle({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 28,
+      height: 32 / 28,
+      fontWeight: FontWeight.w800,
+      color: color,
+    );
+  }
+
+  /// Figma game results secret word (Rubik ExtraBold 28 / 32, wide tracking).
+  static TextStyle rubikResultsSecretWord({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 28,
+      height: 32 / 28,
+      fontWeight: FontWeight.w800,
+      letterSpacing: 1.4,
+      color: color,
+    );
+  }
+
+  /// Figma game results leaderboard rank (Rubik ExtraBold 28 / 32).
+  static TextStyle rubikResultsRank({required Color color}) {
+    return rubikResultsWinnerTitle(color: color);
+  }
+
+  /// Figma game results leaderboard name (Rubik Bold 20 / 24).
+  static TextStyle rubikResultsPlayerName({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 20,
+      height: 24 / 20,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma game results leaderboard score (Rubik ExtraBold 28 / 32).
+  static TextStyle rubikResultsScore({required Color color}) {
+    return rubikResultsWinnerTitle(color: color);
+  }
+
+  /// Figma game results reveal label (Plus Jakarta Sans Regular 16 / 24).
+  static TextStyle plusJakartaResultsRevealLabel({required Color color}) {
+    return plusJakartaVotingSubtitle(color: color);
+  }
+
+  /// Figma game results reveal body (Plus Jakarta Sans Regular 16 / 24).
+  static TextStyle plusJakartaResultsRevealBody({required Color color}) {
+    return plusJakartaResultsRevealLabel(color: color);
+  }
+
+  /// Figma game results mastermind badge (Space Grotesk Bold 14 / 20).
+  static TextStyle spaceGroteskResultsBadge({required Color color}) {
+    return spaceGroteskSectionLabel(color: color);
+  }
+
+  /// Figma game results section label (Space Grotesk Bold 14 / 20).
+  static TextStyle spaceGroteskResultsSectionLabel({required Color color}) {
     return spaceGroteskSectionLabel(color: color);
   }
 }

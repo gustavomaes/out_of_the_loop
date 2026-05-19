@@ -122,6 +122,28 @@ class GameFlowController {
     return progressionService.ranking(activeMatch);
   }
 
+  RoundState? get lastCompletedRound {
+    final activeMatch = match;
+    if (activeMatch == null) {
+      return null;
+    }
+    for (final round in activeMatch.rounds.reversed) {
+      if (round.phase == RoundPhase.complete) {
+        return round;
+      }
+    }
+    return null;
+  }
+
+  Player? playerById(String playerId) {
+    for (final player in players) {
+      if (player.id == playerId) {
+        return player;
+      }
+    }
+    return null;
+  }
+
   void resetMatch() {
     setup = null;
     match = null;

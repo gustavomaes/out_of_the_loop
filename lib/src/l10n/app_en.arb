@@ -142,13 +142,100 @@
   "questionRoundTimerExpiredLine1": "Time is up.",
   "questionRoundTimerExpiredLine2": "Finish this answer when ready.",
   "whoIsOutOfTheLoop": "Who is out of the loop?",
-  "confirmVotes": "Confirm votes",
-  "roundResults": "Round results",
-  "guessWord": "Guess the word",
+  "votingHeadlineWhoIs": "WHO IS",
+  "votingHeadlineOutOf": "OUT OF",
+  "votingHeadlineTheLoop": "THE LOOP?",
+  "votingSubtitleLine1": "Find the imposter! Vote for the player",
+  "votingSubtitleLine2": "you think does not know the secret",
+  "votingSubtitleLine3": "word.",
+  "votingVote": "VOTE",
+  "votingYou": "YOU",
+  "votingCannotVoteSelf": "CANNOT VOTE SELF",
+  "votingTimeToVote": "TIME TO VOTE",
+  "votingTimeSeconds": "{seconds}s",
+  "@votingTimeSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "votingTimerExpiredLine1": "Time is up.",
+  "votingTimerExpiredLine2": "Cast your vote when ready.",
+  "confirmVotes": "CONFIRM VOTES",
+  "roundResults": "ROUND RESULTS",
+  "roundResultsHeadlineAccent": "ROUND",
+  "roundResultsHeadlineMain": "RESULTS",
+  "roundResultsOutPlayerLabel": "THE OUT PLAYER WAS",
+  "roundResultsMajorityFound": "The group found the out player by majority.",
+  "roundResultsMajorityEscaped": "The out player escaped the majority vote.",
+  "roundResultsVoteTotals": "VOTE TOTALS",
+  "roundResultsRoundPoints": "ROUND POINTS",
+  "roundResultsVoteCount": "{count} votes",
+  "@roundResultsVoteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsPointsGain": "+{points}",
+  "@roundResultsPointsGain": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsContinue": "CONTINUE",
+  "roundResultsGoToRound": "GO TO ROUND {roundNumber}",
+  "@roundResultsGoToRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsViewFinalScore": "VIEW FINAL SCORE",
+  "guessWord": "GUESS THE WORD",
+  "guessHeadlineAccent": "GUESS",
+  "guessHeadlineMain": "THE WORD",
+  "guessPlayerTurn": "{name}, your turn",
+  "@guessPlayerTurn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "guessInstructionLine1": "Say the secret word out loud.",
+  "guessInstructionLine2": "The group decides if you",
+  "guessInstructionLine3": "got it right.",
+  "guessCorrectButton": "GOT IT RIGHT",
+  "guessWrongButton": "MISSED IT",
   "correct": "Correct",
   "wrong": "Wrong",
-  "playAgain": "Play again",
-  "backToHome": "Back to home",
+  "playAgain": "PLAY AGAIN",
+  "backToHome": "BACK TO HOME",
+  "resultsWinnerWins": "{name} wins!",
+  "@resultsWinnerWins": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsTheMastermind": "THE MASTERMIND",
+  "resultsSecretWordWas": "THE SECRET WORD WAS:",
+  "resultsOutPlayerWas": "{name} was Out of the Loop!",
+  "@resultsOutPlayerWas": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsLeaderboard": "LEADERBOARD",
   "settings": "Settings",
   "settingsScreenTitle": "SETTINGS",
   "settingsSectionLanguage": "LANGUAGE",

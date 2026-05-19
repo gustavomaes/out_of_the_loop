@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/brutalist_theme.dart';
-import '../../theme/display_typography.dart';
+import '../../theme/theme.dart';
 
 class OtlBrutalistAppBar extends StatelessWidget implements PreferredSizeWidget {
   const OtlBrutalistAppBar({required this.title, super.key});
@@ -36,9 +35,8 @@ class OtlBrutalistAppBar extends StatelessWidget implements PreferredSizeWidget 
             child: Center(
               child: Text(
                 title,
-                style: DisplayTypography.rubikTitle(
+                style: DisplayTypography.rubikDiscoveryAppBarTitle(
                   color: BrutalistColors.lime,
-                  letterSpacing: -1.4,
                 ),
               ),
             ),

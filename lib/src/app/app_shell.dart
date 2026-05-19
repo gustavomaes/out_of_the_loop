@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../shared/widgets/shared_widgets.dart';
-import '../theme/app_tokens.dart';
+import '../theme/theme.dart';
 
 class AppShell extends StatelessWidget {
   const AppShell({

@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/ui-consolidation/spec.md`  
 **Design**: `.specs/features/ui-consolidation/design.md`  
-**Status**: Not started
+**Status**: Phase 1 complete
 
 ---
 
@@ -92,13 +92,13 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Tabela de literais `Color(0x` por arquivo commitada no design.
-- [ ] Lista de widgets privados por tela confere com inventário da spec.
-- [ ] Convenção “1 build por screen” documentada.
+- [x] Tabela de literais `Color(0x` por arquivo commitada no design.
+- [x] Lista de widgets privados por tela confere com inventário da spec.
+- [x] Convenção “1 build por screen” documentada.
 
 **Tests**: none  
 **Gate**: docs review  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -112,13 +112,13 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] `brutalist_theme.dart` não contém definições hex duplicadas.
-- [ ] `OutOfTheLoopTheme` compila e usa `AppColors`.
-- [ ] `flutter analyze` verde.
+- [x] `brutalist_theme.dart` não contém definições hex duplicadas.
+- [x] `OutOfTheLoopTheme` compila e usa `AppColors`.
+- [x] `flutter analyze` verde.
 
 **Tests**: `flutter test test/theme` se existir; senão analyze only  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -131,12 +131,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Barrel export único funciona.
-- [ ] Nenhum import quebrado em shared/app.
+- [x] Barrel export único funciona.
+- [x] Nenhum import quebrado em shared/app.
 
 **Tests**: `flutter analyze`  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -149,12 +149,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Presets documentados no arquivo.
-- [ ] Zero `GoogleFonts.*` novo em features (features migradas depois).
+- [x] Presets documentados no arquivo.
+- [x] Zero `GoogleFonts.*` novo em features (features migradas depois).
 
 **Tests**: `flutter analyze`  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -167,12 +167,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Bottom nav e app bars usam `OtlIcons`.
-- [ ] Decisão `category_icon` no Decisions Log.
+- [x] Bottom nav e app bars usam `OtlIcons`.
+- [x] Decisão `category_icon` no Decisions Log.
 
 **Tests**: `flutter analyze`  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 

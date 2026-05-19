@@ -231,11 +231,96 @@ Evitar import circular: `shared/widgets` **não** importa `features/`.
 
 ---
 
+## Baseline Audit (T01 — 2026-05-19)
+
+Auditoria mecânica do repositório antes da Fase 1 (tema). Comando de contagem: `grep -r 'Color(0x' --include='*.dart'`.
+
+### Tabela de literais `Color(0x` por arquivo
+
+| Arquivo | Ocorrências | Zona | Migrar em |
+| --- | ---: | --- | --- |
+| `lib/src/theme/app_tokens.dart` | 29 | theme (canônico) | T02 — mover cores para `app_colors.dart` |
+| `lib/src/theme/brutalist_theme.dart` | 20 | theme (canônico) | T02 — delegar a `app_colors.dart` |
+| `lib/src/features/game/round_results_screen.dart` | 9 | features | T16 |
+| `lib/src/features/game/voting_screen.dart` | 7 | features | T15 |
+| `lib/src/features/game/final_leaderboard_screen.dart` | 4 | features | T17 |
+| `lib/src/features/how_to_play/how_to_play_screen.dart` | 4 | features | T19 |
+| `lib/src/features/settings/settings_screen.dart` | 3 | features | T10 |
+| `lib/src/shared/widgets/otl_home_backdrop.dart` | 2 | shared | T06/T18 (home) |
+| `lib/src/features/game/secret_reveal_screen.dart` | 1 | features | T13 |
+| `lib/src/features/game/question_round_screen.dart` | 1 | features | T14 |
+| `lib/src/features/setup/player_setup_screen.dart` | 1 | features | T12 |
+| `test/theme/app_tokens_test.dart` | 4 | test | manter (asserts de token) |
+
+**Totais**
+
+| Zona | Ocorrências |
+| --- | ---: |
+| `lib/src/theme/` | 49 |
+| `lib/src/features/` | 30 |
+| `lib/src/shared/` | 2 |
+| `test/` (fora de theme) | 0 |
+| **Fora de theme (alvo → 0)** | **32** |
+
+Gate de sucesso da feature: `grep` em `lib/src/features` + `lib/src/shared` → 0 ocorrências.
+
+### Inventário de widgets privados por tela
+
+Contagem: classes `class _*` com `build` em `*_screen.dart` (exclui `*ScreenState`). Linhas via `wc -l` em 2026-05-19.
+
+| Tela | Arquivo | Linhas | Privados (audit) | Spec | `build` no arquivo | Notas |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| Category selection | `category_selection_screen.dart` | 136 | 1 | 1 | 2 | `_CategoryHeader` |
+| Home | `home_screen.dart` | 144 | 2 | 2 | 3 | `_HomeHeroTitle`, `_TitleLines` |
+| How to play | `how_to_play_screen.dart` | 234 | 2 | 2 | 3 | `_RuleCard`, `_KaPowBanner` |
+| Final leaderboard | `final_leaderboard_screen.dart` | 419 | 4 | 4 | 5 | |
+| Secret reveal | `secret_reveal_screen.dart` | 490 | 8 | 8 | 9 | incl. `_SecretRevealAtmosphere` |
+| Settings | `settings_screen.dart` | 522 | 8 | 8 | 9 | incl. `_BrutalistToggle` |
+| Match setup | `match_setup_screen.dart` | 605 | 7 | 7 | 8 | incl. `_MatchSetupAtmosphere` |
+| Player setup | `player_setup_screen.dart` | 626 | 5 | 5 | 6 | incl. `_PlayerSetupAtmosphere`; pasta `widgets/` já existe |
+| Question round | `question_round_screen.dart` | 732 | 9 + painter | 10 | 10 | `_DashedBorderPainter` (sem `build`); conta como 10 na spec |
+| Round results | `round_results_screen.dart` | 751 | 9 | 10 | 11 | **Dois screens no mesmo arquivo**: `RoundResultsScreen` + `GuessScreen` |
+| Voting | `voting_screen.dart` | 775 | 9 | 9 | 10 | |
+
+**Duplicatas confirmadas (shared — Fase 2)**
+
+| Símbolo privado | Arquivos |
+| --- | --- |
+| `_ShadowedText` | `voting_screen.dart`, `round_results_screen.dart` |
+| `_TimerExpiredMessage` | `voting_screen.dart`, `question_round_screen.dart` |
+| `_BrutalistToggle` | `settings_screen.dart` (único; candidato a `OtlBrutalistToggle`) |
+| `*Atmosphere` | 5 telas: voting, question_round, secret_reveal, match_setup, player_setup |
+
+**Outros sinais**
+
+- `GoogleFonts.*` inline em `lib/src/features/`: **0** (já centralizado em `DisplayTypography`).
+- `Icons.*` em features: ~54 usos em 11 arquivos; `category_icon.dart` concentra 21 (domínio setup).
+- `lib/src/features/setup/widgets/`: padrão alvo já iniciado (`otl_category_tile.dart`, `otl_player_tile.dart`).
+
+### Convenção “1 build por screen”
+
+**Regra (UIC-18):** o widget público da tela (`FooScreen` / `_FooScreenState`) expõe **exatamente um** `build` que compõe layout (Scaffold, listeners, navegação). Subcomponentes com `build` próprio vivem em `features/<feature>/widgets/<snake_case>.dart`.
+
+**Estado atual:** nenhuma tela do inventário cumpre a regra; todas acumulam 2–11 métodos `build` no mesmo arquivo.
+
+**Exceções documentadas**
+
+1. `CustomPainter` e helpers sem `build` podem ficar no arquivo do consumidor ou em `widgets/` se > ~40 linhas (`_DashedBorderPainter` em question round).
+2. `round_results_screen.dart` hospeda **dois** screens (`RoundResultsScreen`, `GuessScreen`) — T16 deve extrair `GuessScreen` para arquivo próprio ou subpasta antes/durante extração de widgets.
+
+Detalhes de import, naming e promoção para `shared/`: ver secções acima e `.specs/codebase/CONVENTIONS.md`.
+
+---
+
 ## Decisions Log
 
 | Data | Decisão | Razão |
 | --- | --- | --- |
-| TBD | Atmosphere: 1 vs N widgets | Aguarda diff visual T08 |
-| TBD | `category_icon` location | Aguarda auditoria T05 |
-
-Preencher durante execução em `.specs/project/STATE.md` se o arquivo for criado.
+| 2026-05-19 | Baseline de 32 literais fora de `theme/` | T01 audit; gate da feature |
+| 2026-05-19 | Atmosphere: **5** variantes nomeadas (`*Atmosphere`) | Diff visual pendente em T08; não assumir pixel-identical |
+| 2026-05-19 | `category_icon.dart` permanece em `features/setup/` até T05 | 21/54 usos de `Icons.` no setup; sem 2º consumidor cross-feature hoje |
+| 2026-05-19 | `round_results` + `GuessScreen` no mesmo arquivo | T16 trata como split de screen + extração de widgets |
+| 2026-05-19 | `theme.dart` barrel; cores em `app_colors.dart` | T02–T03 |
+| 2026-05-19 | `OtlIcons` + barrel `shared/icons/icons.dart` | T05; nav/app bars/home backdrop migrados |
+| 2026-05-19 | `category_icon.dart` permanece em `features/setup/` | T05 — domínio; reexport futuro se cross-feature |
+| TBD | Atmosphere: 1 widget vs 5 variantes | T08 compara implementações |

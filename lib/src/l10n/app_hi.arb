@@ -142,13 +142,100 @@
   "questionRoundTimerExpiredLine1": "समय समाप्त।",
   "questionRoundTimerExpiredLine2": "तैयार होने पर यह जवाब पूरा करें।",
   "whoIsOutOfTheLoop": "लूप से बाहर कौन है?",
-  "confirmVotes": "वोट पक्का करें",
-  "roundResults": "राउंड के नतीजे",
+  "votingHeadlineWhoIs": "कौन है",
+  "votingHeadlineOutOf": "लूप से",
+  "votingHeadlineTheLoop": "बाहर?",
+  "votingSubtitleLine1": "इम्पोस्टर को ढूंढें! उस खिलाड़ी को वोट दें",
+  "votingSubtitleLine2": "जो आपको लगता है गुप्त शब्द",
+  "votingSubtitleLine3": "नहीं जानता।",
+  "votingVote": "वोट",
+  "votingYou": "आप",
+  "votingCannotVoteSelf": "खुद को वोट नहीं कर सकते",
+  "votingTimeToVote": "वोट का समय",
+  "votingTimeSeconds": "{seconds}से",
+  "@votingTimeSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "votingTimerExpiredLine1": "समय समाप्त।",
+  "votingTimerExpiredLine2": "तैयार होने पर अपना वोट दें।",
+  "confirmVotes": "वोट की पुष्टि करें",
+  "roundResults": "राउंड परिणाम",
+  "roundResultsHeadlineAccent": "राउंड",
+  "roundResultsHeadlineMain": "परिणाम",
+  "roundResultsOutPlayerLabel": "बाहर का खिलाड़ी था",
+  "roundResultsMajorityFound": "समूह ने बहुमत से बाहर के खिलाड़ी को पहचान लिया।",
+  "roundResultsMajorityEscaped": "बाहर का खिलाड़ी बहुमत वोट से बच गया।",
+  "roundResultsVoteTotals": "कुल वोट",
+  "roundResultsRoundPoints": "राउंड अंक",
+  "roundResultsVoteCount": "{count} वोट",
+  "@roundResultsVoteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsPointsGain": "+{points}",
+  "@roundResultsPointsGain": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsContinue": "जारी रखें",
+  "roundResultsGoToRound": "राउंड {roundNumber} पर जाएं",
+  "@roundResultsGoToRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsViewFinalScore": "अंतिम स्कोर देखें",
   "guessWord": "शब्द का अनुमान लगाएं",
+  "guessHeadlineAccent": "शब्द",
+  "guessHeadlineMain": "अनुमान",
+  "guessPlayerTurn": "{name} की बारी",
+  "@guessPlayerTurn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "guessInstructionLine1": "गुप्त शब्द जोर से बोलें।",
+  "guessInstructionLine2": "समूह तय करता है कि आपने",
+  "guessInstructionLine3": "सही अनुमान लगाया या नहीं।",
+  "guessCorrectButton": "सही",
+  "guessWrongButton": "गलत",
   "correct": "सही",
   "wrong": "गलत",
   "playAgain": "फिर खेलें",
-  "backToHome": "होम पर वापस",
+  "backToHome": "होम पर वापस जाएं",
+  "resultsWinnerWins": "{name} जीते!",
+  "@resultsWinnerWins": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsTheMastermind": "मास्टरमाइंड",
+  "resultsSecretWordWas": "गुप्त शब्द था:",
+  "resultsOutPlayerWas": "{name} लूप से बाहर थे!",
+  "@resultsOutPlayerWas": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsLeaderboard": "लीडरबोर्ड",
   "settings": "सेटिंग्स",
   "settingsScreenTitle": "सेटिंग्स",
   "settingsSectionLanguage": "भाषा",

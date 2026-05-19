@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../theme/app_tokens.dart';
+import '../../../theme/theme.dart';
 
 class CircularTimer extends StatelessWidget {
   const CircularTimer({

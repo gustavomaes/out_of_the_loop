@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../app/app_routes.dart';
 import '../../app/discovery_shell.dart';
-import '../../theme/brutalist_theme.dart';
-import '../../theme/display_typography.dart';
+import '../icons/icons.dart';
+import '../../theme/theme.dart';
 
 /// Figma top bar: back, fixed app name, settings.
 class OtlBrutalistDiscoveryAppBar extends StatelessWidget
@@ -45,7 +45,7 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
                     onPressed:
                         onBack ?? () => context.goDiscoveryTab(AppRoutes.home),
                     icon: const Icon(
-                      Icons.arrow_back,
+                      OtlIcons.arrowBack,
                       color: Colors.white,
                       size: 22,
                     ),
@@ -54,11 +54,8 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
                   Expanded(
                     child: Text(
                       appName,
-                      style: DisplayTypography.rubikTitle(
+                      style: DisplayTypography.rubikDiscoveryAppBarTitle(
                         color: BrutalistColors.lime,
-                        fontSize: 28,
-                        height: 32 / 28,
-                        letterSpacing: -1.4,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 1,
@@ -70,7 +67,7 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
                         onSettings ??
                         () => context.goDiscoveryTab(AppRoutes.settings),
                     icon: const Icon(
-                      Icons.settings_outlined,
+                      OtlIcons.settings,
                       color: Colors.white,
                       size: 22,
                     ),

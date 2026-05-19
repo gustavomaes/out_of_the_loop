@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../data/preferences/preferences_repository.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../l10n/out_of_the_loop_localizations.dart';
-import '../theme/app_tokens.dart';
+import '../theme/theme.dart';
 import 'app_router.dart';
 import 'game_flow_controller.dart';
 

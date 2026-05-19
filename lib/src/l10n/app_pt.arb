@@ -142,13 +142,100 @@
   "questionRoundTimerExpiredLine1": "O tempo acabou.",
   "questionRoundTimerExpiredLine2": "Termine esta resposta quando estiver pronto.",
   "whoIsOutOfTheLoop": "Quem esta fora do loop?",
-  "confirmVotes": "Confirmar votos",
-  "roundResults": "Resultado da rodada",
-  "guessWord": "Adivinhe a palavra",
+  "votingHeadlineWhoIs": "QUEM ESTA",
+  "votingHeadlineOutOf": "FORA DO",
+  "votingHeadlineTheLoop": "LOOP?",
+  "votingSubtitleLine1": "Ache o impostor! Vote no jogador",
+  "votingSubtitleLine2": "que voce acha que nao sabe a palavra",
+  "votingSubtitleLine3": "secreta.",
+  "votingVote": "VOTAR",
+  "votingYou": "VOCE",
+  "votingCannotVoteSelf": "NAO PODE VOTAR EM SI",
+  "votingTimeToVote": "HORA DE VOTAR",
+  "votingTimeSeconds": "{seconds}s",
+  "@votingTimeSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "votingTimerExpiredLine1": "O tempo acabou.",
+  "votingTimerExpiredLine2": "Registre seu voto quando estiver pronto.",
+  "confirmVotes": "CONFIRMAR VOTOS",
+  "roundResults": "RESULTADO DA RODADA",
+  "roundResultsHeadlineAccent": "RESULTADO",
+  "roundResultsHeadlineMain": "DA RODADA",
+  "roundResultsOutPlayerLabel": "O JOGADOR FORA ERA",
+  "roundResultsMajorityFound": "O grupo encontrou o jogador fora por maioria.",
+  "roundResultsMajorityEscaped": "O jogador fora escapou da votacao por maioria.",
+  "roundResultsVoteTotals": "TOTAL DE VOTOS",
+  "roundResultsRoundPoints": "PONTOS DA RODADA",
+  "roundResultsVoteCount": "{count} votos",
+  "@roundResultsVoteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsPointsGain": "+{points}",
+  "@roundResultsPointsGain": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsContinue": "CONTINUAR",
+  "roundResultsGoToRound": "IR PARA RODADA {roundNumber}",
+  "@roundResultsGoToRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsViewFinalScore": "VER PLACAR FINAL",
+  "guessWord": "ADIVINHE A PALAVRA",
+  "guessHeadlineAccent": "ADIVINHE",
+  "guessHeadlineMain": "A PALAVRA",
+  "guessPlayerTurn": "Vez de {name}",
+  "@guessPlayerTurn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "guessInstructionLine1": "Diga a palavra secreta em voz alta.",
+  "guessInstructionLine2": "O grupo decide se voce",
+  "guessInstructionLine3": "acertou.",
+  "guessCorrectButton": "ACERTOU",
+  "guessWrongButton": "ERROU",
   "correct": "Acertou",
   "wrong": "Errou",
-  "playAgain": "Nova partida",
-  "backToHome": "Voltar ao inicio",
+  "playAgain": "NOVA PARTIDA",
+  "backToHome": "VOLTAR AO INÍCIO",
+  "resultsWinnerWins": "{name} venceu!",
+  "@resultsWinnerWins": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsTheMastermind": "O MESTRE",
+  "resultsSecretWordWas": "A PALAVRA SECRETA ERA:",
+  "resultsOutPlayerWas": "{name} estava Fora do Loop!",
+  "@resultsOutPlayerWas": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsLeaderboard": "PLACAR",
   "settings": "Configuracoes",
   "settingsScreenTitle": "CONFIGURAÇÕES",
   "settingsSectionLanguage": "IDIOMA",

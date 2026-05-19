@@ -517,23 +517,221 @@ abstract class AppLocalizations {
   /// **'Quem esta fora do loop?'**
   String get whoIsOutOfTheLoop;
 
+  /// No description provided for @votingHeadlineWhoIs.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'QUEM ESTA'**
+  String get votingHeadlineWhoIs;
+
+  /// No description provided for @votingHeadlineOutOf.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'FORA DO'**
+  String get votingHeadlineOutOf;
+
+  /// No description provided for @votingHeadlineTheLoop.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'LOOP?'**
+  String get votingHeadlineTheLoop;
+
+  /// No description provided for @votingSubtitleLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Ache o impostor! Vote no jogador'**
+  String get votingSubtitleLine1;
+
+  /// No description provided for @votingSubtitleLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'que voce acha que nao sabe a palavra'**
+  String get votingSubtitleLine2;
+
+  /// No description provided for @votingSubtitleLine3.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'secreta.'**
+  String get votingSubtitleLine3;
+
+  /// No description provided for @votingVote.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'VOTAR'**
+  String get votingVote;
+
+  /// No description provided for @votingYou.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'VOCE'**
+  String get votingYou;
+
+  /// No description provided for @votingCannotVoteSelf.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'NAO PODE VOTAR EM SI'**
+  String get votingCannotVoteSelf;
+
+  /// No description provided for @votingTimeToVote.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'HORA DE VOTAR'**
+  String get votingTimeToVote;
+
+  /// No description provided for @votingTimeSeconds.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{seconds}s'**
+  String votingTimeSeconds(int seconds);
+
+  /// No description provided for @votingTimerExpiredLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O tempo acabou.'**
+  String get votingTimerExpiredLine1;
+
+  /// No description provided for @votingTimerExpiredLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Registre seu voto quando estiver pronto.'**
+  String get votingTimerExpiredLine2;
+
   /// No description provided for @confirmVotes.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Confirmar votos'**
+  /// **'CONFIRMAR VOTOS'**
   String get confirmVotes;
 
   /// No description provided for @roundResults.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Resultado da rodada'**
+  /// **'RESULTADO DA RODADA'**
   String get roundResults;
+
+  /// No description provided for @roundResultsHeadlineAccent.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'RESULTADO'**
+  String get roundResultsHeadlineAccent;
+
+  /// No description provided for @roundResultsHeadlineMain.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'DA RODADA'**
+  String get roundResultsHeadlineMain;
+
+  /// No description provided for @roundResultsOutPlayerLabel.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O JOGADOR FORA ERA'**
+  String get roundResultsOutPlayerLabel;
+
+  /// No description provided for @roundResultsMajorityFound.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O grupo encontrou o jogador fora por maioria.'**
+  String get roundResultsMajorityFound;
+
+  /// No description provided for @roundResultsMajorityEscaped.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O jogador fora escapou da votacao por maioria.'**
+  String get roundResultsMajorityEscaped;
+
+  /// No description provided for @roundResultsVoteTotals.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TOTAL DE VOTOS'**
+  String get roundResultsVoteTotals;
+
+  /// No description provided for @roundResultsRoundPoints.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PONTOS DA RODADA'**
+  String get roundResultsRoundPoints;
+
+  /// No description provided for @roundResultsVoteCount.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{count} votos'**
+  String roundResultsVoteCount(int count);
+
+  /// No description provided for @roundResultsPointsGain.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'+{points}'**
+  String roundResultsPointsGain(int points);
+
+  /// No description provided for @roundResultsContinue.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'CONTINUAR'**
+  String get roundResultsContinue;
+
+  /// No description provided for @roundResultsGoToRound.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'IR PARA RODADA {roundNumber}'**
+  String roundResultsGoToRound(int roundNumber);
+
+  /// No description provided for @roundResultsViewFinalScore.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'VER PLACAR FINAL'**
+  String get roundResultsViewFinalScore;
 
   /// No description provided for @guessWord.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Adivinhe a palavra'**
+  /// **'ADIVINHE A PALAVRA'**
   String get guessWord;
+
+  /// No description provided for @guessHeadlineAccent.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'ADIVINHE'**
+  String get guessHeadlineAccent;
+
+  /// No description provided for @guessHeadlineMain.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'A PALAVRA'**
+  String get guessHeadlineMain;
+
+  /// No description provided for @guessPlayerTurn.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Vez de {name}'**
+  String guessPlayerTurn(String name);
+
+  /// No description provided for @guessInstructionLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Diga a palavra secreta em voz alta.'**
+  String get guessInstructionLine1;
+
+  /// No description provided for @guessInstructionLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O grupo decide se voce'**
+  String get guessInstructionLine2;
+
+  /// No description provided for @guessInstructionLine3.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'acertou.'**
+  String get guessInstructionLine3;
+
+  /// No description provided for @guessCorrectButton.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'ACERTOU'**
+  String get guessCorrectButton;
+
+  /// No description provided for @guessWrongButton.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'ERROU'**
+  String get guessWrongButton;
 
   /// No description provided for @correct.
   ///
@@ -550,14 +748,44 @@ abstract class AppLocalizations {
   /// No description provided for @playAgain.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Nova partida'**
+  /// **'NOVA PARTIDA'**
   String get playAgain;
 
   /// No description provided for @backToHome.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Voltar ao inicio'**
+  /// **'VOLTAR AO INÍCIO'**
   String get backToHome;
+
+  /// No description provided for @resultsWinnerWins.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{name} venceu!'**
+  String resultsWinnerWins(String name);
+
+  /// No description provided for @resultsTheMastermind.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O MESTRE'**
+  String get resultsTheMastermind;
+
+  /// No description provided for @resultsSecretWordWas.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'A PALAVRA SECRETA ERA:'**
+  String get resultsSecretWordWas;
+
+  /// No description provided for @resultsOutPlayerWas.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{name} estava Fora do Loop!'**
+  String resultsOutPlayerWas(String name);
+
+  /// No description provided for @resultsLeaderboard.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PLACAR'**
+  String get resultsLeaderboard;
 
   /// No description provided for @settings.
   ///

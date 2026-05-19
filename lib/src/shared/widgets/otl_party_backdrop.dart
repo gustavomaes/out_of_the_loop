@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/app_tokens.dart';
+import '../../theme/theme.dart';
 
 /// Subtle dotted party background used on discovery and hero screens.
 class OtlPartyBackdrop extends StatelessWidget {

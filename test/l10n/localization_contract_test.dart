@@ -56,7 +56,8 @@ void main() {
     expect(localizations.secretRevealRound(1), 'RODADA 1');
     expect(localizations.secretRevealPassTo, 'PASSE PARA');
     expect(localizations.secretRevealTopSecret, 'TOP SECREDO');
-    expect(localizations.confirmVotes, 'Confirmar votos');
+    expect(localizations.confirmVotes, 'CONFIRMAR VOTOS');
+    expect(localizations.votingVote, 'VOTAR');
     expect(localizations.settings, 'Configuracoes');
     expect(localizations.howToPlayScreenTitle, 'COMO JOGAR');
     expect(localizations.howToPlaySecretBodyHighlight, 'Fora do Loop!');

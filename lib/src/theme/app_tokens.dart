@@ -1,37 +1,8 @@
 import 'package:flutter/material.dart';
 
-abstract final class AppColors {
-  static const backgroundPrimary = Color(0xFF070718);
-  static const backgroundSecondary = Color(0xFF12122E);
-  static const backgroundTertiary = Color(0xFF1D1D43);
+import 'app_colors.dart';
 
-  static const primaryMain = Color(0xFFC8FF2E);
-  static const primaryLight = Color(0xFFE2FF7A);
-  static const primaryDark = Color(0xFF8FC71F);
-
-  static const secondaryMain = Color(0xFFFF3DF2);
-  static const secondaryLight = Color(0xFFFF78F7);
-  static const secondaryDark = Color(0xFFC218B7);
-
-  static const textPrimary = Color(0xFFFFFFFF);
-  static const textSecondary = Color(0xFFC8CCE5);
-  static const textTertiary = Color(0xFF858AAF);
-  static const textDisabled = Color(0xFF4E5273);
-
-  static const success = Color(0xFF59E88B);
-  static const error = Color(0xFFFF4D6D);
-  static const warning = Color(0xFFFFC857);
-  static const info = Color(0xFF5AA9FF);
-
-  static const borderDefault = Color(0xFF30345F);
-  static const borderStrong = Color(0xFF626993);
-  static const borderFocus = Color(0xFFC8FF2E);
-
-  static const overlayDark = Color(0x99000000);
-  static const overlayGlow = Color(0x33C8FF2E);
-  static const overlayGlowStrong = Color(0x66C8FF2E);
-  static const overlayMagentaGlow = Color(0x33FF3DF2);
-}
+export 'app_colors.dart' show AppColors;
 
 abstract final class AppSpacing {
   static const zero = 0.0;

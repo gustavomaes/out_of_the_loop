@@ -8,7 +8,6 @@ import 'package:outoftheloop/src/features/game/question_round_screen.dart';
 import 'package:outoftheloop/src/features/game/round_results_screen.dart';
 import 'package:outoftheloop/src/features/game/secret_reveal_screen.dart';
 import 'package:outoftheloop/src/features/game/voting_screen.dart';
-import 'package:outoftheloop/src/shared/widgets/shared_widgets.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
 void main() {
@@ -192,26 +191,16 @@ void main() {
       ),
     );
 
-    expect(find.text('Ana, choose secretly.'), findsOneWidget);
-    await _tapVoteButtonFor(tester, 'Bia');
-    await tester.tap(find.text('CONFIRM VOTE'));
-    await tester.pump();
+    expect(find.text('WHO IS'), findsWidgets);
 
-    expect(find.text('Bia, choose secretly.'), findsOneWidget);
-    expect(find.text('SELECTED'), findsNothing);
+    for (var vote = 0; vote < 3; vote += 1) {
+      await _tapFirstEnabledVote(tester);
+    }
 
-    await _tapVoteButtonFor(tester, 'Ana');
-    await tester.tap(find.text('CONFIRM VOTE'));
-    await tester.pump();
+    expect(find.text('YOU'), findsOneWidget);
+    expect(find.text('CANNOT VOTE SELF'), findsOneWidget);
 
-    await _tapVoteButtonFor(tester, 'Ana');
-    await tester.tap(find.text('CONFIRM VOTE'));
-    await tester.pump();
-
-    expect(
-      find.text('All votes are in. Reveal the totals next.'),
-      findsOneWidget,
-    );
+    expect(find.text('CONFIRM VOTES'), findsOneWidget);
     await tester.tap(find.text('CONFIRM VOTES'));
     await tester.pump();
 
@@ -234,15 +223,10 @@ void main() {
       ),
     );
 
-    expect(
-      find.text('Time is up. No vote was recorded automatically.'),
-      findsOneWidget,
-    );
-    expect(find.text('CONFIRM VOTE'), findsOneWidget);
-    expect(
-      tester.widget<OtlButton>(find.byType(OtlButton).last).onPressed,
-      isNull,
-    );
+    expect(find.text('Time is up.'), findsOneWidget);
+    expect(find.text('Cast your vote when ready.'), findsOneWidget);
+    expect(find.text('CONFIRM VOTES'), findsNothing);
+    expect(find.text('VOTE'), findsWidgets);
 
     expect(votes, isNull);
   });
@@ -288,6 +272,8 @@ void main() {
       find.text('The group found the out player by majority.'),
       findsOneWidget,
     );
+    expect(find.text('THE SECRET WORD WAS:'), findsOneWidget);
+    expect(find.text('PIZZA'), findsOneWidget);
     expect(find.text('+125'), findsWidgets);
 
     await tester.pumpWidget(
@@ -297,10 +283,11 @@ void main() {
           round: discoveredRound,
           result: discovered,
           totalRoundCount: 3,
+          language: SupportedLanguage.en,
         ),
       ),
     );
-    expect(find.text('Ir para rodada 2'), findsOneWidget);
+    expect(find.text('GO TO ROUND 2'), findsOneWidget);
 
     final finalDiscoveredRound = RoundState(
       roundNumber: 3,
@@ -318,10 +305,11 @@ void main() {
           round: finalDiscoveredRound,
           result: discovered,
           totalRoundCount: 3,
+          language: SupportedLanguage.en,
         ),
       ),
     );
-    expect(find.text('Ver placar final'), findsOneWidget);
+    expect(find.text('VIEW FINAL SCORE'), findsOneWidget);
 
     RoundResult? guessedResult;
     await tester.pumpWidget(
@@ -334,7 +322,7 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('ACERTOU'));
+    await tester.tap(find.text('GOT IT RIGHT'));
     await tester.pump();
 
     expect(
@@ -353,6 +341,17 @@ void main() {
   ) async {
     var newMatch = false;
     var backHome = false;
+    final secretWord = SecretWord(
+      id: 'donut',
+      categoryId: 'food',
+      value: const LocalizedText({
+        SupportedLanguage.en: 'Doughnut',
+        SupportedLanguage.ptBr: 'Rosquinha',
+        SupportedLanguage.es: 'Dona',
+        SupportedLanguage.hi: 'डोनट',
+      }),
+      questions: const [],
+    );
 
     await tester.pumpWidget(
       _TestApp(
@@ -362,6 +361,14 @@ void main() {
             Player(id: 'p2', name: 'Bia', avatarSeed: 'bia', totalScore: 200),
             Player(id: 'p3', name: 'Caio', avatarSeed: 'caio', totalScore: 75),
           ],
+          secretWord: secretWord,
+          outPlayer: const Player(
+            id: 'p3',
+            name: 'Caio',
+            avatarSeed: 'caio',
+            totalScore: 75,
+          ),
+          language: SupportedLanguage.en,
           onNewMatch: () => newMatch = true,
           onBackHome: () => backHome = true,
         ),
@@ -369,12 +376,27 @@ void main() {
     );
 
     expect(find.text('Bia wins!'), findsOneWidget);
-    expect(find.text('NOVA PARTIDA'), findsOneWidget);
-    expect(find.text('VOLTAR AO INICIO'), findsOneWidget);
+    expect(find.text('THE MASTERMIND'), findsOneWidget);
+    expect(find.text('THE SECRET WORD WAS:'), findsOneWidget);
+    expect(find.text('DOUGHNUT'), findsOneWidget);
+    expect(find.text('Caio was Out of the Loop!'), findsOneWidget);
+    expect(find.text('LEADERBOARD'), findsOneWidget);
+    expect(find.text('PLAY AGAIN'), findsOneWidget);
+    expect(find.text('BACK TO HOME'), findsOneWidget);
 
-    await tester.tap(find.text('NOVA PARTIDA'));
+    await tester.scrollUntilVisible(
+      find.text('PLAY AGAIN'),
+      120,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('PLAY AGAIN'));
     await tester.pump();
-    await tester.tap(find.text('VOLTAR AO INICIO'));
+    await tester.scrollUntilVisible(
+      find.text('BACK TO HOME'),
+      120,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('BACK TO HOME'));
     await tester.pump();
 
     expect(newMatch, isTrue);
@@ -403,14 +425,21 @@ List<QuestionTurn> _questionTurns({
   );
 }
 
-Future<void> _tapVoteButtonFor(WidgetTester tester, String playerName) async {
-  final card = find.ancestor(
-    of: find.text(playerName),
-    matching: find.byType(AnimatedContainer),
-  );
-  final voteButton = find.descendant(of: card, matching: find.text('VOTE'));
-  await tester.tap(voteButton);
-  await tester.pump();
+Future<void> _tapFirstEnabledVote(WidgetTester tester) async {
+  final voteLabels = find.text('VOTE');
+  for (var index = 0; index < voteLabels.evaluate().length; index += 1) {
+    final candidate = voteLabels.at(index);
+    final inkWell = find.ancestor(of: candidate, matching: find.byType(InkWell));
+    final widget = tester.widget<InkWell>(inkWell);
+    if (widget.onTap != null) {
+      await tester.ensureVisible(candidate);
+      await tester.tap(candidate);
+      await tester.pump();
+      return;
+    }
+  }
+
+  fail('No enabled vote button found');
 }
 
 class _TestApp extends StatelessWidget {

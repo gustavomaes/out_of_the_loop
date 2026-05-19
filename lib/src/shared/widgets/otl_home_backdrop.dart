@@ -2,7 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import '../../theme/brutalist_theme.dart';
+import '../icons/icons.dart';
+import '../../theme/theme.dart';
 
 /// Figma home screen background with faint decorative icons.
 class OtlHomeBackdrop extends StatelessWidget {
@@ -22,7 +23,7 @@ class OtlHomeBackdrop extends StatelessWidget {
               center: Alignment.center,
               radius: 1.2,
               colors: [
-                Color(0xFF333348),
+                BrutalistColors.headerBorder,
                 BrutalistColors.screenBackground,
               ],
               stops: [0.04, 0.04],
@@ -39,7 +40,7 @@ class OtlHomeBackdrop extends StatelessWidget {
 class _DecorativeIcons extends StatelessWidget {
   const _DecorativeIcons();
 
-  static const _iconColor = Color(0xFF333348);
+  static const _iconColor = BrutalistColors.headerBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -58,35 +59,35 @@ class _DecorativeIcons extends StatelessWidget {
                   top: height * 0.08,
                   size: 75,
                   rotation: 0.21,
-                  icon: Icons.search,
+                  icon: OtlIcons.search,
                 ),
                 _placedIcon(
                   left: width * 0.35,
                   top: height * 0.06,
                   size: 67,
                   rotation: -0.21,
-                  icon: Icons.help_outline,
+                  icon: OtlIcons.helpOutline,
                 ),
                 _placedIcon(
                   left: width * 0.58,
                   top: height * 0.05,
                   size: 90,
                   rotation: 0.79,
-                  icon: Icons.search,
+                  icon: OtlIcons.search,
                 ),
                 _placedIcon(
                   left: width * 0.05,
                   top: height * 0.72,
                   size: 75,
                   rotation: -0.79,
-                  icon: Icons.help_outline,
+                  icon: OtlIcons.helpOutline,
                 ),
                 _placedIcon(
                   left: width * 0.48,
                   top: height * 0.7,
                   size: 112,
                   rotation: 0.21,
-                  icon: Icons.search,
+                  icon: OtlIcons.search,
                 ),
               ],
             );
