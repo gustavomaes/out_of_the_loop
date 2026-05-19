@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/out-of-the-loop-mvp/spec.md`
 **Design**: `.specs/features/out-of-the-loop-mvp/design.md` (planned as T01)
-**Status**: Phase 2 complete
+**Status**: Phase 3 complete
 
 ---
 
@@ -573,10 +573,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Screen shows `OUT OF THE LOOP`, `START GAME`, and `HOW TO PLAY`.
-- [ ] Bottom navigation state matches discovery screen behavior.
-- [ ] Widget test verifies primary actions are present.
-- [ ] Gate check passes: `flutter test test/features/home`.
+- [x] Screen shows `OUT OF THE LOOP`, `START GAME`, and `HOW TO PLAY`.
+- [x] Bottom navigation state matches discovery screen behavior.
+- [x] Widget test verifies primary actions are present.
+- [x] Gate check passes: `flutter test test/features/home`.
 
 **Tests**: widget
 **Gate**: quick
@@ -599,11 +599,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Four-section rule layout is implemented.
-- [ ] Majority is explained as more than half.
-- [ ] Back/understood action returns to the previous/home screen.
-- [ ] Widget test verifies rule sections and navigation action.
-- [ ] Gate check passes: `flutter test test/features/how_to_play`.
+- [x] Four-section rule layout is implemented.
+- [x] Majority is explained as more than half.
+- [x] Back/understood action returns to the previous/home screen.
+- [x] Widget test verifies rule sections and navigation action.
+- [x] Gate check passes: `flutter test test/features/how_to_play`.
 
 **Tests**: widget
 **Gate**: quick
@@ -626,15 +626,15 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Categories render from local repository.
-- [ ] Selected category state is visually distinct.
-- [ ] Continue/play action is disabled until a category is selected.
-- [ ] Widget test verifies category render and selection.
-- [ ] Gate check passes: `flutter test test/features/setup/category_selection_screen_test.dart`.
+- [x] Categories render from local repository.
+- [x] Selected category state is visually distinct.
+- [x] Continue/play action is disabled until a category is selected.
+- [x] Widget test verifies category render and selection.
+- [x] Gate check passes: `flutter test test/features/setup`.
 
 **Tests**: widget
 **Gate**: quick
-**Verify**: `flutter test test/features/setup/category_selection_screen_test.dart` passes.
+**Verify**: `flutter test test/features/setup` passes.
 
 ---
 
@@ -653,15 +653,15 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Names can be added and displayed.
-- [ ] Start is disabled below 3 players and above invalid state.
-- [ ] Empty, duplicate, and tenth player attempts show validation feedback.
-- [ ] Widget test covers 2-to-3 player enablement.
-- [ ] Gate check passes: `flutter test test/features/setup/player_setup_screen_test.dart`.
+- [x] Names can be added and displayed.
+- [x] Start is disabled below 3 players and above invalid state.
+- [x] Empty, duplicate, and tenth player attempts show validation feedback.
+- [x] Widget test covers 2-to-3 player enablement.
+- [x] Gate check passes: `flutter test test/features/setup`.
 
 **Tests**: widget
 **Gate**: quick
-**Verify**: `flutter test test/features/setup/player_setup_screen_test.dart` passes.
+**Verify**: `flutter test test/features/setup` passes.
 
 ---
 
@@ -680,16 +680,16 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Screen first shows player name and reveal action.
-- [ ] Inside player sees the word only after reveal.
-- [ ] Out player sees only the out-of-loop message.
-- [ ] Next player flow hides previous result.
-- [ ] Widget test verifies secret is hidden before reveal and hidden again after advancing.
-- [ ] Gate check passes: `flutter test test/features/game/secret_reveal_screen_test.dart`.
+- [x] Screen first shows player name and reveal action.
+- [x] Inside player sees the word only after reveal.
+- [x] Out player sees only the out-of-loop message.
+- [x] Next player flow hides previous result.
+- [x] Widget test verifies secret is hidden before reveal and hidden again after advancing.
+- [x] Gate check passes: `flutter test test/features/game`.
 
 **Tests**: widget
 **Gate**: quick
-**Verify**: `flutter test test/features/game/secret_reveal_screen_test.dart` passes.
+**Verify**: `flutter test test/features/game` passes.
 
 ---
 
@@ -708,16 +708,16 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] One question is shown at a time.
-- [ ] Assigned player name is visible.
-- [ ] Number of questions equals player count.
-- [ ] Done action advances through questions and then proceeds to voting.
-- [ ] Widget test covers multi-question progression.
-- [ ] Gate check passes: `flutter test test/features/game/question_round_screen_test.dart`.
+- [x] One question is shown at a time.
+- [x] Assigned player name is visible.
+- [x] Number of questions equals player count.
+- [x] Done action advances through questions and then proceeds to voting.
+- [x] Widget test covers multi-question progression.
+- [x] Gate check passes: `flutter test test/features/game`.
 
 **Tests**: widget
 **Gate**: quick
-**Verify**: `flutter test test/features/game/question_round_screen_test.dart` passes.
+**Verify**: `flutter test test/features/game` passes.
 
 ---
 
@@ -736,15 +736,15 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Each voter gets one turn.
-- [ ] Vote choices are hidden before next voter.
-- [ ] Confirmation is enabled only when the active voter selected a candidate or all votes are collected as designed.
-- [ ] Widget test verifies each player can vote once and prior choices are hidden.
-- [ ] Gate check passes: `flutter test test/features/game/voting_screen_test.dart`.
+- [x] Each voter gets one turn.
+- [x] Vote choices are hidden before next voter.
+- [x] Confirmation is enabled only when the active voter selected a candidate or all votes are collected as designed.
+- [x] Widget test verifies each player can vote once and prior choices are hidden.
+- [x] Gate check passes: `flutter test test/features/game`.
 
 **Tests**: widget
 **Gate**: quick
-**Verify**: `flutter test test/features/game/voting_screen_test.dart` passes.
+**Verify**: `flutter test test/features/game` passes.
 
 ---
 
@@ -763,16 +763,16 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Results reveal the out player and vote totals.
-- [ ] Round points are shown per player.
-- [ ] Guess screen appears only when out player was not found by majority.
-- [ ] `Acertou` grants +125 and `Errou` does not.
-- [ ] Widget tests cover discovered and not-discovered branches.
-- [ ] Gate check passes: `flutter test test/features/game/round_results_screen_test.dart`.
+- [x] Results reveal the out player and vote totals.
+- [x] Round points are shown per player.
+- [x] Guess screen appears only when out player was not found by majority.
+- [x] `Acertou` grants +125 and `Errou` does not.
+- [x] Widget tests cover discovered and not-discovered branches.
+- [x] Gate check passes: `flutter test test/features/game`.
 
 **Tests**: widget
 **Gate**: quick
-**Verify**: `flutter test test/features/game/round_results_screen_test.dart` passes.
+**Verify**: `flutter test test/features/game` passes.
 
 ---
 
@@ -791,15 +791,15 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Players are sorted by total score.
-- [ ] Winner is visually highlighted.
-- [ ] `Nova partida` and `Voltar ao inicio` actions exist.
-- [ ] Widget test verifies ranking order and actions.
-- [ ] Gate check passes: `flutter test test/features/game/final_leaderboard_screen_test.dart`.
+- [x] Players are sorted by total score.
+- [x] Winner is visually highlighted.
+- [x] `Nova partida` and `Voltar ao inicio` actions exist.
+- [x] Widget test verifies ranking order and actions.
+- [x] Gate check passes: `flutter test test/features/game`.
 
 **Tests**: widget
 **Gate**: quick
-**Verify**: `flutter test test/features/game/final_leaderboard_screen_test.dart` passes.
+**Verify**: `flutter test test/features/game` passes.
 
 ---
 
@@ -818,11 +818,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Supported languages are selectable.
-- [ ] Timer configuration UI is present.
-- [ ] Profile/login/Pro purchase are not implemented in MVP.
-- [ ] Widget test verifies language options and timer control render.
-- [ ] Gate check passes: `flutter test test/features/settings`.
+- [x] Supported languages are selectable.
+- [x] Timer configuration UI is present.
+- [x] Profile/login/Pro purchase are not implemented in MVP.
+- [x] Widget test verifies language options and timer control render.
+- [x] Gate check passes: `flutter test test/features/settings`.
 
 **Tests**: widget
 **Gate**: quick
@@ -1229,6 +1229,15 @@ Phase 5:
 | T34 | preferences data/settings widget | unit + widget | unit + widget | OK |
 | T35 | timer UI integration | widget | widget | OK |
 | T36 | repository-wide gate | full suite | full suite | OK |
+
+---
+
+## Phase 3 Execution Notes
+
+- T18-T27 implemented isolated Flutter screens under `lib/src/features/**`.
+- Screen widgets expose data/callback constructor contracts so T28 can wire navigation and in-memory game state without rewriting the UI.
+- Flutter widget-test skill was used for screen validation.
+- Gate run: `flutter test test/features` passed with 11 tests.
 
 ---
 
