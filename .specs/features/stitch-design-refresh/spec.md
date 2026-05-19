@@ -192,23 +192,23 @@ Esta especificacao define uma reformulacao visual usando como referencia o proje
 
 | Requirement ID | Story | Priority | Status |
 | --- | --- | --- | --- |
-| SDR-01 | Home mais focada e centralizada | P1 | Planned |
+| SDR-01 | Home mais focada e centralizada | P1 | Complete |
 | SDR-02 | Tokens visuais inspirados no Stitch | P1 | Complete |
 | SDR-03 | Primitivos compartilhados com estados mais expressivos | P1 | Complete |
-| SDR-04 | Telas de setup alinhadas a composicao Stitch | P1 | Planned |
-| SDR-05 | Telas de jogo focadas, secretas e cinematicas | P1 | Planned |
+| SDR-04 | Telas de setup alinhadas a composicao Stitch | P1 | Complete |
+| SDR-05 | Telas de jogo focadas, secretas e cinematicas | P1 | Complete |
 | SDR-06 | Navegacao e shell coerentes com a referencia | P2 | Complete |
-| SDR-07 | How-to e Settings atualizados sem ampliar escopo funcional | P2 | Planned |
-| SDR-08 | Auditoria visual manual contra Stitch | P2 | Planned |
+| SDR-07 | How-to e Settings atualizados sem ampliar escopo funcional | P2 | Complete |
+| SDR-08 | Auditoria visual manual contra Stitch | P2 | Complete |
 
 ## Success Criteria
 
-- [ ] Home centralizada e mais proxima da direcao Stitch.
+- [x] Home centralizada e mais proxima da direcao Stitch.
 - [x] Tema, botoes, cards, inputs, avatares e timers usam tokens atualizados.
-- [ ] Telas de setup e jogo preservam regras, validacoes e sigilo.
-- [ ] How-to/settings mantem apenas funcionalidades existentes.
-- [ ] Testes de tema, shared widgets, features e app flow passam.
-- [ ] Auditoria visual documenta diferencas aceitas entre Stitch, app e `.agents/DESIGN.md`.
+- [x] Telas de setup e jogo preservam regras, validacoes e sigilo.
+- [x] How-to/settings mantem apenas funcionalidades existentes.
+- [x] Testes de tema, shared widgets, features e app flow passam.
+- [x] Auditoria visual documenta diferencas aceitas entre Stitch, app e `.agents/DESIGN.md`.
 
 ## Phase 0 Decisions
 

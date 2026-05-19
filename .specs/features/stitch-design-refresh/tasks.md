@@ -1,7 +1,7 @@
 # Stitch Design Refresh Tasks
 
 **Spec**: `.specs/features/stitch-design-refresh/spec.md`
-**Status**: Phase 2 complete
+**Status**: Phase 3 complete
 
 ---
 
@@ -357,13 +357,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Routes compile and no screen has unresolved import/style conflicts.
-- [ ] Discovery/game navigation split still works.
-- [ ] Vertical slice still completes a local game flow.
+- [x] Routes compile and no screen has unresolved import/style conflicts.
+- [x] Discovery/game navigation split still works.
+- [x] Vertical slice still completes a local game flow.
 
 **Tests**: `flutter analyze && flutter test test/app`
 **Gate**: app flow gate
 **Verify**: Analyze and app tests pass.
+**Status**: Complete
 
 ---
 
@@ -377,12 +378,13 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Home, setup, game, how-to and settings feature tests pass.
-- [ ] Test updates reflect intended visual/copy changes only.
+- [x] Home, setup, game, how-to and settings feature tests pass.
+- [x] Test updates reflect intended visual/copy changes only.
 
 **Tests**: `flutter test test/features`
 **Gate**: quick widget gate
 **Verify**: Feature tests pass.
+**Status**: Complete
 
 ---
 
@@ -396,12 +398,13 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Static analysis passes.
-- [ ] Full Flutter test suite passes.
+- [x] Static analysis passes.
+- [x] Full Flutter test suite passes.
 
 **Tests**: `flutter analyze && flutter test`
 **Gate**: full gate
 **Verify**: Full gate passes.
+**Status**: Complete
 
 ---
 
@@ -415,13 +418,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Each target screen has pass/partial/fail notes.
-- [ ] Divergences are categorized as accepted, blocker, or follow-up.
-- [ ] No functional out-of-scope item from Stitch was accidentally introduced.
+- [x] Each target screen has pass/partial/fail notes.
+- [x] Divergences are categorized as accepted, blocker, or follow-up.
+- [x] No functional out-of-scope item from Stitch was accidentally introduced.
 
 **Tests**: `flutter analyze`
 **Gate**: analyze plus docs review
 **Verify**: Audit document is complete and analyze passes.
+**Status**: Complete
 
 ---
 
@@ -435,10 +439,11 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Summary maps completed work back to SDR requirements.
-- [ ] Test commands/results are recorded.
-- [ ] Any remaining open questions are listed with recommended next decisions.
+- [x] Summary maps completed work back to SDR requirements.
+- [x] Test commands/results are recorded.
+- [x] Any remaining open questions are listed with recommended next decisions.
 
 **Tests**: none
 **Gate**: handoff review
 **Verify**: Requirements, tests and residual risks are all accounted for.
+**Status**: Complete

@@ -56,13 +56,13 @@ void main() {
     );
 
     expect(find.text('Ana answers'), findsOneWidget);
-    expect(find.text('Question 1'), findsOneWidget);
+    expect(find.text('QUESTION 1 OF 3'), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
 
     expect(find.text('Bia answers'), findsOneWidget);
-    expect(find.text('Question 2'), findsOneWidget);
+    expect(find.text('QUESTION 2 OF 3'), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();

@@ -41,7 +41,10 @@ void main() {
     }
 
     for (var index = 0; index < 3; index += 1) {
-      expect(find.text('Question ${index + 1} of 3'), findsOneWidget);
+      expect(
+        find.text('QUESTION ${index + 1} OF 3'),
+        findsOneWidget,
+      );
       await tester.tap(
         find.text(index == 2 ? 'GO TO VOTING' : 'DONE ANSWERING'),
       );

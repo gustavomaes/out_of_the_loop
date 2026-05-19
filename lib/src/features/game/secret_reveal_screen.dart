@@ -124,13 +124,6 @@ class _HiddenRole extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.md),
         Text(
-          'TOP SECRET',
-          style: AppTypography.emphasis.copyWith(
-            color: AppColors.secondaryMain,
-          ),
-        ),
-        const SizedBox(height: AppSpacing.sm),
-        Text(
           'Make sure nobody else is looking.',
           style: AppTypography.bodyLarge,
           textAlign: TextAlign.center,

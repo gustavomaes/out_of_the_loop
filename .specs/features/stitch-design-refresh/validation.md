@@ -1,7 +1,7 @@
 # Stitch Design Refresh Validation
 
 **Spec**: `.specs/features/stitch-design-refresh/spec.md`
-**Status**: Phase 2 screen refresh complete
+**Status**: Phase 3 integration and validation complete
 **Last updated**: 2026-05-18
 
 ---
@@ -106,9 +106,87 @@ Gate results:
 
 ---
 
-## Residual Risks For Later Phases
+## Phase 3 Integration Review
 
-- Stitch details are screenshot/browser-derived, not structured API data.
-- Font rendering may differ from the token name until bundled font assets are added.
-- Lime as dominant primary may require contrast checks in disabled, selected, and navigation states.
-- Existing widget tests may depend on current copy or hierarchy; update only where visual intent changes, not to loosen gameplay rules.
+- T14 integration: removed duplicate `TOP SECRET` label inside the hidden-role card (header already carries the emphasis). App flow and vertical slice tests updated for uppercase question progress copy and `SingleChildScrollView` on results.
+- T15 feature sweep: pass, 13 tests.
+- T16 full regression: pass, 69 tests.
+- T17 visual audit: recorded below.
+- T18 handoff: recorded below.
+
+Gate results:
+
+- `flutter analyze`: pass.
+- `flutter test test/app`: pass, 7 tests.
+- `flutter test test/features`: pass, 13 tests.
+- `flutter test`: pass, 69 tests.
+
+Functional scope check:
+
+- No login, profile, Pro, online, audio, light theme, or setup role selection introduced.
+- Gameplay secrecy, self-vote disablement, player limits, and offline local content unchanged.
+
+---
+
+## Post-Implementation Visual Audit (SDR-08)
+
+| Screen | Result | Notes |
+| --- | --- | --- |
+| Home | Pass | Centered `OUT OF THE LOOP`, lime primary CTA, party dot backdrop, bottom nav present but visually subdued vs hero. |
+| Categories | Pass | High-contrast grid, strong lime selected state, local content and disabled PLAY preserved. |
+| Players | Pass | Numbered rows, visible start CTA, accessible error feedback, 3–9 validation intact. |
+| Reveal | Partial | Magenta lock card, pass-the-phone copy, single header `TOP SECRET`; no animated glitch from `.agents/DESIGN.md`. |
+| Question | Pass | Uppercase progress label, active player avatar, timer hierarchy when enabled. |
+| Vote | Pass | Secret context card, refreshed candidate selection; rules unchanged. |
+| Results | Pass | Distinct sections for out player, majority, votes, points; scrollable layout. |
+| Leaderboard | Pass | Winner spotlight; mixed EN/PT CTA copy pre-exists (follow-up). |
+| How-to | Pass | Accented rule cards, done action preserved. |
+| Settings | Pass | Language + timer only; explicit out-of-scope note retained. |
+
+### Divergence Register
+
+| Topic | Stitch / DESIGN.md | App decision | Category |
+| --- | --- | --- | --- |
+| Primary accent | DESIGN.md pink `#FF4D6D` | Lime dominant per Phase 0 | Accepted |
+| Secret emphasis | DESIGN.md glitch on TOP SECRET | Static lock + magenta glow | Accepted (follow-up: optional glitch animation) |
+| Typography | Poppins in tokens | No bundled font assets in `pubspec.yaml` | Follow-up |
+| Party backdrop | Dotted dark canvas broadly | `OtlPartyBackdrop` on Home only | Accepted |
+| Bottom nav destinations | Stitch shows extra tabs | MVP four-tab shell only | Accepted |
+| `.agents/DESIGN.md` | Still documents pre-refresh palette | Code uses `app_tokens.dart`; doc update deferred | Follow-up |
+
+### Blockers
+
+None for MVP visual refresh acceptance.
+
+---
+
+## Phase 3 Handoff (T18)
+
+### Requirement coverage
+
+| ID | Status |
+| --- | --- |
+| SDR-01 | Complete — centered home hero |
+| SDR-02 | Complete — lime/magenta tokens |
+| SDR-03 | Complete — shared primitives |
+| SDR-04 | Complete — setup screens |
+| SDR-05 | Complete — game flow screens |
+| SDR-06 | Complete — discovery vs game shell |
+| SDR-07 | Complete — how-to/settings |
+| SDR-08 | Complete — audit documented here |
+
+### Recommended follow-ups
+
+1. Bundle Poppins (or Inter) font assets if pixel parity with Stitch matters.
+2. Optionally extend `OtlPartyBackdrop` to other discovery screens.
+3. Update `.agents/DESIGN.md` to match implemented lime/magenta tokens.
+4. Normalize leaderboard CTA language with localization pass.
+5. Add subtle TOP SECRET glitch animation if design wants full DESIGN.md parity.
+
+---
+
+## Residual Risks
+
+- Stitch details remain screenshot/browser-derived, not structured API data.
+- Font rendering may differ from token names until bundled font assets are added.
+- Lime-dominant UI should be spot-checked on low-end devices for contrast in disabled/selected states.

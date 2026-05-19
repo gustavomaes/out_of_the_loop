@@ -108,7 +108,7 @@ void main() {
     await tester.tap(find.text('CONFIRM VOTES'));
     await tester.pumpAndSettle();
 
-    await tester.drag(find.byType(ListView), const Offset(0, -600));
+    await tester.drag(find.byType(Scrollable).first, const Offset(0, -600));
     await tester.pumpAndSettle();
 
     if (find.text('GUESS WORD').evaluate().isNotEmpty) {
