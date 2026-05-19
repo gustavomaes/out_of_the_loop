@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../category_icon.dart';
 import '../../../shared/widgets/player_avatar.dart';
-import '../../../theme/brutalist_theme.dart';
-import '../../../theme/display_typography.dart';
+import '../../../theme/theme.dart';
 
 class OtlPlayerTile extends StatelessWidget {
   const OtlPlayerTile({

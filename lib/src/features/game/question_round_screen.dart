@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../domain/models/models.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/shared_widgets.dart';
-import '../../theme/brutalist_theme.dart';
+import '../../theme/theme.dart';
 import 'widgets/player_turn_chip.dart';
 import 'widgets/question_card.dart';
 import 'widgets/question_round_cta.dart';

@@ -9,6 +9,8 @@ import 'package:outoftheloop/src/shared/widgets/otl_discovery_bottom_bar.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'app_test_helpers.dart';
+
 void main() {
   test('declares all MVP route names', () {
     expect(AppRoutes.all, const [
@@ -76,7 +78,7 @@ void main() {
   testWidgets('completes one 3-player round from the app shell', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({'settings.language': 'en'});
+    setEnglishAppPreferences();
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
@@ -115,27 +117,47 @@ void main() {
     }
 
     for (var index = 0; index < 3; index += 1) {
-      await tester.tap(find.text('VOTE').first);
+      await tapFirstEnabledVote(tester);
       await tester.pumpAndSettle();
     }
     await tester.tap(find.text('CONFIRM VOTES'));
     await tester.pumpAndSettle();
 
-    await tester.drag(find.byType(Scrollable).first, const Offset(0, -600));
-    await tester.pumpAndSettle();
-
-    if (find.text('GUESS WORD').evaluate().isNotEmpty) {
-      await tester.tap(find.text('GUESS WORD'));
+    final resultsScrollable = find.byType(Scrollable).first;
+    final guessCta = find.text('GUESS THE WORD');
+    if (guessCta.evaluate().isNotEmpty) {
+      await tester.scrollUntilVisible(
+        guessCta,
+        200,
+        scrollable: resultsScrollable,
+      );
+      await tester.tap(guessCta);
       await tester.pumpAndSettle();
-      await tester.tap(find.text('ERROU'));
+      await tester.tap(find.text('MISSED IT'));
       await tester.pumpAndSettle();
     } else {
-      await tester.tap(find.text('CONTINUE'));
+      final continueCta = find.text('CONTINUE');
+      if (continueCta.evaluate().isNotEmpty) {
+        await tester.scrollUntilVisible(
+          continueCta,
+          200,
+          scrollable: resultsScrollable,
+        );
+        await tester.tap(continueCta);
+      } else {
+        await tester.scrollUntilVisible(
+          find.textContaining('GO TO ROUND'),
+          200,
+          scrollable: resultsScrollable,
+        );
+        await tester.tap(find.textContaining('GO TO ROUND'));
+      }
       await tester.pumpAndSettle();
     }
 
     expect(find.text('TOP SECRET'), findsOneWidget);
-    expect(find.text('Caio\'s turn'), findsOneWidget);
+    expect(find.text('REVEAL MY ROLE'), findsOneWidget);
+    expect(find.text('PASS TO'), findsWidgets);
   });
 
   testWidgets('restores saved language and timer preferences on startup', (

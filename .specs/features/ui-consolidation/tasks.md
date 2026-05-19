@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/ui-consolidation/spec.md`  
 **Design**: `.specs/features/ui-consolidation/design.md`  
-**Status**: Phase 3 complete
+**Status**: Complete (Phase 4 — 2026-05-19)
 
 ---
 
@@ -446,12 +446,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] `rg 'Color\(0x' lib/src/features lib/src/shared` → 0.
-- [ ] Imports consistentes.
+- [x] `rg 'Color\(0x' lib/src/features lib/src/shared` → 0.
+- [x] Imports consistentes.
 
 **Tests**: `flutter analyze`  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -464,11 +464,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Todos os testes de features/app passam.
+- [x] Todos os testes de features/app passam.
 
 **Tests**: `flutter test test/shared test/features test/app`  
 **Gate**: app flow gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -481,12 +481,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Checklist preenchido.
-- [ ] Métricas da spec atendidas.
+- [x] Checklist preenchido.
+- [x] Métricas da spec atendidas.
 
 **Tests**: none (manual + rg)  
 **Gate**: docs + rg  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -499,12 +499,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] `flutter analyze && flutter test` verde.
-- [ ] Feature marcada complete em tasks.md.
+- [x] `flutter analyze && flutter test` verde.
+- [x] Feature marcada complete em tasks.md.
 
 **Tests**: full gate  
 **Gate**: `flutter analyze && flutter test`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 

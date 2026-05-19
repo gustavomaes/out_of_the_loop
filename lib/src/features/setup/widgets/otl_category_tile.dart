@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../domain/models/models.dart';
-import '../../../theme/display_typography.dart';
+import '../../../theme/theme.dart';
 import '../category_icon.dart';
 
 class OtlCategoryTile extends StatelessWidget {

@@ -11,6 +11,8 @@ import 'package:outoftheloop/src/features/game/secret_reveal_screen.dart';
 import 'package:outoftheloop/src/features/game/voting_screen.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
+import '../../app/app_test_helpers.dart';
+
 void main() {
   testWidgets('secret reveal hides and clears player role between turns', (
     tester,
@@ -195,7 +197,7 @@ void main() {
     expect(find.text('WHO IS'), findsWidgets);
 
     for (var vote = 0; vote < 3; vote += 1) {
-      await _tapFirstEnabledVote(tester);
+      await tapFirstEnabledVote(tester);
     }
 
     expect(find.text('YOU'), findsOneWidget);
@@ -424,23 +426,6 @@ List<QuestionTurn> _questionTurns({
       playerId: playerOrder[index],
     ),
   );
-}
-
-Future<void> _tapFirstEnabledVote(WidgetTester tester) async {
-  final voteLabels = find.text('VOTE');
-  for (var index = 0; index < voteLabels.evaluate().length; index += 1) {
-    final candidate = voteLabels.at(index);
-    final inkWell = find.ancestor(of: candidate, matching: find.byType(InkWell));
-    final widget = tester.widget<InkWell>(inkWell);
-    if (widget.onTap != null) {
-      await tester.ensureVisible(candidate);
-      await tester.tap(candidate);
-      await tester.pump();
-      return;
-    }
-  }
-
-  fail('No enabled vote button found');
 }
 
 class _TestApp extends StatelessWidget {

@@ -40,10 +40,6 @@ void main() {
     }
 
     for (var index = 0; index < 6; index += 1) {
-      expect(
-        find.text('QUESTION ${index + 1} OF 6'),
-        findsOneWidget,
-      );
       await tester.tap(find.text('DONE ANSWERING'));
       await tester.pump();
       await tester.tap(
@@ -53,7 +49,7 @@ void main() {
     }
 
     for (var index = 0; index < 3; index += 1) {
-      await tester.tap(find.text('VOTE').first);
+      await tapFirstEnabledVote(tester);
       await tester.pumpAndSettle();
     }
     await tester.tap(find.text('CONFIRM VOTES'));

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 /// Figma-aligned display typography (Rubik, Plus Jakarta Sans, Space Grotesk).
+///
+/// Uses bundled variable fonts from [pubspec.yaml] so typography works offline
+/// and in widget tests without runtime font fetching.
 ///
 /// Preset index (add new styles here when duplicated 2+ times):
 /// - **Shell / nav**: [bottomNavLabel], [rubikDiscoveryAppBarTitle]
@@ -10,6 +12,63 @@ import 'package:google_fonts/google_fonts.dart';
 /// - **Game flow**: [rubikSecretRevealHeading], [rubikVotingHeadlineMain], …
 /// - **Results**: [rubikResultsWinnerTitle], [spaceGroteskResultsSectionLabel], …
 abstract final class DisplayTypography {
+  static const _rubikFamily = 'Rubik';
+  static const _plusJakartaFamily = 'PlusJakartaSans';
+  static const _spaceGroteskFamily = 'SpaceGrotesk';
+
+  static TextStyle _rubik({
+    required Color color,
+    required double fontSize,
+    required FontWeight fontWeight,
+    double? height,
+    double letterSpacing = 0,
+  }) {
+    return TextStyle(
+      fontFamily: _rubikFamily,
+      fontSize: fontSize,
+      height: height,
+      fontWeight: fontWeight,
+      letterSpacing: letterSpacing,
+      color: color,
+    );
+  }
+
+  static TextStyle _plusJakarta({
+    required Color color,
+    required double fontSize,
+    required FontWeight fontWeight,
+    double? height,
+    FontStyle fontStyle = FontStyle.normal,
+    TextDecoration decoration = TextDecoration.none,
+  }) {
+    return TextStyle(
+      fontFamily: _plusJakartaFamily,
+      fontSize: fontSize,
+      height: height,
+      fontWeight: fontWeight,
+      fontStyle: fontStyle,
+      decoration: decoration,
+      color: color,
+    );
+  }
+
+  static TextStyle _spaceGrotesk({
+    required Color color,
+    required double fontSize,
+    required FontWeight fontWeight,
+    double? height,
+    double letterSpacing = 0,
+  }) {
+    return TextStyle(
+      fontFamily: _spaceGroteskFamily,
+      fontSize: fontSize,
+      height: height,
+      fontWeight: fontWeight,
+      letterSpacing: letterSpacing,
+      color: color,
+    );
+  }
+
   static TextStyle rubikTitle({
     required Color color,
     double fontSize = 28,
@@ -17,12 +76,12 @@ abstract final class DisplayTypography {
     double letterSpacing = -0.7,
     FontWeight fontWeight = FontWeight.w800,
   }) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: fontSize,
       height: height ?? (fontSize >= 40 ? 52 / fontSize : 32 / fontSize),
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
-      color: color,
     );
   }
 
@@ -33,13 +92,13 @@ abstract final class DisplayTypography {
     FontStyle fontStyle = FontStyle.normal,
     TextDecoration decoration = TextDecoration.none,
   }) {
-    return GoogleFonts.plusJakartaSans(
+    return _plusJakarta(
+      color: color,
       fontSize: fontSize,
       height: 22.5 / 18,
       fontWeight: fontWeight,
       fontStyle: fontStyle,
       decoration: decoration,
-      color: color,
     );
   }
 
@@ -49,12 +108,12 @@ abstract final class DisplayTypography {
     FontWeight fontWeight = FontWeight.w700,
     double letterSpacing = 1.4,
   }) {
-    return GoogleFonts.spaceGrotesk(
+    return _spaceGrotesk(
+      color: color,
       fontSize: fontSize,
       height: 20 / fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
-      color: color,
     );
   }
 
@@ -88,11 +147,11 @@ abstract final class DisplayTypography {
     double fontSize = 20,
     FontWeight fontWeight = FontWeight.w700,
   }) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: fontSize,
       height: 24 / fontSize,
       fontWeight: fontWeight,
-      color: color,
     );
   }
 
@@ -102,12 +161,12 @@ abstract final class DisplayTypography {
     double fontSize = 48,
     FontWeight fontWeight = FontWeight.w900,
   }) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: fontSize,
       height: 52 / fontSize,
       fontWeight: fontWeight,
       letterSpacing: -2.4,
-      color: color,
     );
   }
 
@@ -117,21 +176,21 @@ abstract final class DisplayTypography {
     double fontSize = 20,
     FontWeight fontWeight = FontWeight.w700,
   }) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: fontSize,
       height: 24 / fontSize,
       fontWeight: fontWeight,
-      color: color,
     );
   }
 
   /// Figma category screen title (Rubik Bold 16 / 24).
   static TextStyle rubikCategoryTitle({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 16,
       height: 24 / 16,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
@@ -140,42 +199,41 @@ abstract final class DisplayTypography {
     required Color color,
     double height = 20 / 16,
   }) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 16,
       height: height,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
   /// Figma player setup title (Rubik Bold 40 / 50).
   static TextStyle rubikPlayerSetupTitle({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 40,
       height: 50 / 40,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
   /// Figma player card name (Rubik Bold 16 / 24).
   static TextStyle rubikPlayerCardName({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 16,
       height: 24 / 16,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
   /// Figma player setup CTA (Rubik ExtraBold 28 / 32).
   static TextStyle rubikPlayerSetupCta({required Color color}) {
-    return GoogleFonts.rubik(
+    return rubikTitle(
+      color: color,
       fontSize: 28,
       height: 32 / 28,
-      fontWeight: FontWeight.w800,
       letterSpacing: -0.7,
-      color: color,
     );
   }
 
@@ -185,12 +243,12 @@ abstract final class DisplayTypography {
     FontWeight fontWeight = FontWeight.w700,
     double letterSpacing = 1.4,
   }) {
-    return GoogleFonts.spaceGrotesk(
+    return _spaceGrotesk(
+      color: color,
       fontSize: fontSize,
       height: 20 / fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
-      color: color,
     );
   }
 
@@ -204,22 +262,22 @@ abstract final class DisplayTypography {
 
   /// Figma secret reveal heading (Rubik Black 48 / 52).
   static TextStyle rubikSecretRevealHeading({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 48,
       height: 52 / 48,
       fontWeight: FontWeight.w900,
       letterSpacing: -0.96,
-      color: color,
     );
   }
 
   /// Figma secret reveal privacy copy (Plus Jakarta Sans Medium 18 / 28).
   static TextStyle plusJakartaSecretRevealBody({required Color color}) {
-    return GoogleFonts.plusJakartaSans(
+    return _plusJakarta(
+      color: color,
       fontSize: 18,
       height: 28 / 18,
       fontWeight: FontWeight.w500,
-      color: color,
     );
   }
 
@@ -236,31 +294,31 @@ abstract final class DisplayTypography {
 
   /// Figma question round card (Rubik ExtraBold 28 / 35).
   static TextStyle rubikQuestionCard({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 28,
       height: 35 / 28,
       fontWeight: FontWeight.w800,
-      color: color,
     );
   }
 
   /// Figma question round speak-up title (Rubik Bold 24 / 28).
   static TextStyle rubikSpeakUpTitle({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 24,
       height: 28 / 24,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
   /// Figma question round CTA (Rubik Bold 20 / 24).
   static TextStyle rubikQuestionRoundCta({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 20,
       height: 24 / 20,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
@@ -271,95 +329,95 @@ abstract final class DisplayTypography {
 
   /// Figma voting headline line 1 (Rubik ExtraBold 28 / 32).
   static TextStyle rubikVotingHeadlineAccent({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 28,
       height: 32 / 28,
       fontWeight: FontWeight.w800,
       letterSpacing: -0.96,
-      color: color,
     );
   }
 
   /// Figma voting headline lines 2–3 (Rubik Black 48 / 60).
   static TextStyle rubikVotingHeadlineMain({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 48,
       height: 60 / 48,
       fontWeight: FontWeight.w900,
       letterSpacing: -0.96,
-      color: color,
     );
   }
 
   /// Figma voting subtitle (Plus Jakarta Sans Regular 16 / 24).
   static TextStyle plusJakartaVotingSubtitle({required Color color}) {
-    return GoogleFonts.plusJakartaSans(
+    return _plusJakarta(
+      color: color,
       fontSize: 16,
       height: 24 / 16,
       fontWeight: FontWeight.w400,
-      color: color,
     );
   }
 
   /// Figma voting player name (Plus Jakarta Sans Bold 18 / 28).
   static TextStyle plusJakartaVotingPlayerName({required Color color}) {
-    return GoogleFonts.plusJakartaSans(
+    return _plusJakarta(
+      color: color,
       fontSize: 18,
       height: 28 / 18,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
   /// Figma voting self hint (Space Grotesk Bold 10 / 15).
   static TextStyle spaceGroteskVotingSelfHint({required Color color}) {
-    return GoogleFonts.spaceGrotesk(
+    return _spaceGrotesk(
+      color: color,
       fontSize: 10,
       height: 15 / 10,
       fontWeight: FontWeight.w700,
       letterSpacing: 1,
-      color: color,
     );
   }
 
   /// Figma voting card button (Rubik Bold 20 / 24).
   static TextStyle rubikVotingButton({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 20,
       height: 24 / 20,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 
   /// Figma voting timer seconds (Rubik ExtraBold 28 / 32).
   static TextStyle rubikVotingTimerSeconds({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 28,
       height: 32 / 28,
       fontWeight: FontWeight.w800,
-      color: color,
     );
   }
 
   /// Figma game results winner title (Rubik ExtraBold 28 / 32).
   static TextStyle rubikResultsWinnerTitle({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 28,
       height: 32 / 28,
       fontWeight: FontWeight.w800,
-      color: color,
     );
   }
 
   /// Figma game results secret word (Rubik ExtraBold 28 / 32, wide tracking).
   static TextStyle rubikResultsSecretWord({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 28,
       height: 32 / 28,
       fontWeight: FontWeight.w800,
       letterSpacing: 1.4,
-      color: color,
     );
   }
 
@@ -370,11 +428,11 @@ abstract final class DisplayTypography {
 
   /// Figma game results leaderboard name (Rubik Bold 20 / 24).
   static TextStyle rubikResultsPlayerName({required Color color}) {
-    return GoogleFonts.rubik(
+    return _rubik(
+      color: color,
       fontSize: 20,
       height: 24 / 20,
       fontWeight: FontWeight.w700,
-      color: color,
     );
   }
 

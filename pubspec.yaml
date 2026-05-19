@@ -12,7 +12,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   go_router: ^17.2.3
-  google_fonts: ^6.2.1
   intl: any
   shared_preferences: ^2.5.5
 
@@ -33,3 +32,9 @@ flutter:
     - family: Rubik
       fonts:
         - asset: assets/fonts/Rubik[wght].ttf
+    - family: PlusJakartaSans
+      fonts:
+        - asset: assets/fonts/PlusJakartaSans[wght].ttf
+    - family: SpaceGrotesk
+      fonts:
+        - asset: assets/fonts/SpaceGrotesk[wght].ttf
