@@ -91,9 +91,56 @@
   },
   "matchSetupContinue": "CONTINUAR",
   "startMatch": "Iniciar partida",
-  "revealMyWord": "Visualizar minha palavra",
-  "outOfLoopMessage": "Voce esta FORA do circulo - aja naturalmente.",
+  "revealMyWord": "REVELAR MEU PAPEL",
+  "secretRevealRound": "RODADA {roundNumber}",
+  "@secretRevealRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "secretRevealPassTo": "PASSE PARA",
+  "secretRevealPassToPlayer": "{playerName}",
+  "@secretRevealPassToPlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealPrivacyLine1": "Certifique-se de que ninguém mais",
+  "secretRevealPrivacyLine2": "está olhando para sua tela.",
+  "secretRevealTopSecret": "TOP SEGREDO",
+  "secretRevealNextPlayer": "PRÓXIMO JOGADOR",
+  "secretRevealStartQuestions": "INICIAR PERGUNTAS",
+  "outOfLoopMessage": "Você está FORA do círculo — aja naturalmente.",
   "doneAnswering": "Terminei de responder",
+  "questionRoundPlayerTurn": "Vez de {playerName}",
+  "@questionRoundPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "questionRoundSpeakUp": "FALE ALTO!",
+  "questionRoundSpeakUpLine1": "Responda à pergunta em voz alta para",
+  "questionRoundSpeakUpLine2": "todos ouvirem.",
+  "questionRoundTimeRemaining": "TEMPO RESTANTE",
+  "questionRoundTimeSeconds": "{seconds}S",
+  "@questionRoundTimeSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "questionRoundDoneAnswering": "TERMINEI DE RESPONDER",
+  "questionRoundNextQuestion": "PRÓXIMA PERGUNTA",
+  "questionRoundGoToVoting": "IR PARA VOTAÇÃO",
+  "questionRoundTimerExpiredLine1": "O tempo acabou.",
+  "questionRoundTimerExpiredLine2": "Termine esta resposta quando estiver pronto.",
   "whoIsOutOfTheLoop": "Quem esta fora do loop?",
   "confirmVotes": "Confirmar votos",
   "roundResults": "Resultado da rodada",

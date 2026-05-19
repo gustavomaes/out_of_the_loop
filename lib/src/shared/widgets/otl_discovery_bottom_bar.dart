@@ -12,11 +12,16 @@ class OtlDiscoveryBottomBar extends StatelessWidget {
 
   final StatefulNavigationShell navigationShell;
 
+  static const _barHeight = 96.0;
   static const _topBorderWidth = 4.0;
   static const _horizontalPadding = 8.0;
+  static const _topPadding = 4.0;
+  static const _activeSlotHeight = 52.0;
   static const _activePillLift = 16.0;
-  static const _slotHeight = 60.0;
   static const _shadowOffset = 4.0;
+  static const _inactiveHorizontalPadding = 16.0;
+  static const _inactiveVerticalPadding = 8.0;
+  static const _iconLabelGap = 4.0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,65 +30,74 @@ class OtlDiscoveryBottomBar extends StatelessWidget {
       _DiscoveryNavItem(
         route: AppRoutes.home,
         label: l10n.navPlay,
-        icon: Icons.sports_esports_outlined,
+        icon: _DiscoveryNavIcon.play,
       ),
       _DiscoveryNavItem(
         route: AppRoutes.categories,
         label: l10n.navCategories,
-        icon: Icons.category_outlined,
+        icon: _DiscoveryNavIcon.categories,
       ),
       _DiscoveryNavItem(
         route: AppRoutes.settings,
         label: l10n.navProfile,
-        icon: Icons.person_outline,
+        icon: _DiscoveryNavIcon.profile,
       ),
     ];
 
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        color: BrutalistColors.cardBackground,
-        border: Border(
-          top: BorderSide(
-            color: BrutalistColors.headerBorder,
-            width: _topBorderWidth,
+    return Material(
+      color: Colors.transparent,
+      clipBehavior: Clip.none,
+      child: DecoratedBox(
+        decoration: const BoxDecoration(
+          color: BrutalistColors.cardBackground,
+          border: Border(
+            top: BorderSide(
+              color: BrutalistColors.headerBorder,
+              width: _topBorderWidth,
+            ),
           ),
         ),
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(
-            _horizontalPadding,
-            _topBorderWidth + _activePillLift,
-            _horizontalPadding,
-            8,
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              for (var index = 0; index < items.length; index++)
-                Expanded(
-                  child: _DiscoveryNavSlot(
-                    item: items[index],
-                    selected: navigationShell.currentIndex == index,
-                    onTap: () {
-                      if (navigationShell.currentIndex != index) {
-                        navigationShell.goBranch(
-                          index,
-                          initialLocation:
-                              index == navigationShell.currentIndex,
-                        );
-                      }
-                    },
-                  ),
-                ),
-            ],
+        child: SafeArea(
+          top: false,
+          child: SizedBox(
+            height: _barHeight,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(
+                _horizontalPadding,
+                _topPadding,
+                _horizontalPadding,
+                0,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  for (var index = 0; index < items.length; index++)
+                    Expanded(
+                      child: _DiscoveryNavSlot(
+                        item: items[index],
+                        selected: navigationShell.currentIndex == index,
+                        onTap: () {
+                          if (navigationShell.currentIndex != index) {
+                            navigationShell.goBranch(
+                              index,
+                              initialLocation:
+                                  index == navigationShell.currentIndex,
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
     );
   }
 }
+
+enum _DiscoveryNavIcon { play, categories, profile }
 
 final class _DiscoveryNavItem {
   const _DiscoveryNavItem({
@@ -94,7 +108,7 @@ final class _DiscoveryNavItem {
 
   final String route;
   final String label;
-  final IconData icon;
+  final _DiscoveryNavIcon icon;
 }
 
 class _DiscoveryNavSlot extends StatelessWidget {
@@ -111,7 +125,21 @@ class _DiscoveryNavSlot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (selected) {
-      return _ActiveNavPill(item: item, onTap: onTap);
+      return SizedBox(
+        height: OtlDiscoveryBottomBar._activeSlotHeight,
+        child: Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.topCenter,
+          children: [
+            Positioned(
+              top: -OtlDiscoveryBottomBar._activePillLift,
+              left: 0,
+              right: 0,
+              child: _ActiveNavPill(item: item, onTap: onTap),
+            ),
+          ],
+        ),
+      );
     }
 
     return _InactiveNavItem(item: item, onTap: onTap);
@@ -134,13 +162,24 @@ class _InactiveNavItem extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        child: SizedBox(
-          height: OtlDiscoveryBottomBar._slotHeight,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: OtlDiscoveryBottomBar._inactiveHorizontalPadding,
+            vertical: OtlDiscoveryBottomBar._inactiveVerticalPadding,
+          ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(item.icon, size: 22, color: BrutalistColors.sectionLabel),
-              const SizedBox(height: 4),
+              Padding(
+                padding: const EdgeInsets.only(
+                  bottom: OtlDiscoveryBottomBar._iconLabelGap,
+                ),
+                child: _DiscoveryNavIconWidget(
+                  icon: item.icon,
+                  color: BrutalistColors.sectionLabel,
+                ),
+              ),
               Text(item.label, style: labelStyle, textAlign: TextAlign.center),
             ],
           ),
@@ -156,80 +195,147 @@ class _ActiveNavPill extends StatelessWidget {
   final _DiscoveryNavItem item;
   final VoidCallback onTap;
 
+  static const _horizontalPadding = 18.0;
+  static const _verticalPadding = 10.0;
+  static const _borderWidth = 2.0;
+
   @override
   Widget build(BuildContext context) {
     final labelStyle = DisplayTypography.bottomNavLabel(color: Colors.black);
+    final content = Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: _horizontalPadding,
+        vertical: _verticalPadding,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: OtlDiscoveryBottomBar._iconLabelGap,
+            ),
+            child: _DiscoveryNavIconWidget(
+              icon: item.icon,
+              color: Colors.black,
+            ),
+          ),
+          Text(
+            item.label,
+            style: labelStyle,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
 
+    return Padding(
+      padding: const EdgeInsets.only(
+        right: OtlDiscoveryBottomBar._shadowOffset,
+        bottom: OtlDiscoveryBottomBar._shadowOffset,
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Transform.translate(
+                offset: const Offset(
+                  OtlDiscoveryBottomBar._shadowOffset,
+                  OtlDiscoveryBottomBar._shadowOffset,
+                ),
+                child: DecoratedBox(
+                  decoration: const BoxDecoration(color: Colors.black),
+                  child: Opacity(opacity: 0, child: content),
+                ),
+              ),
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  color: BrutalistColors.lime,
+                  border: Border.all(
+                    color: Colors.black,
+                    width: _borderWidth,
+                  ),
+                ),
+                child: content,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _DiscoveryNavIconWidget extends StatelessWidget {
+  const _DiscoveryNavIconWidget({
+    required this.icon,
+    required this.color,
+  });
+
+  final _DiscoveryNavIcon icon;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return switch (icon) {
+      _DiscoveryNavIcon.play => Icon(
+        Icons.sports_esports_outlined,
+        size: 24,
+        color: color,
+      ),
+      _DiscoveryNavIcon.profile => Icon(
+        Icons.person_outline,
+        size: 22,
+        color: color,
+      ),
+      _DiscoveryNavIcon.categories => _CategoriesNavIcon(color: color),
+    };
+  }
+}
+
+/// Figma categories tab icon (triangle, square, circle).
+class _CategoriesNavIcon extends StatelessWidget {
+  const _CategoriesNavIcon({required this.color});
+
+  final Color color;
+
+  static const _size = 23.0;
+
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
-      height: OtlDiscoveryBottomBar._slotHeight,
+      width: 22.45,
+      height: _size,
       child: Stack(
         clipBehavior: Clip.none,
-        alignment: Alignment.bottomCenter,
         children: [
           Positioned(
+            top: 0,
+            left: 5,
+            child: Icon(
+              Icons.change_history,
+              size: 11,
+              color: color,
+            ),
+          ),
+          Positioned(
             left: 0,
-            right: 0,
             bottom: 0,
-            top: -OtlDiscoveryBottomBar._activePillLift,
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  top: OtlDiscoveryBottomBar._activePillLift +
-                      OtlDiscoveryBottomBar._shadowOffset,
-                  bottom: 0,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  top: OtlDiscoveryBottomBar._activePillLift,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: OtlDiscoveryBottomBar._shadowOffset,
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: onTap,
-                        borderRadius: BorderRadius.circular(32),
-                        child: Ink(
-                          decoration: BoxDecoration(
-                            color: BrutalistColors.lime,
-                            borderRadius: BorderRadius.circular(32),
-                            border: Border.all(color: Colors.black, width: 2),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 18,
-                              vertical: 10,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(item.icon, size: 22, color: Colors.black),
-                                const SizedBox(height: 4),
-                                Text(
-                                  item.label,
-                                  style: labelStyle,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            child: Icon(
+              Icons.square,
+              size: 10,
+              color: color,
+            ),
+          ),
+          Positioned(
+            right: 0,
+            bottom: 1,
+            child: Icon(
+              Icons.circle,
+              size: 9,
+              color: color,
             ),
           ),
         ],

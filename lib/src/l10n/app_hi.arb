@@ -91,9 +91,56 @@
   },
   "matchSetupContinue": "जारी रखें",
   "startMatch": "मैच शुरू करें",
-  "revealMyWord": "मेरा शब्द दिखाएं",
-  "outOfLoopMessage": "आप लूप से बाहर हैं - स्वाभाविक रहें.",
+  "revealMyWord": "मेरी भूमिका देखें",
+  "secretRevealRound": "राउंड {roundNumber}",
+  "@secretRevealRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "secretRevealPassTo": "फोन दें",
+  "secretRevealPassToPlayer": "{playerName}",
+  "@secretRevealPassToPlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealPrivacyLine1": "सुनिश्चित करें कि कोई और",
+  "secretRevealPrivacyLine2": "आपकी स्क्रीन नहीं देख रहा।",
+  "secretRevealTopSecret": "गुप्त",
+  "secretRevealNextPlayer": "अगला खिलाड़ी",
+  "secretRevealStartQuestions": "प्रश्न शुरू करें",
+  "outOfLoopMessage": "आप लूप से बाहर हैं — स्वाभाविक रहें।",
   "doneAnswering": "उत्तर पूरा हुआ",
+  "questionRoundPlayerTurn": "{playerName} की बारी",
+  "@questionRoundPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "questionRoundSpeakUp": "ज़ोर से बोलें!",
+  "questionRoundSpeakUpLine1": "सवाल का जवाब ज़ोर से बोलें ताकि",
+  "questionRoundSpeakUpLine2": "सभी सुन सकें।",
+  "questionRoundTimeRemaining": "बचा समय",
+  "questionRoundTimeSeconds": "{seconds}से",
+  "@questionRoundTimeSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "questionRoundDoneAnswering": "जवाब पूरा",
+  "questionRoundNextQuestion": "अगला सवाल",
+  "questionRoundGoToVoting": "वोटिंग पर जाएं",
+  "questionRoundTimerExpiredLine1": "समय समाप्त।",
+  "questionRoundTimerExpiredLine2": "तैयार होने पर यह जवाब पूरा करें।",
   "whoIsOutOfTheLoop": "लूप से बाहर कौन है?",
   "confirmVotes": "वोट पक्का करें",
   "roundResults": "राउंड के नतीजे",

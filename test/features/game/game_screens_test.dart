@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/domain/models/models.dart';
+import 'package:outoftheloop/src/l10n/generated/app_localizations.dart';
 import 'package:outoftheloop/src/domain/services/vote_scoring_service.dart';
 import 'package:outoftheloop/src/features/game/final_leaderboard_screen.dart';
 import 'package:outoftheloop/src/features/game/question_round_screen.dart';
@@ -21,9 +22,9 @@ void main() {
     );
 
     expect(find.text('Pizza'), findsNothing);
-    expect(find.textContaining('FORA'), findsNothing);
+    expect(find.textContaining('OUT of the loop'), findsNothing);
 
-    await tester.tap(find.text('VIEW MY WORD'));
+    await tester.tap(find.text('REVEAL MY ROLE'));
     await tester.pumpAndSettle();
 
     expect(find.text('Pizza'), findsOneWidget);
@@ -32,12 +33,15 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Pizza'), findsNothing);
-    expect(find.text('Bia\'s turn'), findsOneWidget);
+    expect(find.text('Bia'), findsWidgets);
 
-    await tester.tap(find.text('VIEW MY WORD'));
+    await tester.tap(find.text('REVEAL MY ROLE'));
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('FORA'), findsOneWidget);
+    expect(
+      find.textContaining('OUT of the loop'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('question round advances through turns on one screen', (
@@ -59,26 +63,23 @@ void main() {
       ),
     );
 
-    expect(find.text('Ana answers'), findsOneWidget);
-    expect(find.text('QUESTION 1 OF 3'), findsOneWidget);
+    expect(find.text("Ana's turn"), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
     expect(find.text('NEXT QUESTION'), findsOneWidget);
-    expect(find.text('Answer recorded. Ready for the next turn.'), findsOneWidget);
 
     await tester.tap(find.text('NEXT QUESTION'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Bia answers'), findsOneWidget);
-    expect(find.text('QUESTION 2 OF 3'), findsOneWidget);
+    expect(find.text("Bia's turn"), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
     await tester.tap(find.text('NEXT QUESTION'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Caio answers'), findsOneWidget);
+    expect(find.text("Caio's turn"), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
@@ -121,18 +122,16 @@ void main() {
       ),
     );
 
-    expect(find.text('QUESTION 1 OF 6'), findsOneWidget);
-    expect(find.text('Ana answers'), findsOneWidget);
+    expect(find.text("Ana's turn"), findsOneWidget);
 
     await _advanceQuestion(tester);
-    expect(find.text('Bia answers'), findsOneWidget);
+    expect(find.text("Bia's turn"), findsOneWidget);
 
     await _advanceQuestion(tester);
-    expect(find.text('Caio answers'), findsOneWidget);
+    expect(find.text("Caio's turn"), findsOneWidget);
 
     await _advanceQuestion(tester);
-    expect(find.text('Ana answers'), findsOneWidget);
-    expect(find.text('QUESTION 4 OF 6'), findsOneWidget);
+    expect(find.text("Ana's turn"), findsOneWidget);
 
     await _advanceQuestion(tester);
     await _advanceQuestion(tester);
@@ -165,9 +164,10 @@ void main() {
         ),
       );
 
-      expect(find.text('0'), findsOneWidget);
+      expect(find.text('0S'), findsOneWidget);
+      expect(find.text('Time is up.'), findsOneWidget);
       expect(
-        find.text('Time is up. Finish this answer when ready.'),
+        find.text('Finish this answer when ready.'),
         findsOneWidget,
       );
 
@@ -420,7 +420,13 @@ class _TestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: OutOfTheLoopTheme.dark, home: child);
+    return MaterialApp(
+      theme: OutOfTheLoopTheme.dark,
+      locale: const Locale('en'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: child,
+    );
   }
 }
 

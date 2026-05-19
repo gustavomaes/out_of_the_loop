@@ -187,14 +187,81 @@ class AppLocalizationsPt extends AppLocalizations {
   String get startMatch => 'Iniciar partida';
 
   @override
-  String get revealMyWord => 'Visualizar minha palavra';
+  String get revealMyWord => 'REVELAR MEU PAPEL';
+
+  @override
+  String secretRevealRound(int roundNumber) {
+    return 'RODADA $roundNumber';
+  }
+
+  @override
+  String get secretRevealPassTo => 'PASSE PARA';
+
+  @override
+  String secretRevealPassToPlayer(String playerName) {
+    return '$playerName';
+  }
+
+  @override
+  String get secretRevealPrivacyLine1 => 'Certifique-se de que ninguém mais';
+
+  @override
+  String get secretRevealPrivacyLine2 => 'está olhando para sua tela.';
+
+  @override
+  String get secretRevealTopSecret => 'TOP SEGREDO';
+
+  @override
+  String get secretRevealNextPlayer => 'PRÓXIMO JOGADOR';
+
+  @override
+  String get secretRevealStartQuestions => 'INICIAR PERGUNTAS';
 
   @override
   String get outOfLoopMessage =>
-      'Voce esta FORA do circulo - aja naturalmente.';
+      'Você está FORA do círculo — aja naturalmente.';
 
   @override
   String get doneAnswering => 'Terminei de responder';
+
+  @override
+  String questionRoundPlayerTurn(String playerName) {
+    return 'Vez de $playerName';
+  }
+
+  @override
+  String get questionRoundSpeakUp => 'FALE ALTO!';
+
+  @override
+  String get questionRoundSpeakUpLine1 =>
+      'Responda à pergunta em voz alta para';
+
+  @override
+  String get questionRoundSpeakUpLine2 => 'todos ouvirem.';
+
+  @override
+  String get questionRoundTimeRemaining => 'TEMPO RESTANTE';
+
+  @override
+  String questionRoundTimeSeconds(int seconds) {
+    return '${seconds}S';
+  }
+
+  @override
+  String get questionRoundDoneAnswering => 'TERMINEI DE RESPONDER';
+
+  @override
+  String get questionRoundNextQuestion => 'PRÓXIMA PERGUNTA';
+
+  @override
+  String get questionRoundGoToVoting => 'IR PARA VOTAÇÃO';
+
+  @override
+  String get questionRoundTimerExpiredLine1 => 'O tempo acabou.';
+
+  @override
+  String get questionRoundTimerExpiredLine2 =>
+      'Termine esta resposta quando estiver pronto.';
 
   @override
   String get whoIsOutOfTheLoop => 'Quem esta fora do loop?';
@@ -518,14 +585,81 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get startMatch => 'Iniciar partida';
 
   @override
-  String get revealMyWord => 'Visualizar minha palavra';
+  String get revealMyWord => 'REVELAR MEU PAPEL';
+
+  @override
+  String secretRevealRound(int roundNumber) {
+    return 'RODADA $roundNumber';
+  }
+
+  @override
+  String get secretRevealPassTo => 'PASSE PARA';
+
+  @override
+  String secretRevealPassToPlayer(String playerName) {
+    return '$playerName';
+  }
+
+  @override
+  String get secretRevealPrivacyLine1 => 'Certifique-se de que ninguém mais';
+
+  @override
+  String get secretRevealPrivacyLine2 => 'está olhando para sua tela.';
+
+  @override
+  String get secretRevealTopSecret => 'TOP SECREDO';
+
+  @override
+  String get secretRevealNextPlayer => 'PRÓXIMO JOGADOR';
+
+  @override
+  String get secretRevealStartQuestions => 'INICIAR PERGUNTAS';
 
   @override
   String get outOfLoopMessage =>
-      'Voce esta FORA do circulo - aja naturalmente.';
+      'Você está FORA do círculo — aja naturalmente.';
 
   @override
   String get doneAnswering => 'Terminei de responder';
+
+  @override
+  String questionRoundPlayerTurn(String playerName) {
+    return 'Vez de $playerName';
+  }
+
+  @override
+  String get questionRoundSpeakUp => 'FALE ALTO!';
+
+  @override
+  String get questionRoundSpeakUpLine1 =>
+      'Responda a pergunta em voz alta para';
+
+  @override
+  String get questionRoundSpeakUpLine2 => 'todos ouvirem.';
+
+  @override
+  String get questionRoundTimeRemaining => 'TEMPO RESTANTE';
+
+  @override
+  String questionRoundTimeSeconds(int seconds) {
+    return '${seconds}S';
+  }
+
+  @override
+  String get questionRoundDoneAnswering => 'TERMINEI DE RESPONDER';
+
+  @override
+  String get questionRoundNextQuestion => 'PRÓXIMA PERGUNTA';
+
+  @override
+  String get questionRoundGoToVoting => 'IR PARA VOTAÇÃO';
+
+  @override
+  String get questionRoundTimerExpiredLine1 => 'O tempo acabou.';
+
+  @override
+  String get questionRoundTimerExpiredLine2 =>
+      'Finalize esta resposta quando estiver pronto.';
 
   @override
   String get whoIsOutOfTheLoop => 'Quem esta fora do loop?';

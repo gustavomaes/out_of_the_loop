@@ -183,13 +183,79 @@ class AppLocalizationsHi extends AppLocalizations {
   String get startMatch => 'मैच शुरू करें';
 
   @override
-  String get revealMyWord => 'मेरा शब्द दिखाएं';
+  String get revealMyWord => 'मेरी भूमिका देखें';
 
   @override
-  String get outOfLoopMessage => 'आप लूप से बाहर हैं - स्वाभाविक रहें.';
+  String secretRevealRound(int roundNumber) {
+    return 'राउंड $roundNumber';
+  }
+
+  @override
+  String get secretRevealPassTo => 'फोन दें';
+
+  @override
+  String secretRevealPassToPlayer(String playerName) {
+    return '$playerName';
+  }
+
+  @override
+  String get secretRevealPrivacyLine1 => 'सुनिश्चित करें कि कोई और';
+
+  @override
+  String get secretRevealPrivacyLine2 => 'आपकी स्क्रीन नहीं देख रहा।';
+
+  @override
+  String get secretRevealTopSecret => 'गुप्त';
+
+  @override
+  String get secretRevealNextPlayer => 'अगला खिलाड़ी';
+
+  @override
+  String get secretRevealStartQuestions => 'प्रश्न शुरू करें';
+
+  @override
+  String get outOfLoopMessage => 'आप लूप से बाहर हैं — स्वाभाविक रहें।';
 
   @override
   String get doneAnswering => 'उत्तर पूरा हुआ';
+
+  @override
+  String questionRoundPlayerTurn(String playerName) {
+    return '$playerName की बारी';
+  }
+
+  @override
+  String get questionRoundSpeakUp => 'ज़ोर से बोलें!';
+
+  @override
+  String get questionRoundSpeakUpLine1 => 'सवाल का जवाब ज़ोर से बोलें ताकि';
+
+  @override
+  String get questionRoundSpeakUpLine2 => 'सभी सुन सकें।';
+
+  @override
+  String get questionRoundTimeRemaining => 'बचा समय';
+
+  @override
+  String questionRoundTimeSeconds(int seconds) {
+    return '$secondsसे';
+  }
+
+  @override
+  String get questionRoundDoneAnswering => 'जवाब पूरा';
+
+  @override
+  String get questionRoundNextQuestion => 'अगला सवाल';
+
+  @override
+  String get questionRoundGoToVoting => 'वोटिंग पर जाएं';
+
+  @override
+  String get questionRoundTimerExpiredLine1 => 'समय समाप्त।';
+
+  @override
+  String get questionRoundTimerExpiredLine2 =>
+      'तैयार होने पर यह जवाब पूरा करें।';
 
   @override
   String get whoIsOutOfTheLoop => 'लूप से बाहर कौन है?';

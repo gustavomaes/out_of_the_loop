@@ -184,13 +184,78 @@ class AppLocalizationsEn extends AppLocalizations {
   String get startMatch => 'Start match';
 
   @override
-  String get revealMyWord => 'Reveal my word';
+  String get revealMyWord => 'REVEAL MY ROLE';
+
+  @override
+  String secretRevealRound(int roundNumber) {
+    return 'ROUND $roundNumber';
+  }
+
+  @override
+  String get secretRevealPassTo => 'PASS TO';
+
+  @override
+  String secretRevealPassToPlayer(String playerName) {
+    return '$playerName';
+  }
+
+  @override
+  String get secretRevealPrivacyLine1 => 'Make sure nobody else is';
+
+  @override
+  String get secretRevealPrivacyLine2 => 'looking at your screen.';
+
+  @override
+  String get secretRevealTopSecret => 'TOP SECRET';
+
+  @override
+  String get secretRevealNextPlayer => 'NEXT PLAYER';
+
+  @override
+  String get secretRevealStartQuestions => 'START QUESTIONS';
 
   @override
   String get outOfLoopMessage => 'You are OUT of the loop - act naturally.';
 
   @override
   String get doneAnswering => 'Done answering';
+
+  @override
+  String questionRoundPlayerTurn(String playerName) {
+    return '$playerName\'s turn';
+  }
+
+  @override
+  String get questionRoundSpeakUp => 'SPEAK UP!';
+
+  @override
+  String get questionRoundSpeakUpLine1 => 'Answer the question aloud so';
+
+  @override
+  String get questionRoundSpeakUpLine2 => 'everyone can hear you.';
+
+  @override
+  String get questionRoundTimeRemaining => 'TIME REMAINING';
+
+  @override
+  String questionRoundTimeSeconds(int seconds) {
+    return '${seconds}S';
+  }
+
+  @override
+  String get questionRoundDoneAnswering => 'DONE ANSWERING';
+
+  @override
+  String get questionRoundNextQuestion => 'NEXT QUESTION';
+
+  @override
+  String get questionRoundGoToVoting => 'GO TO VOTING';
+
+  @override
+  String get questionRoundTimerExpiredLine1 => 'Time is up.';
+
+  @override
+  String get questionRoundTimerExpiredLine2 => 'Finish this answer when ready.';
 
   @override
   String get whoIsOutOfTheLoop => 'Who is out of the loop?';

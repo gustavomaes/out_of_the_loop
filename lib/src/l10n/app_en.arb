@@ -91,9 +91,56 @@
   },
   "matchSetupContinue": "CONTINUE",
   "startMatch": "Start match",
-  "revealMyWord": "Reveal my word",
+  "revealMyWord": "REVEAL MY ROLE",
+  "secretRevealRound": "ROUND {roundNumber}",
+  "@secretRevealRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "secretRevealPassTo": "PASS TO",
+  "secretRevealPassToPlayer": "{playerName}",
+  "@secretRevealPassToPlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealPrivacyLine1": "Make sure nobody else is",
+  "secretRevealPrivacyLine2": "looking at your screen.",
+  "secretRevealTopSecret": "TOP SECRET",
+  "secretRevealNextPlayer": "NEXT PLAYER",
+  "secretRevealStartQuestions": "START QUESTIONS",
   "outOfLoopMessage": "You are OUT of the loop - act naturally.",
   "doneAnswering": "Done answering",
+  "questionRoundPlayerTurn": "{playerName}''s turn",
+  "@questionRoundPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "questionRoundSpeakUp": "SPEAK UP!",
+  "questionRoundSpeakUpLine1": "Answer the question aloud so",
+  "questionRoundSpeakUpLine2": "everyone can hear you.",
+  "questionRoundTimeRemaining": "TIME REMAINING",
+  "questionRoundTimeSeconds": "{seconds}S",
+  "@questionRoundTimeSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "questionRoundDoneAnswering": "DONE ANSWERING",
+  "questionRoundNextQuestion": "NEXT QUESTION",
+  "questionRoundGoToVoting": "GO TO VOTING",
+  "questionRoundTimerExpiredLine1": "Time is up.",
+  "questionRoundTimerExpiredLine2": "Finish this answer when ready.",
   "whoIsOutOfTheLoop": "Who is out of the loop?",
   "confirmVotes": "Confirm votes",
   "roundResults": "Round results",

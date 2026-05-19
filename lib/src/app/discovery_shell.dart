@@ -31,8 +31,11 @@ class DiscoveryShell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: navigationShell,
-      bottomNavigationBar: OtlDiscoveryBottomBar(
-        navigationShell: navigationShell,
+      bottomNavigationBar: ClipRect(
+        clipBehavior: Clip.none,
+        child: OtlDiscoveryBottomBar(
+          navigationShell: navigationShell,
+        ),
       ),
     );
   }

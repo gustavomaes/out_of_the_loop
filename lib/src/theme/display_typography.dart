@@ -51,20 +51,18 @@ abstract final class DisplayTypography {
     );
   }
 
-  /// Figma bottom-nav labels (Space Grotesk 14 / 1.4 tracking); uses bundled Rubik in tests.
+  /// Figma bottom-nav labels (Space Grotesk Bold 14 / 1.4 tracking).
   static TextStyle bottomNavLabel({
     required Color color,
     double fontSize = 14,
     FontWeight fontWeight = FontWeight.w700,
     double letterSpacing = 1.4,
   }) {
-    return TextStyle(
-      fontFamily: 'Rubik',
+    return spaceGroteskSectionLabel(
+      color: color,
       fontSize: fontSize,
-      height: 20 / fontSize,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
-      color: color,
     );
   }
 
@@ -177,5 +175,80 @@ abstract final class DisplayTypography {
       letterSpacing: letterSpacing,
       color: color,
     );
+  }
+
+  /// Figma secret reveal round label (Space Grotesk Bold 14 / 2.8 tracking).
+  static TextStyle spaceGroteskRoundLabel({required Color color}) {
+    return spaceGroteskMeta(
+      color: color,
+      letterSpacing: 2.8,
+    );
+  }
+
+  /// Figma secret reveal heading (Rubik Black 48 / 52).
+  static TextStyle rubikSecretRevealHeading({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 48,
+      height: 52 / 48,
+      fontWeight: FontWeight.w900,
+      letterSpacing: -0.96,
+      color: color,
+    );
+  }
+
+  /// Figma secret reveal privacy copy (Plus Jakarta Sans Medium 18 / 28).
+  static TextStyle plusJakartaSecretRevealBody({required Color color}) {
+    return GoogleFonts.plusJakartaSans(
+      fontSize: 18,
+      height: 28 / 18,
+      fontWeight: FontWeight.w500,
+      color: color,
+    );
+  }
+
+  /// Figma secret card label (Rubik ExtraBold 28 / 32).
+  static TextStyle rubikTopSecretLabel({required Color color}) {
+    return rubikTitle(
+      color: color,
+      fontSize: 28,
+      height: 32 / 28,
+      letterSpacing: 0,
+      fontWeight: FontWeight.w800,
+    );
+  }
+
+  /// Figma question round card (Rubik ExtraBold 28 / 35).
+  static TextStyle rubikQuestionCard({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 28,
+      height: 35 / 28,
+      fontWeight: FontWeight.w800,
+      color: color,
+    );
+  }
+
+  /// Figma question round speak-up title (Rubik Bold 24 / 28).
+  static TextStyle rubikSpeakUpTitle({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 24,
+      height: 28 / 24,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma question round CTA (Rubik Bold 20 / 24).
+  static TextStyle rubikQuestionRoundCta({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 20,
+      height: 24 / 20,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma player turn chip (Space Grotesk Bold 14 / 20, 1.4 tracking).
+  static TextStyle spaceGroteskTurnChip({required Color color}) {
+    return spaceGroteskSectionLabel(color: color);
   }
 }

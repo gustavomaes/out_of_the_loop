@@ -52,7 +52,10 @@ void main() {
     expect(localizations.navCategories, 'CATEGORIAS');
     expect(localizations.navProfile, 'PERFIL');
     expect(localizations.howToPlay, 'COMO JOGAR');
-    expect(localizations.revealMyWord, 'Visualizar minha palavra');
+    expect(localizations.revealMyWord, 'REVELAR MEU PAPEL');
+    expect(localizations.secretRevealRound(1), 'RODADA 1');
+    expect(localizations.secretRevealPassTo, 'PASSE PARA');
+    expect(localizations.secretRevealTopSecret, 'TOP SECREDO');
     expect(localizations.confirmVotes, 'Confirmar votos');
     expect(localizations.settings, 'Configuracoes');
     expect(localizations.howToPlayScreenTitle, 'COMO JOGAR');

@@ -382,13 +382,61 @@ abstract class AppLocalizations {
   /// No description provided for @revealMyWord.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Visualizar minha palavra'**
+  /// **'REVELAR MEU PAPEL'**
   String get revealMyWord;
+
+  /// No description provided for @secretRevealRound.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'RODADA {roundNumber}'**
+  String secretRevealRound(int roundNumber);
+
+  /// No description provided for @secretRevealPassTo.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PASSE PARA'**
+  String get secretRevealPassTo;
+
+  /// No description provided for @secretRevealPassToPlayer.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{playerName}'**
+  String secretRevealPassToPlayer(String playerName);
+
+  /// No description provided for @secretRevealPrivacyLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Certifique-se de que ninguém mais'**
+  String get secretRevealPrivacyLine1;
+
+  /// No description provided for @secretRevealPrivacyLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'está olhando para sua tela.'**
+  String get secretRevealPrivacyLine2;
+
+  /// No description provided for @secretRevealTopSecret.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TOP SECREDO'**
+  String get secretRevealTopSecret;
+
+  /// No description provided for @secretRevealNextPlayer.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PRÓXIMO JOGADOR'**
+  String get secretRevealNextPlayer;
+
+  /// No description provided for @secretRevealStartQuestions.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'INICIAR PERGUNTAS'**
+  String get secretRevealStartQuestions;
 
   /// No description provided for @outOfLoopMessage.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Voce esta FORA do circulo - aja naturalmente.'**
+  /// **'Você está FORA do círculo — aja naturalmente.'**
   String get outOfLoopMessage;
 
   /// No description provided for @doneAnswering.
@@ -396,6 +444,72 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'Terminei de responder'**
   String get doneAnswering;
+
+  /// No description provided for @questionRoundPlayerTurn.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Vez de {playerName}'**
+  String questionRoundPlayerTurn(String playerName);
+
+  /// No description provided for @questionRoundSpeakUp.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'FALE ALTO!'**
+  String get questionRoundSpeakUp;
+
+  /// No description provided for @questionRoundSpeakUpLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Responda a pergunta em voz alta para'**
+  String get questionRoundSpeakUpLine1;
+
+  /// No description provided for @questionRoundSpeakUpLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'todos ouvirem.'**
+  String get questionRoundSpeakUpLine2;
+
+  /// No description provided for @questionRoundTimeRemaining.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TEMPO RESTANTE'**
+  String get questionRoundTimeRemaining;
+
+  /// No description provided for @questionRoundTimeSeconds.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{seconds}S'**
+  String questionRoundTimeSeconds(int seconds);
+
+  /// No description provided for @questionRoundDoneAnswering.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TERMINEI DE RESPONDER'**
+  String get questionRoundDoneAnswering;
+
+  /// No description provided for @questionRoundNextQuestion.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PRÓXIMA PERGUNTA'**
+  String get questionRoundNextQuestion;
+
+  /// No description provided for @questionRoundGoToVoting.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'IR PARA VOTAÇÃO'**
+  String get questionRoundGoToVoting;
+
+  /// No description provided for @questionRoundTimerExpiredLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O tempo acabou.'**
+  String get questionRoundTimerExpiredLine1;
+
+  /// No description provided for @questionRoundTimerExpiredLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Finalize esta resposta quando estiver pronto.'**
+  String get questionRoundTimerExpiredLine2;
 
   /// No description provided for @whoIsOutOfTheLoop.
   ///
