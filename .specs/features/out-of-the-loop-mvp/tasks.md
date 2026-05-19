@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/out-of-the-loop-mvp/spec.md`
 **Design**: `.specs/features/out-of-the-loop-mvp/design.md` (planned as T01)
-**Status**: Phase 1 complete
+**Status**: Phase 2 complete
 
 ---
 
@@ -436,11 +436,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Start is allowed only for 3 to 9 valid unique names.
-- [ ] Empty and duplicate names are rejected.
-- [ ] Round count is validated against category content capacity.
-- [ ] Unit tests cover 2, 3, 9, and 10 player cases.
-- [ ] Gate check passes: `flutter test test/domain/services/match_setup_service_test.dart`.
+- [x] Start is allowed only for 3 to 9 valid unique names.
+- [x] Empty and duplicate names are rejected.
+- [x] Round count is validated against category content capacity.
+- [x] Unit tests cover 2, 3, 9, and 10 player cases.
+- [x] Gate check passes: `flutter test test/domain/services/match_setup_service_test.dart`.
 
 **Tests**: unit
 **Gate**: quick
@@ -463,11 +463,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Exactly one player is marked out per round.
-- [ ] Used words are not repeated in the same match.
-- [ ] Words with too few questions are skipped for the current player count.
-- [ ] Unit tests cover repeat prevention and question count.
-- [ ] Gate check passes: `flutter test test/domain/services/round_generation_service_test.dart`.
+- [x] Exactly one player is marked out per round.
+- [x] Used words are not repeated in the same match.
+- [x] Words with too few questions are skipped for the current player count.
+- [x] Unit tests cover repeat prevention and question count.
+- [x] Gate check passes: `flutter test test/domain/services/round_generation_service_test.dart`.
 
 **Tests**: unit
 **Gate**: quick
@@ -490,13 +490,13 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Each player can vote once.
-- [ ] Majority is calculated as more than half.
-- [ ] Inside players receive +25 for correct votes.
-- [ ] Inside players receive +100 when majority finds the out player.
-- [ ] Out player receives +50 when not found and +125 when guess is correct.
-- [ ] Unit tests cover majority, no-majority, tie, correct guess, and wrong guess cases.
-- [ ] Gate check passes: `flutter test test/domain/services/vote_scoring_service_test.dart`.
+- [x] Each player can vote once.
+- [x] Majority is calculated as more than half.
+- [x] Inside players receive +25 for correct votes.
+- [x] Inside players receive +100 when majority finds the out player.
+- [x] Out player receives +50 when not found and +125 when guess is correct.
+- [x] Unit tests cover majority, no-majority, tie, correct guess, and wrong guess cases.
+- [x] Gate check passes: `flutter test test/domain/services/vote_scoring_service_test.dart`.
 
 **Tests**: unit
 **Gate**: quick
@@ -519,11 +519,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Default duration is 30 seconds.
-- [ ] Timer can be enabled/disabled and configured.
-- [ ] Expiration does not auto-record a vote.
-- [ ] Unit tests cover default, configured, and expired states.
-- [ ] Gate check passes: `flutter test test/domain/services/timer_service_test.dart`.
+- [x] Default duration is 30 seconds.
+- [x] Timer can be enabled/disabled and configured.
+- [x] Expiration does not auto-record a vote.
+- [x] Unit tests cover default, configured, and expired states.
+- [x] Gate check passes: `flutter test test/domain/services/timer_service_test.dart`.
 
 **Tests**: unit
 **Gate**: quick
@@ -546,11 +546,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Round completion updates total scores.
-- [ ] Next round carries players and used words forward.
-- [ ] Final round produces ranking.
-- [ ] Unit tests cover 2-round completion and final ranking.
-- [ ] Gate check passes: `flutter test test/domain/services/match_progression_service_test.dart`.
+- [x] Round completion updates total scores.
+- [x] Next round carries players and used words forward.
+- [x] Final round produces ranking.
+- [x] Unit tests cover 2-round completion and final ranking.
+- [x] Gate check passes: `flutter test test/domain/services/match_progression_service_test.dart`.
 
 **Tests**: unit
 **Gate**: quick
