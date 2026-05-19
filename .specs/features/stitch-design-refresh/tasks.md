@@ -1,7 +1,7 @@
 # Stitch Design Refresh Tasks
 
 **Spec**: `.specs/features/stitch-design-refresh/spec.md`
-**Status**: Planned
+**Status**: Phase 0 complete
 
 ---
 
@@ -20,7 +20,7 @@
 
 ### Phase 0: Decisions And Audit Baseline
 
-Resolve design-source ambiguity before implementation.
+Resolved design-source ambiguity before implementation.
 
 ```text
 T01 -> T02
@@ -83,13 +83,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Open questions about primary color, font embedding, nav labels, and source-of-truth order are answered.
-- [ ] The chosen rule is recorded in the spec or design docs.
-- [ ] Any accepted divergence from `.agents/DESIGN.md` is explicit.
+- [x] Open questions about primary color, font embedding, nav labels, and source-of-truth order are answered.
+- [x] The chosen rule is recorded in the spec or design docs.
+- [x] Any accepted divergence from `.agents/DESIGN.md` is explicit.
 
 **Tests**: none
 **Gate**: docs review
 **Verify**: Read the decision and confirm it unblocks token implementation.
+**Status**: Complete
 
 ---
 
@@ -103,13 +104,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] `validation.md` lists target screens: Home, categories, players, reveal, question, vote, results, leaderboard, how-to, settings.
-- [ ] Each screen has Stitch observations and current app gaps.
-- [ ] Functional non-goals are noted: no login, no Pro, no online features.
+- [x] `validation.md` lists target screens: Home, categories, players, reveal, question, vote, results, leaderboard, how-to, settings.
+- [x] Each screen has Stitch observations and current app gaps.
+- [x] Functional non-goals are noted: no login, no Pro, no online features.
 
 **Tests**: none
 **Gate**: docs review
 **Verify**: Review `validation.md` and confirm all target screens are covered.
+**Status**: Complete
 
 ---
 

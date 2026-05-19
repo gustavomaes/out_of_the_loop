@@ -210,9 +210,20 @@ Esta especificacao define uma reformulacao visual usando como referencia o proje
 - [ ] Testes de tema, shared widgets, features e app flow passam.
 - [ ] Auditoria visual documenta diferencas aceitas entre Stitch, app e `.agents/DESIGN.md`.
 
-## Open Questions
+## Phase 0 Decisions
 
-- O verde-limao do Stitch deve substituir o rosa atual como cor primaria, ou entrar como novo acento dominante mantendo rosa como contraste?
-- A fonte atual declarada como `Poppins` deve ser realmente embarcada no `pubspec.yaml`, ou o refresh deve continuar usando fallback do sistema?
-- O bottom navigation deve manter os destinos atuais ou mudar os labels para espelhar exatamente o Stitch?
-- A referencia visual deve ser considerada fonte de verdade acima de `.agents/DESIGN.md`, ou `.agents/DESIGN.md` deve ser atualizado primeiro para incorporar o Stitch?
+**Status**: Resolved before implementation.
+
+- The Stitch reference is the visual source of truth for this refresh where it conflicts with `.agents/DESIGN.md`, but only inside the visual scope of SDR-01 to SDR-08.
+- `.agents/DESIGN.md` remains the baseline design-system document until a later explicit update. Divergences required by Stitch must be recorded in this spec or in `validation.md` before final acceptance.
+- Lime replaces the current pink as the dominant primary/action accent for the refresh. Magenta/pink stays available as contrast for secret, tension, selected, warning-adjacent, or glow treatments when it improves hierarchy.
+- The app keeps the current `Poppins` token declaration but does not add bundled font assets in this phase. Because `pubspec.yaml` currently declares no fonts, runtime may use platform fallback unless font assets are added by a later task.
+- Bottom navigation keeps the current shipped destinations: Home/Play, Categories, How To, and Settings. Styling may move closer to Stitch, but labels and destinations must not add Profile, Pro, login, online, audio, or unsupported tabs.
+- Functional boundaries from the MVP remain higher priority than Stitch-only affordances: no role selection in setup, no login/logout, no Pro/paywall, no online multiplayer, no light theme, and no audio controls.
+
+## Resolved Questions
+
+- Primary color: lime becomes dominant; magenta remains contrast.
+- Font: keep tokenized `Poppins`, do not embed font assets during Phase 0.
+- Bottom navigation: keep current destinations and avoid unsupported Stitch tabs.
+- Source of truth: Stitch overrides `.agents/DESIGN.md` for this refresh, with documented divergences.
