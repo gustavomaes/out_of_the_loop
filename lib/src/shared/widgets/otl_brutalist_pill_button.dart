@@ -10,7 +10,7 @@ class OtlBrutalistPillButton extends StatelessWidget {
     required this.backgroundColor,
     required this.foregroundColor,
     required this.icon,
-    this.borderRadius = 32,
+    this.borderRadius = 0,
     super.key,
   });
 

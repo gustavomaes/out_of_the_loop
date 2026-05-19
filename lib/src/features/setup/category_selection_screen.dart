@@ -4,9 +4,8 @@ import '../../data/content/local_content_repository.dart';
 import '../../domain/models/models.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/shared_widgets.dart';
-import '../../theme/brutalist_theme.dart';
-import '../../theme/display_typography.dart';
-import 'category_localization.dart';
+import '../../theme/theme.dart';
+import 'widgets/category_header.dart';
 import 'widgets/otl_category_bento_grid.dart';
 
 class CategorySelectionScreen extends StatefulWidget {
@@ -86,7 +85,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
             return ListView(
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 134),
               children: [
-                _CategoryHeader(
+                CategoryHeader(
                   title: l10n.pickCategory,
                   subtitle: l10n.pickCategorySubtitle,
                 ),
@@ -102,35 +101,6 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
           },
         ),
       ),
-    );
-  }
-}
-
-class _CategoryHeader extends StatelessWidget {
-  const _CategoryHeader({required this.title, required this.subtitle});
-
-  final String title;
-  final String subtitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          title,
-          style: DisplayTypography.rubikCategoryTitle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 8),
-        Text(
-          subtitle,
-          style: DisplayTypography.plusJakartaBody(
-            color: BrutalistColors.sectionLabel,
-            fontSize: 16,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 }

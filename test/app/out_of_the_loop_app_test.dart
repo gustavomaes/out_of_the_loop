@@ -76,16 +76,14 @@ void main() {
   testWidgets('completes one 3-player round from the app shell', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({'settings.language': 'en'});
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('JOGAR'));
-    await _pumpUntilVisible(tester, find.text('Comida'));
-    await tester.tap(find.text('Comida'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('PLAY'));
+    await tester.tap(find.text('START GAME'));
+    await _pumpUntilVisible(tester, find.text('Food & Drink'));
+    await tester.tap(find.text('Food & Drink'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('CONTINUE'));
     await tester.pumpAndSettle();
@@ -95,11 +93,11 @@ void main() {
       await tester.tap(find.text('ADD'));
       await tester.pump();
     }
-    await tester.tap(find.text('START MATCH'));
+    await tester.tap(find.text('START GAME', skipOffstage: false).last);
     await tester.pumpAndSettle();
 
     for (var index = 0; index < 3; index += 1) {
-      await tester.tap(find.text('VIEW MY WORD'));
+      await tester.tap(find.text('REVEAL MY ROLE'));
       await tester.pumpAndSettle();
       await tester.tap(
         find.text(index == 2 ? 'START QUESTIONS' : 'NEXT PLAYER'),

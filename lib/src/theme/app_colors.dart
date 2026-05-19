@@ -50,6 +50,9 @@ abstract final class BrutalistColors {
   static const toggleOff = Color(0xFF333348);
   static const playerCountBadgeBackground = Color(0xFFFFACE8);
   static const playerCountBadgeText = Color(0xFF5E0053);
+
+  /// Player turn chip and voting vote-button label (Figma).
+  static const turnChipText = Color(0xFF520049);
   static const playerCardPink = Color(0xFFFF24E4);
   static const playerCardYellow = Color(0xFFFFE170);
   static const playerCardGreen = Color(0xFFA0D800);
@@ -59,4 +62,25 @@ abstract final class BrutalistColors {
 
   /// Soft peach accent for voting-screen radial gradient (Figma).
   static const votingAtmosphereAccent = Color(0xFFFFB4AB);
+
+  /// Self-voter card background on voting screen (Figma).
+  static const votingCardSelfBackground = Color(0xFF1A1A2E);
+
+  /// Inset highlight on voting player avatars.
+  static const votingAvatarInsetShadow = Color(0x33000000);
+
+  /// How-to-play rule card accents (Figma).
+  static const howToPlayYellowText = Color(0xFF221B00);
+  static const howToPlayCyan = Color(0xFF00E5FF);
+
+  /// Final leaderboard decorative / rank accents.
+  static const resultsWinnerStar = Color(0xFF8FBF00);
+  static const resultsOutPlayerName = Color(0xFFFFB4AB);
+
+  /// Settings audio row icon tints (Figma).
+  static const settingsMusicIcon = Color(0xFFFF3DF2);
+  static const settingsSfxIcon = Color(0xFFFFE170);
+
+  /// Timer slider overlay on settings card.
+  static const sliderOverlayLime = Color(0x33B7F700);
 }

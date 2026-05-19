@@ -5,6 +5,7 @@ import 'package:outoftheloop/src/l10n/generated/app_localizations.dart';
 import 'package:outoftheloop/src/domain/services/vote_scoring_service.dart';
 import 'package:outoftheloop/src/features/game/final_leaderboard_screen.dart';
 import 'package:outoftheloop/src/features/game/question_round_screen.dart';
+import 'package:outoftheloop/src/features/game/guess_screen.dart';
 import 'package:outoftheloop/src/features/game/round_results_screen.dart';
 import 'package:outoftheloop/src/features/game/secret_reveal_screen.dart';
 import 'package:outoftheloop/src/features/game/voting_screen.dart';

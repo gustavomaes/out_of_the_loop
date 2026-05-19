@@ -1,14 +1,15 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import '../../domain/models/models.dart';
 import '../../domain/services/match_setup_service.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/shared_widgets.dart';
-import '../../theme/brutalist_theme.dart';
-import '../../theme/display_typography.dart';
+import '../../theme/theme.dart';
+import 'widgets/add_player_button.dart';
 import 'widgets/otl_player_tile.dart';
+import 'widgets/player_name_field.dart';
+import 'widgets/player_setup_footer.dart';
+import 'widgets/player_setup_header.dart';
 
 typedef PlayerSetupStartCallback =
     void Function(List<Player> players, int roundCount, int questionsPerPlayer);
@@ -101,7 +102,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
         ),
         body: Stack(
           children: [
-            const _PlayerSetupAtmosphere(),
+            const OtlPartyAtmosphere.matchSetup(),
             ListView(
               padding: EdgeInsets.fromLTRB(
                 20,
@@ -110,15 +111,15 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
                 160 + MediaQuery.paddingOf(context).bottom,
               ),
               children: [
-                _PlayerSetupHeader(l10n: l10n),
+                PlayerSetupHeader(l10n: l10n),
                 const SizedBox(height: 16),
-                _PlayerNameField(
+                PlayerNameField(
                   controller: _controller,
                   hintText: l10n.playerNameHint,
                   onSubmitted: (_) => _addPlayer(),
                 ),
                 const SizedBox(height: 16),
-                _AddPlayerButton(
+                AddPlayerButton(
                   label: l10n.addPlayerButton,
                   onPressed: _addPlayer,
                 ),
@@ -130,7 +131,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
                       _messageFor(l10n, _latestError!),
                       key: const Key('player_setup_error'),
                       style: DisplayTypography.plusJakartaBody(
-                        color: const Color(0xFFFF6B6B),
+                        color: AppColors.error,
                         fontSize: 14,
                       ),
                     ),
@@ -157,7 +158,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
               left: 0,
               right: 0,
               bottom: 0,
-              child: _PlayerSetupFooter(
+              child: PlayerSetupFooter(
                 label: l10n.playerSetupStartGame,
                 enabled: canStart,
                 onPressed: canStart
@@ -272,329 +273,6 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
       MatchSetupValidationError.insufficientQuestionsPerWord =>
         l10n.playerSetupErrorInsufficientQuestions,
     };
-  }
-}
-
-class _PlayerSetupHeader extends StatelessWidget {
-  const _PlayerSetupHeader({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          l10n.playerSetupTitleLine1,
-          style: DisplayTypography.rubikPlayerSetupTitle(
-            color: BrutalistColors.lime,
-          ),
-        ),
-        Text(
-          l10n.playerSetupTitleLine2,
-          style: DisplayTypography.rubikPlayerSetupTitle(
-            color: BrutalistColors.lime,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Padding(
-          padding: const EdgeInsets.only(right: 4, bottom: 4),
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Positioned.fill(
-                child: Transform.translate(
-                  offset: const Offset(4, 4),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(9999),
-                    ),
-                  ),
-                ),
-              ),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: BrutalistColors.playerCountBadgeBackground,
-                  borderRadius: BorderRadius.circular(9999),
-                  border: Border.all(color: Colors.black, width: 2),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 4,
-                  ),
-                  child: Text(
-                    l10n.playerSetupPlayerCountBadge,
-                    key: const Key('player_setup_count_badge'),
-                    style: DisplayTypography.spaceGroteskMeta(
-                      color: BrutalistColors.playerCountBadgeText,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _PlayerNameField extends StatelessWidget {
-  const _PlayerNameField({
-    required this.controller,
-    required this.hintText,
-    required this.onSubmitted,
-  });
-
-  final TextEditingController controller;
-  final String hintText;
-  final ValueChanged<String> onSubmitted;
-
-  static const _height = 64.0;
-  static const _shadowOffset = 4.0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: _shadowOffset, bottom: _shadowOffset),
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned.fill(
-            child: Transform.translate(
-              offset: const Offset(_shadowOffset, _shadowOffset),
-              child: const DecoratedBox(
-                decoration: BoxDecoration(color: Colors.black),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: _height,
-            child: TextField(
-              controller: controller,
-              onSubmitted: onSubmitted,
-              textInputAction: TextInputAction.done,
-              style: DisplayTypography.plusJakartaBody(
-                color: BrutalistColors.cardText,
-              ),
-              cursorColor: BrutalistColors.lime,
-              decoration: InputDecoration(
-                hintText: hintText,
-                hintStyle: DisplayTypography.plusJakartaBody(
-                  color: BrutalistColors.inputHint,
-                ),
-                filled: true,
-                fillColor: BrutalistColors.cardBackground,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 20,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black, width: 4),
-                  borderRadius: BorderRadius.circular(0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black, width: 4),
-                  borderRadius: BorderRadius.circular(0),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _AddPlayerButton extends StatelessWidget {
-  const _AddPlayerButton({required this.label, required this.onPressed});
-
-  final String label;
-  final VoidCallback onPressed;
-
-  static const _height = 64.0;
-  static const _shadowOffset = 4.0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: _shadowOffset, bottom: _shadowOffset),
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned.fill(
-            child: Transform.translate(
-              offset: const Offset(_shadowOffset, _shadowOffset),
-              child: const DecoratedBox(
-                decoration: BoxDecoration(color: Colors.black),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: _height,
-            width: double.infinity,
-            child: Material(
-              color: BrutalistColors.lime,
-              child: InkWell(
-                onTap: onPressed,
-                child: Ink(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 4),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.add_circle_outline,
-                        color: BrutalistColors.homePrimaryButtonText,
-                        size: 22,
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        label,
-                        style: DisplayTypography.rubikHomeButton(
-                          color: BrutalistColors.homePrimaryButtonText,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _PlayerSetupFooter extends StatelessWidget {
-  const _PlayerSetupFooter({
-    required this.label,
-    required this.enabled,
-    required this.onPressed,
-  });
-
-  final String label;
-  final bool enabled;
-  final VoidCallback? onPressed;
-
-  static const _height = 80.0;
-  static const _shadowOffset = 8.0;
-
-  @override
-  Widget build(BuildContext context) {
-    final bottomPadding = MediaQuery.paddingOf(context).bottom;
-
-    return ClipRect(
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-        child: DecoratedBox(
-          decoration: const BoxDecoration(color: BrutalistColors.footerScrim),
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 20, 20, 20 + bottomPadding),
-            child: Opacity(
-              opacity: enabled ? 1 : 0.45,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  right: _shadowOffset,
-                  bottom: _shadowOffset,
-                ),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Positioned.fill(
-                      child: Transform.translate(
-                        offset: const Offset(_shadowOffset, _shadowOffset),
-                        child: const DecoratedBox(
-                          decoration: BoxDecoration(color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: _height,
-                      width: double.infinity,
-                      child: Material(
-                        color: BrutalistColors.lime,
-                        child: InkWell(
-                          onTap: onPressed,
-                          child: Ink(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 4,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  label,
-                                  style: DisplayTypography.rubikPlayerSetupCta(
-                                    color: BrutalistColors.homePrimaryButtonText,
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                Icon(
-                                  Icons.play_arrow,
-                                  color: BrutalistColors.homePrimaryButtonText,
-                                  size: 28,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _PlayerSetupAtmosphere extends StatelessWidget {
-  const _PlayerSetupAtmosphere();
-
-  @override
-  Widget build(BuildContext context) {
-    return IgnorePointer(
-      child: Stack(
-        children: [
-          Positioned(
-            right: -40,
-            top: 96,
-            child: _glow(color: BrutalistColors.playerCardPink),
-          ),
-          Positioned(
-            left: -40,
-            bottom: 212,
-            child: _glow(color: BrutalistColors.lime),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _glow({required Color color}) {
-    return ImageFiltered(
-      imageFilter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
-      child: Opacity(
-        opacity: 0.2,
-        child: Container(
-          width: 160,
-          height: 160,
-          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-        ),
-      ),
-    );
   }
 }
 

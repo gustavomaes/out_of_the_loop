@@ -8,6 +8,7 @@ import '../domain/models/models.dart';
 import '../domain/services/match_setup_service.dart';
 import '../features/game/final_leaderboard_screen.dart';
 import '../features/game/question_round_screen.dart';
+import '../features/game/guess_screen.dart';
 import '../features/game/round_results_screen.dart';
 import '../features/game/secret_reveal_screen.dart';
 import '../features/game/voting_screen.dart';
@@ -69,9 +70,8 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: AppRoutes.home,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: _DiscoveryHomeRoute(),
-                ),
+                pageBuilder: (context, state) =>
+                    const NoTransitionPage(child: _DiscoveryHomeRoute()),
               ),
             ],
           ),

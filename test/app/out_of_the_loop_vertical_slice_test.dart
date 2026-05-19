@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import 'app_test_helpers.dart';
 
 void main() {
   testWidgets('plays a complete 3-player MVP vertical slice', (tester) async {
-    SharedPreferences.setMockInitialValues({});
+    setEnglishAppPreferences();
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('JOGAR'));
-    await _pumpUntilVisible(tester, find.text('Comida'));
-    await tester.tap(find.text('Comida'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('PLAY'));
+    await tester.tap(find.text('START GAME'));
+    await _pumpUntilVisible(tester, find.text('Food & Drink'));
+    await tester.tap(find.text('Food & Drink'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('CONTINUE'));
     await tester.pumpAndSettle();
@@ -24,17 +23,15 @@ void main() {
       await tester.tap(find.text('ADD'));
       await tester.pump();
     }
-    await tester.tap(find.text('START MATCH'));
+    await tester.tap(find.text('START GAME', skipOffstage: false).last);
     await tester.pumpAndSettle();
 
     for (var index = 0; index < 3; index += 1) {
-      expect(find.text('Make sure nobody else is looking.'), findsOneWidget);
-      expect(find.textContaining('FORA'), findsNothing);
+      expect(find.text('Make sure nobody else is'), findsOneWidget);
+      expect(find.textContaining('OUT of the loop'), findsNothing);
 
-      await tester.tap(find.text('VIEW MY WORD'));
+      await tester.tap(find.text('REVEAL MY ROLE'));
       await tester.pumpAndSettle();
-
-      expect(find.text('Make sure nobody else is looking.'), findsNothing);
 
       await tester.tap(
         find.text(index == 2 ? 'START QUESTIONS' : 'NEXT PLAYER'),

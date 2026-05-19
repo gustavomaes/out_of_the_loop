@@ -7,8 +7,8 @@ import '../../app/app_shell.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/otl_brutalist_pill_button.dart';
 import '../../shared/widgets/otl_home_backdrop.dart';
-import '../../theme/brutalist_theme.dart';
-import '../../theme/display_typography.dart';
+import '../../theme/theme.dart';
+import 'widgets/home_hero_title.dart';
 
 /// Brand lockup — not localized (see [AppLocalizations.appTitle] for semantics).
 abstract final class HomeBrand {
@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                     Semantics(
                       header: true,
                       label: l10n.appTitle,
-                      child: const _HomeHeroTitle(),
+                      child: const HomeHeroTitle(),
                     ),
                     const SizedBox(height: _heroToActionsGap),
                     OtlBrutalistPillButton(
@@ -85,60 +85,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-/// Figma node `2:16` — lime title with 4×4 black offset shadow.
-class _HomeHeroTitle extends StatelessWidget {
-  const _HomeHeroTitle();
-
-  static const _shadowOffset = Offset(4, 4);
-  static const _horizontalPadding = 43.5;
-
-  TextStyle _lineStyle(Color color) =>
-      DisplayTypography.rubikHomeTitle(color: color);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: _horizontalPadding),
-      child: Stack(
-        alignment: Alignment.center,
-        clipBehavior: Clip.none,
-        children: [
-          Transform.translate(
-            offset: _shadowOffset,
-            child: _TitleLines(style: _lineStyle(Colors.black)),
-          ),
-          _TitleLines(style: _lineStyle(BrutalistColors.lime)),
-        ],
-      ),
-    );
-  }
-}
-
-class _TitleLines extends StatelessWidget {
-  const _TitleLines({required this.style});
-
-  final TextStyle style;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          HomeBrand.lineOne,
-          style: style,
-          textAlign: TextAlign.center,
-        ),
-        Text(
-          HomeBrand.lineTwo,
-          style: style,
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 }

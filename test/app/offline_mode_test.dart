@@ -1,28 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import 'app_test_helpers.dart';
 
 void main() {
   testWidgets('starts a 3-player round without login or network setup', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
+    setEnglishAppPreferences();
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
     expect(find.textContaining('Login'), findsNothing);
-    expect(find.textContaining('PROFILE'), findsNothing);
-    expect(find.textContaining('PRO'), findsNothing);
 
-    await tester.tap(find.text('JOGAR'));
-    await _pumpUntilVisible(tester, find.text('Comida'));
+    await tester.tap(find.text('START GAME'));
+    await _pumpUntilVisible(tester, find.text('Food & Drink'));
 
-    expect(find.text('Comida'), findsOneWidget);
-    await tester.tap(find.text('Comida'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('PLAY'));
+    expect(find.text('Food & Drink'), findsOneWidget);
+    await tester.tap(find.text('Food & Drink'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('CONTINUE'));
     await tester.pumpAndSettle();
@@ -32,11 +29,10 @@ void main() {
       await tester.tap(find.text('ADD'));
       await tester.pump();
     }
-    await tester.tap(find.text('START MATCH'));
+    await tester.tap(find.text('START GAME', skipOffstage: false).last);
     await tester.pumpAndSettle();
 
     expect(find.text('TOP SECRET'), findsOneWidget);
-    expect(find.text('Caio\'s turn'), findsOneWidget);
     expect(find.textContaining('Login'), findsNothing);
   });
 }

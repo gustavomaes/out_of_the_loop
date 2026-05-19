@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/ui-consolidation/spec.md`  
 **Design**: `.specs/features/ui-consolidation/design.md`  
-**Status**: Phase 2 complete
+**Status**: Phase 3 complete
 
 ---
 
@@ -256,12 +256,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] `settings_screen.dart` < 200 linhas (orientação).
-- [ ] 1 método `build` na tela.
+- [x] `settings_screen.dart` < 200 linhas (orientação).
+- [x] 1 método `build` na tela.
 
 **Tests**: `flutter test test/features` (path settings se existir) ou widget test settings  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -274,12 +274,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Pasta widgets com 1 arquivo por componente.
-- [ ] Literais de cor removidos.
+- [x] Pasta widgets com 1 arquivo por componente.
+- [x] Literais de cor removidos.
 
 **Tests**: `flutter test test/features` (setup)  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -292,11 +292,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Consistente com `otl_player_tile.dart` pattern.
+- [x] Consistente com `otl_player_tile.dart` pattern.
 
 **Tests**: setup widget tests  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -309,11 +309,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Usa `OtlPartyAtmosphere` / shared onde decidido em T08.
+- [x] Usa `OtlPartyAtmosphere` / shared onde decidido em T08.
 
 **Tests**: `flutter test test/features/game`  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -326,11 +326,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Sem `_TimerExpiredMessage` local.
+- [x] Sem `_TimerExpiredMessage` local.
 
 **Tests**: game screen tests  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -343,12 +343,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Arquivo de tela reduzido a composição.
-- [ ] Zero literais de cor.
+- [x] Arquivo de tela reduzido a composição.
+- [x] Zero literais de cor.
 
 **Tests**: `flutter test test/features/game/game_screens_test.dart`  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -361,11 +361,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Sem duplicação de shadow text local.
+- [x] Sem duplicação de shadow text local.
 
 **Tests**: game screen tests  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -378,11 +378,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Literais removidos.
+- [x] Literais removidos.
 
 **Tests**: game screen tests  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -395,11 +395,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] `features/home/widgets/` criada.
+- [x] `features/home/widgets/` criada.
 
 **Tests**: app/home tests se existirem  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -412,11 +412,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Tokens apenas via theme.
+- [x] Tokens apenas via theme.
 
 **Tests**: analyze + widget test se existir  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -429,11 +429,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Header em arquivo dedicado.
+- [x] Header em arquivo dedicado.
 
 **Tests**: setup tests  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
