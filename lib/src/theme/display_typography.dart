@@ -51,6 +51,23 @@ abstract final class DisplayTypography {
     );
   }
 
+  /// Figma bottom-nav labels (Space Grotesk 14 / 1.4 tracking); uses bundled Rubik in tests.
+  static TextStyle bottomNavLabel({
+    required Color color,
+    double fontSize = 14,
+    FontWeight fontWeight = FontWeight.w700,
+    double letterSpacing = 1.4,
+  }) {
+    return TextStyle(
+      fontFamily: 'Rubik',
+      fontSize: fontSize,
+      height: 20 / fontSize,
+      fontWeight: fontWeight,
+      letterSpacing: letterSpacing,
+      color: color,
+    );
+  }
+
   static TextStyle rubikSettingLabel({
     required Color color,
     double fontSize = 20,

@@ -5,6 +5,8 @@ import 'package:outoftheloop/src/domain/models/models.dart';
 import 'package:outoftheloop/src/features/setup/category_selection_screen.dart';
 import 'package:outoftheloop/src/features/setup/match_setup_screen.dart';
 import 'package:outoftheloop/src/features/setup/player_setup_screen.dart';
+import 'package:outoftheloop/src/shared/widgets/otl_button.dart';
+import 'package:outoftheloop/src/l10n/generated/app_localizations.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
 void main() {
@@ -28,7 +30,7 @@ void main() {
 
     await tester.tap(find.text('Comida'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('PLAY'));
+    await tester.tap(find.widgetWithText(OtlButton, 'PLAY'));
     await tester.pump();
 
     expect(selectedCategory?.id, 'food');
@@ -215,7 +217,13 @@ class _TestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: OutOfTheLoopTheme.dark, home: child);
+    return MaterialApp(
+      theme: OutOfTheLoopTheme.dark,
+      locale: const Locale('en'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: child,
+    );
   }
 }
 

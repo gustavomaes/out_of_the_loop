@@ -30,7 +30,6 @@ abstract final class AppRoutes {
   static const bottomNavigationRoutes = <String>[
     home,
     categories,
-    howToPlay,
     settings,
   ];
 }

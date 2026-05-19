@@ -1,5 +1,6 @@
 export 'otl_brutalist_app_bar.dart';
 export 'otl_brutalist_pill_button.dart';
+export 'otl_discovery_bottom_bar.dart';
 export 'otl_brutalist_surface.dart';
 export 'otl_home_backdrop.dart';
 export 'otl_button.dart';

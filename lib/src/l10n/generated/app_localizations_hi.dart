@@ -15,6 +15,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get startGame => 'खेल शुरू करें';
 
   @override
+  String get navPlay => 'खेलें';
+
+  @override
+  String get navCategories => 'श्रेणियाँ';
+
+  @override
+  String get navProfile => 'प्रोफ़ाइल';
+
+  @override
   String get howToPlay => 'कैसे खेलें';
 
   @override

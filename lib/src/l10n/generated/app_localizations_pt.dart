@@ -15,6 +15,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get startGame => 'JOGAR';
 
   @override
+  String get navPlay => 'INÍCIO';
+
+  @override
+  String get navCategories => 'CATEGORIAS';
+
+  @override
+  String get navProfile => 'PERFIL';
+
+  @override
   String get howToPlay => 'COMO JOGAR';
 
   @override
@@ -184,6 +193,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get startGame => 'JOGAR';
+
+  @override
+  String get navPlay => 'INÍCIO';
+
+  @override
+  String get navCategories => 'CATEGORIAS';
+
+  @override
+  String get navProfile => 'PERFIL';
 
   @override
   String get howToPlay => 'COMO JOGAR';

@@ -115,6 +115,24 @@ abstract class AppLocalizations {
   /// **'JOGAR'**
   String get startGame;
 
+  /// No description provided for @navPlay.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'INÍCIO'**
+  String get navPlay;
+
+  /// No description provided for @navCategories.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'CATEGORIAS'**
+  String get navCategories;
+
+  /// No description provided for @navProfile.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PERFIL'**
+  String get navProfile;
+
   /// No description provided for @howToPlay.
   ///
   /// In pt_BR, this message translates to:

@@ -48,6 +48,9 @@ void main() {
 
     expect(localizations.appTitle, 'Out of the Loop');
     expect(localizations.startGame, 'JOGAR');
+    expect(localizations.navPlay, 'INÍCIO');
+    expect(localizations.navCategories, 'CATEGORIAS');
+    expect(localizations.navProfile, 'PERFIL');
     expect(localizations.howToPlay, 'COMO JOGAR');
     expect(localizations.revealMyWord, 'Visualizar minha palavra');
     expect(localizations.confirmVotes, 'Confirmar votos');

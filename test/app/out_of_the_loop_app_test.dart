@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/app/app_routes.dart';
 import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
+import 'package:outoftheloop/src/shared/widgets/otl_discovery_bottom_bar.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -33,7 +34,7 @@ void main() {
 
     expect(find.text('OUT OF THE'), findsWidgets);
     expect(find.text('LOOP'), findsWidgets);
-    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.byType(OtlDiscoveryBottomBar), findsOneWidget);
 
     final scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
     expect(scaffold.backgroundColor, isNot(Colors.white));
@@ -47,7 +48,7 @@ void main() {
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
-    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.byType(OtlDiscoveryBottomBar), findsOneWidget);
 
     Navigator.of(
       tester.element(find.byType(Scaffold)),
@@ -55,7 +56,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Secret Reveal'), findsWidgets);
-    expect(find.byType(NavigationBar), findsNothing);
+    expect(find.byType(OtlDiscoveryBottomBar), findsNothing);
     expect(
       Theme.of(tester.element(find.byType(Scaffold))).scaffoldBackgroundColor,
       AppColors.backgroundPrimary,
@@ -151,6 +152,8 @@ void main() {
     expect(find.text('English'), findsOneWidget);
     await tester.scrollUntilVisible(find.text('TIMER'), 200);
     expect(find.text('Use timer'), findsOneWidget);
+    await tester.ensureVisible(find.text('Use timer'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Use timer'));
     await tester.pumpAndSettle();
     expect(find.textContaining('45 seconds per turn'), findsOneWidget);

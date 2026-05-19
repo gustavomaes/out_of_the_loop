@@ -32,7 +32,7 @@ class AppShell extends StatelessWidget {
         child: Padding(padding: bodyPadding, child: child),
       ),
       bottomNavigationBar: showBottomNavigation
-          ? _DiscoveryNavigationBar(currentRoute: routeName)
+          ? OtlDiscoveryBottomBar(currentRoute: routeName)
           : null,
     );
   }
@@ -73,47 +73,3 @@ class PlaceholderRoutePage extends StatelessWidget {
   }
 }
 
-class _DiscoveryNavigationBar extends StatelessWidget {
-  const _DiscoveryNavigationBar({required this.currentRoute});
-
-  final String currentRoute;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        border: Border(top: BorderSide(color: AppColors.borderDefault)),
-        boxShadow: AppShadows.lg,
-      ),
-      child: NavigationBar(
-        height: 72,
-        backgroundColor: AppColors.backgroundSecondary,
-        indicatorColor: AppColors.overlayGlow,
-        selectedIndex: _selectedIndex,
-        onDestinationSelected: (index) {
-          final route = AppRoutes.bottomNavigationRoutes[index];
-          if (route != currentRoute) {
-            Navigator.of(context).pushReplacementNamed(route);
-          }
-        },
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.play_arrow), label: 'Play'),
-          NavigationDestination(
-            icon: Icon(Icons.grid_view),
-            label: 'Categories',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.help_outline),
-            label: 'How To',
-          ),
-          NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
-        ],
-      ),
-    );
-  }
-
-  int get _selectedIndex {
-    final index = AppRoutes.bottomNavigationRoutes.indexOf(currentRoute);
-    return index < 0 ? 0 : index;
-  }
-}

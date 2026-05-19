@@ -5,6 +5,9 @@
     "description": "Application title used by the app shell."
   },
   "startGame": "JOGAR",
+  "navPlay": "INÍCIO",
+  "navCategories": "CATEGORIAS",
+  "navProfile": "PERFIL",
   "howToPlay": "COMO JOGAR",
   "pickCategory": "Escolha uma categoria",
   "addPlayer": "Adicionar jogador",

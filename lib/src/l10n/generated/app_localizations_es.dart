@@ -15,6 +15,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get startGame => 'INICIAR JUEGO';
 
   @override
+  String get navPlay => 'JUGAR';
+
+  @override
+  String get navCategories => 'CATEGORÍAS';
+
+  @override
+  String get navProfile => 'PERFIL';
+
+  @override
   String get howToPlay => 'CÓMO JUGAR';
 
   @override
