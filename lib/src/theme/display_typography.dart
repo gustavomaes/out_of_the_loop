@@ -79,13 +79,13 @@ abstract final class DisplayTypography {
     );
   }
 
+  /// Figma home hero (Rubik Black 48 / 52, -2.4 tracking).
   static TextStyle rubikHomeTitle({
     required Color color,
     double fontSize = 48,
-    FontWeight fontWeight = FontWeight.w800,
+    FontWeight fontWeight = FontWeight.w900,
   }) {
-    return TextStyle(
-      fontFamily: 'Rubik',
+    return GoogleFonts.rubik(
       fontSize: fontSize,
       height: 52 / fontSize,
       fontWeight: fontWeight,
@@ -94,13 +94,13 @@ abstract final class DisplayTypography {
     );
   }
 
+  /// Figma home CTA (Rubik Bold 20 / 24).
   static TextStyle rubikHomeButton({
     required Color color,
     double fontSize = 20,
     FontWeight fontWeight = FontWeight.w700,
   }) {
-    return TextStyle(
-      fontFamily: 'Rubik',
+    return GoogleFonts.rubik(
       fontSize: fontSize,
       height: 24 / fontSize,
       fontWeight: fontWeight,

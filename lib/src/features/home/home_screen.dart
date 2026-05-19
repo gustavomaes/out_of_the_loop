@@ -10,14 +10,22 @@ import '../../shared/widgets/otl_home_backdrop.dart';
 import '../../theme/brutalist_theme.dart';
 import '../../theme/display_typography.dart';
 
+/// Brand lockup — not localized (see [AppLocalizations.appTitle] for semantics).
+abstract final class HomeBrand {
+  static const lineOne = 'OUT OF THE';
+  static const lineTwo = 'LOOP';
+}
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({this.onStartGame, this.onHowToPlay, super.key});
 
   final VoidCallback? onStartGame;
   final VoidCallback? onHowToPlay;
 
-  static const _appNameLineOne = 'OUT OF THE';
-  static const _appNameLineTwo = 'LOOP';
+  static const _contentMaxWidth = 448.0;
+  static const _horizontalPadding = 20.0;
+  static const _heroToActionsGap = 64.0;
+  static const _actionsGap = 24.0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +35,8 @@ class HomeScreen extends StatelessWidget {
       context,
       AppShell(
         routeName: AppRoutes.home,
-        title: 'OUT OF THE LOOP',
-        appBar: PreferredSize(
+        title: '${HomeBrand.lineOne} ${HomeBrand.lineTwo}',
+        appBar: const PreferredSize(
           preferredSize: Size.zero,
           child: SizedBox.shrink(),
         ),
@@ -36,27 +44,35 @@ class HomeScreen extends StatelessWidget {
         child: OtlHomeBackdrop(
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 448),
+              constraints: const BoxConstraints(maxWidth: _contentMaxWidth),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: _horizontalPadding,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const _HomeHeroTitle(),
-                    const SizedBox(height: 64),
+                    Semantics(
+                      header: true,
+                      label: l10n.appTitle,
+                      child: const _HomeHeroTitle(),
+                    ),
+                    const SizedBox(height: _heroToActionsGap),
                     OtlBrutalistPillButton(
                       label: l10n.startGame,
                       icon: Icons.play_arrow,
+                      borderRadius: 0,
                       backgroundColor: BrutalistColors.lime,
                       foregroundColor: BrutalistColors.homePrimaryButtonText,
                       onPressed:
                           onStartGame ??
                           () => context.goDiscoveryTab(AppRoutes.categories),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: _actionsGap),
                     OtlBrutalistPillButton(
                       label: l10n.howToPlay,
                       icon: Icons.help_outline,
+                      borderRadius: 0,
                       backgroundColor: BrutalistColors.homeSecondaryButton,
                       foregroundColor: BrutalistColors.cardText,
                       onPressed:
@@ -73,47 +89,54 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+/// Figma node `2:16` — lime title with 4×4 black offset shadow.
 class _HomeHeroTitle extends StatelessWidget {
   const _HomeHeroTitle();
+
+  static const _shadowOffset = Offset(4, 4);
+  static const _horizontalPadding = 43.5;
 
   TextStyle _lineStyle(Color color) =>
       DisplayTypography.rubikHomeTitle(color: color);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Transform.translate(
-          offset: const Offset(4, 4),
-          child: Column(
-            children: [
-              Text(
-                HomeScreen._appNameLineOne,
-                style: _lineStyle(Colors.black),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                HomeScreen._appNameLineTwo,
-                style: _lineStyle(Colors.black),
-                textAlign: TextAlign.center,
-              ),
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: _horizontalPadding),
+      child: Stack(
+        alignment: Alignment.center,
+        clipBehavior: Clip.none,
+        children: [
+          Transform.translate(
+            offset: _shadowOffset,
+            child: _TitleLines(style: _lineStyle(Colors.black)),
           ),
+          _TitleLines(style: _lineStyle(BrutalistColors.lime)),
+        ],
+      ),
+    );
+  }
+}
+
+class _TitleLines extends StatelessWidget {
+  const _TitleLines({required this.style});
+
+  final TextStyle style;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          HomeBrand.lineOne,
+          style: style,
+          textAlign: TextAlign.center,
         ),
-        Column(
-          children: [
-            Text(
-              HomeScreen._appNameLineOne,
-              style: _lineStyle(BrutalistColors.lime),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              HomeScreen._appNameLineTwo,
-              style: _lineStyle(BrutalistColors.lime),
-              textAlign: TextAlign.center,
-            ),
-          ],
+        Text(
+          HomeBrand.lineTwo,
+          style: style,
+          textAlign: TextAlign.center,
         ),
       ],
     );
