@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/out-of-the-loop-mvp/spec.md`
 **Design**: `.specs/features/out-of-the-loop-mvp/design.md` (planned as T01)
-**Status**: Draft
+**Status**: Phase 0 complete
 
 ---
 
@@ -120,10 +120,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] `design.md` defines app layers, navigation/state ownership, services, repositories, and UI component strategy.
-- [ ] `design.md` records Figma-to-screen mapping for Home, categories, players, secret reveal, question, vote, results, how-to, and settings.
-- [ ] `design.md` records design divergences between Figma and `.agents/DESIGN.md`.
-- [ ] `design.md` defines data models before implementation.
+- [x] `design.md` defines app layers, navigation/state ownership, services, repositories, and UI component strategy.
+- [x] `design.md` records Figma-to-screen mapping for Home, categories, players, secret reveal, question, vote, results, how-to, and settings.
+- [x] `design.md` records design divergences between Figma and `.agents/DESIGN.md`.
+- [x] `design.md` defines data models before implementation.
 
 **Tests**: none
 **Gate**: docs review
@@ -146,10 +146,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] `TESTING.md` lists code layers and required test types.
-- [ ] `TESTING.md` defines quick, build, and full gate commands.
-- [ ] `TESTING.md` identifies which tests are parallel-safe.
-- [ ] Future tasks can cite a concrete test type and gate from the matrix.
+- [x] `TESTING.md` lists code layers and required test types.
+- [x] `TESTING.md` defines quick, build, and full gate commands.
+- [x] `TESTING.md` identifies which tests are parallel-safe.
+- [x] Future tasks can cite a concrete test type and gate from the matrix.
 
 **Tests**: none
 **Gate**: docs review
@@ -1232,12 +1232,12 @@ Phase 5:
 
 ---
 
-## Execution Tooling Questions
+## Execution Tooling Decisions
 
-Before Execute, confirm these choices:
+Resolved during Phase 0:
 
-- Should T02's gate commands be `flutter analyze` and `flutter test`, or do you want a different command set?
-- Should data storage use SQLite from the first MVP slice, or can T12 start with a local asset repository and move to SQLite in a later task?
-- Should execution use the Flutter MCP tools whenever possible for run/test/debug?
-- Should Figma MCP be used for every UI screen task, or only for final audit and unclear screens?
-- Should P2/P3 tasks T33-T36 run immediately after MVP, or stay deferred until the P1 slice is accepted?
+- T02 gate commands use `flutter analyze`, targeted `flutter test <path>`, and full `flutter analyze && flutter test`, as defined in `.specs/codebase/TESTING.md`.
+- T12 starts with a bundled local asset repository; SQLite is deferred until a later task proves it is necessary.
+- Execution should prefer Flutter/Dart MCP tools whenever available for run/test/debug.
+- Figma MCP is required for the final design audit and should be used during UI screen tasks when frame details are unclear.
+- P2/P3 tasks T33-T36 stay deferred until the P1 MVP slice is accepted.
