@@ -1,0 +1,15 @@
+{
+  "name": "out_of_the_loop",
+  "mode": "vendored",
+  "dependencies": {
+    "tech-leads-club/agent-skills": {
+      "version": "81e7e0dd3abe314aa004ec276c1d64643d2bd6c0",
+      "source": "https://github.com/tech-leads-club/agent-skills",
+      "include": {
+        "skills": [
+          "codenavi"
+        ]
+      }
+    }
+  }
+}
