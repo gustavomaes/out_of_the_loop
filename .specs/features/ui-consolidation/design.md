@@ -323,4 +323,4 @@ Detalhes de import, naming e promoção para `shared/`: ver secções acima e `.
 | 2026-05-19 | `theme.dart` barrel; cores em `app_colors.dart` | T02–T03 |
 | 2026-05-19 | `OtlIcons` + barrel `shared/icons/icons.dart` | T05; nav/app bars/home backdrop migrados |
 | 2026-05-19 | `category_icon.dart` permanece em `features/setup/` | T05 — domínio; reexport futuro se cross-feature |
-| TBD | Atmosphere: 1 widget vs 5 variantes | T08 compara implementações |
+| 2026-05-19 | Atmosphere: **1 widget**, 4 named constructors (match + player share `matchSetup`) | T08 — layouts differ; parameterized single file preserves pixels |

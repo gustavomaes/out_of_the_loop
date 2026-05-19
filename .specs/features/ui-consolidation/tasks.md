@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/ui-consolidation/spec.md`  
 **Design**: `.specs/features/ui-consolidation/design.md`  
-**Status**: Phase 1 complete
+**Status**: Phase 2 complete
 
 ---
 
@@ -185,12 +185,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Implementação única compila.
-- [ ] Ainda não migrar telas (T15/T16 fazem).
+- [x] Implementação única compila.
+- [x] Ainda não migrar telas (T15/T16 fazem).
 
 **Tests**: `flutter test test/shared/widgets` (adicionar testes mínimos se ausentes)  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -203,12 +203,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Widget compartilhado exportado.
-- [ ] API aceita `line1`/`line2` ou l10n keys como hoje.
+- [x] Widget compartilhado exportado.
+- [x] API aceita `line1`/`line2` ou l10n keys como hoje.
 
 **Tests**: `flutter test test/shared/widgets`  
 **Gate**: quick widget gate  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -221,12 +221,12 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] Decisão 1 vs N registrada.
-- [ ] Widget(s) shared prontos para consumo pelas telas.
+- [x] Decisão 1 vs N registrada.
+- [x] Widget(s) shared prontos para consumo pelas telas.
 
 **Tests**: `flutter analyze`  
 **Gate**: `flutter analyze`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 
@@ -239,11 +239,11 @@ T22 + T23 -> T24
 
 **Done when**:
 
-- [ ] `rg 'Color\(0x' lib/src/shared` → 0.
+- [x] `rg 'Color\(0x' lib/src/shared` → 0.
 
 **Tests**: `flutter test test/shared/widgets`  
 **Gate**: `flutter analyze && flutter test test/shared/widgets`  
-**Status**: Pending
+**Status**: Complete (2026-05-19)
 
 ---
 

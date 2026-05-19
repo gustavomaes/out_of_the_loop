@@ -56,4 +56,7 @@ abstract final class BrutalistColors {
   static const playerAvatarFrame = Color(0xFF37374D);
   static const inputHint = Color(0xFF6B7280);
   static const footerScrim = Color(0xCC111125);
+
+  /// Soft peach accent for voting-screen radial gradient (Figma).
+  static const votingAtmosphereAccent = Color(0xFFFFB4AB);
 }
