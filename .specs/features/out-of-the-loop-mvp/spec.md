@@ -10,12 +10,12 @@ O design system de implementacao deve seguir `.agents/DESIGN.md`. Quando houver 
 
 ## Goals
 
-- [ ] Permitir uma partida local completa de 5 rodadas configuraveis para 3 a 9 jogadores.
-- [ ] Conduzir uma rodada completa com revelacao de papeis, perguntas publicas, votacao, resultado, adivinhacao condicional e pontuacao.
-- [ ] Garantir que o jogador fora nunca veja a palavra secreta antes da fase de adivinhacao.
-- [ ] Operar totalmente offline, usando conteudo local para categorias, palavras e perguntas.
-- [ ] Suportar localizacao de interface e conteudo em `pt-BR`, `en`, `es` e `hi`.
-- [ ] Implementar a experiencia visual mobile-first seguindo `.agents/DESIGN.md` e validando os fluxos principais contra o Figma.
+- [x] Permitir uma partida local completa de 5 rodadas configuraveis para 3 a 9 jogadores.
+- [x] Conduzir uma rodada completa com revelacao de papeis, perguntas publicas, votacao, resultado, adivinhacao condicional e pontuacao.
+- [x] Garantir que o jogador fora nunca veja a palavra secreta antes da fase de adivinhacao.
+- [x] Operar totalmente offline, usando conteudo local para categorias, palavras e perguntas.
+- [x] Suportar localizacao de interface e conteudo em `pt-BR`, `en`, `es` e `hi`.
+- [x] Implementar a experiencia visual mobile-first seguindo `.agents/DESIGN.md` e validando os fluxos principais contra o Figma.
 
 ## Prototype Reference
 
@@ -331,34 +331,34 @@ Direcoes visuais confirmadas no Figma e no design system:
 | OTL-05 | P1: Calcular resultado e pontuacao da rodada | Phase 4 | Verified MVP vertical slice |
 | OTL-06 | P1: Adivinhacao condicional pelo fora | Phase 4 | Verified by screen/service tests |
 | OTL-07 | P1: Progredir rodadas e finalizar partida | Phase 4 | Verified final leaderboard routing |
-| OTL-08 | P1: Conteudo local de categorias, palavras e perguntas | Phase 4 | Partial: offline seed verified; full 20x30 content deferred to T33 |
+| OTL-08 | P1: Conteudo local de categorias, palavras e perguntas | Phase 5 | Verified: 20 categories x 30 words with localized local content |
 | OTL-09 | P2: Como jogar e regras acessiveis | Phase 4 | Verified screen and routing |
 | OTL-10 | P1: Aplicar sistema visual e prototipo mobile | Phase 4 | Verified by design audit |
-| OTL-11 | P2: Timer configuravel para perguntas e votacao | Phase 5 | Partial: UI/service present; integrated configurable behavior deferred to T35 |
-| OTL-12 | P2: Localizacao de interface e conteudo | Phase 5 | Partial: scaffold/locales present; full content expansion deferred to T33 |
-| OTL-13 | P3: Persistencia de configuracoes locais | Phase 5 | Deferred to T34 |
+| OTL-11 | P2: Timer configuravel para perguntas e votacao | Phase 5 | Verified: configured values and expiration state covered in game widget tests |
+| OTL-12 | P2: Localizacao de interface e conteudo | Phase 5 | Verified: locale scaffold and localized content covered for all supported languages |
+| OTL-13 | P3: Persistencia de configuracoes locais | Phase 5 | Verified: language/timer save and startup restore covered by tests |
 
-**Coverage:** 13 total, 10 mapped to MVP validation, 3 deferred or partial for Phase 5.
+**Coverage:** 13 total, 13 verified through MVP and Phase 5 validation.
 
 ---
 
 ## Success Criteria
 
-- [ ] Um grupo com 3 a 9 jogadores consegue completar uma rodada inteira sem internet.
-- [ ] O app impede inicio de partida com menos de 3 jogadores e mais de 9 jogadores.
-- [ ] O jogador fora nunca ve a palavra secreta antes da adivinhacao.
-- [ ] A pontuacao segue as regras fixas: +25 voto correto, +100 maioria para dentro, +50 fora nao descoberto, +125 adivinhacao correta.
-- [ ] A regra de maioria sempre usa mais da metade dos jogadores.
-- [ ] Palavras secretas nao se repetem dentro da mesma partida.
-- [ ] O ranking final aparece ao terminar a ultima rodada configurada.
-- [ ] Conteudo e interface funcionam offline.
-- [ ] Textos e conteudo localizados estao disponiveis para os idiomas definidos antes do lancamento completo.
-- [ ] A interface final segue `.agents/DESIGN.md` e e validada contra os frames principais do Figma `Out-of-the-loop`.
+- [x] Um grupo com 3 a 9 jogadores consegue completar uma rodada inteira sem internet.
+- [x] O app impede inicio de partida com menos de 3 jogadores e mais de 9 jogadores.
+- [x] O jogador fora nunca ve a palavra secreta antes da adivinhacao.
+- [x] A pontuacao segue as regras fixas: +25 voto correto, +100 maioria para dentro, +50 fora nao descoberto, +125 adivinhacao correta.
+- [x] A regra de maioria sempre usa mais da metade dos jogadores.
+- [x] Palavras secretas nao se repetem dentro da mesma partida.
+- [x] O ranking final aparece ao terminar a ultima rodada configurada.
+- [x] Conteudo e interface funcionam offline.
+- [x] Textos e conteudo localizados estao disponiveis para os idiomas definidos antes do lancamento completo.
+- [x] A interface final segue `.agents/DESIGN.md` e e validada contra os frames principais do Figma `Out-of-the-loop`.
 
 ## Open Questions
 
-- O MVP deve exigir o banco completo de 20 categorias x 30 palavras x 4 idiomas antes do primeiro build jogavel, ou pode iniciar com um subconjunto seed para validar fluxo?
-- O sorteio do jogador fora pode repetir o mesmo jogador em rodadas consecutivas, ou deve haver uma regra de balanceamento?
-- O timer deve ser apenas visual/ritmo de jogo ou deve bloquear automaticamente avancos apos expirar?
-- A tela `PROFILE` da navegacao inferior deve abrir uma tela placeholder/configuracoes no MVP ou ficar desabilitada?
-- A divergencia entre fontes/cores do Figma inicial e `.agents/DESIGN.md` deve ser resolvida atualizando o design system ou ajustando o Figma?
+- Resolvido na Phase 5: o banco local completo de 20 categorias x 30 palavras foi incluido antes do handoff final.
+- Deferido: o sorteio do jogador fora ainda pode repetir jogadores entre rodadas; balanceamento fica fora do MVP validado.
+- Resolvido na Phase 5: o timer e visual/ritmo de jogo; expiracao nao bloqueia avancos e nao registra voto automaticamente.
+- Resolvido na Phase 4: `PROFILE`/conta fica fora do MVP; a navegacao usa configuracoes em vez de perfil/login.
+- Resolvido na Phase 4: `.agents/DESIGN.md` permanece fonte de verdade quando diverge do Figma.

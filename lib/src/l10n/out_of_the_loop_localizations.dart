@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import '../domain/models/models.dart';
+
 abstract final class OutOfTheLoopLocalizations {
   static const fallbackLocale = Locale('pt', 'BR');
 
@@ -34,5 +36,14 @@ abstract final class OutOfTheLoopLocalizations {
     }
 
     return fallbackLocale;
+  }
+
+  static Locale localeFor(SupportedLanguage language) {
+    return switch (language) {
+      SupportedLanguage.ptBr => fallbackLocale,
+      SupportedLanguage.en => const Locale('en'),
+      SupportedLanguage.es => const Locale('es'),
+      SupportedLanguage.hi => const Locale('hi'),
+    };
   }
 }

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   testWidgets('starts a 3-player round without login or network setup', (
     tester,
   ) async {
+    SharedPreferences.setMockInitialValues({});
+
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
@@ -14,7 +17,7 @@ void main() {
     expect(find.textContaining('PRO'), findsNothing);
 
     await tester.tap(find.text('START GAME'));
-    await tester.pumpAndSettle();
+    await _pumpUntilVisible(tester, find.text('Comida'));
 
     expect(find.text('Comida'), findsOneWidget);
     await tester.tap(find.text('Comida'));
@@ -34,4 +37,17 @@ void main() {
     expect(find.text('Ana\'s turn'), findsOneWidget);
     expect(find.textContaining('Login'), findsNothing);
   });
+}
+
+Future<void> _pumpUntilVisible(WidgetTester tester, Finder finder) async {
+  for (var attempt = 0; attempt < 50; attempt += 1) {
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 20)),
+    );
+    await tester.pump(const Duration(milliseconds: 100));
+    if (finder.evaluate().isNotEmpty) {
+      return;
+    }
+  }
+  expect(finder, findsOneWidget);
 }

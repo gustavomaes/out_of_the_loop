@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/app/app_routes.dart';
 import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   test('declares all MVP route names', () {
@@ -24,6 +25,8 @@ void main() {
   testWidgets('app boots into the initial route with dark shell', (
     tester,
   ) async {
+    SharedPreferences.setMockInitialValues({});
+
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
@@ -37,6 +40,8 @@ void main() {
   testWidgets('bottom navigation is scoped to discovery routes', (
     tester,
   ) async {
+    SharedPreferences.setMockInitialValues({});
+
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
@@ -58,11 +63,13 @@ void main() {
   testWidgets('completes one 3-player round from the app shell', (
     tester,
   ) async {
+    SharedPreferences.setMockInitialValues({});
+
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('START GAME'));
-    await tester.pumpAndSettle();
+    await _pumpUntilVisible(tester, find.text('Comida'));
     await tester.tap(find.text('Comida'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('PLAY'));
@@ -114,7 +121,46 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    expect(find.text('GAME OVER'), findsOneWidget);
-    expect(find.text('NOVA PARTIDA'), findsOneWidget);
+    expect(find.text('TOP SECRET'), findsOneWidget);
+    expect(find.text('Ana\'s turn'), findsOneWidget);
   });
+
+  testWidgets('restores saved language and timer preferences on startup', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({
+      'settings.language': 'en',
+      'settings.timer.enabled': false,
+      'settings.timer.durationSeconds': 45,
+    });
+
+    await tester.pumpWidget(const OutOfTheLoopApp());
+    await tester.pumpAndSettle();
+
+    Navigator.of(
+      tester.element(find.byType(Scaffold)),
+    ).pushNamed(AppRoutes.settings);
+    await tester.pumpAndSettle();
+
+    expect(find.text('English'), findsOneWidget);
+    expect(find.text('45 seconds per turn'), findsOneWidget);
+  });
+}
+
+Future<void> _pumpUntilVisible(WidgetTester tester, Finder finder) async {
+  for (var attempt = 0; attempt < 50; attempt += 1) {
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 20)),
+    );
+    await tester.pump(const Duration(milliseconds: 100));
+    if (finder.evaluate().isNotEmpty) {
+      return;
+    }
+  }
+  final visibleText = tester
+      .widgetList<Text>(find.byType(Text))
+      .map((text) => text.data)
+      .whereType<String>()
+      .join(', ');
+  fail('Could not find $finder. Visible text: $visibleText');
 }

@@ -7,6 +7,7 @@ import 'package:outoftheloop/src/features/game/question_round_screen.dart';
 import 'package:outoftheloop/src/features/game/round_results_screen.dart';
 import 'package:outoftheloop/src/features/game/secret_reveal_screen.dart';
 import 'package:outoftheloop/src/features/game/voting_screen.dart';
+import 'package:outoftheloop/src/shared/widgets/shared_widgets.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
 void main() {
@@ -71,6 +72,36 @@ void main() {
     expect(completed, isTrue);
   });
 
+  testWidgets(
+    'question round uses configured timer and allows expired advance',
+    (tester) async {
+      var completed = false;
+
+      await tester.pumpWidget(
+        _TestApp(
+          child: QuestionRoundScreen(
+            players: _players,
+            questions: [_questions.first],
+            timerSettings: const TimerSettings(durationSeconds: 12),
+            remainingSeconds: 0,
+            onComplete: () => completed = true,
+          ),
+        ),
+      );
+
+      expect(find.text('0'), findsOneWidget);
+      expect(
+        find.text('Time is up. Finish this answer when ready.'),
+        findsOneWidget,
+      );
+
+      await tester.tap(find.text('GO TO VOTING'));
+      await tester.pump();
+
+      expect(completed, isTrue);
+    },
+  );
+
   testWidgets('voting collects one hidden vote per player', (tester) async {
     List<Vote>? votes;
 
@@ -107,6 +138,35 @@ void main() {
     await tester.pump();
 
     expect(votes, hasLength(3));
+  });
+
+  testWidgets('voting uses configured timer and expiration records no vote', (
+    tester,
+  ) async {
+    List<Vote>? votes;
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: VotingScreen(
+          players: _players,
+          timerSettings: const TimerSettings(durationSeconds: 12),
+          remainingSeconds: 0,
+          onComplete: (value) => votes = value,
+        ),
+      ),
+    );
+
+    expect(
+      find.text('Time is up. No vote was recorded automatically.'),
+      findsOneWidget,
+    );
+    expect(find.text('CONFIRM VOTE'), findsOneWidget);
+    expect(
+      tester.widget<OtlButton>(find.byType(OtlButton).last).onPressed,
+      isNull,
+    );
+
+    expect(votes, isNull);
   });
 
   testWidgets('round results show discovered and guess branches', (

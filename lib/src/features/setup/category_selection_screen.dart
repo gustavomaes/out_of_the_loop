@@ -26,6 +26,23 @@ class CategorySelectionScreen extends StatefulWidget {
 
 class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   Category? _selectedCategory;
+  late Future<List<Category>> _categoriesFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _categoriesFuture = widget.repository.listCategories(widget.language);
+  }
+
+  @override
+  void didUpdateWidget(CategorySelectionScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.repository != widget.repository ||
+        oldWidget.language != widget.language) {
+      _selectedCategory = null;
+      _categoriesFuture = widget.repository.listCategories(widget.language);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +50,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
       routeName: AppRoutes.categories,
       title: 'Categories',
       child: FutureBuilder<List<Category>>(
-        future: widget.repository.listCategories(widget.language),
+        future: _categoriesFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator());

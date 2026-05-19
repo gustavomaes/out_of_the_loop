@@ -12,6 +12,7 @@ class QuestionRoundScreen extends StatefulWidget {
     required this.questions,
     this.language = SupportedLanguage.ptBr,
     this.timerSettings = const TimerSettings(),
+    this.remainingSeconds,
     this.onComplete,
     super.key,
   });
@@ -20,6 +21,7 @@ class QuestionRoundScreen extends StatefulWidget {
   final List<Question> questions;
   final SupportedLanguage language;
   final TimerSettings timerSettings;
+  final int? remainingSeconds;
   final VoidCallback? onComplete;
 
   @override
@@ -35,6 +37,9 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
   Widget build(BuildContext context) {
     final question = widget.questions[_questionIndex];
     final player = widget.players[_questionIndex % widget.players.length];
+    final remainingSeconds =
+        widget.remainingSeconds ?? widget.timerSettings.durationSeconds;
+    final timerExpired = widget.timerSettings.enabled && remainingSeconds == 0;
 
     return AppShell(
       routeName: AppRoutes.gameQuestions,
@@ -66,10 +71,18 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
           if (widget.timerSettings.enabled) ...[
             Center(
               child: CircularTimer(
-                remainingSeconds: widget.timerSettings.durationSeconds,
+                remainingSeconds: remainingSeconds,
                 totalSeconds: widget.timerSettings.durationSeconds,
               ),
             ),
+            if (timerExpired) ...[
+              const SizedBox(height: AppSpacing.sm),
+              Text(
+                'Time is up. Finish this answer when ready.',
+                style: AppTypography.label,
+                textAlign: TextAlign.center,
+              ),
+            ],
             const SizedBox(height: AppSpacing.xl),
           ],
           const Spacer(),

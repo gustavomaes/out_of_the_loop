@@ -11,6 +11,7 @@ class VotingScreen extends StatefulWidget {
   const VotingScreen({
     required this.players,
     this.timerSettings = const TimerSettings(),
+    this.remainingSeconds,
     this.onComplete,
     VoteScoringService? scoringService,
     super.key,
@@ -18,6 +19,7 @@ class VotingScreen extends StatefulWidget {
 
   final List<Player> players;
   final TimerSettings timerSettings;
+  final int? remainingSeconds;
   final ValueChanged<List<Vote>>? onComplete;
   final VoteScoringService scoringService;
 
@@ -35,6 +37,10 @@ class _VotingScreenState extends State<VotingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final remainingSeconds =
+        widget.remainingSeconds ?? widget.timerSettings.durationSeconds;
+    final timerExpired = widget.timerSettings.enabled && remainingSeconds == 0;
+
     return AppShell(
       routeName: AppRoutes.gameVote,
       title: 'Vote',
@@ -50,11 +56,19 @@ class _VotingScreenState extends State<VotingScreen> {
             style: AppTypography.body,
           ),
           const SizedBox(height: AppSpacing.md),
-          if (widget.timerSettings.enabled)
+          if (widget.timerSettings.enabled) ...[
             ProgressTimer(
-              remainingSeconds: widget.timerSettings.durationSeconds,
+              remainingSeconds: remainingSeconds,
               totalSeconds: widget.timerSettings.durationSeconds,
             ),
+            if (timerExpired) ...[
+              const SizedBox(height: AppSpacing.sm),
+              Text(
+                'Time is up. No vote was recorded automatically.',
+                style: AppTypography.label,
+              ),
+            ],
+          ],
           const SizedBox(height: AppSpacing.lg),
           Expanded(
             child: ListView.separated(

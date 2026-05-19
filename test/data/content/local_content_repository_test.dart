@@ -5,6 +5,8 @@ import 'package:outoftheloop/src/data/content/local_content_repository.dart';
 import 'package:outoftheloop/src/domain/models/models.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   group('LocalContentRepository', () {
     test('lists localized categories from injected local content', () async {
       final repository = LocalContentRepository(seedJson: _validSeedJson());
@@ -15,6 +17,28 @@ void main() {
       expect(categories.single.id, 'food');
       expect(categories.single.name.valueFor(SupportedLanguage.en), 'Food');
       expect(categories.single.iconKey, 'restaurant');
+    });
+
+    test('bundled content exposes 20 categories with 30 localized words each', () async {
+      final repository = LocalContentRepository();
+
+      final categories = await repository.listCategories(SupportedLanguage.en);
+
+      expect(categories, hasLength(20));
+      expect(categories.first.id, 'food');
+      for (final category in categories) {
+        final words = await repository.wordsForCategory(
+          category.id,
+          SupportedLanguage.hi,
+        );
+        expect(words, hasLength(30));
+        expect(category.name.valueFor(SupportedLanguage.hi), isNotEmpty);
+        expect(words.first.value.valueFor(SupportedLanguage.hi), isNotEmpty);
+        expect(
+          words.first.questions.first.text.valueFor(SupportedLanguage.hi),
+          isNotEmpty,
+        );
+      }
     });
 
     test('returns words and questions by category and locale', () async {

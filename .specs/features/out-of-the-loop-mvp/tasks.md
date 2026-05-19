@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/out-of-the-loop-mvp/spec.md`
 **Design**: `.specs/features/out-of-the-loop-mvp/design.md` (planned as T01)
-**Status**: Phase 3 complete
+**Status**: Phase 5 complete
 
 ---
 
@@ -978,10 +978,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Content structure supports 20 categories and 30 words per category.
-- [ ] Localization files cover UI text for `pt-BR`, `en`, `es`, and `hi`.
-- [ ] Validation tests catch missing localized categories/words/questions.
-- [ ] Gate check passes: `flutter test test/data/content test/l10n`.
+- [x] Content structure supports 20 categories and 30 words per category.
+- [x] Localization files cover UI text for `pt-BR`, `en`, `es`, and `hi`.
+- [x] Validation tests catch missing localized categories/words/questions.
+- [x] Gate check passes: `flutter test test/data/content test/l10n`.
 
 **Tests**: unit
 **Gate**: full
@@ -1004,11 +1004,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Selected language is persisted locally.
-- [ ] Timer preference is persisted locally.
-- [ ] App startup restores saved values.
-- [ ] Tests cover save/restore behavior.
-- [ ] Gate check passes: `flutter test test/data/preferences test/features/settings`.
+- [x] Selected language is persisted locally.
+- [x] Timer preference is persisted locally.
+- [x] App startup restores saved values.
+- [x] Tests cover save/restore behavior.
+- [x] Gate check passes: `flutter test test/data/preferences test/features/settings`.
 
 **Tests**: unit + widget
 **Gate**: full
@@ -1031,11 +1031,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Question screen uses configured timer value.
-- [ ] Voting screen uses configured timer value.
-- [ ] Expiration behavior matches spec: no automatic vote recording.
-- [ ] Widget tests cover configured timer and expiration state.
-- [ ] Gate check passes: `flutter test test/features/game`.
+- [x] Question screen uses configured timer value.
+- [x] Voting screen uses configured timer value.
+- [x] Expiration behavior matches spec: no automatic vote recording.
+- [x] Widget tests cover configured timer and expiration state.
+- [x] Gate check passes: `flutter test test/features/game`.
 
 **Tests**: widget
 **Gate**: full
@@ -1058,10 +1058,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] `flutter analyze` passes.
-- [ ] `flutter test` passes.
-- [ ] Requirement traceability is updated.
-- [ ] Remaining open questions are resolved or explicitly deferred.
+- [x] `flutter analyze` passes.
+- [x] `flutter test` passes.
+- [x] Requirement traceability is updated.
+- [x] Remaining open questions are resolved or explicitly deferred.
 
 **Tests**: full suite
 **Gate**: full
@@ -1238,6 +1238,15 @@ Phase 5:
 - Screen widgets expose data/callback constructor contracts so T28 can wire navigation and in-memory game state without rewriting the UI.
 - Flutter widget-test skill was used for screen validation.
 - Gate run: `flutter test test/features` passed with 11 tests.
+
+---
+
+## Phase 5 Execution Notes
+
+- T33 expanded bundled offline content to 20 categories x 30 words with `pt-BR`, `en`, `es`, and `hi` localized values and question text.
+- T34 added local preference persistence for selected language and timer settings using `shared_preferences`, plus startup restore in `OutOfTheLoopApp`.
+- T35 wired configurable timer values and explicit expiration messaging into question and voting screens without automatic vote recording.
+- Gate runs: `flutter analyze` passed; `flutter test` passed with 68 tests.
 
 ---
 

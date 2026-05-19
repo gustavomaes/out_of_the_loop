@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('seed content can run a 3-player test round', () {
+  test('seed content covers the full category and word target', () {
     final seed = _loadSeed();
 
     _validateSeed(seed);
@@ -15,8 +15,10 @@ void main() {
     final firstWord = words.first as Map<String, dynamic>;
     final questions = firstWord['questions'] as List<dynamic>;
 
-    expect(categories, isNotEmpty);
-    expect(words, isNotEmpty);
+    expect(categories, hasLength(20));
+    for (final category in categories.cast<Map<String, dynamic>>()) {
+      expect(category['words'], hasLength(30));
+    }
     expect(questions.length, greaterThanOrEqualTo(3));
   });
 
@@ -41,9 +43,9 @@ void main() {
           .take(2)
           .toList();
     final invalidCategory = Map<String, dynamic>.from(firstCategory)
-      ..['words'] = [invalidWord];
+      ..['words'] = [invalidWord, ...words.skip(1)];
     final invalidSeed = Map<String, dynamic>.from(seed)
-      ..['categories'] = [invalidCategory];
+      ..['categories'] = [invalidCategory, ...categories.skip(1)];
 
     expect(() => _validateSeed(invalidSeed), throwsFormatException);
   });
@@ -66,15 +68,15 @@ void _validateSeed(Map<String, dynamic> seed) {
   if (minQuestions < 3 || maxQuestions > 9 || minQuestions > maxQuestions) {
     throw const FormatException('Question boundaries must stay within 3 to 9.');
   }
-  if (categories.isEmpty) {
-    throw const FormatException('Seed must include at least one category.');
+  if (categories.length != 20) {
+    throw const FormatException('Seed must include exactly 20 categories.');
   }
 
   for (final category in categories) {
     _requireLocalizedMap(category, 'name', languages);
     final words = _objectList(category, 'words');
-    if (words.isEmpty) {
-      throw const FormatException('Category must include at least one word.');
+    if (words.length != 30) {
+      throw const FormatException('Each category must include exactly 30 words.');
     }
 
     for (final word in words) {

@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
+import '../data/preferences/preferences_repository.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../l10n/out_of_the_loop_localizations.dart';
 import '../features/game/final_leaderboard_screen.dart';
@@ -19,7 +22,12 @@ import 'app_shell.dart';
 import 'game_flow_controller.dart';
 
 class OutOfTheLoopApp extends StatefulWidget {
-  const OutOfTheLoopApp({super.key});
+  const OutOfTheLoopApp({
+    this.preferencesRepository = const PreferencesRepository(),
+    super.key,
+  });
+
+  final PreferencesRepository preferencesRepository;
 
   @override
   State<OutOfTheLoopApp> createState() => _OutOfTheLoopAppState();
@@ -29,11 +37,18 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
   final _flow = GameFlowController();
 
   @override
+  void initState() {
+    super.initState();
+    _restorePreferences();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Out of the Loop',
       debugShowCheckedModeBanner: false,
       theme: OutOfTheLoopTheme.dark,
+      locale: OutOfTheLoopLocalizations.localeFor(_flow.language),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: OutOfTheLoopLocalizations.supportedLocales,
       localeResolutionCallback: (locale, supportedLocales) =>
@@ -143,9 +158,13 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
         initialTimerSettings: _flow.timerSettings,
         onLanguageChanged: (language) => setState(() {
           _flow.language = language;
+          unawaited(widget.preferencesRepository.saveLanguage(language));
         }),
         onTimerChanged: (timerSettings) => setState(() {
           _flow.timerSettings = timerSettings;
+          unawaited(
+            widget.preferencesRepository.saveTimerSettings(timerSettings),
+          );
         }),
       ),
       _ => _placeholder(routeName),
@@ -187,6 +206,21 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
     final nextRoute = isFinalRound ? AppRoutes.gameFinal : AppRoutes.gameReveal;
     setState(() {});
     Navigator.of(context).pushReplacementNamed(nextRoute);
+  }
+
+  Future<void> _restorePreferences() async {
+    final preferences = await widget.preferencesRepository.load();
+    if (!mounted) {
+      return;
+    }
+    if (_flow.language == preferences.language &&
+        _flow.timerSettings == preferences.timerSettings) {
+      return;
+    }
+    setState(() {
+      _flow.language = preferences.language;
+      _flow.timerSettings = preferences.timerSettings;
+    });
   }
 }
 
