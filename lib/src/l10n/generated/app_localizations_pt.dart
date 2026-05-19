@@ -12,10 +12,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get appTitle => 'Out of the Loop';
 
   @override
-  String get startGame => 'Jogar';
+  String get startGame => 'JOGAR';
 
   @override
-  String get howToPlay => 'Como jogar';
+  String get howToPlay => 'COMO JOGAR';
 
   @override
   String get pickCategory => 'Escolha uma categoria';
@@ -183,10 +183,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get appTitle => 'Out of the Loop';
 
   @override
-  String get startGame => 'Jogar';
+  String get startGame => 'JOGAR';
 
   @override
-  String get howToPlay => 'Como jogar';
+  String get howToPlay => 'COMO JOGAR';
 
   @override
   String get pickCategory => 'Escolha uma categoria';

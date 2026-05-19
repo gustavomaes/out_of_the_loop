@@ -112,13 +112,13 @@ abstract class AppLocalizations {
   /// No description provided for @startGame.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Jogar'**
+  /// **'JOGAR'**
   String get startGame;
 
   /// No description provided for @howToPlay.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Como jogar'**
+  /// **'COMO JOGAR'**
   String get howToPlay;
 
   /// No description provided for @pickCategory.

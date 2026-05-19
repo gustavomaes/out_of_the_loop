@@ -16,13 +16,15 @@ void main() {
     expect(find.textContaining('PROFILE'), findsNothing);
     expect(find.textContaining('PRO'), findsNothing);
 
-    await tester.tap(find.text('START GAME'));
+    await tester.tap(find.text('JOGAR'));
     await _pumpUntilVisible(tester, find.text('Comida'));
 
     expect(find.text('Comida'), findsOneWidget);
     await tester.tap(find.text('Comida'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('PLAY'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('CONTINUE'));
     await tester.pumpAndSettle();
 
     for (final name in ['Ana', 'Bia', 'Caio']) {

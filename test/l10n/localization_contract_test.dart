@@ -47,8 +47,8 @@ void main() {
     final localizations = lookupAppLocalizations(const Locale('pt', 'BR'));
 
     expect(localizations.appTitle, 'Out of the Loop');
-    expect(localizations.startGame, 'Jogar');
-    expect(localizations.howToPlay, 'Como jogar');
+    expect(localizations.startGame, 'JOGAR');
+    expect(localizations.howToPlay, 'COMO JOGAR');
     expect(localizations.revealMyWord, 'Visualizar minha palavra');
     expect(localizations.confirmVotes, 'Confirmar votos');
     expect(localizations.settings, 'Configuracoes');

@@ -10,7 +10,7 @@ void main() {
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('START GAME'));
+    await tester.tap(find.text('JOGAR'));
     await _pumpUntilVisible(tester, find.text('Comida'));
     await tester.tap(find.text('Comida'));
     await tester.pumpAndSettle();

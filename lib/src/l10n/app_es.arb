@@ -1,8 +1,8 @@
 {
   "@@locale": "es",
   "appTitle": "Out of the Loop",
-  "startGame": "Iniciar juego",
-  "howToPlay": "Como jugar",
+  "startGame": "INICIAR JUEGO",
+  "howToPlay": "CÓMO JUGAR",
   "pickCategory": "Elige una categoria",
   "addPlayer": "Agregar jugador",
   "startMatch": "Iniciar partida",

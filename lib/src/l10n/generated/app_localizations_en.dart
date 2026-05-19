@@ -12,10 +12,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'Out of the Loop';
 
   @override
-  String get startGame => 'Start game';
+  String get startGame => 'START GAME';
 
   @override
-  String get howToPlay => 'How to play';
+  String get howToPlay => 'HOW TO PLAY';
 
   @override
   String get pickCategory => 'Pick a category';

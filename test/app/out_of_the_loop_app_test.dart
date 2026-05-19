@@ -31,7 +31,8 @@ void main() {
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('OUT OF THE LOOP'), findsWidgets);
+    expect(find.text('OUT OF THE'), findsWidgets);
+    expect(find.text('LOOP'), findsWidgets);
     expect(find.byType(NavigationBar), findsOneWidget);
 
     final scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
@@ -69,7 +70,7 @@ void main() {
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('START GAME'));
+    await tester.tap(find.text('JOGAR'));
     await _pumpUntilVisible(tester, find.text('Comida'));
     await tester.tap(find.text('Comida'));
     await tester.pumpAndSettle();

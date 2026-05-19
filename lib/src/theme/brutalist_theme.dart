@@ -10,6 +10,8 @@ abstract final class BrutalistColors {
   static const sectionLabel = Color(0xFFC2CAAD);
   static const lime = Color(0xFFB7F700);
   static const limeText = Color(0xFF141F00);
+  static const homePrimaryButtonText = Color(0xFF506E00);
+  static const homeSecondaryButton = Color(0xFF28283D);
   static const versionGreen = Color(0xFFA0D800);
   static const toggleOff = Color(0xFF333348);
 }

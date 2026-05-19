@@ -64,6 +64,35 @@ abstract final class DisplayTypography {
     );
   }
 
+  static TextStyle rubikHomeTitle({
+    required Color color,
+    double fontSize = 48,
+    FontWeight fontWeight = FontWeight.w800,
+  }) {
+    return TextStyle(
+      fontFamily: 'Rubik',
+      fontSize: fontSize,
+      height: 52 / fontSize,
+      fontWeight: fontWeight,
+      letterSpacing: -2.4,
+      color: color,
+    );
+  }
+
+  static TextStyle rubikHomeButton({
+    required Color color,
+    double fontSize = 20,
+    FontWeight fontWeight = FontWeight.w700,
+  }) {
+    return TextStyle(
+      fontFamily: 'Rubik',
+      fontSize: fontSize,
+      height: 24 / fontSize,
+      fontWeight: fontWeight,
+      color: color,
+    );
+  }
+
   static TextStyle spaceGroteskMeta({
     required Color color,
     double fontSize = 14,
