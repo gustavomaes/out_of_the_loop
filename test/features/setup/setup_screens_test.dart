@@ -49,19 +49,25 @@ void main() {
         ),
       ),
     );
+    await tester.pumpAndSettle();
 
-    expect(find.text('CONFIGURAR PARTIDA'), findsOneWidget);
-    expect(find.text('RODADAS NA PARTIDA'), findsOneWidget);
-    expect(find.text('Rodadas: 3'), findsOneWidget);
-    expect(find.text('2 perguntas'), findsOneWidget);
-    expect(_buttonLabeled(tester, 'CONTINUE').enabled, isTrue);
+    expect(find.text('SET UP'), findsOneWidget);
+    expect(find.text('MATCH'), findsOneWidget);
+    expect(find.text('QUESTIONS PER PLAYER'), findsOneWidget);
+    expect(find.text('ROUNDS IN MATCH'), findsOneWidget);
+    expect(find.text('Rounds: 3'), findsOneWidget);
+    expect(find.text('CONTINUE'), findsOneWidget);
 
     await tester.ensureVisible(find.byKey(const Key('round_count_5')));
     await tester.tap(find.byKey(const Key('round_count_5')));
     await tester.pumpAndSettle();
-    expect(find.text('Rodadas: 5'), findsOneWidget);
-    await tester.tap(find.text('3 perguntas'));
+    expect(find.text('Rounds: 5'), findsOneWidget);
+
+    await tester.ensureVisible(find.byKey(const Key('question_count_3')));
+    await tester.tap(find.byKey(const Key('question_count_3')));
     await tester.pumpAndSettle();
+
+    expect(find.text('5 rounds · 3 questions per player'), findsOneWidget);
 
     await tester.tap(find.text('CONTINUE'));
     await tester.pump();
@@ -264,8 +270,3 @@ const _seedJson = '''
 }
 ''';
 
-TextButton _buttonLabeled(WidgetTester tester, String label) {
-  return tester.widget<TextButton>(
-    find.ancestor(of: find.text(label), matching: find.byType(TextButton)),
-  );
-}

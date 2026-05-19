@@ -110,6 +110,79 @@ class AppLocalizationsEs extends AppLocalizations {
       'Esta categoría no tiene suficientes preguntas para tantos jugadores.';
 
   @override
+  String get matchSetupTitleLine1 => 'CONFIGURAR';
+
+  @override
+  String get matchSetupTitleLine2 => 'PARTIDA';
+
+  @override
+  String get matchSetupRulesBadge => '1–5 RONDAS · 1–3 PREGUNTAS';
+
+  @override
+  String get matchSetupSubtitle =>
+      'Define las reglas antes de registrar a los jugadores.';
+
+  @override
+  String get matchSetupQuestionsSection => 'PREGUNTAS POR JUGADOR';
+
+  @override
+  String get matchSetupQuestionsDescription =>
+      '¿Cuántas preguntas responde cada jugador en esta ronda?';
+
+  @override
+  String matchSetupQuestionsRecommendation(int recommended) {
+    return 'Con 3–4 jugadores recomendamos $recommended; con 5 o más, 1 (hasta 3 si la categoría lo permite).';
+  }
+
+  @override
+  String get matchSetupRoundsSection => 'RONDAS EN LA PARTIDA';
+
+  @override
+  String get matchSetupRoundsDescription =>
+      '¿Cuántas rondas tendrá esta partida?';
+
+  @override
+  String matchSetupRoundsRecommended(int count) {
+    return 'Recomendado: $count rondas.';
+  }
+
+  @override
+  String matchSetupRoundsValue(int count) {
+    return 'Rondas: $count';
+  }
+
+  @override
+  String matchSetupQuestionCountChip(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count preguntas',
+      one: '1 pregunta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String matchSetupSummary(int roundCount, int questionCount) {
+    String _temp0 = intl.Intl.pluralLogic(
+      roundCount,
+      locale: localeName,
+      other: '$roundCount rondas',
+      one: '1 ronda',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      questionCount,
+      locale: localeName,
+      other: '$questionCount preguntas',
+      one: '1 pregunta',
+    );
+    return '$_temp0 · $_temp1 por jugador';
+  }
+
+  @override
+  String get matchSetupContinue => 'CONTINUAR';
+
+  @override
   String get startMatch => 'Iniciar partida';
 
   @override

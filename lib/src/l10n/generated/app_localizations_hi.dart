@@ -109,6 +109,77 @@ class AppLocalizationsHi extends AppLocalizations {
       'इस श्रेणी में इतने खिलाड़ियों के लिए पर्याप्त प्रश्न नहीं हैं।';
 
   @override
+  String get matchSetupTitleLine1 => 'मैच';
+
+  @override
+  String get matchSetupTitleLine2 => 'सेटअप';
+
+  @override
+  String get matchSetupRulesBadge => '1–5 राउंड · 1–3 प्रश्न';
+
+  @override
+  String get matchSetupSubtitle => 'खिलाड़ी जोड़ने से पहले नियम तय करें।';
+
+  @override
+  String get matchSetupQuestionsSection => 'प्रति खिलाड़ी प्रश्न';
+
+  @override
+  String get matchSetupQuestionsDescription =>
+      'इस राउंड में प्रत्येक खिलाड़ी कितने प्रश्नों के जवाब देगा?';
+
+  @override
+  String matchSetupQuestionsRecommendation(int recommended) {
+    return '3–4 खिलाड़ियों के लिए हम $recommended की सलाह देते हैं; 5 या अधिक के लिए 1 (श्रेणी अनुमति दे तो 3 तक)।';
+  }
+
+  @override
+  String get matchSetupRoundsSection => 'मैच में राउंड';
+
+  @override
+  String get matchSetupRoundsDescription => 'इस मैच में कितने राउंड होंगे?';
+
+  @override
+  String matchSetupRoundsRecommended(int count) {
+    return 'अनुशंसित: $count राउंड।';
+  }
+
+  @override
+  String matchSetupRoundsValue(int count) {
+    return 'राउंड: $count';
+  }
+
+  @override
+  String matchSetupQuestionCountChip(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count प्रश्न',
+      one: '1 प्रश्न',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String matchSetupSummary(int roundCount, int questionCount) {
+    String _temp0 = intl.Intl.pluralLogic(
+      roundCount,
+      locale: localeName,
+      other: '$roundCount राउंड',
+      one: '1 राउंड',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      questionCount,
+      locale: localeName,
+      other: '$questionCount प्रश्न',
+      one: '1 प्रश्न',
+    );
+    return '$_temp0 · $_temp1 प्रति खिलाड़ी';
+  }
+
+  @override
+  String get matchSetupContinue => 'जारी रखें';
+
+  @override
   String get startMatch => 'मैच शुरू करें';
 
   @override

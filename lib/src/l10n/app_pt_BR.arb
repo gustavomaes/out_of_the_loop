@@ -41,6 +41,58 @@
   "playerSetupErrorInvalidQuestions": "Escolha entre 1 e 3 perguntas por jogador.",
   "playerSetupErrorInsufficientWords": "Esta categoria não tem palavras suficientes para tantas rodadas.",
   "playerSetupErrorInsufficientQuestions": "Esta categoria não tem perguntas suficientes para tantos jogadores.",
+  "matchSetupTitleLine1": "CONFIGURAR",
+  "matchSetupTitleLine2": "PARTIDA",
+  "matchSetupRulesBadge": "1–5 RODADAS · 1–3 PERGUNTAS",
+  "matchSetupSubtitle": "Defina as regras antes de cadastrar os jogadores.",
+  "matchSetupQuestionsSection": "PERGUNTAS POR JOGADOR",
+  "matchSetupQuestionsDescription": "Quantas perguntas cada jogador responde nesta rodada?",
+  "matchSetupQuestionsRecommendation": "Com 3–4 jogadores recomendamos {recommended}; com 5 ou mais, 1 (até 3 se a categoria permitir).",
+  "@matchSetupQuestionsRecommendation": {
+    "placeholders": {
+      "recommended": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsSection": "RODADAS NA PARTIDA",
+  "matchSetupRoundsDescription": "Quantas rodadas esta partida terá?",
+  "matchSetupRoundsRecommended": "Recomendado: {count} rodadas.",
+  "@matchSetupRoundsRecommended": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsValue": "Rodadas: {count}",
+  "@matchSetupRoundsValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupQuestionCountChip": "{count, plural, =1{1 pergunta} other{{count} perguntas}}",
+  "@matchSetupQuestionCountChip": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupSummary": "{roundCount, plural, =1{1 rodada} other{{roundCount} rodadas}} · {questionCount, plural, =1{1 pergunta} other{{questionCount} perguntas}} por jogador",
+  "@matchSetupSummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      },
+      "questionCount": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupContinue": "CONTINUAR",
   "startMatch": "Iniciar partida",
   "revealMyWord": "Visualizar minha palavra",
   "outOfLoopMessage": "Voce esta FORA do circulo - aja naturalmente.",

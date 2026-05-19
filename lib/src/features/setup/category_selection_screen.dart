@@ -7,7 +7,7 @@ import '../../shared/widgets/shared_widgets.dart';
 import '../../theme/brutalist_theme.dart';
 import '../../theme/display_typography.dart';
 import 'category_localization.dart';
-import 'widgets/otl_category_tile.dart';
+import 'widgets/otl_category_bento_grid.dart';
 
 class CategorySelectionScreen extends StatefulWidget {
   CategorySelectionScreen({
@@ -91,28 +91,11 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
                   subtitle: l10n.pickCategorySubtitle,
                 ),
                 const SizedBox(height: 24),
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: categories.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: 0.82,
-                  ),
-                  itemBuilder: (context, index) {
-                    final category = categories[index];
-                    return OtlCategoryTile(
-                      category: category,
-                      label: l10n.categoryDisplayName(
-                        categoryId: category.id,
-                        fallback: category.name,
-                        language: widget.language,
-                      ),
-                      onTap: () => _onCategorySelected(category),
-                    );
-                  },
+                OtlCategoryBentoGrid(
+                  categories: categories,
+                  language: widget.language,
+                  l10n: l10n,
+                  onCategorySelected: _onCategorySelected,
                 ),
               ],
             );

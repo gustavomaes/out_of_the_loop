@@ -38,6 +38,58 @@
   "playerSetupErrorInvalidQuestions": "Elige entre 1 y 3 preguntas por jugador.",
   "playerSetupErrorInsufficientWords": "Esta categoría no tiene suficientes palabras para tantas rondas.",
   "playerSetupErrorInsufficientQuestions": "Esta categoría no tiene suficientes preguntas para tantos jugadores.",
+  "matchSetupTitleLine1": "CONFIGURAR",
+  "matchSetupTitleLine2": "PARTIDA",
+  "matchSetupRulesBadge": "1–5 RONDAS · 1–3 PREGUNTAS",
+  "matchSetupSubtitle": "Define las reglas antes de registrar a los jugadores.",
+  "matchSetupQuestionsSection": "PREGUNTAS POR JUGADOR",
+  "matchSetupQuestionsDescription": "¿Cuántas preguntas responde cada jugador en esta ronda?",
+  "matchSetupQuestionsRecommendation": "Con 3–4 jugadores recomendamos {recommended}; con 5 o más, 1 (hasta 3 si la categoría lo permite).",
+  "@matchSetupQuestionsRecommendation": {
+    "placeholders": {
+      "recommended": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsSection": "RONDAS EN LA PARTIDA",
+  "matchSetupRoundsDescription": "¿Cuántas rondas tendrá esta partida?",
+  "matchSetupRoundsRecommended": "Recomendado: {count} rondas.",
+  "@matchSetupRoundsRecommended": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsValue": "Rondas: {count}",
+  "@matchSetupRoundsValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupQuestionCountChip": "{count, plural, =1{1 pregunta} other{{count} preguntas}}",
+  "@matchSetupQuestionCountChip": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupSummary": "{roundCount, plural, =1{1 ronda} other{{roundCount} rondas}} · {questionCount, plural, =1{1 pregunta} other{{questionCount} preguntas}} por jugador",
+  "@matchSetupSummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      },
+      "questionCount": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupContinue": "CONTINUAR",
   "startMatch": "Iniciar partida",
   "revealMyWord": "Revelar mi palabra",
   "outOfLoopMessage": "Estas FUERA del circulo - actua con naturalidad.",

@@ -289,6 +289,90 @@ abstract class AppLocalizations {
   /// **'Esta categoria não tem perguntas suficientes para tantos jogadores.'**
   String get playerSetupErrorInsufficientQuestions;
 
+  /// No description provided for @matchSetupTitleLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'CONFIGURAR'**
+  String get matchSetupTitleLine1;
+
+  /// No description provided for @matchSetupTitleLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PARTIDA'**
+  String get matchSetupTitleLine2;
+
+  /// No description provided for @matchSetupRulesBadge.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'1–5 RODADAS · 1–3 PERGUNTAS'**
+  String get matchSetupRulesBadge;
+
+  /// No description provided for @matchSetupSubtitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Defina as regras antes de cadastrar os jogadores.'**
+  String get matchSetupSubtitle;
+
+  /// No description provided for @matchSetupQuestionsSection.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PERGUNTAS POR JOGADOR'**
+  String get matchSetupQuestionsSection;
+
+  /// No description provided for @matchSetupQuestionsDescription.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Quantas perguntas cada jogador responde nesta rodada?'**
+  String get matchSetupQuestionsDescription;
+
+  /// No description provided for @matchSetupQuestionsRecommendation.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Com 3–4 jogadores recomendamos {recommended}; com 5 ou mais, 1 (até 3 se a categoria permitir).'**
+  String matchSetupQuestionsRecommendation(int recommended);
+
+  /// No description provided for @matchSetupRoundsSection.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'RODADAS NA PARTIDA'**
+  String get matchSetupRoundsSection;
+
+  /// No description provided for @matchSetupRoundsDescription.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Quantas rodadas esta partida terá?'**
+  String get matchSetupRoundsDescription;
+
+  /// No description provided for @matchSetupRoundsRecommended.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Recomendado: {count} rodadas.'**
+  String matchSetupRoundsRecommended(int count);
+
+  /// No description provided for @matchSetupRoundsValue.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Rodadas: {count}'**
+  String matchSetupRoundsValue(int count);
+
+  /// No description provided for @matchSetupQuestionCountChip.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{count, plural, =1{1 pergunta} other{{count} perguntas}}'**
+  String matchSetupQuestionCountChip(int count);
+
+  /// No description provided for @matchSetupSummary.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{roundCount, plural, =1{1 rodada} other{{roundCount} rodadas}} · {questionCount, plural, =1{1 pergunta} other{{questionCount} perguntas}} por jogador'**
+  String matchSetupSummary(int roundCount, int questionCount);
+
+  /// No description provided for @matchSetupContinue.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'CONTINUAR'**
+  String get matchSetupContinue;
+
   /// No description provided for @startMatch.
   ///
   /// In pt_BR, this message translates to:

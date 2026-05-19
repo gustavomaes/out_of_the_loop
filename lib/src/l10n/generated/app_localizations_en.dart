@@ -109,6 +109,78 @@ class AppLocalizationsEn extends AppLocalizations {
       'This category does not have enough questions for that many players.';
 
   @override
+  String get matchSetupTitleLine1 => 'SET UP';
+
+  @override
+  String get matchSetupTitleLine2 => 'MATCH';
+
+  @override
+  String get matchSetupRulesBadge => '1–5 ROUNDS · 1–3 QUESTIONS';
+
+  @override
+  String get matchSetupSubtitle => 'Set the rules before adding players.';
+
+  @override
+  String get matchSetupQuestionsSection => 'QUESTIONS PER PLAYER';
+
+  @override
+  String get matchSetupQuestionsDescription =>
+      'How many questions does each player answer per round?';
+
+  @override
+  String matchSetupQuestionsRecommendation(int recommended) {
+    return 'For 3–4 players we recommend $recommended; for 5 or more, 1 (up to 3 if the category allows).';
+  }
+
+  @override
+  String get matchSetupRoundsSection => 'ROUNDS IN MATCH';
+
+  @override
+  String get matchSetupRoundsDescription =>
+      'How many rounds will this match have?';
+
+  @override
+  String matchSetupRoundsRecommended(int count) {
+    return 'Recommended: $count rounds.';
+  }
+
+  @override
+  String matchSetupRoundsValue(int count) {
+    return 'Rounds: $count';
+  }
+
+  @override
+  String matchSetupQuestionCountChip(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count questions',
+      one: '1 question',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String matchSetupSummary(int roundCount, int questionCount) {
+    String _temp0 = intl.Intl.pluralLogic(
+      roundCount,
+      locale: localeName,
+      other: '$roundCount rounds',
+      one: '1 round',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      questionCount,
+      locale: localeName,
+      other: '$questionCount questions',
+      one: '1 question',
+    );
+    return '$_temp0 · $_temp1 per player';
+  }
+
+  @override
+  String get matchSetupContinue => 'CONTINUE';
+
+  @override
   String get startMatch => 'Start match';
 
   @override

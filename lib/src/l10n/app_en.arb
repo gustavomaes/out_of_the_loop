@@ -38,6 +38,58 @@
   "playerSetupErrorInvalidQuestions": "Choose between 1 and 3 questions per player.",
   "playerSetupErrorInsufficientWords": "This category does not have enough words for that many rounds.",
   "playerSetupErrorInsufficientQuestions": "This category does not have enough questions for that many players.",
+  "matchSetupTitleLine1": "SET UP",
+  "matchSetupTitleLine2": "MATCH",
+  "matchSetupRulesBadge": "1–5 ROUNDS · 1–3 QUESTIONS",
+  "matchSetupSubtitle": "Set the rules before adding players.",
+  "matchSetupQuestionsSection": "QUESTIONS PER PLAYER",
+  "matchSetupQuestionsDescription": "How many questions does each player answer per round?",
+  "matchSetupQuestionsRecommendation": "For 3–4 players we recommend {recommended}; for 5 or more, 1 (up to 3 if the category allows).",
+  "@matchSetupQuestionsRecommendation": {
+    "placeholders": {
+      "recommended": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsSection": "ROUNDS IN MATCH",
+  "matchSetupRoundsDescription": "How many rounds will this match have?",
+  "matchSetupRoundsRecommended": "Recommended: {count} rounds.",
+  "@matchSetupRoundsRecommended": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsValue": "Rounds: {count}",
+  "@matchSetupRoundsValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupQuestionCountChip": "{count, plural, =1{1 question} other{{count} questions}}",
+  "@matchSetupQuestionCountChip": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupSummary": "{roundCount, plural, =1{1 round} other{{roundCount} rounds}} · {questionCount, plural, =1{1 question} other{{questionCount} questions}} per player",
+  "@matchSetupSummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      },
+      "questionCount": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupContinue": "CONTINUE",
   "startMatch": "Start match",
   "revealMyWord": "Reveal my word",
   "outOfLoopMessage": "You are OUT of the loop - act naturally.",

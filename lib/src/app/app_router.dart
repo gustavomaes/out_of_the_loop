@@ -109,6 +109,7 @@ class AppRouter {
         path: AppRoutes.matchSetup,
         builder: (context, state) => MatchSetupScreen(
           categoryWords: flow.categoryWords,
+          onBack: () => context.pop(),
           onContinue: (roundCount, questionsPerPlayer) {
             flow.configureMatch(
               roundCount: roundCount,

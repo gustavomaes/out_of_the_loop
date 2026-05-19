@@ -38,6 +38,58 @@
   "playerSetupErrorInvalidQuestions": "प्रति खिलाड़ी 1 से 3 प्रश्न चुनें।",
   "playerSetupErrorInsufficientWords": "इस श्रेणी में इतने राउंड के लिए पर्याप्त शब्द नहीं हैं।",
   "playerSetupErrorInsufficientQuestions": "इस श्रेणी में इतने खिलाड़ियों के लिए पर्याप्त प्रश्न नहीं हैं।",
+  "matchSetupTitleLine1": "मैच",
+  "matchSetupTitleLine2": "सेटअप",
+  "matchSetupRulesBadge": "1–5 राउंड · 1–3 प्रश्न",
+  "matchSetupSubtitle": "खिलाड़ी जोड़ने से पहले नियम तय करें।",
+  "matchSetupQuestionsSection": "प्रति खिलाड़ी प्रश्न",
+  "matchSetupQuestionsDescription": "इस राउंड में प्रत्येक खिलाड़ी कितने प्रश्नों के जवाब देगा?",
+  "matchSetupQuestionsRecommendation": "3–4 खिलाड़ियों के लिए हम {recommended} की सलाह देते हैं; 5 या अधिक के लिए 1 (श्रेणी अनुमति दे तो 3 तक)।",
+  "@matchSetupQuestionsRecommendation": {
+    "placeholders": {
+      "recommended": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsSection": "मैच में राउंड",
+  "matchSetupRoundsDescription": "इस मैच में कितने राउंड होंगे?",
+  "matchSetupRoundsRecommended": "अनुशंसित: {count} राउंड।",
+  "@matchSetupRoundsRecommended": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsValue": "राउंड: {count}",
+  "@matchSetupRoundsValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupQuestionCountChip": "{count, plural, =1{1 प्रश्न} other{{count} प्रश्न}}",
+  "@matchSetupQuestionCountChip": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupSummary": "{roundCount, plural, =1{1 राउंड} other{{roundCount} राउंड}} · {questionCount, plural, =1{1 प्रश्न} other{{questionCount} प्रश्न}} प्रति खिलाड़ी",
+  "@matchSetupSummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      },
+      "questionCount": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupContinue": "जारी रखें",
   "startMatch": "मैच शुरू करें",
   "revealMyWord": "मेरा शब्द दिखाएं",
   "outOfLoopMessage": "आप लूप से बाहर हैं - स्वाभाविक रहें.",

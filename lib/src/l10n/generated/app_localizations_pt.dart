@@ -111,6 +111,79 @@ class AppLocalizationsPt extends AppLocalizations {
       'Esta categoria não tem perguntas suficientes para tantos jogadores.';
 
   @override
+  String get matchSetupTitleLine1 => 'CONFIGURAR';
+
+  @override
+  String get matchSetupTitleLine2 => 'PARTIDA';
+
+  @override
+  String get matchSetupRulesBadge => '1–5 RODADAS · 1–3 PERGUNTAS';
+
+  @override
+  String get matchSetupSubtitle =>
+      'Defina as regras antes de cadastrar os jogadores.';
+
+  @override
+  String get matchSetupQuestionsSection => 'PERGUNTAS POR JOGADOR';
+
+  @override
+  String get matchSetupQuestionsDescription =>
+      'Quantas perguntas cada jogador responde nesta rodada?';
+
+  @override
+  String matchSetupQuestionsRecommendation(int recommended) {
+    return 'Com 3–4 jogadores recomendamos $recommended; com 5 ou mais, 1 (até 3 se a categoria permitir).';
+  }
+
+  @override
+  String get matchSetupRoundsSection => 'RODADAS NA PARTIDA';
+
+  @override
+  String get matchSetupRoundsDescription =>
+      'Quantas rodadas esta partida terá?';
+
+  @override
+  String matchSetupRoundsRecommended(int count) {
+    return 'Recomendado: $count rodadas.';
+  }
+
+  @override
+  String matchSetupRoundsValue(int count) {
+    return 'Rodadas: $count';
+  }
+
+  @override
+  String matchSetupQuestionCountChip(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count perguntas',
+      one: '1 pergunta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String matchSetupSummary(int roundCount, int questionCount) {
+    String _temp0 = intl.Intl.pluralLogic(
+      roundCount,
+      locale: localeName,
+      other: '$roundCount rodadas',
+      one: '1 rodada',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      questionCount,
+      locale: localeName,
+      other: '$questionCount perguntas',
+      one: '1 pergunta',
+    );
+    return '$_temp0 · $_temp1 por jogador';
+  }
+
+  @override
+  String get matchSetupContinue => 'CONTINUAR';
+
+  @override
   String get startMatch => 'Iniciar partida';
 
   @override
@@ -367,6 +440,79 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get playerSetupErrorInsufficientQuestions =>
       'Esta categoria não tem perguntas suficientes para tantos jogadores.';
+
+  @override
+  String get matchSetupTitleLine1 => 'CONFIGURAR';
+
+  @override
+  String get matchSetupTitleLine2 => 'PARTIDA';
+
+  @override
+  String get matchSetupRulesBadge => '1–5 RODADAS · 1–3 PERGUNTAS';
+
+  @override
+  String get matchSetupSubtitle =>
+      'Defina as regras antes de cadastrar os jogadores.';
+
+  @override
+  String get matchSetupQuestionsSection => 'PERGUNTAS POR JOGADOR';
+
+  @override
+  String get matchSetupQuestionsDescription =>
+      'Quantas perguntas cada jogador responde nesta rodada?';
+
+  @override
+  String matchSetupQuestionsRecommendation(int recommended) {
+    return 'Com 3–4 jogadores recomendamos $recommended; com 5 ou mais, 1 (até 3 se a categoria permitir).';
+  }
+
+  @override
+  String get matchSetupRoundsSection => 'RODADAS NA PARTIDA';
+
+  @override
+  String get matchSetupRoundsDescription =>
+      'Quantas rodadas esta partida terá?';
+
+  @override
+  String matchSetupRoundsRecommended(int count) {
+    return 'Recomendado: $count rodadas.';
+  }
+
+  @override
+  String matchSetupRoundsValue(int count) {
+    return 'Rodadas: $count';
+  }
+
+  @override
+  String matchSetupQuestionCountChip(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count perguntas',
+      one: '1 pergunta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String matchSetupSummary(int roundCount, int questionCount) {
+    String _temp0 = intl.Intl.pluralLogic(
+      roundCount,
+      locale: localeName,
+      other: '$roundCount rodadas',
+      one: '1 rodada',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      questionCount,
+      locale: localeName,
+      other: '$questionCount perguntas',
+      one: '1 pergunta',
+    );
+    return '$_temp0 · $_temp1 por jogador';
+  }
+
+  @override
+  String get matchSetupContinue => 'CONTINUAR';
 
   @override
   String get startMatch => 'Iniciar partida';
