@@ -12,15 +12,13 @@ class OtlDiscoveryBottomBar extends StatelessWidget {
 
   final StatefulNavigationShell navigationShell;
 
-  static const _barHeight = 96.0;
+  static const _barHeight = 64.0;
   static const _topBorderWidth = 4.0;
   static const _horizontalPadding = 8.0;
-  static const _topPadding = 4.0;
-  static const _activeSlotHeight = 52.0;
-  static const _activePillLift = 16.0;
+  static const _topPadding = 8.0;
+  static const _bottomPadding = 4.0;
   static const _shadowOffset = 4.0;
-  static const _inactiveHorizontalPadding = 16.0;
-  static const _inactiveVerticalPadding = 8.0;
+  static const _inactiveHorizontalPadding = 8.0;
   static const _iconLabelGap = 4.0;
 
   @override
@@ -66,10 +64,10 @@ class OtlDiscoveryBottomBar extends StatelessWidget {
                 _horizontalPadding,
                 _topPadding,
                 _horizontalPadding,
-                0,
+                _bottomPadding,
               ),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   for (var index = 0; index < items.length; index++)
                     Expanded(
@@ -125,21 +123,7 @@ class _DiscoveryNavSlot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (selected) {
-      return SizedBox(
-        height: OtlDiscoveryBottomBar._activeSlotHeight,
-        child: Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.topCenter,
-          children: [
-            Positioned(
-              top: -OtlDiscoveryBottomBar._activePillLift,
-              left: 0,
-              right: 0,
-              child: _ActiveNavPill(item: item, onTap: onTap),
-            ),
-          ],
-        ),
-      );
+      return _ActiveNavTab(item: item, onTap: onTap);
     }
 
     return _InactiveNavItem(item: item, onTap: onTap);
@@ -166,10 +150,8 @@ class _InactiveNavItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: OtlDiscoveryBottomBar._inactiveHorizontalPadding,
-            vertical: OtlDiscoveryBottomBar._inactiveVerticalPadding,
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
@@ -190,14 +172,12 @@ class _InactiveNavItem extends StatelessWidget {
   }
 }
 
-class _ActiveNavPill extends StatelessWidget {
-  const _ActiveNavPill({required this.item, required this.onTap});
+class _ActiveNavTab extends StatelessWidget {
+  const _ActiveNavTab({required this.item, required this.onTap});
 
   final _DiscoveryNavItem item;
   final VoidCallback onTap;
 
-  static const _horizontalPadding = 18.0;
-  static const _verticalPadding = 10.0;
   static const _borderWidth = 2.0;
 
   @override
@@ -206,59 +186,49 @@ class _ActiveNavPill extends StatelessWidget {
       color: Colors.black,
       fontSize: 10,
     );
-    final content = Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: _horizontalPadding,
-        vertical: _verticalPadding,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: OtlDiscoveryBottomBar._iconLabelGap,
-            ),
-            child: _DiscoveryNavIconWidget(
-              icon: item.icon,
-              color: Colors.black,
-            ),
+    final content = Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            bottom: OtlDiscoveryBottomBar._iconLabelGap,
           ),
-          Text(item.label, style: labelStyle, textAlign: TextAlign.center),
-        ],
-      ),
+          child: _DiscoveryNavIconWidget(
+            icon: item.icon,
+            color: Colors.black,
+          ),
+        ),
+        Text(item.label, style: labelStyle, textAlign: TextAlign.center),
+      ],
     );
 
-    return Padding(
-      padding: const EdgeInsets.only(
-        right: OtlDiscoveryBottomBar._shadowOffset,
-        bottom: OtlDiscoveryBottomBar._shadowOffset,
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Transform.translate(
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        child: Stack(
+          fit: StackFit.expand,
+          clipBehavior: Clip.none,
+          children: [
+            Positioned.fill(
+              child: Transform.translate(
                 offset: const Offset(
                   OtlDiscoveryBottomBar._shadowOffset,
                   OtlDiscoveryBottomBar._shadowOffset,
                 ),
-                child: DecoratedBox(
-                  decoration: const BoxDecoration(color: Colors.black),
-                  child: Opacity(opacity: 0, child: content),
+                child: const DecoratedBox(
+                  decoration: BoxDecoration(color: Colors.black),
                 ),
               ),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: BrutalistColors.lime,
-                  border: Border.all(color: Colors.black, width: _borderWidth),
-                ),
-                child: content,
+            ),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: BrutalistColors.lime,
+                border: Border.all(color: Colors.black, width: _borderWidth),
               ),
-            ],
-          ),
+              child: content,
+            ),
+          ],
         ),
       ),
     );
