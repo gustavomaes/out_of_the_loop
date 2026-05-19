@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../shared/widgets/shared_widgets.dart';
 import '../theme/app_tokens.dart';
-import 'app_routes.dart';
 
 class AppShell extends StatelessWidget {
   const AppShell({
@@ -22,18 +21,11 @@ class AppShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final showBottomNavigation = AppRoutes.bottomNavigationRoutes.contains(
-      routeName,
-    );
-
     return Scaffold(
       appBar: appBar ?? AppBar(title: Text(title), centerTitle: true),
       body: SafeArea(
         child: Padding(padding: bodyPadding, child: child),
       ),
-      bottomNavigationBar: showBottomNavigation
-          ? OtlDiscoveryBottomBar(currentRoute: routeName)
-          : null,
     );
   }
 }

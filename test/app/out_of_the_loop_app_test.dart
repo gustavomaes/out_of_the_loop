@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:outoftheloop/src/app/app_routes.dart';
+import 'package:outoftheloop/src/app/discovery_shell.dart';
 import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
+import 'package:outoftheloop/src/features/settings/settings_screen.dart';
 import 'package:outoftheloop/src/shared/widgets/otl_discovery_bottom_bar.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,8 +39,13 @@ void main() {
     expect(find.text('LOOP'), findsWidgets);
     expect(find.byType(OtlDiscoveryBottomBar), findsOneWidget);
 
-    final scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
-    expect(scaffold.backgroundColor, isNot(Colors.white));
+    final discoveryScaffold = tester.widget<Scaffold>(
+      find.descendant(
+        of: find.byType(DiscoveryShell),
+        matching: find.byType(Scaffold),
+      ).first,
+    );
+    expect(discoveryScaffold.backgroundColor, isNot(Colors.white));
   });
 
   testWidgets('bottom navigation is scoped to discovery routes', (
@@ -50,15 +58,17 @@ void main() {
 
     expect(find.byType(OtlDiscoveryBottomBar), findsOneWidget);
 
-    Navigator.of(
-      tester.element(find.byType(Scaffold)),
-    ).pushNamed(AppRoutes.gameReveal);
+    GoRouter.of(tester.element(find.byType(OtlDiscoveryBottomBar))).push(
+      AppRoutes.gameReveal,
+    );
     await tester.pumpAndSettle();
 
     expect(find.text('Secret Reveal'), findsWidgets);
     expect(find.byType(OtlDiscoveryBottomBar), findsNothing);
     expect(
-      Theme.of(tester.element(find.byType(Scaffold))).scaffoldBackgroundColor,
+      Theme.of(
+        tester.element(find.text('Secret Reveal').first),
+      ).scaffoldBackgroundColor,
       AppColors.backgroundPrimary,
     );
   });
@@ -144,13 +154,19 @@ void main() {
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
-    Navigator.of(
-      tester.element(find.byType(Scaffold)),
-    ).pushNamed(AppRoutes.settings);
+    await tester.tap(find.text('PROFILE'));
     await tester.pumpAndSettle();
 
     expect(find.text('English'), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('TIMER'), 200);
+    final settingsScrollable = find.descendant(
+      of: find.byType(SettingsScreen),
+      matching: find.byType(Scrollable),
+    );
+    await tester.scrollUntilVisible(
+      find.text('TIMER'),
+      200,
+      scrollable: settingsScrollable,
+    );
     expect(find.text('Use timer'), findsOneWidget);
     await tester.ensureVisible(find.text('Use timer'));
     await tester.pumpAndSettle();

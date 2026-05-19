@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_routes.dart';
+import '../../app/discovery_shell.dart';
 import '../../app/app_shell.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/otl_brutalist_pill_button.dart';
@@ -49,9 +51,7 @@ class HomeScreen extends StatelessWidget {
                       foregroundColor: BrutalistColors.homePrimaryButtonText,
                       onPressed:
                           onStartGame ??
-                          () => Navigator.of(
-                            context,
-                          ).pushNamed(AppRoutes.categories),
+                          () => context.goDiscoveryTab(AppRoutes.categories),
                     ),
                     const SizedBox(height: 24),
                     OtlBrutalistPillButton(
@@ -60,10 +60,7 @@ class HomeScreen extends StatelessWidget {
                       backgroundColor: BrutalistColors.homeSecondaryButton,
                       foregroundColor: BrutalistColors.cardText,
                       onPressed:
-                          onHowToPlay ??
-                          () => Navigator.of(
-                            context,
-                          ).pushNamed(AppRoutes.howToPlay),
+                          onHowToPlay ?? () => context.push(AppRoutes.howToPlay),
                     ),
                   ],
                 ),

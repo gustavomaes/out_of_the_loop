@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_routes.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -7,9 +8,9 @@ import '../../theme/display_typography.dart';
 
 /// Figma-aligned discovery bottom bar (PLAY / CATEGORIES / PROFILE).
 class OtlDiscoveryBottomBar extends StatelessWidget {
-  const OtlDiscoveryBottomBar({required this.currentRoute, super.key});
+  const OtlDiscoveryBottomBar({required this.navigationShell, super.key});
 
-  final String currentRoute;
+  final StatefulNavigationShell navigationShell;
 
   static const _topBorderWidth = 4.0;
   static const _horizontalPadding = 8.0;
@@ -60,14 +61,18 @@ class OtlDiscoveryBottomBar extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              for (final item in items)
+              for (var index = 0; index < items.length; index++)
                 Expanded(
                   child: _DiscoveryNavSlot(
-                    item: item,
-                    selected: item.route == currentRoute,
+                    item: items[index],
+                    selected: navigationShell.currentIndex == index,
                     onTap: () {
-                      if (item.route != currentRoute) {
-                        Navigator.of(context).pushReplacementNamed(item.route);
+                      if (navigationShell.currentIndex != index) {
+                        navigationShell.goBranch(
+                          index,
+                          initialLocation:
+                              index == navigationShell.currentIndex,
+                        );
                       }
                     },
                   ),

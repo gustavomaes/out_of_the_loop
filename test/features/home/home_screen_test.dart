@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/features/home/home_screen.dart';
-import 'package:outoftheloop/src/shared/widgets/otl_discovery_bottom_bar.dart';
 import 'package:outoftheloop/src/l10n/generated/app_localizations.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
@@ -30,8 +29,6 @@ void main() {
     expect(find.text('LOOP'), findsNWidgets(2));
     expect(find.text(l10n.startGame), findsOneWidget);
     expect(find.text(l10n.howToPlay), findsOneWidget);
-    expect(find.text(l10n.navPlay), findsOneWidget);
-    expect(find.byType(OtlDiscoveryBottomBar), findsOneWidget);
     expect(find.text('A party game of secrets'), findsNothing);
 
     await tester.tap(find.text(l10n.startGame));

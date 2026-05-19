@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_routes.dart';
 import '../../app/app_shell.dart';
@@ -100,9 +101,7 @@ class RoundResultsScreen extends StatelessWidget {
                 : 'GUESS WORD',
             onPressed: result.wasOutFoundByMajority
                 ? onContinue
-                : onGuess ??
-                      () =>
-                          Navigator.of(context).pushNamed(AppRoutes.gameGuess),
+                : onGuess ?? () => context.push(AppRoutes.gameGuess),
           ),
           ],
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_routes.dart';
+import '../../app/discovery_shell.dart';
 import '../../app/app_shell.dart';
 import '../../domain/models/models.dart';
 import '../../shared/widgets/shared_widgets.dart';
@@ -117,19 +119,13 @@ class FinalLeaderboardScreen extends StatelessWidget {
           OtlButton.primary(
             label: 'NOVA PARTIDA',
             onPressed:
-                onNewMatch ??
-                () => Navigator.of(
-                  context,
-                ).pushReplacementNamed(AppRoutes.categories),
+                onNewMatch ?? () => context.goDiscoveryTab(AppRoutes.categories),
           ),
           const SizedBox(height: AppSpacing.md),
           OtlButton.secondary(
             label: 'VOLTAR AO INICIO',
             onPressed:
-                onBackHome ??
-                () => Navigator.of(
-                  context,
-                ).pushNamedAndRemoveUntil(AppRoutes.home, (_) => false),
+                onBackHome ?? () => context.goDiscoveryTab(AppRoutes.home),
           ),
         ],
       ),
