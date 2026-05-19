@@ -32,7 +32,13 @@ class OtlTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
-        labelStyle: AppTypography.bodySmall,
+        labelStyle: AppTypography.bodySmall.copyWith(
+          color: AppColors.textSecondary,
+        ),
+        floatingLabelStyle: AppTypography.bodySmall.copyWith(
+          color: AppColors.primaryMain,
+          fontWeight: FontWeight.w700,
+        ),
         hintStyle: AppTypography.body.copyWith(color: AppColors.textTertiary),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.md,

@@ -1,7 +1,7 @@
 # Stitch Design Refresh Tasks
 
 **Spec**: `.specs/features/stitch-design-refresh/spec.md`
-**Status**: Phase 0 complete
+**Status**: Phase 1 complete
 
 ---
 
@@ -125,14 +125,15 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Dark background and high-contrast surfaces remain tokenized.
-- [ ] Lime/magenta accent decisions are reflected in named tokens.
-- [ ] Focus, disabled, border, shadow/glow, and navigation colors are covered.
-- [ ] Theme tests assert representative new tokens and no white scaffold background.
+- [x] Dark background and high-contrast surfaces remain tokenized.
+- [x] Lime/magenta accent decisions are reflected in named tokens.
+- [x] Focus, disabled, border, shadow/glow, and navigation colors are covered.
+- [x] Theme tests assert representative new tokens and no white scaffold background.
 
 **Tests**: `flutter test test/theme`
 **Gate**: quick unit gate
 **Verify**: Theme tests pass.
+**Status**: Complete
 
 ---
 
@@ -146,13 +147,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Primary, secondary, outline, disabled and focus states use updated tokens.
-- [ ] Minimum touch targets remain covered by tests.
-- [ ] Inputs keep readable placeholder, text, border and focus states.
+- [x] Primary, secondary, outline, disabled and focus states use updated tokens.
+- [x] Minimum touch targets remain covered by tests.
+- [x] Inputs keep readable placeholder, text, border and focus states.
 
 **Tests**: `flutter test test/shared/widgets/otl_primitives_test.dart`
 **Gate**: quick widget gate
 **Verify**: Shared primitive tests pass.
+**Status**: Complete
 
 ---
 
@@ -166,13 +168,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Cards support neutral, selected and accent/glow states without feature-level hardcoded colors.
-- [ ] Avatars remain deterministic and readable.
-- [ ] Tests cover selected/accent visual states at a behavior level.
+- [x] Cards support neutral, selected and accent/glow states without feature-level hardcoded colors.
+- [x] Avatars remain deterministic and readable.
+- [x] Tests cover selected/accent visual states at a behavior level.
 
 **Tests**: `flutter test test/shared/widgets/otl_primitives_test.dart`
 **Gate**: quick widget gate
 **Verify**: Shared primitive tests pass.
+**Status**: Complete
 
 ---
 
@@ -186,13 +189,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Circular timer and progress timer use updated accent colors and warning/expired states.
-- [ ] Timer disabled state remains visually clear.
-- [ ] No timer behavior changes are introduced.
+- [x] Circular timer and progress timer use updated accent colors and warning/expired states.
+- [x] Timer disabled state remains visually clear.
+- [x] No timer behavior changes are introduced.
 
 **Tests**: `flutter test test/shared/widgets/timers`
 **Gate**: quick widget gate
 **Verify**: Timer widget tests pass.
+**Status**: Complete
 
 ---
 
@@ -206,13 +210,14 @@ T15 + T16 + T17 -> T18
 
 **Done when**:
 
-- [ ] Discovery routes show refreshed bottom navigation.
-- [ ] Gameplay routes remain focused without bottom navigation.
-- [ ] Shell padding/safe-area behavior remains mobile-first.
+- [x] Discovery routes show refreshed bottom navigation.
+- [x] Gameplay routes remain focused without bottom navigation.
+- [x] Shell padding/safe-area behavior remains mobile-first.
 
 **Tests**: `flutter test test/app/out_of_the_loop_app_test.dart`
 **Gate**: app flow gate
 **Verify**: App shell tests pass.
+**Status**: Complete
 
 ---
 

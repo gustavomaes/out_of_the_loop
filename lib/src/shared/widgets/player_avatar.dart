@@ -19,7 +19,7 @@ class PlayerAvatar extends StatelessWidget {
     AppColors.secondaryMain,
     AppColors.info,
     AppColors.success,
-    AppColors.primaryLight,
+    AppColors.warning,
   ];
 
   @override
@@ -31,13 +31,21 @@ class PlayerAvatar extends StatelessWidget {
       width: size,
       height: size,
       alignment: Alignment.center,
-      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+      decoration: BoxDecoration(
+        color: color,
+        shape: BoxShape.circle,
+        border: Border.all(color: AppColors.backgroundPrimary, width: 2),
+        boxShadow: [
+          BoxShadow(
+            color: color.withValues(alpha: 0.45),
+            blurRadius: size * 0.25,
+          ),
+        ],
+      ),
       child: Text(
         initials,
         style: AppTypography.emphasis.copyWith(
-          color: color == AppColors.secondaryMain
-              ? AppColors.backgroundPrimary
-              : AppColors.textPrimary,
+          color: _foregroundFor(color),
           fontSize: size * 0.4,
           letterSpacing: 0,
         ),
@@ -69,5 +77,13 @@ class PlayerAvatar extends StatelessWidget {
       hash ^= hash >> 6;
     }
     return hash.abs();
+  }
+
+  static Color _foregroundFor(Color color) {
+    return color == AppColors.primaryMain ||
+            color == AppColors.success ||
+            color == AppColors.warning
+        ? AppColors.backgroundPrimary
+        : AppColors.textPrimary;
   }
 }

@@ -79,22 +79,35 @@ class _DiscoveryNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      backgroundColor: AppColors.backgroundSecondary,
-      indicatorColor: AppColors.overlayGlow,
-      selectedIndex: _selectedIndex,
-      onDestinationSelected: (index) {
-        final route = AppRoutes.bottomNavigationRoutes[index];
-        if (route != currentRoute) {
-          Navigator.of(context).pushReplacementNamed(route);
-        }
-      },
-      destinations: const [
-        NavigationDestination(icon: Icon(Icons.play_arrow), label: 'Play'),
-        NavigationDestination(icon: Icon(Icons.grid_view), label: 'Categories'),
-        NavigationDestination(icon: Icon(Icons.help_outline), label: 'How To'),
-        NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
-      ],
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        border: Border(top: BorderSide(color: AppColors.borderDefault)),
+        boxShadow: AppShadows.lg,
+      ),
+      child: NavigationBar(
+        height: 72,
+        backgroundColor: AppColors.backgroundSecondary,
+        indicatorColor: AppColors.overlayGlow,
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: (index) {
+          final route = AppRoutes.bottomNavigationRoutes[index];
+          if (route != currentRoute) {
+            Navigator.of(context).pushReplacementNamed(route);
+          }
+        },
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.play_arrow), label: 'Play'),
+          NavigationDestination(
+            icon: Icon(Icons.grid_view),
+            label: 'Categories',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.help_outline),
+            label: 'How To',
+          ),
+          NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
+        ],
+      ),
     );
   }
 

@@ -1,7 +1,7 @@
 # Stitch Design Refresh Validation
 
 **Spec**: `.specs/features/stitch-design-refresh/spec.md`
-**Status**: Phase 0 baseline complete
+**Status**: Phase 1 foundation complete
 **Last updated**: 2026-05-18
 
 ---
@@ -72,6 +72,21 @@ These are intentionally excluded even if they appear in the visual reference:
 - T01 docs review: complete. Decisions are recorded in `spec.md` and summarized here.
 - T02 docs review: complete. All target screens are listed with Stitch observations and current gaps.
 - Automated tests: not run for Phase 0 because this phase changed documentation only.
+
+---
+
+## Phase 1 Foundation Review
+
+- T03 theme tokens: complete. `primary*` now carries the lime action accent, `secondary*` carries magenta contrast, and dark surfaces/borders/focus/glow remain tokenized.
+- T04 buttons and inputs: complete. Button variants and text fields consume the refreshed focus, disabled, foreground, border, and glow tokens without API changes.
+- T05 cards and avatars: complete. `OtlCard` supports neutral, selected, and accented glow states; avatars keep deterministic initials and tokenized neon colors.
+- T06 timers: complete. Circular and progress timers use the refreshed lime accent and retain error styling for final-five-second warning states.
+- T07 app shell/navigation: complete. Discovery routes keep bottom navigation with refreshed styling, while gameplay routes remain focused without bottom navigation.
+
+Gate results:
+
+- `analyze_files` on the full project via Dart MCP: pass, no errors.
+- `flutter test test/theme test/shared/widgets/otl_primitives_test.dart test/shared/widgets/timers test/app/out_of_the_loop_app_test.dart` via Dart MCP: pass, 16 tests.
 
 ---
 

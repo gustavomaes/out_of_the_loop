@@ -84,7 +84,7 @@ class OtlButton extends StatelessWidget {
           RoundedRectangleBorder(borderRadius: AppRadius.borderFull),
         ),
         elevation: WidgetStateProperty.resolveWith(_elevation),
-        shadowColor: const WidgetStatePropertyAll(AppColors.overlayGlow),
+        shadowColor: const WidgetStatePropertyAll(AppColors.primaryMain),
       ),
       child: Text(label),
     );
@@ -112,9 +112,12 @@ class OtlButton extends StatelessWidget {
     if (states.contains(WidgetState.disabled)) {
       return AppColors.textDisabled;
     }
+    if (variant == OtlButtonVariant.primary) {
+      return AppColors.backgroundPrimary;
+    }
     if (variant == OtlButtonVariant.outline) {
       return states.contains(WidgetState.pressed)
-          ? AppColors.textPrimary
+          ? AppColors.backgroundPrimary
           : AppColors.primaryMain;
     }
     return AppColors.textPrimary;
@@ -135,14 +138,16 @@ class OtlButton extends StatelessWidget {
     if (states.contains(WidgetState.pressed)) {
       return switch (variant) {
         OtlButtonVariant.primary => AppColors.primaryDark,
-        OtlButtonVariant.secondary => AppColors.backgroundSecondary,
+        OtlButtonVariant.secondary => AppColors.secondaryDark.withValues(
+          alpha: 0.28,
+        ),
         OtlButtonVariant.outline => AppColors.primaryMain,
       };
     }
     if (states.contains(WidgetState.focused)) {
       return switch (variant) {
         OtlButtonVariant.primary => AppColors.primaryLight,
-        OtlButtonVariant.secondary => AppColors.backgroundTertiary,
+        OtlButtonVariant.secondary => AppColors.overlayMagentaGlow,
         OtlButtonVariant.outline => AppColors.overlayGlow,
       };
     }
@@ -169,7 +174,9 @@ class OtlButton extends StatelessWidget {
     final color = states.contains(WidgetState.disabled)
         ? AppColors.textDisabled
         : states.contains(WidgetState.focused)
-        ? AppColors.warning
+        ? AppColors.borderFocus
+        : variant == OtlButtonVariant.secondary
+        ? AppColors.secondaryMain
         : AppColors.primaryMain;
     return BorderSide(color: color, width: 2);
   }

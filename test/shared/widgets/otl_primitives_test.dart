@@ -71,6 +71,34 @@ void main() {
     expect(card.duration, AppDurations.fast);
     expect((avatar.decoration! as BoxDecoration).shape, BoxShape.circle);
   });
+
+  testWidgets('selected and accented cards expose glow states', (tester) async {
+    await tester.pumpWidget(
+      const _TestApp(
+        child: Column(
+          children: [
+            OtlCard(selected: true, child: Text('Selected')),
+            OtlCard(
+              accented: true,
+              accentColor: AppColors.secondaryMain,
+              child: Text('Accent'),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    final cards = tester.widgetList<AnimatedContainer>(
+      find.byType(AnimatedContainer),
+    );
+    final selectedDecoration = cards.first.decoration! as BoxDecoration;
+    final accentDecoration = cards.last.decoration! as BoxDecoration;
+
+    expect(selectedDecoration.boxShadow, AppShadows.glow);
+    expect(selectedDecoration.border!.top.color, AppColors.primaryMain);
+    expect(accentDecoration.boxShadow, AppShadows.glow);
+    expect(accentDecoration.border!.top.color, AppColors.secondaryMain);
+  });
 }
 
 class _TestApp extends StatelessWidget {

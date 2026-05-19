@@ -25,7 +25,7 @@ class CircularTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isWarning ? AppColors.error : AppColors.secondaryMain;
+    final color = isWarning ? AppColors.error : AppColors.primaryMain;
 
     return Semantics(
       label: 'Timer: $remainingSeconds seconds remaining',
@@ -36,9 +36,11 @@ class CircularTimer extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Container(
-              decoration: const BoxDecoration(
-                color: AppColors.backgroundTertiary,
+              decoration: BoxDecoration(
+                color: AppColors.backgroundSecondary,
                 shape: BoxShape.circle,
+                border: Border.all(color: AppColors.borderDefault),
+                boxShadow: isWarning ? AppShadows.magentaGlow : AppShadows.glow,
               ),
             ),
             CircularProgressIndicator(

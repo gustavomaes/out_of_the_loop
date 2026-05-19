@@ -28,16 +28,22 @@ class ProgressTimer extends StatelessWidget {
     return Semantics(
       label: 'Timer progress',
       value: '${(progress * 100).round()} percent',
-      child: ClipRRect(
-        borderRadius: AppRadius.borderFull,
-        child: SizedBox(
-          height: height,
-          child: LinearProgressIndicator(
-            key: const Key('otl_progress_timer_indicator'),
-            value: progress,
-            backgroundColor: AppColors.backgroundTertiary,
-            color: isWarning ? AppColors.error : AppColors.primaryMain,
-            minHeight: height,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: AppRadius.borderFull,
+          boxShadow: isWarning ? AppShadows.magentaGlow : AppShadows.glow,
+        ),
+        child: ClipRRect(
+          borderRadius: AppRadius.borderFull,
+          child: SizedBox(
+            height: height,
+            child: LinearProgressIndicator(
+              key: const Key('otl_progress_timer_indicator'),
+              value: progress,
+              backgroundColor: AppColors.backgroundTertiary,
+              color: isWarning ? AppColors.error : AppColors.primaryMain,
+              minHeight: height,
+            ),
           ),
         ),
       ),

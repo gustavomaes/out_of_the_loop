@@ -5,10 +5,11 @@ import 'package:outoftheloop/src/theme/app_tokens.dart';
 void main() {
   group('App design tokens', () {
     test('expose representative colors from the design system', () {
-      expect(AppColors.backgroundPrimary, const Color(0xFF0B0B2B));
-      expect(AppColors.primaryMain, const Color(0xFFFF4D6D));
-      expect(AppColors.secondaryMain, const Color(0xFFFFB703));
-      expect(AppColors.overlayGlow, const Color(0x26FF4D6D));
+      expect(AppColors.backgroundPrimary, const Color(0xFF070718));
+      expect(AppColors.primaryMain, const Color(0xFFC8FF2E));
+      expect(AppColors.secondaryMain, const Color(0xFFFF3DF2));
+      expect(AppColors.overlayGlow, const Color(0x33C8FF2E));
+      expect(AppColors.borderFocus, AppColors.primaryMain);
     });
 
     test('expose spacing, radius, shadow, and animation tokens', () {
@@ -38,6 +39,7 @@ void main() {
       expect(theme.cardColor, AppColors.backgroundSecondary);
       expect(theme.scaffoldBackgroundColor, isNot(Colors.white));
       expect(theme.colorScheme.surface, isNot(Colors.white));
+      expect(theme.colorScheme.onPrimary, AppColors.backgroundPrimary);
     });
   });
 }

@@ -19,7 +19,7 @@ void main() {
 
     expect(find.text('20'), findsOneWidget);
     expect(indicator.value, closeTo(2 / 3, 0.001));
-    expect(indicator.color, AppColors.secondaryMain);
+    expect(indicator.color, AppColors.primaryMain);
   });
 
   testWidgets('progress timer renders proportional progress', (tester) async {
