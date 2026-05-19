@@ -1,0 +1,23 @@
+{
+  "@@locale": "hi",
+  "appTitle": "Out of the Loop",
+  "startGame": "खेल शुरू करें",
+  "howToPlay": "कैसे खेलें",
+  "pickCategory": "श्रेणी चुनें",
+  "addPlayer": "खिलाड़ी जोड़ें",
+  "startMatch": "मैच शुरू करें",
+  "revealMyWord": "मेरा शब्द दिखाएं",
+  "outOfLoopMessage": "आप लूप से बाहर हैं - स्वाभाविक रहें.",
+  "doneAnswering": "उत्तर पूरा हुआ",
+  "whoIsOutOfTheLoop": "लूप से बाहर कौन है?",
+  "confirmVotes": "वोट पक्का करें",
+  "roundResults": "राउंड के नतीजे",
+  "guessWord": "शब्द का अनुमान लगाएं",
+  "correct": "सही",
+  "wrong": "गलत",
+  "playAgain": "फिर खेलें",
+  "backToHome": "होम पर वापस",
+  "settings": "सेटिंग्स",
+  "language": "भाषा",
+  "timer": "टाइमर"
+}

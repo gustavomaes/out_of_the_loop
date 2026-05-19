@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "languages": ["pt-BR", "en", "es", "hi"],
+  "minQuestionsPerWord": 3,
+  "maxQuestionsPerWord": 9,
+  "categories": [
+    {
+      "id": "food",
+      "iconKey": "restaurant",
+      "name": {
+        "pt-BR": "Comida",
+        "en": "Food",
+        "es": "Comida",
+        "hi": "खाना"
+      },
+      "words": [
+        {
+          "id": "pizza",
+          "value": {
+            "pt-BR": "Pizza",
+            "en": "Pizza",
+            "es": "Pizza",
+            "hi": "पिज़्ज़ा"
+          },
+          "questions": [
+            {
+              "id": "pizza-q1",
+              "text": {
+                "pt-BR": "Quando voce comeria isto?",
+                "en": "When would you eat this?",
+                "es": "Cuando comerias esto?",
+                "hi": "आप इसे कब खाएंगे?"
+              }
+            },
+            {
+              "id": "pizza-q2",
+              "text": {
+                "pt-BR": "Que ingrediente combina melhor com isso?",
+                "en": "What ingredient goes best with this?",
+                "es": "Que ingrediente combina mejor con esto?",
+                "hi": "इसके साथ कौन सी सामग्री सबसे अच्छी लगती है?"
+              }
+            },
+            {
+              "id": "pizza-q3",
+              "text": {
+                "pt-BR": "Voce dividiria isto em uma festa?",
+                "en": "Would you share this at a party?",
+                "es": "Compartirias esto en una fiesta?",
+                "hi": "क्या आप इसे किसी पार्टी में साझा करेंगे?"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

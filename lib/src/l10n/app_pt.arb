@@ -1,0 +1,23 @@
+{
+  "@@locale": "pt",
+  "appTitle": "Out of the Loop",
+  "startGame": "Jogar",
+  "howToPlay": "Como jogar",
+  "pickCategory": "Escolha uma categoria",
+  "addPlayer": "Adicionar jogador",
+  "startMatch": "Iniciar partida",
+  "revealMyWord": "Visualizar minha palavra",
+  "outOfLoopMessage": "Voce esta FORA do circulo - aja naturalmente.",
+  "doneAnswering": "Terminei de responder",
+  "whoIsOutOfTheLoop": "Quem esta fora do loop?",
+  "confirmVotes": "Confirmar votos",
+  "roundResults": "Resultado da rodada",
+  "guessWord": "Adivinhe a palavra",
+  "correct": "Acertou",
+  "wrong": "Errou",
+  "playAgain": "Nova partida",
+  "backToHome": "Voltar ao inicio",
+  "settings": "Configuracoes",
+  "language": "Idioma",
+  "timer": "Timer"
+}

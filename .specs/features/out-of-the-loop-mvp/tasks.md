@@ -2,7 +2,7 @@
 
 **Spec**: `.specs/features/out-of-the-loop-mvp/spec.md`
 **Design**: `.specs/features/out-of-the-loop-mvp/design.md` (planned as T01)
-**Status**: Phase 0 complete
+**Status**: Phase 1 complete
 
 ---
 
@@ -172,10 +172,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Required dependencies are added through Flutter/Dart tooling.
-- [ ] Fonts/assets needed by `.agents/DESIGN.md` are declared.
-- [ ] Localization generation config is prepared if selected by design.
-- [ ] Gate check passes: `flutter pub get && flutter analyze`.
+- [x] Required dependencies are added through Flutter/Dart tooling.
+- [x] Fonts/assets needed by `.agents/DESIGN.md` are declared.
+- [x] Localization generation config is prepared if selected by design.
+- [x] Gate check passes: `flutter pub get && flutter analyze`.
 
 **Tests**: none
 **Gate**: build
@@ -198,10 +198,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] `lib/main.dart` points to the new app entrypoint without changing behavior beyond app bootstrapping.
-- [ ] Empty directories or placeholder files establish the agreed structure.
-- [ ] Imports compile.
-- [ ] Gate check passes: `flutter analyze`.
+- [x] `lib/main.dart` points to the new app entrypoint without changing behavior beyond app bootstrapping.
+- [x] Empty directories or placeholder files establish the agreed structure.
+- [x] Imports compile.
+- [x] Gate check passes: `flutter analyze`.
 
 **Tests**: none
 **Gate**: build
@@ -224,10 +224,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Color, typography, spacing, radius, shadow, and animation tokens exist in Flutter code.
-- [ ] Theme prevents white backgrounds by default.
-- [ ] Token tests verify representative values.
-- [ ] Gate check passes: `flutter test test/theme`.
+- [x] Color, typography, spacing, radius, shadow, and animation tokens exist in Flutter code.
+- [x] Theme prevents white backgrounds by default.
+- [x] Token tests verify representative values.
+- [x] Gate check passes: `flutter test test/theme`.
 
 **Tests**: unit
 **Gate**: quick
@@ -250,10 +250,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Models cover all gameplay states and content fields.
-- [ ] Boundaries for 3 to 9 players are representable.
-- [ ] Model tests cover equality/value behavior and simple constructors.
-- [ ] Gate check passes: `flutter test test/domain/models`.
+- [x] Models cover all gameplay states and content fields.
+- [x] Boundaries for 3 to 9 players are representable.
+- [x] Model tests cover equality/value behavior and simple constructors.
+- [x] Gate check passes: `flutter test test/domain/models`.
 
 **Tests**: unit
 **Gate**: quick
@@ -276,10 +276,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Seed content has at least enough data to run a 3-player test round.
-- [ ] Content schema supports future expansion to 20 categories x 30 words x 4 languages.
-- [ ] Fixture validation test rejects words with fewer questions than required.
-- [ ] Gate check passes: `flutter test test/fixtures`.
+- [x] Seed content has at least enough data to run a 3-player test round.
+- [x] Content schema supports future expansion to 20 categories x 30 words x 4 languages.
+- [x] Fixture validation test rejects words with fewer questions than required.
+- [x] Gate check passes: `flutter test test/fixtures`.
 
 **Tests**: unit
 **Gate**: quick
@@ -302,11 +302,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Supported locales are declared.
-- [ ] Fallback to `pt-BR` is represented.
-- [ ] Core UI strings exist for the MVP flow.
-- [ ] Localization tests verify supported locale list and fallback behavior.
-- [ ] Gate check passes: `flutter test test/l10n`.
+- [x] Supported locales are declared.
+- [x] Fallback to `pt-BR` is represented.
+- [x] Core UI strings exist for the MVP flow.
+- [x] Localization tests verify supported locale list and fallback behavior.
+- [x] Gate check passes: `flutter test test/l10n`.
 
 **Tests**: unit
 **Gate**: quick
@@ -329,10 +329,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Primary, secondary, and outline buttons support disabled/focus/pressed states.
-- [ ] Card/input/avatar primitives match tokenized styling.
-- [ ] Widget tests cover disabled button and minimum touch target behavior.
-- [ ] Gate check passes: `flutter test test/shared/widgets`.
+- [x] Primary, secondary, and outline buttons support disabled/focus/pressed states.
+- [x] Card/input/avatar primitives match tokenized styling.
+- [x] Widget tests cover disabled button and minimum touch target behavior.
+- [x] Gate check passes: `flutter test test/shared/widgets`.
 
 **Tests**: widget
 **Gate**: quick
@@ -355,11 +355,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Circular timer renders countdown display.
-- [ ] Progress timer renders proportional progress.
-- [ ] Warning state appears for final 5 seconds.
-- [ ] Widget tests cover normal and warning states.
-- [ ] Gate check passes: `flutter test test/shared/widgets/timers`.
+- [x] Circular timer renders countdown display.
+- [x] Progress timer renders proportional progress.
+- [x] Warning state appears for final 5 seconds.
+- [x] Widget tests cover normal and warning states.
+- [x] Gate check passes: `flutter test test/shared/widgets/timers`.
 
 **Tests**: widget
 **Gate**: quick
@@ -382,11 +382,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] App starts through the new shell.
-- [ ] Route names exist for all MVP screens.
-- [ ] Bottom navigation shell exists for discovery/configuration screens only.
-- [ ] Shell widget test verifies app boot and initial route.
-- [ ] Gate check passes: `flutter test test/app`.
+- [x] App starts through the new shell.
+- [x] Route names exist for all MVP screens.
+- [x] Bottom navigation shell exists for discovery/configuration screens only.
+- [x] Shell widget test verifies app boot and initial route.
+- [x] Gate check passes: `flutter test test/app`.
 
 **Tests**: widget
 **Gate**: quick
@@ -409,11 +409,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Repository lists categories for a locale.
-- [ ] Repository returns words/questions by category and locale.
-- [ ] Repository works with no network.
-- [ ] Unit tests cover valid content and missing/invalid content.
-- [ ] Gate check passes: `flutter test test/data/content`.
+- [x] Repository lists categories for a locale.
+- [x] Repository returns words/questions by category and locale.
+- [x] Repository works with no network.
+- [x] Unit tests cover valid content and missing/invalid content.
+- [x] Gate check passes: `flutter test test/data/content`.
 
 **Tests**: unit
 **Gate**: quick

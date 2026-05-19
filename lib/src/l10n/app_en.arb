@@ -1,0 +1,23 @@
+{
+  "@@locale": "en",
+  "appTitle": "Out of the Loop",
+  "startGame": "Start game",
+  "howToPlay": "How to play",
+  "pickCategory": "Pick a category",
+  "addPlayer": "Add player",
+  "startMatch": "Start match",
+  "revealMyWord": "Reveal my word",
+  "outOfLoopMessage": "You are OUT of the loop - act naturally.",
+  "doneAnswering": "Done answering",
+  "whoIsOutOfTheLoop": "Who is out of the loop?",
+  "confirmVotes": "Confirm votes",
+  "roundResults": "Round results",
+  "guessWord": "Guess the word",
+  "correct": "Correct",
+  "wrong": "Wrong",
+  "playAgain": "Play again",
+  "backToHome": "Back to home",
+  "settings": "Settings",
+  "language": "Language",
+  "timer": "Timer"
+}

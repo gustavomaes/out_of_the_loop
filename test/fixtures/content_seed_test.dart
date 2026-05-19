@@ -1,0 +1,140 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  test('seed content can run a 3-player test round', () {
+    final seed = _loadSeed();
+
+    _validateSeed(seed);
+
+    final categories = seed['categories'] as List<dynamic>;
+    final firstCategory = categories.first as Map<String, dynamic>;
+    final words = firstCategory['words'] as List<dynamic>;
+    final firstWord = words.first as Map<String, dynamic>;
+    final questions = firstWord['questions'] as List<dynamic>;
+
+    expect(categories, isNotEmpty);
+    expect(words, isNotEmpty);
+    expect(questions.length, greaterThanOrEqualTo(3));
+  });
+
+  test('schema declares expansion points for all MVP languages', () {
+    final seed = _loadSeed();
+
+    expect(seed['schemaVersion'], 1);
+    expect(seed['languages'], ['pt-BR', 'en', 'es', 'hi']);
+    expect(seed['minQuestionsPerWord'], 3);
+    expect(seed['maxQuestionsPerWord'], 9);
+  });
+
+  test('fixture validation rejects words with too few questions', () {
+    final seed = _loadSeed();
+    final categories = seed['categories'] as List<dynamic>;
+    final firstCategory = categories.first as Map<String, dynamic>;
+    final words = firstCategory['words'] as List<dynamic>;
+    final firstWord = words.first as Map<String, dynamic>;
+
+    final invalidWord = Map<String, dynamic>.from(firstWord)
+      ..['questions'] = (firstWord['questions'] as List<dynamic>)
+          .take(2)
+          .toList();
+    final invalidCategory = Map<String, dynamic>.from(firstCategory)
+      ..['words'] = [invalidWord];
+    final invalidSeed = Map<String, dynamic>.from(seed)
+      ..['categories'] = [invalidCategory];
+
+    expect(() => _validateSeed(invalidSeed), throwsFormatException);
+  });
+}
+
+Map<String, dynamic> _loadSeed() {
+  final file = File('assets/content/seed_content.json');
+  return jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
+}
+
+void _validateSeed(Map<String, dynamic> seed) {
+  final languages = _stringList(seed, 'languages');
+  final minQuestions = _intField(seed, 'minQuestionsPerWord');
+  final maxQuestions = _intField(seed, 'maxQuestionsPerWord');
+  final categories = _objectList(seed, 'categories');
+
+  if (languages.length != 4 || !languages.contains('pt-BR')) {
+    throw const FormatException('Seed must include all MVP languages.');
+  }
+  if (minQuestions < 3 || maxQuestions > 9 || minQuestions > maxQuestions) {
+    throw const FormatException('Question boundaries must stay within 3 to 9.');
+  }
+  if (categories.isEmpty) {
+    throw const FormatException('Seed must include at least one category.');
+  }
+
+  for (final category in categories) {
+    _requireLocalizedMap(category, 'name', languages);
+    final words = _objectList(category, 'words');
+    if (words.isEmpty) {
+      throw const FormatException('Category must include at least one word.');
+    }
+
+    for (final word in words) {
+      _requireLocalizedMap(word, 'value', languages);
+      final questions = _objectList(word, 'questions');
+      if (questions.length < minQuestions) {
+        throw FormatException(
+          'Word ${word['id']} has fewer than $minQuestions questions.',
+        );
+      }
+      if (questions.length > maxQuestions) {
+        throw FormatException(
+          'Word ${word['id']} has more than $maxQuestions questions.',
+        );
+      }
+      for (final question in questions) {
+        _requireLocalizedMap(question, 'text', languages);
+      }
+    }
+  }
+}
+
+List<String> _stringList(Map<String, dynamic> json, String key) {
+  final value = json[key];
+  if (value is List<dynamic> && value.every((item) => item is String)) {
+    return value.cast<String>();
+  }
+  throw FormatException('$key must be a string list.');
+}
+
+List<Map<String, dynamic>> _objectList(Map<String, dynamic> json, String key) {
+  final value = json[key];
+  if (value is List<dynamic> &&
+      value.every((item) => item is Map<String, dynamic>)) {
+    return value.cast<Map<String, dynamic>>();
+  }
+  throw FormatException('$key must be an object list.');
+}
+
+int _intField(Map<String, dynamic> json, String key) {
+  final value = json[key];
+  if (value is int) {
+    return value;
+  }
+  throw FormatException('$key must be an integer.');
+}
+
+void _requireLocalizedMap(
+  Map<String, dynamic> json,
+  String key,
+  List<String> languages,
+) {
+  final value = json[key];
+  if (value is! Map<String, dynamic>) {
+    throw FormatException('$key must be a localized map.');
+  }
+  for (final language in languages) {
+    final localizedValue = value[language];
+    if (localizedValue is! String || localizedValue.isEmpty) {
+      throw FormatException('$key is missing $language text.');
+    }
+  }
+}
