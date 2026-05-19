@@ -5,7 +5,6 @@ import 'package:outoftheloop/src/domain/models/models.dart';
 import 'package:outoftheloop/src/features/setup/category_selection_screen.dart';
 import 'package:outoftheloop/src/features/setup/match_setup_screen.dart';
 import 'package:outoftheloop/src/features/setup/player_setup_screen.dart';
-import 'package:outoftheloop/src/shared/widgets/otl_button.dart';
 import 'package:outoftheloop/src/l10n/generated/app_localizations.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 
@@ -25,12 +24,10 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Comida'), findsOneWidget);
+    expect(find.text('Food & Drink'), findsOneWidget);
     expect(selectedCategory, isNull);
 
-    await tester.tap(find.text('Comida'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(OtlButton, 'PLAY'));
+    await tester.tap(find.text('Food & Drink'));
     await tester.pump();
 
     expect(selectedCategory?.id, 'food');
@@ -237,6 +234,8 @@ const _seedJson = '''
     {
       "id": "food",
       "iconKey": "restaurant",
+      "primary": "#B7F700",
+      "secondary": "#D4FF66",
       "name": {
         "pt-BR": "Comida",
         "en": "Food",

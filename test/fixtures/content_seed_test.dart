@@ -92,6 +92,8 @@ void _validateSeed(Map<String, dynamic> seed) {
 
   for (final category in categories) {
     _requireLocalizedMap(category, 'name', languages);
+    _requireHexColor(category, 'primary');
+    _requireHexColor(category, 'secondary');
     final words = _objectList(category, 'words');
     if (words.length != 30) {
       throw const FormatException('Each category must include exactly 30 words.');
@@ -140,6 +142,13 @@ int _intField(Map<String, dynamic> json, String key) {
     return value;
   }
   throw FormatException('$key must be an integer.');
+}
+
+void _requireHexColor(Map<String, dynamic> json, String key) {
+  final value = json[key];
+  if (value is! String || !RegExp(r'^#[0-9A-Fa-f]{6}$').hasMatch(value)) {
+    throw FormatException('$key must be a #RRGGBB color.');
+  }
 }
 
 void _requireLocalizedMap(

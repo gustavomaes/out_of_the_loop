@@ -30,6 +30,31 @@ class AppLocalizationsPt extends AppLocalizations {
   String get pickCategory => 'Escolha uma categoria';
 
   @override
+  String get pickCategorySubtitle =>
+      'Escolha seu campo de batalha. O loop aguarda.';
+
+  @override
+  String get categoryFoodAndDrink => 'Comida e Bebida';
+
+  @override
+  String get categoryTravel => 'Viagem';
+
+  @override
+  String get categoryMovies => 'Filmes';
+
+  @override
+  String get categoryAnimals => 'Animais';
+
+  @override
+  String get categorySports => 'Esportes';
+
+  @override
+  String get categoryTech => 'Tecnologia';
+
+  @override
+  String get categoriesLoadError => 'Não foi possível carregar as categorias.';
+
+  @override
   String get addPlayer => 'Adicionar jogador';
 
   @override
@@ -208,6 +233,31 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get pickCategory => 'Escolha uma categoria';
+
+  @override
+  String get pickCategorySubtitle =>
+      'Escolha seu campo de batalha. O loop aguarda.';
+
+  @override
+  String get categoryFoodAndDrink => 'Comida e Bebida';
+
+  @override
+  String get categoryTravel => 'Viagem';
+
+  @override
+  String get categoryMovies => 'Filmes';
+
+  @override
+  String get categoryAnimals => 'Animais';
+
+  @override
+  String get categorySports => 'Esportes';
+
+  @override
+  String get categoryTech => 'Tecnologia';
+
+  @override
+  String get categoriesLoadError => 'Não foi possível carregar as categorias.';
 
   @override
   String get addPlayer => 'Adicionar jogador';

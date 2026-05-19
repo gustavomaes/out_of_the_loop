@@ -34,6 +34,8 @@ void main() {
         id: 'food',
         name: LocalizedText({SupportedLanguage.en: 'Food'}),
         iconKey: 'restaurant',
+        primaryArgb: 0xFFB7F700,
+        secondaryArgb: 0xFFD4FF66,
       );
       final word = SecretWord(
         id: 'pizza',

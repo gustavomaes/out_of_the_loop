@@ -27,7 +27,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String get howToPlay => 'HOW TO PLAY';
 
   @override
-  String get pickCategory => 'Pick a category';
+  String get pickCategory => 'Pick a Category';
+
+  @override
+  String get pickCategorySubtitle =>
+      'Choose your battlefield. The loop awaits.';
+
+  @override
+  String get categoryFoodAndDrink => 'Food & Drink';
+
+  @override
+  String get categoryTravel => 'Travel';
+
+  @override
+  String get categoryMovies => 'Movies';
+
+  @override
+  String get categoryAnimals => 'Animals';
+
+  @override
+  String get categorySports => 'Sports';
+
+  @override
+  String get categoryTech => 'Tech';
+
+  @override
+  String get categoriesLoadError => 'Could not load categories.';
 
   @override
   String get addPlayer => 'Add player';

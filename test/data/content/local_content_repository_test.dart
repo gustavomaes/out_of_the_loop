@@ -96,6 +96,8 @@ void main() {
           {
             'id': 'food',
             'iconKey': 'restaurant',
+            'primary': '#B7F700',
+            'secondary': '#D4FF66',
             'name': _localized('Food'),
             'words': <Map<String, Object?>>[],
           },
@@ -123,6 +125,8 @@ Map<String, Object?> _validSeed() {
       {
         'id': 'food',
         'iconKey': 'restaurant',
+        'primary': '#B7F700',
+        'secondary': '#D4FF66',
         'name': {'pt-BR': 'Comida', 'en': 'Food', 'es': 'Comida', 'hi': 'खाना'},
         'words': [
           {

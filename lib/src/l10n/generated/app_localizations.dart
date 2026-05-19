@@ -145,6 +145,54 @@ abstract class AppLocalizations {
   /// **'Escolha uma categoria'**
   String get pickCategory;
 
+  /// No description provided for @pickCategorySubtitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Escolha seu campo de batalha. O loop aguarda.'**
+  String get pickCategorySubtitle;
+
+  /// No description provided for @categoryFoodAndDrink.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Comida e Bebida'**
+  String get categoryFoodAndDrink;
+
+  /// No description provided for @categoryTravel.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Viagem'**
+  String get categoryTravel;
+
+  /// No description provided for @categoryMovies.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Filmes'**
+  String get categoryMovies;
+
+  /// No description provided for @categoryAnimals.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Animais'**
+  String get categoryAnimals;
+
+  /// No description provided for @categorySports.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Esportes'**
+  String get categorySports;
+
+  /// No description provided for @categoryTech.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Tecnologia'**
+  String get categoryTech;
+
+  /// No description provided for @categoriesLoadError.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível carregar as categorias.'**
+  String get categoriesLoadError;
+
   /// No description provided for @addPlayer.
   ///
   /// In pt_BR, this message translates to:

@@ -110,6 +110,29 @@ abstract final class DisplayTypography {
     );
   }
 
+  /// Figma category screen title (Rubik Bold 16 / 24).
+  static TextStyle rubikCategoryTitle({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 16,
+      height: 24 / 16,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma category card label (Rubik Bold 16 / 20).
+  static TextStyle rubikCategoryCardLabel({
+    required Color color,
+    double height = 20 / 16,
+  }) {
+    return GoogleFonts.rubik(
+      fontSize: 16,
+      height: height,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
   static TextStyle spaceGroteskMeta({
     required Color color,
     double fontSize = 14,

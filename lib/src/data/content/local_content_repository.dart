@@ -157,6 +157,8 @@ final class ContentCategory {
         id: id,
         iconKey: _optionalStringField(json, 'iconKey'),
         name: _localizedText(json, 'name', languages),
+        primaryArgb: _colorField(json, 'primary'),
+        secondaryArgb: _colorField(json, 'secondary'),
       ),
       words: words,
     );
@@ -278,4 +280,20 @@ String? _optionalStringField(Map<String, dynamic> json, String key) {
     return value;
   }
   throw FormatException('$key must be a non-empty string when provided.');
+}
+
+int _colorField(Map<String, dynamic> json, String key) {
+  final value = json[key];
+  if (value is! String || value.isEmpty) {
+    throw FormatException('$key must be a hex color string.');
+  }
+  final normalized = value.startsWith('#') ? value.substring(1) : value;
+  if (normalized.length != 6 && normalized.length != 8) {
+    throw FormatException('$key must be a #RRGGBB or #AARRGGBB color.');
+  }
+  final parsed = int.tryParse(normalized, radix: 16);
+  if (parsed == null) {
+    throw FormatException('$key must be a valid hex color.');
+  }
+  return normalized.length == 6 ? 0xFF000000 | parsed : parsed;
 }

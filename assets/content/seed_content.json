@@ -2779,7 +2779,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#B7F700",
+      "secondary": "#D4FF66"
     },
     {
       "id": "movies",
@@ -5551,7 +5553,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FFE170",
+      "secondary": "#FFF0B3"
     },
     {
       "id": "sports",
@@ -8323,7 +8327,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FF5E00",
+      "secondary": "#FF9A66"
     },
     {
       "id": "music",
@@ -11095,7 +11101,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FF3DF2",
+      "secondary": "#FF9AF8"
     },
     {
       "id": "travel",
@@ -13867,7 +13875,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FFACE8",
+      "secondary": "#FFD4F2"
     },
     {
       "id": "animals",
@@ -16639,7 +16649,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#8AE600",
+      "secondary": "#B8FF66"
     },
     {
       "id": "jobs",
@@ -19411,7 +19423,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#A8B4FF",
+      "secondary": "#D0D8FF"
     },
     {
       "id": "places",
@@ -22183,7 +22197,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FFB347",
+      "secondary": "#FFD699"
     },
     {
       "id": "objects",
@@ -24955,7 +24971,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#C8C8FF",
+      "secondary": "#E8E8FF"
     },
     {
       "id": "nature",
@@ -27727,7 +27745,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#59E88B",
+      "secondary": "#A0F5C0"
     },
     {
       "id": "technology",
@@ -30499,7 +30519,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#00E5FF",
+      "secondary": "#80F2FF"
     },
     {
       "id": "games",
@@ -33271,7 +33293,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#B388FF",
+      "secondary": "#D4BBFF"
     },
     {
       "id": "school",
@@ -36043,7 +36067,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FFE082",
+      "secondary": "#FFF0C2"
     },
     {
       "id": "party",
@@ -38815,7 +38841,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FF6D9E",
+      "secondary": "#FFB3CC"
     },
     {
       "id": "fashion",
@@ -41587,7 +41615,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#F48FB1",
+      "secondary": "#FFCCE0"
     },
     {
       "id": "health",
@@ -44359,7 +44389,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#80DEEA",
+      "secondary": "#C2F2F9"
     },
     {
       "id": "home",
@@ -47131,7 +47163,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FFAB91",
+      "secondary": "#FFD4C4"
     },
     {
       "id": "transport",
@@ -49903,7 +49937,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#90CAF9",
+      "secondary": "#C8E6FF"
     },
     {
       "id": "fantasy",
@@ -52675,7 +52711,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#CE93D8",
+      "secondary": "#EBCBF0"
     },
     {
       "id": "emotions",
@@ -55447,7 +55485,9 @@
             }
           ]
         }
-      ]
+      ],
+      "primary": "#FFCC80",
+      "secondary": "#FFE8BF"
     }
   ]
 }

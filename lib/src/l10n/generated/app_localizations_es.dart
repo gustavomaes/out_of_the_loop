@@ -27,7 +27,32 @@ class AppLocalizationsEs extends AppLocalizations {
   String get howToPlay => 'CÓMO JUGAR';
 
   @override
-  String get pickCategory => 'Elige una categoria';
+  String get pickCategory => 'Elige una categoría';
+
+  @override
+  String get pickCategorySubtitle =>
+      'Elige tu campo de batalla. El loop te espera.';
+
+  @override
+  String get categoryFoodAndDrink => 'Comida y Bebida';
+
+  @override
+  String get categoryTravel => 'Viajes';
+
+  @override
+  String get categoryMovies => 'Películas';
+
+  @override
+  String get categoryAnimals => 'Animales';
+
+  @override
+  String get categorySports => 'Deportes';
+
+  @override
+  String get categoryTech => 'Tecnología';
+
+  @override
+  String get categoriesLoadError => 'No se pudieron cargar las categorías.';
 
   @override
   String get addPlayer => 'Agregar jugador';

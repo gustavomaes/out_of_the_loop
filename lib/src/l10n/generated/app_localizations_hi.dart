@@ -30,6 +30,30 @@ class AppLocalizationsHi extends AppLocalizations {
   String get pickCategory => 'श्रेणी चुनें';
 
   @override
+  String get pickCategorySubtitle => 'अपना मैदान चुनें। लूप इंतज़ार कर रहा है।';
+
+  @override
+  String get categoryFoodAndDrink => 'खाना और पेय';
+
+  @override
+  String get categoryTravel => 'यात्रा';
+
+  @override
+  String get categoryMovies => 'फ़िल्में';
+
+  @override
+  String get categoryAnimals => 'जानवर';
+
+  @override
+  String get categorySports => 'खेल';
+
+  @override
+  String get categoryTech => 'टेक';
+
+  @override
+  String get categoriesLoadError => 'श्रेणियाँ लोड नहीं हो सकीं।';
+
+  @override
   String get addPlayer => 'खिलाड़ी जोड़ें';
 
   @override

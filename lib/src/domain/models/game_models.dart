@@ -56,10 +56,18 @@ final class Player {
 }
 
 final class Category {
-  const Category({required this.id, required this.name, this.iconKey});
+  const Category({
+    required this.id,
+    required this.name,
+    required this.primaryArgb,
+    required this.secondaryArgb,
+    this.iconKey,
+  });
 
   final String id;
   final LocalizedText name;
+  final int primaryArgb;
+  final int secondaryArgb;
   final String? iconKey;
 
   @override
@@ -68,10 +76,13 @@ final class Category {
       other is Category &&
           id == other.id &&
           name == other.name &&
+          primaryArgb == other.primaryArgb &&
+          secondaryArgb == other.secondaryArgb &&
           iconKey == other.iconKey;
 
   @override
-  int get hashCode => Object.hash(id, name, iconKey);
+  int get hashCode =>
+      Object.hash(id, name, primaryArgb, secondaryArgb, iconKey);
 }
 
 final class Question {
