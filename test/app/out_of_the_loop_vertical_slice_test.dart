@@ -40,13 +40,13 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    for (var index = 0; index < 3; index += 1) {
+    for (var index = 0; index < 6; index += 1) {
       expect(
-        find.text('QUESTION ${index + 1} OF 3'),
+        find.text('QUESTION ${index + 1} OF 6'),
         findsOneWidget,
       );
       await tester.tap(
-        find.text(index == 2 ? 'GO TO VOTING' : 'DONE ANSWERING'),
+        find.text(index == 5 ? 'GO TO VOTING' : 'DONE ANSWERING'),
       );
       await tester.pumpAndSettle();
     }

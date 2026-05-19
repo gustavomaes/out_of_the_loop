@@ -12,6 +12,7 @@ void main() {
             .validate(
               players: _players(2),
               roundCount: 1,
+              questionsPerPlayer: 1,
               categoryWords: [_word('pizza', questionCount: 3)],
             )
             .errors,
@@ -23,6 +24,7 @@ void main() {
             .validate(
               players: _players(3),
               roundCount: 1,
+              questionsPerPlayer: 1,
               categoryWords: [_word('pizza', questionCount: 3)],
             )
             .canStart,
@@ -34,6 +36,7 @@ void main() {
             .validate(
               players: _players(9),
               roundCount: 1,
+              questionsPerPlayer: 1,
               categoryWords: [_word('pizza', questionCount: 9)],
             )
             .canStart,
@@ -45,6 +48,7 @@ void main() {
       final result = service.validate(
         players: _players(10),
         roundCount: 1,
+        questionsPerPlayer: 1,
         categoryWords: [_word('pizza', questionCount: 10)],
       );
 
@@ -59,6 +63,7 @@ void main() {
           _player('p3', ' '),
         ],
         roundCount: 1,
+        questionsPerPlayer: 1,
         categoryWords: [_word('pizza', questionCount: 3)],
       );
 
@@ -71,10 +76,42 @@ void main() {
       );
     });
 
+    test('rejects questions per player above category capacity', () {
+      final result = service.validate(
+        players: _players(5),
+        roundCount: 1,
+        questionsPerPlayer: 3,
+        categoryWords: [_word('pizza', questionCount: 9)],
+      );
+
+      expect(
+        result.errors,
+        contains(MatchSetupValidationError.insufficientQuestionsPerWord),
+      );
+    });
+
+    test(
+      'recommends 2 questions for up to 4 players and 1 for larger groups',
+      () {
+        expect(MatchSetupService.recommendedQuestionsPerPlayer(3), 2);
+        expect(MatchSetupService.recommendedQuestionsPerPlayer(4), 2);
+        expect(MatchSetupService.recommendedQuestionsPerPlayer(5), 1);
+        expect(MatchSetupService.maxQuestionsPerPlayerFor(
+          playerCount: 5,
+          categoryWords: [_word('pizza', questionCount: 9)],
+        ), 1);
+        expect(MatchSetupService.maxQuestionsPerPlayerFor(
+          playerCount: 3,
+          categoryWords: [_word('pizza', questionCount: 9)],
+        ), 3);
+      },
+    );
+
     test('validates round count against playable content capacity', () {
       final result = service.validate(
         players: _players(4),
         roundCount: 2,
+        questionsPerPlayer: 1,
         categoryWords: [
           _word('pizza', questionCount: 4),
           _word('sushi', questionCount: 3),

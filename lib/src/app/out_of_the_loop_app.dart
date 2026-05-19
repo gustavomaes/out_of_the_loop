@@ -88,8 +88,11 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
       AppRoutes.players => PlayerSetupScreen(
         roundCount: _flow.roundCount,
         categoryWords: _flow.categoryWords,
-        onStart: (players) {
-          _flow.startMatch(players);
+        onStart: (players, questionsPerPlayer) {
+          _flow.startMatch(
+            players,
+            questionsPerPlayer: questionsPerPlayer,
+          );
           Navigator.of(context).pushNamed(AppRoutes.gameReveal);
         },
       ),

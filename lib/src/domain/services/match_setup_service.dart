@@ -6,7 +6,9 @@ enum MatchSetupValidationError {
   emptyPlayerName,
   duplicatePlayerName,
   invalidRoundCount,
+  invalidQuestionsPerPlayer,
   insufficientPlayableWords,
+  insufficientQuestionsPerWord,
 }
 
 final class MatchSetupValidationResult {
@@ -21,9 +23,41 @@ final class MatchSetupValidationResult {
 final class MatchSetupService {
   const MatchSetupService();
 
+  static int recommendedQuestionsPerPlayer(int playerCount) {
+    if (playerCount <= 4) {
+      return 2;
+    }
+    return 1;
+  }
+
+  static int maxQuestionsPerPlayerFor({
+    required int playerCount,
+    required List<SecretWord> categoryWords,
+  }) {
+    if (playerCount < 1 || categoryWords.isEmpty) {
+      return MatchSetup.maxQuestionsPerPlayer;
+    }
+
+    var capacity = MatchSetup.maxQuestionsPerPlayer;
+    for (final word in categoryWords) {
+      if (word.questions.isEmpty) {
+        continue;
+      }
+      final wordCapacity = word.questions.length ~/ playerCount;
+      if (wordCapacity < capacity) {
+        capacity = wordCapacity;
+      }
+    }
+    return capacity.clamp(
+      MatchSetup.minQuestionsPerPlayer,
+      MatchSetup.maxQuestionsPerPlayer,
+    );
+  }
+
   MatchSetupValidationResult validate({
     required List<Player> players,
     required int roundCount,
+    required int questionsPerPlayer,
     required List<SecretWord> categoryWords,
   }) {
     final errors = <MatchSetupValidationError>[];
@@ -49,11 +83,25 @@ final class MatchSetupService {
       errors.add(MatchSetupValidationError.invalidRoundCount);
     }
 
+    if (questionsPerPlayer < MatchSetup.minQuestionsPerPlayer ||
+        questionsPerPlayer > MatchSetup.maxQuestionsPerPlayer) {
+      errors.add(MatchSetupValidationError.invalidQuestionsPerPlayer);
+    }
+
+    final questionsNeeded = players.length * questionsPerPlayer;
     final playableWords = categoryWords
-        .where((word) => word.questions.length >= players.length)
+        .where((word) => word.questions.length >= questionsNeeded)
         .length;
     if (roundCount > playableWords) {
       errors.add(MatchSetupValidationError.insufficientPlayableWords);
+    }
+    if (players.isNotEmpty &&
+        questionsPerPlayer >
+            maxQuestionsPerPlayerFor(
+              playerCount: players.length,
+              categoryWords: categoryWords,
+            )) {
+      errors.add(MatchSetupValidationError.insufficientQuestionsPerWord);
     }
 
     return MatchSetupValidationResult(errors: errors);

@@ -76,12 +76,14 @@ void main() {
       final minimumSetup = MatchSetup(
         categoryId: 'food',
         roundCount: 5,
+        questionsPerPlayer: 2,
         players: players,
         language: SupportedLanguage.ptBr,
       );
       final maximumSetup = MatchSetup(
         categoryId: 'food',
         roundCount: 5,
+        questionsPerPlayer: 1,
         players: List.generate(
           9,
           (index) => Player(

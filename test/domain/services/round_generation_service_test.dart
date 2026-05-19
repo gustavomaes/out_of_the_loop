@@ -13,6 +13,7 @@ void main() {
       final round = service.generateRound(
         roundNumber: 1,
         players: players,
+        questionsPerPlayer: 1,
         categoryWords: [_word('pizza', questionCount: 4)],
         usedWordIds: const {},
       );
@@ -30,6 +31,7 @@ void main() {
       final round = service.generateRound(
         roundNumber: 2,
         players: _players(3),
+        questionsPerPlayer: 1,
         categoryWords: [
           _word('used', questionCount: 3),
           _word('fresh', questionCount: 3),
@@ -46,6 +48,7 @@ void main() {
       final round = service.generateRound(
         roundNumber: 1,
         players: _players(5),
+        questionsPerPlayer: 1,
         categoryWords: [
           _word('too-short', questionCount: 4),
           _word('playable', questionCount: 5),
@@ -57,6 +60,20 @@ void main() {
       expect(round.questions, hasLength(5));
     });
 
+    test('includes multiple questions per player when configured', () {
+      final service = RoundGenerationService(random: Random(1));
+
+      final round = service.generateRound(
+        roundNumber: 1,
+        players: _players(3),
+        questionsPerPlayer: 2,
+        categoryWords: [_word('pizza', questionCount: 6)],
+        usedWordIds: const {},
+      );
+
+      expect(round.questions, hasLength(6));
+    });
+
     test('throws when no playable words remain', () {
       final service = RoundGenerationService(random: Random(1));
 
@@ -64,6 +81,7 @@ void main() {
         () => service.generateRound(
           roundNumber: 1,
           players: _players(4),
+          questionsPerPlayer: 1,
           categoryWords: [_word('used', questionCount: 4)],
           usedWordIds: {'used'},
         ),

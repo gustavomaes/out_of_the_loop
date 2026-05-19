@@ -39,7 +39,7 @@ class GameFlowController {
     categoryWords = await repository.wordsForCategory(category.id, language);
   }
 
-  void startMatch(List<Player> players) {
+  void startMatch(List<Player> players, {required int questionsPerPlayer}) {
     final category = selectedCategory;
     if (category == null) {
       throw StateError('Select a category before starting a match.');
@@ -48,6 +48,7 @@ class GameFlowController {
     setup = MatchSetup(
       categoryId: category.id,
       roundCount: roundCount,
+      questionsPerPlayer: questionsPerPlayer,
       players: players,
       language: language,
       timerSettings: timerSettings,
@@ -119,13 +120,15 @@ class GameFlowController {
 
   void _startNextRound() {
     final activeMatch = match;
-    if (activeMatch == null) {
+    final activeSetup = setup;
+    if (activeMatch == null || activeSetup == null) {
       throw StateError('Cannot start a round before a match starts.');
     }
 
     final round = roundGenerationService.generateRound(
       roundNumber: activeMatch.rounds.length + 1,
       players: activeMatch.players,
+      questionsPerPlayer: activeSetup.questionsPerPlayer,
       categoryWords: categoryWords,
       usedWordIds: activeMatch.usedWordIds,
     );

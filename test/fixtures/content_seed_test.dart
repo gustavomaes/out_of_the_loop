@@ -19,7 +19,7 @@ void main() {
     for (final category in categories.cast<Map<String, dynamic>>()) {
       expect(category['words'], hasLength(30));
     }
-    expect(questions.length, greaterThanOrEqualTo(3));
+    expect(questions, hasLength(9));
   });
 
   test('schema declares expansion points for all MVP languages', () {

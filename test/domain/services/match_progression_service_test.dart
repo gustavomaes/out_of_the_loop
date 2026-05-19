@@ -11,6 +11,7 @@ void main() {
       final setup = MatchSetup(
         categoryId: 'food',
         roundCount: 2,
+        questionsPerPlayer: 1,
         players: _players(3),
         language: SupportedLanguage.ptBr,
       );

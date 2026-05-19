@@ -41,7 +41,7 @@ void main() {
     await tester.pumpWidget(
       _TestApp(
         child: PlayerSetupScreen(
-          onStart: (players) => startedPlayers = players,
+          onStart: (players, questionsPerPlayer) => startedPlayers = players,
         ),
       ),
     );
@@ -54,9 +54,9 @@ void main() {
       await tester.pump();
     }
 
-    expect(find.text('Ana'), findsOneWidget);
-    expect(find.text('Bia'), findsOneWidget);
-    expect(find.text('Caio'), findsOneWidget);
+    expect(find.text('3/9 players ready'), findsOneWidget);
+    expect(find.text('6 perguntas nesta rodada'), findsOneWidget);
+    expect(find.text('2 perguntas'), findsOneWidget);
     expect(_buttonLabeled(tester, 'START MATCH').enabled, isTrue);
 
     await tester.tap(find.text('START MATCH'));

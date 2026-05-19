@@ -141,6 +141,7 @@ final class MatchSetup {
   MatchSetup({
     required this.categoryId,
     required this.roundCount,
+    required this.questionsPerPlayer,
     required List<Player> players,
     required this.language,
     this.timerSettings = const TimerSettings(),
@@ -148,12 +149,17 @@ final class MatchSetup {
 
   static const minPlayers = 3;
   static const maxPlayers = 9;
+  static const minQuestionsPerPlayer = 1;
+  static const maxQuestionsPerPlayer = 3;
 
   final String categoryId;
   final int roundCount;
+  final int questionsPerPlayer;
   final List<Player> players;
   final SupportedLanguage language;
   final TimerSettings timerSettings;
+
+  int get questionsPerRound => players.length * questionsPerPlayer;
 
   bool get hasSupportedPlayerCount => isSupportedPlayerCount(players.length);
 
@@ -166,6 +172,7 @@ final class MatchSetup {
       other is MatchSetup &&
           categoryId == other.categoryId &&
           roundCount == other.roundCount &&
+          questionsPerPlayer == other.questionsPerPlayer &&
           _listEquals(players, other.players) &&
           language == other.language &&
           timerSettings == other.timerSettings;
@@ -174,6 +181,7 @@ final class MatchSetup {
   int get hashCode => Object.hash(
     categoryId,
     roundCount,
+    questionsPerPlayer,
     Object.hashAll(players),
     language,
     timerSettings,
