@@ -122,7 +122,7 @@ void main() {
     }
 
     expect(find.text('TOP SECRET'), findsOneWidget);
-    expect(find.text('Ana\'s turn'), findsOneWidget);
+    expect(find.text('Caio\'s turn'), findsOneWidget);
   });
 
   testWidgets('restores saved language and timer preferences on startup', (

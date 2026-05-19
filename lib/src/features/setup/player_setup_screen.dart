@@ -113,7 +113,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
                 for (var index = 0; index < _players.length; index += 1) ...[
                   if (index > 0) const SizedBox(height: AppSpacing.sm),
                   OtlCard(
-                    selected: index == _players.length - 1,
+                    selected: index == 0,
                     child: Row(
                       children: [
                         Text(
@@ -214,7 +214,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
       name: name,
       avatarSeed: name,
     );
-    final nextPlayers = [..._players, candidate];
+    final nextPlayers = [candidate, ..._players];
     final validation = widget.setupService.validate(
       players: nextPlayers,
       roundCount: widget.roundCount,
@@ -236,7 +236,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
     }
 
     setState(() {
-      _players.add(candidate);
+      _players.insert(0, candidate);
       _latestError = null;
       _controller.clear();
     });

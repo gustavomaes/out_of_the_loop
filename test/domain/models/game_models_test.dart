@@ -97,6 +97,8 @@ void main() {
 
       expect(minimumSetup.hasSupportedPlayerCount, isTrue);
       expect(maximumSetup.hasSupportedPlayerCount, isTrue);
+      expect(minimumSetup.questionsPerRound, 6);
+      expect(maximumSetup.questionsPerRound, 9);
     });
 
     test('construct round and match state with value equality', () {

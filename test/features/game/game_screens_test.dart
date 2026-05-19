@@ -72,6 +72,61 @@ void main() {
     expect(completed, isTrue);
   });
 
+  testWidgets('question round rotates players across multiple rounds', (
+    tester,
+  ) async {
+    var completed = false;
+    final players = _players.take(3).toList();
+    final questions = List.generate(
+      6,
+      (index) => Question(
+        id: 'q$index',
+        wordId: 'pizza',
+        text: LocalizedText({
+          SupportedLanguage.ptBr: 'Question ${index + 1}',
+          SupportedLanguage.en: 'Question ${index + 1}',
+          SupportedLanguage.es: 'Question ${index + 1}',
+          SupportedLanguage.hi: 'Question ${index + 1}',
+        }),
+      ),
+    );
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: QuestionRoundScreen(
+          players: players,
+          questions: questions,
+          onComplete: () => completed = true,
+        ),
+      ),
+    );
+
+    expect(find.text('QUESTION 1 OF 6'), findsOneWidget);
+    expect(find.text('Ana answers'), findsOneWidget);
+
+    await tester.tap(find.text('DONE ANSWERING'));
+    await tester.pump();
+    expect(find.text('Bia answers'), findsOneWidget);
+
+    await tester.tap(find.text('DONE ANSWERING'));
+    await tester.pump();
+    expect(find.text('Caio answers'), findsOneWidget);
+
+    await tester.tap(find.text('DONE ANSWERING'));
+    await tester.pump();
+    expect(find.text('Ana answers'), findsOneWidget);
+    expect(find.text('QUESTION 4 OF 6'), findsOneWidget);
+
+    await tester.tap(find.text('DONE ANSWERING'));
+    await tester.pump();
+    await tester.tap(find.text('DONE ANSWERING'));
+    await tester.pump();
+    await tester.tap(find.text('GO TO VOTING'));
+    await tester.pump();
+
+    expect(completed, isTrue);
+  });
+
   testWidgets(
     'question round uses configured timer and allows expired advance',
     (tester) async {

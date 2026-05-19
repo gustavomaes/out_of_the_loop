@@ -34,7 +34,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('TOP SECRET'), findsOneWidget);
-    expect(find.text('Ana\'s turn'), findsOneWidget);
+    expect(find.text('Caio\'s turn'), findsOneWidget);
     expect(find.textContaining('Login'), findsNothing);
   });
 }

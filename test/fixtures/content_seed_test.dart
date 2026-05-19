@@ -22,6 +22,24 @@ void main() {
     expect(questions, hasLength(9));
   });
 
+  test('every word includes nine localized questions with stable ids', () {
+    final seed = _loadSeed();
+    _validateSeed(seed);
+
+    final categories = seed['categories'] as List<dynamic>;
+    for (final category in categories.cast<Map<String, dynamic>>()) {
+      for (final word in _objectList(category, 'words')) {
+        final wordId = word['id'] as String;
+        final questions = _objectList(word, 'questions');
+
+        expect(questions, hasLength(9), reason: 'word "$wordId"');
+        for (var index = 0; index < questions.length; index += 1) {
+          expect(questions[index]['id'], '$wordId-q${index + 1}');
+        }
+      }
+    }
+  });
+
   test('schema declares expansion points for all MVP languages', () {
     final seed = _loadSeed();
 

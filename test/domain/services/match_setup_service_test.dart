@@ -76,6 +76,17 @@ void main() {
       );
     });
 
+    test('allows two questions per player when words include nine questions', () {
+      final result = service.validate(
+        players: _players(3),
+        roundCount: 1,
+        questionsPerPlayer: 2,
+        categoryWords: [_word('pizza', questionCount: 9)],
+      );
+
+      expect(result.canStart, isTrue);
+    });
+
     test('rejects questions per player above category capacity', () {
       final result = service.validate(
         players: _players(5),

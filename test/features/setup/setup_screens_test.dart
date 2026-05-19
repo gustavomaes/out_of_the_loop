@@ -37,11 +37,15 @@ void main() {
     tester,
   ) async {
     List<Player>? startedPlayers;
+    int? startedQuestionsPerPlayer;
 
     await tester.pumpWidget(
       _TestApp(
         child: PlayerSetupScreen(
-          onStart: (players, questionsPerPlayer) => startedPlayers = players,
+          onStart: (players, questionsPerPlayer) {
+            startedPlayers = players;
+            startedQuestionsPerPlayer = questionsPerPlayer;
+          },
         ),
       ),
     );
@@ -63,6 +67,62 @@ void main() {
     await tester.pump();
 
     expect(startedPlayers, hasLength(3));
+    expect(startedQuestionsPerPlayer, 2);
+    expect(startedPlayers!.map((player) => player.name).toList(), [
+      'Caio',
+      'Bia',
+      'Ana',
+    ]);
+  });
+
+  testWidgets('player setup passes custom questions per player on start', (
+    tester,
+  ) async {
+    int? startedQuestionsPerPlayer;
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: PlayerSetupScreen(
+          onStart: (_, questionsPerPlayer) {
+            startedQuestionsPerPlayer = questionsPerPlayer;
+          },
+        ),
+      ),
+    );
+
+    for (final name in ['Ana', 'Bia', 'Caio']) {
+      await tester.enterText(find.byType(TextField), name);
+      await tester.tap(find.text('ADD'));
+      await tester.pump();
+    }
+
+    await tester.tap(find.text('3 perguntas'));
+    await tester.pump();
+    expect(find.text('9 perguntas nesta rodada'), findsOneWidget);
+
+    await tester.tap(find.text('START MATCH'));
+    await tester.pump();
+
+    expect(startedQuestionsPerPlayer, 3);
+  });
+
+  testWidgets('player setup recommends one question for five players', (
+    tester,
+  ) async {
+    await tester.pumpWidget(_TestApp(child: PlayerSetupScreen()));
+
+    for (var index = 1; index <= 5; index += 1) {
+      await tester.enterText(find.byType(TextField), 'Player $index');
+      await tester.tap(find.text('ADD'));
+      await tester.pump();
+    }
+
+    expect(find.text('1 pergunta'), findsOneWidget);
+    expect(find.text('5 perguntas nesta rodada'), findsOneWidget);
+    expect(
+      find.textContaining('Recomendado para 5 jogadores: 1 pergunta por jogador'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('player setup reports duplicate and tenth-player attempts', (
@@ -126,33 +186,15 @@ const _seedJson = '''
             "hi": "Pizza"
           },
           "questions": [
-            {
-              "id": "q1",
-              "text": {
-                "pt-BR": "Pergunta 1",
-                "en": "Question 1",
-                "es": "Pregunta 1",
-                "hi": "Question 1"
-              }
-            },
-            {
-              "id": "q2",
-              "text": {
-                "pt-BR": "Pergunta 2",
-                "en": "Question 2",
-                "es": "Pregunta 2",
-                "hi": "Question 2"
-              }
-            },
-            {
-              "id": "q3",
-              "text": {
-                "pt-BR": "Pergunta 3",
-                "en": "Question 3",
-                "es": "Pregunta 3",
-                "hi": "Question 3"
-              }
-            }
+            { "id": "pizza-q1", "text": { "pt-BR": "Pergunta 1", "en": "Question 1", "es": "Pregunta 1", "hi": "Question 1" } },
+            { "id": "pizza-q2", "text": { "pt-BR": "Pergunta 2", "en": "Question 2", "es": "Pregunta 2", "hi": "Question 2" } },
+            { "id": "pizza-q3", "text": { "pt-BR": "Pergunta 3", "en": "Question 3", "es": "Pregunta 3", "hi": "Question 3" } },
+            { "id": "pizza-q4", "text": { "pt-BR": "Pergunta 4", "en": "Question 4", "es": "Pregunta 4", "hi": "Question 4" } },
+            { "id": "pizza-q5", "text": { "pt-BR": "Pergunta 5", "en": "Question 5", "es": "Pregunta 5", "hi": "Question 5" } },
+            { "id": "pizza-q6", "text": { "pt-BR": "Pergunta 6", "en": "Question 6", "es": "Pregunta 6", "hi": "Question 6" } },
+            { "id": "pizza-q7", "text": { "pt-BR": "Pergunta 7", "en": "Question 7", "es": "Pregunta 7", "hi": "Question 7" } },
+            { "id": "pizza-q8", "text": { "pt-BR": "Pergunta 8", "en": "Question 8", "es": "Pregunta 8", "hi": "Question 8" } },
+            { "id": "pizza-q9", "text": { "pt-BR": "Pergunta 9", "en": "Question 9", "es": "Pregunta 9", "hi": "Question 9" } }
           ]
         }
       ]

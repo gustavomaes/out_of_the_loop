@@ -34,10 +34,14 @@ void main() {
         expect(words, hasLength(30));
         expect(category.name.valueFor(SupportedLanguage.hi), isNotEmpty);
         expect(words.first.value.valueFor(SupportedLanguage.hi), isNotEmpty);
+        expect(words.first.questions, hasLength(9));
         expect(
           words.first.questions.first.text.valueFor(SupportedLanguage.hi),
           isNotEmpty,
         );
+        for (final word in words) {
+          expect(word.questions, hasLength(9));
+        }
       }
     });
 
