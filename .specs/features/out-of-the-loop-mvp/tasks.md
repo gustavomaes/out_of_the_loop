@@ -845,12 +845,12 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] User can navigate from Home to setup to gameplay.
-- [ ] Round phases advance in the required order.
-- [ ] Next round and final leaderboard routing works.
-- [ ] How-to and settings are reachable as designed.
-- [ ] App-level widget test completes one 3-player round.
-- [ ] Gate check passes: `flutter test test/app`.
+- [x] User can navigate from Home to setup to gameplay.
+- [x] Round phases advance in the required order.
+- [x] Next round and final leaderboard routing works.
+- [x] How-to and settings are reachable as designed.
+- [x] App-level widget test completes one 3-player round.
+- [x] Gate check passes: `flutter test test/app`.
 
 **Tests**: widget
 **Gate**: full
@@ -873,11 +873,11 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Test starts at Home.
-- [ ] Test configures category and 3 players.
-- [ ] Test reveals roles, completes questions, votes, and sees result.
-- [ ] Test asserts out player secrecy before reveal.
-- [ ] Gate check passes: `flutter test test/app/out_of_the_loop_vertical_slice_test.dart`.
+- [x] Test starts at Home.
+- [x] Test configures category and 3 players.
+- [x] Test reveals roles, completes questions, votes, and sees result.
+- [x] Test asserts out player secrecy before reveal.
+- [x] Gate check passes: `flutter test test/app/out_of_the_loop_vertical_slice_test.dart`.
 
 **Tests**: widget
 **Gate**: full
@@ -900,10 +900,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Home, category, player setup, reveal, question, vote, results, how-to, and settings are reviewed.
-- [ ] Differences from `.agents/DESIGN.md` are fixed or documented.
-- [ ] Touch target and contrast rules are checked.
-- [ ] Gate check passes: `flutter analyze`.
+- [x] Home, category, player setup, reveal, question, vote, results, how-to, and settings are reviewed.
+- [x] Differences from `.agents/DESIGN.md` are fixed or documented.
+- [x] Touch target and contrast rules are checked.
+- [x] Gate check passes: `flutter analyze`.
 
 **Tests**: manual visual review plus analyze
 **Gate**: full
@@ -926,10 +926,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] Test confirms no login/account screen blocks gameplay.
-- [ ] Test uses local fixture/content repository only.
-- [ ] Test verifies a 3-player round can start offline.
-- [ ] Gate check passes: `flutter test test/app/offline_mode_test.dart`.
+- [x] Test confirms no login/account screen blocks gameplay.
+- [x] Test uses local fixture/content repository only.
+- [x] Test verifies a 3-player round can start offline.
+- [x] Gate check passes: `flutter test test/app/offline_mode_test.dart`.
 
 **Tests**: widget
 **Gate**: full
@@ -952,10 +952,10 @@ T33 + T34 + T35 -> T36
 
 **Done when**:
 
-- [ ] `flutter analyze` passes.
-- [ ] `flutter test` passes.
-- [ ] `tasks.md` task statuses are updated.
-- [ ] Any spec deviations are documented.
+- [x] `flutter analyze` passes.
+- [x] `flutter test` passes.
+- [x] `tasks.md` task statuses are updated.
+- [x] Any spec deviations are documented.
 
 **Tests**: full suite
 **Gate**: full

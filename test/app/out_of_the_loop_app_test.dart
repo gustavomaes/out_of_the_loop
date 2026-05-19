@@ -54,4 +54,67 @@ void main() {
       AppColors.backgroundPrimary,
     );
   });
+
+  testWidgets('completes one 3-player round from the app shell', (
+    tester,
+  ) async {
+    await tester.pumpWidget(const OutOfTheLoopApp());
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('START GAME'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Comida'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('PLAY'));
+    await tester.pumpAndSettle();
+
+    for (final name in ['Ana', 'Bia', 'Caio']) {
+      await tester.enterText(find.byType(TextField), name);
+      await tester.tap(find.text('ADD'));
+      await tester.pump();
+    }
+    await tester.tap(find.text('START MATCH'));
+    await tester.pumpAndSettle();
+
+    for (var index = 0; index < 3; index += 1) {
+      await tester.tap(find.text('VIEW MY WORD'));
+      await tester.pumpAndSettle();
+      await tester.tap(
+        find.text(index == 2 ? 'START QUESTIONS' : 'NEXT PLAYER'),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    for (var index = 0; index < 3; index += 1) {
+      await tester.tap(
+        find.text(index == 2 ? 'GO TO VOTING' : 'DONE ANSWERING'),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    for (var index = 0; index < 3; index += 1) {
+      await tester.tap(find.text('VOTE').first);
+      await tester.pump();
+      await tester.tap(find.text('CONFIRM VOTE'));
+      await tester.pumpAndSettle();
+    }
+    await tester.tap(find.text('CONFIRM VOTES'));
+    await tester.pumpAndSettle();
+
+    await tester.drag(find.byType(ListView), const Offset(0, -600));
+    await tester.pumpAndSettle();
+
+    if (find.text('GUESS WORD').evaluate().isNotEmpty) {
+      await tester.tap(find.text('GUESS WORD'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ERROU'));
+      await tester.pumpAndSettle();
+    } else {
+      await tester.tap(find.text('CONTINUE'));
+      await tester.pumpAndSettle();
+    }
+
+    expect(find.text('GAME OVER'), findsOneWidget);
+    expect(find.text('NOVA PARTIDA'), findsOneWidget);
+  });
 }

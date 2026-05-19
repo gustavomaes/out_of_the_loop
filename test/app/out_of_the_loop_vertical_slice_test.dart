@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
+
+void main() {
+  testWidgets('plays a complete 3-player MVP vertical slice', (tester) async {
+    await tester.pumpWidget(const OutOfTheLoopApp());
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('START GAME'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Comida'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('PLAY'));
+    await tester.pumpAndSettle();
+
+    for (final name in ['Ana', 'Bia', 'Caio']) {
+      await tester.enterText(find.byType(TextField), name);
+      await tester.tap(find.text('ADD'));
+      await tester.pump();
+    }
+    await tester.tap(find.text('START MATCH'));
+    await tester.pumpAndSettle();
+
+    for (var index = 0; index < 3; index += 1) {
+      expect(find.text('Pizza'), findsNothing);
+      expect(find.textContaining('FORA'), findsNothing);
+
+      await tester.tap(find.text('VIEW MY WORD'));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text('Pizza').evaluate().isNotEmpty ||
+            find.textContaining('FORA').evaluate().isNotEmpty,
+        isTrue,
+      );
+
+      await tester.tap(
+        find.text(index == 2 ? 'START QUESTIONS' : 'NEXT PLAYER'),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    for (var index = 0; index < 3; index += 1) {
+      expect(find.text('Question ${index + 1} of 3'), findsOneWidget);
+      await tester.tap(
+        find.text(index == 2 ? 'GO TO VOTING' : 'DONE ANSWERING'),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    for (var index = 0; index < 3; index += 1) {
+      await tester.tap(find.text('VOTE').first);
+      await tester.pump();
+      await tester.tap(find.text('CONFIRM VOTE'));
+      await tester.pumpAndSettle();
+    }
+    await tester.tap(find.text('CONFIRM VOTES'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('The out player was'), findsOneWidget);
+    expect(find.text('Vote totals'), findsOneWidget);
+    expect(find.text('Round points'), findsOneWidget);
+  });
+}

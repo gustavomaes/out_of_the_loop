@@ -324,21 +324,21 @@ Direcoes visuais confirmadas no Figma e no design system:
 
 | Requirement ID | Story | Phase | Status |
 | --- | --- | --- | --- |
-| OTL-01 | P1: Configurar e iniciar partida MVP | Design | Pending |
-| OTL-02 | P1: Revelar papeis com segredo preservado | Design | Pending |
-| OTL-03 | P1: Conduzir perguntas publicas | Design | Pending |
-| OTL-04 | P1: Coletar votos secretos | Design | Pending |
-| OTL-05 | P1: Calcular resultado e pontuacao da rodada | Design | Pending |
-| OTL-06 | P1: Adivinhacao condicional pelo fora | Design | Pending |
-| OTL-07 | P1: Progredir rodadas e finalizar partida | Design | Pending |
-| OTL-08 | P1: Conteudo local de categorias, palavras e perguntas | Design | Pending |
-| OTL-09 | P2: Como jogar e regras acessiveis | Design | Pending |
-| OTL-10 | P1: Aplicar sistema visual e prototipo mobile | Design | Pending |
-| OTL-11 | P2: Timer configuravel para perguntas e votacao | Design | Pending |
-| OTL-12 | P2: Localizacao de interface e conteudo | Design | Pending |
-| OTL-13 | P3: Persistencia de configuracoes locais | Design | Pending |
+| OTL-01 | P1: Configurar e iniciar partida MVP | Phase 4 | Verified MVP vertical slice |
+| OTL-02 | P1: Revelar papeis com segredo preservado | Phase 4 | Verified MVP vertical slice |
+| OTL-03 | P1: Conduzir perguntas publicas | Phase 4 | Verified MVP vertical slice |
+| OTL-04 | P1: Coletar votos secretos | Phase 4 | Verified MVP vertical slice |
+| OTL-05 | P1: Calcular resultado e pontuacao da rodada | Phase 4 | Verified MVP vertical slice |
+| OTL-06 | P1: Adivinhacao condicional pelo fora | Phase 4 | Verified by screen/service tests |
+| OTL-07 | P1: Progredir rodadas e finalizar partida | Phase 4 | Verified final leaderboard routing |
+| OTL-08 | P1: Conteudo local de categorias, palavras e perguntas | Phase 4 | Partial: offline seed verified; full 20x30 content deferred to T33 |
+| OTL-09 | P2: Como jogar e regras acessiveis | Phase 4 | Verified screen and routing |
+| OTL-10 | P1: Aplicar sistema visual e prototipo mobile | Phase 4 | Verified by design audit |
+| OTL-11 | P2: Timer configuravel para perguntas e votacao | Phase 5 | Partial: UI/service present; integrated configurable behavior deferred to T35 |
+| OTL-12 | P2: Localizacao de interface e conteudo | Phase 5 | Partial: scaffold/locales present; full content expansion deferred to T33 |
+| OTL-13 | P3: Persistencia de configuracoes locais | Phase 5 | Deferred to T34 |
 
-**Coverage:** 13 total, 0 mapped to tasks, 13 unmapped.
+**Coverage:** 13 total, 10 mapped to MVP validation, 3 deferred or partial for Phase 5.
 
 ---
 
