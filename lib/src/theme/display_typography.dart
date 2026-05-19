@@ -133,6 +133,37 @@ abstract final class DisplayTypography {
     );
   }
 
+  /// Figma player setup title (Rubik Bold 40 / 50).
+  static TextStyle rubikPlayerSetupTitle({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 40,
+      height: 50 / 40,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma player card name (Rubik Bold 16 / 24).
+  static TextStyle rubikPlayerCardName({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 16,
+      height: 24 / 16,
+      fontWeight: FontWeight.w700,
+      color: color,
+    );
+  }
+
+  /// Figma player setup CTA (Rubik ExtraBold 28 / 32).
+  static TextStyle rubikPlayerSetupCta({required Color color}) {
+    return GoogleFonts.rubik(
+      fontSize: 28,
+      height: 32 / 28,
+      fontWeight: FontWeight.w800,
+      letterSpacing: -0.7,
+      color: color,
+    );
+  }
+
   static TextStyle spaceGroteskMeta({
     required Color color,
     double fontSize = 14,

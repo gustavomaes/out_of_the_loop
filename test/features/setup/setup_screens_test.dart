@@ -91,9 +91,13 @@ void main() {
       ),
     );
 
-    expect(find.text('QUEM VAI JOGAR?'), findsOneWidget);
-    expect(find.text('RODADAS NA PARTIDA'), findsNothing);
-    expect(_buttonLabeled(tester, 'START MATCH').enabled, isFalse);
+    expect(find.text('WHO WILL'), findsOneWidget);
+    expect(find.text('PLAY?'), findsOneWidget);
+    expect(find.byKey(const Key('player_setup_count_badge')), findsOneWidget);
+
+    await tester.tap(find.text('START GAME'));
+    await tester.pump();
+    expect(startedPlayers, isNull);
 
     for (final name in ['Ana', 'Bia', 'Caio']) {
       await tester.enterText(find.byType(TextField), name);
@@ -101,12 +105,7 @@ void main() {
       await tester.pump();
     }
 
-    expect(find.text('3/9 players ready'), findsOneWidget);
-    expect(find.text('3 rodadas na partida'), findsOneWidget);
-    expect(find.text('6 perguntas por rodada'), findsOneWidget);
-    expect(_buttonLabeled(tester, 'START MATCH').enabled, isTrue);
-
-    await tester.tap(find.text('START MATCH'));
+    await tester.tap(find.text('START GAME'));
     await tester.pump();
 
     expect(startedPlayers, hasLength(3));
@@ -144,10 +143,7 @@ void main() {
       await tester.pump();
     }
 
-    expect(find.text('5 rodadas na partida'), findsOneWidget);
-    expect(find.text('9 perguntas por rodada'), findsOneWidget);
-
-    await tester.tap(find.text('START MATCH'));
+    await tester.tap(find.text('START GAME'));
     await tester.pump();
 
     expect(startedRoundCount, 5);
@@ -172,8 +168,7 @@ void main() {
       await tester.pump();
     }
 
-    expect(find.text('3 rodadas na partida'), findsOneWidget);
-    expect(find.text('5 perguntas por rodada'), findsOneWidget);
+    expect(find.text('START GAME'), findsOneWidget);
   });
 
   testWidgets('player setup reports duplicate and tenth-player attempts', (

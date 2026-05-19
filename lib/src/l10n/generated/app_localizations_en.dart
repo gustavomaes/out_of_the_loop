@@ -58,6 +58,57 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addPlayer => 'Add player';
 
   @override
+  String get addPlayerButton => 'ADD';
+
+  @override
+  String get playerSetupTitleLine1 => 'WHO WILL';
+
+  @override
+  String get playerSetupTitleLine2 => 'PLAY?';
+
+  @override
+  String get playerSetupPlayerCountBadge => '3-9 PLAYERS';
+
+  @override
+  String get playerNameHint => 'Player name';
+
+  @override
+  String get playerSetupStartGame => 'START GAME';
+
+  @override
+  String playerSetupRemovePlayer(String playerName) {
+    return 'Remove $playerName';
+  }
+
+  @override
+  String get playerSetupErrorEmptyName => 'Name cannot be empty.';
+
+  @override
+  String get playerSetupErrorDuplicateName => 'Player names must be unique.';
+
+  @override
+  String get playerSetupErrorTooManyPlayers =>
+      'A match supports up to 9 players.';
+
+  @override
+  String get playerSetupErrorTooFewPlayers => 'Add at least 3 players.';
+
+  @override
+  String get playerSetupErrorInvalidRoundCount => 'Invalid round count.';
+
+  @override
+  String get playerSetupErrorInvalidQuestions =>
+      'Choose between 1 and 3 questions per player.';
+
+  @override
+  String get playerSetupErrorInsufficientWords =>
+      'This category does not have enough words for that many rounds.';
+
+  @override
+  String get playerSetupErrorInsufficientQuestions =>
+      'This category does not have enough questions for that many players.';
+
+  @override
   String get startMatch => 'Start match';
 
   @override

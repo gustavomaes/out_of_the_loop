@@ -16,6 +16,28 @@
   "categoryTech": "Tech",
   "categoriesLoadError": "Could not load categories.",
   "addPlayer": "Add player",
+  "addPlayerButton": "ADD",
+  "playerSetupTitleLine1": "WHO WILL",
+  "playerSetupTitleLine2": "PLAY?",
+  "playerSetupPlayerCountBadge": "3-9 PLAYERS",
+  "playerNameHint": "Player name",
+  "playerSetupStartGame": "START GAME",
+  "playerSetupRemovePlayer": "Remove {playerName}",
+  "@playerSetupRemovePlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "playerSetupErrorEmptyName": "Name cannot be empty.",
+  "playerSetupErrorDuplicateName": "Player names must be unique.",
+  "playerSetupErrorTooManyPlayers": "A match supports up to 9 players.",
+  "playerSetupErrorTooFewPlayers": "Add at least 3 players.",
+  "playerSetupErrorInvalidRoundCount": "Invalid round count.",
+  "playerSetupErrorInvalidQuestions": "Choose between 1 and 3 questions per player.",
+  "playerSetupErrorInsufficientWords": "This category does not have enough words for that many rounds.",
+  "playerSetupErrorInsufficientQuestions": "This category does not have enough questions for that many players.",
   "startMatch": "Start match",
   "revealMyWord": "Reveal my word",
   "outOfLoopMessage": "You are OUT of the loop - act naturally.",

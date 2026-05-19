@@ -19,6 +19,28 @@
   "categoryTech": "Tecnologia",
   "categoriesLoadError": "Não foi possível carregar as categorias.",
   "addPlayer": "Adicionar jogador",
+  "addPlayerButton": "ADICIONAR",
+  "playerSetupTitleLine1": "QUEM VAI",
+  "playerSetupTitleLine2": "JOGAR?",
+  "playerSetupPlayerCountBadge": "3-9 JOGADORES",
+  "playerNameHint": "Nome do Jogador",
+  "playerSetupStartGame": "COMEÇAR JOGO",
+  "playerSetupRemovePlayer": "Remover {playerName}",
+  "@playerSetupRemovePlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "playerSetupErrorEmptyName": "O nome não pode ficar vazio.",
+  "playerSetupErrorDuplicateName": "Os nomes dos jogadores devem ser únicos.",
+  "playerSetupErrorTooManyPlayers": "Uma partida aceita até 9 jogadores.",
+  "playerSetupErrorTooFewPlayers": "Adicione pelo menos 3 jogadores.",
+  "playerSetupErrorInvalidRoundCount": "Número de rodadas inválido.",
+  "playerSetupErrorInvalidQuestions": "Escolha entre 1 e 3 perguntas por jogador.",
+  "playerSetupErrorInsufficientWords": "Esta categoria não tem palavras suficientes para tantas rodadas.",
+  "playerSetupErrorInsufficientQuestions": "Esta categoria não tem perguntas suficientes para tantos jogadores.",
   "startMatch": "Iniciar partida",
   "revealMyWord": "Visualizar minha palavra",
   "outOfLoopMessage": "Voce esta FORA do circulo - aja naturalmente.",

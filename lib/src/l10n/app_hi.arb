@@ -16,6 +16,28 @@
   "categoryTech": "टेक",
   "categoriesLoadError": "श्रेणियाँ लोड नहीं हो सकीं।",
   "addPlayer": "खिलाड़ी जोड़ें",
+  "addPlayerButton": "जोड़ें",
+  "playerSetupTitleLine1": "कौन",
+  "playerSetupTitleLine2": "खेलेगा?",
+  "playerSetupPlayerCountBadge": "3-9 खिलाड़ी",
+  "playerNameHint": "खिलाड़ी का नाम",
+  "playerSetupStartGame": "खेल शुरू करें",
+  "playerSetupRemovePlayer": "{playerName} हटाएँ",
+  "@playerSetupRemovePlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "playerSetupErrorEmptyName": "नाम खाली नहीं हो सकता।",
+  "playerSetupErrorDuplicateName": "खिलाड़ियों के नाम अलग होने चाहिए।",
+  "playerSetupErrorTooManyPlayers": "एक मैच में अधिकतम 9 खिलाड़ी हो सकते हैं।",
+  "playerSetupErrorTooFewPlayers": "कम से कम 3 खिलाड़ी जोड़ें।",
+  "playerSetupErrorInvalidRoundCount": "राउंड की संख्या अमान्य है।",
+  "playerSetupErrorInvalidQuestions": "प्रति खिलाड़ी 1 से 3 प्रश्न चुनें।",
+  "playerSetupErrorInsufficientWords": "इस श्रेणी में इतने राउंड के लिए पर्याप्त शब्द नहीं हैं।",
+  "playerSetupErrorInsufficientQuestions": "इस श्रेणी में इतने खिलाड़ियों के लिए पर्याप्त प्रश्न नहीं हैं।",
   "startMatch": "मैच शुरू करें",
   "revealMyWord": "मेरा शब्द दिखाएं",
   "outOfLoopMessage": "आप लूप से बाहर हैं - स्वाभाविक रहें.",

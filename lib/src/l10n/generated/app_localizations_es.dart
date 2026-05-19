@@ -58,6 +58,58 @@ class AppLocalizationsEs extends AppLocalizations {
   String get addPlayer => 'Agregar jugador';
 
   @override
+  String get addPlayerButton => 'AGREGAR';
+
+  @override
+  String get playerSetupTitleLine1 => '¿QUIÉN';
+
+  @override
+  String get playerSetupTitleLine2 => 'JUEGA?';
+
+  @override
+  String get playerSetupPlayerCountBadge => '3-9 JUGADORES';
+
+  @override
+  String get playerNameHint => 'Nombre del jugador';
+
+  @override
+  String get playerSetupStartGame => 'EMPEZAR JUEGO';
+
+  @override
+  String playerSetupRemovePlayer(String playerName) {
+    return 'Eliminar a $playerName';
+  }
+
+  @override
+  String get playerSetupErrorEmptyName => 'El nombre no puede estar vacío.';
+
+  @override
+  String get playerSetupErrorDuplicateName =>
+      'Los nombres de los jugadores deben ser únicos.';
+
+  @override
+  String get playerSetupErrorTooManyPlayers =>
+      'Una partida admite hasta 9 jugadores.';
+
+  @override
+  String get playerSetupErrorTooFewPlayers => 'Agrega al menos 3 jugadores.';
+
+  @override
+  String get playerSetupErrorInvalidRoundCount => 'Número de rondas no válido.';
+
+  @override
+  String get playerSetupErrorInvalidQuestions =>
+      'Elige entre 1 y 3 preguntas por jugador.';
+
+  @override
+  String get playerSetupErrorInsufficientWords =>
+      'Esta categoría no tiene suficientes palabras para tantas rondas.';
+
+  @override
+  String get playerSetupErrorInsufficientQuestions =>
+      'Esta categoría no tiene suficientes preguntas para tantos jugadores.';
+
+  @override
   String get startMatch => 'Iniciar partida';
 
   @override

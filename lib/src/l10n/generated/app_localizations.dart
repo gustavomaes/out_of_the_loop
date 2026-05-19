@@ -199,6 +199,96 @@ abstract class AppLocalizations {
   /// **'Adicionar jogador'**
   String get addPlayer;
 
+  /// No description provided for @addPlayerButton.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'ADICIONAR'**
+  String get addPlayerButton;
+
+  /// No description provided for @playerSetupTitleLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'QUEM VAI'**
+  String get playerSetupTitleLine1;
+
+  /// No description provided for @playerSetupTitleLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'JOGAR?'**
+  String get playerSetupTitleLine2;
+
+  /// No description provided for @playerSetupPlayerCountBadge.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'3-9 JOGADORES'**
+  String get playerSetupPlayerCountBadge;
+
+  /// No description provided for @playerNameHint.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Nome do Jogador'**
+  String get playerNameHint;
+
+  /// No description provided for @playerSetupStartGame.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'COMEÇAR JOGO'**
+  String get playerSetupStartGame;
+
+  /// No description provided for @playerSetupRemovePlayer.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Remover {playerName}'**
+  String playerSetupRemovePlayer(String playerName);
+
+  /// No description provided for @playerSetupErrorEmptyName.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O nome não pode ficar vazio.'**
+  String get playerSetupErrorEmptyName;
+
+  /// No description provided for @playerSetupErrorDuplicateName.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Os nomes dos jogadores devem ser únicos.'**
+  String get playerSetupErrorDuplicateName;
+
+  /// No description provided for @playerSetupErrorTooManyPlayers.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Uma partida aceita até 9 jogadores.'**
+  String get playerSetupErrorTooManyPlayers;
+
+  /// No description provided for @playerSetupErrorTooFewPlayers.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Adicione pelo menos 3 jogadores.'**
+  String get playerSetupErrorTooFewPlayers;
+
+  /// No description provided for @playerSetupErrorInvalidRoundCount.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Número de rodadas inválido.'**
+  String get playerSetupErrorInvalidRoundCount;
+
+  /// No description provided for @playerSetupErrorInvalidQuestions.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Escolha entre 1 e 3 perguntas por jogador.'**
+  String get playerSetupErrorInvalidQuestions;
+
+  /// No description provided for @playerSetupErrorInsufficientWords.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Esta categoria não tem palavras suficientes para tantas rodadas.'**
+  String get playerSetupErrorInsufficientWords;
+
+  /// No description provided for @playerSetupErrorInsufficientQuestions.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Esta categoria não tem perguntas suficientes para tantos jogadores.'**
+  String get playerSetupErrorInsufficientQuestions;
+
   /// No description provided for @startMatch.
   ///
   /// In pt_BR, this message translates to:

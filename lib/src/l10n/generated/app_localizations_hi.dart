@@ -57,6 +57,58 @@ class AppLocalizationsHi extends AppLocalizations {
   String get addPlayer => 'खिलाड़ी जोड़ें';
 
   @override
+  String get addPlayerButton => 'जोड़ें';
+
+  @override
+  String get playerSetupTitleLine1 => 'कौन';
+
+  @override
+  String get playerSetupTitleLine2 => 'खेलेगा?';
+
+  @override
+  String get playerSetupPlayerCountBadge => '3-9 खिलाड़ी';
+
+  @override
+  String get playerNameHint => 'खिलाड़ी का नाम';
+
+  @override
+  String get playerSetupStartGame => 'खेल शुरू करें';
+
+  @override
+  String playerSetupRemovePlayer(String playerName) {
+    return '$playerName हटाएँ';
+  }
+
+  @override
+  String get playerSetupErrorEmptyName => 'नाम खाली नहीं हो सकता।';
+
+  @override
+  String get playerSetupErrorDuplicateName =>
+      'खिलाड़ियों के नाम अलग होने चाहिए।';
+
+  @override
+  String get playerSetupErrorTooManyPlayers =>
+      'एक मैच में अधिकतम 9 खिलाड़ी हो सकते हैं।';
+
+  @override
+  String get playerSetupErrorTooFewPlayers => 'कम से कम 3 खिलाड़ी जोड़ें।';
+
+  @override
+  String get playerSetupErrorInvalidRoundCount => 'राउंड की संख्या अमान्य है।';
+
+  @override
+  String get playerSetupErrorInvalidQuestions =>
+      'प्रति खिलाड़ी 1 से 3 प्रश्न चुनें।';
+
+  @override
+  String get playerSetupErrorInsufficientWords =>
+      'इस श्रेणी में इतने राउंड के लिए पर्याप्त शब्द नहीं हैं।';
+
+  @override
+  String get playerSetupErrorInsufficientQuestions =>
+      'इस श्रेणी में इतने खिलाड़ियों के लिए पर्याप्त प्रश्न नहीं हैं।';
+
+  @override
   String get startMatch => 'मैच शुरू करें';
 
   @override

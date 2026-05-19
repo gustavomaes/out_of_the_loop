@@ -128,6 +128,7 @@ class AppRouter {
               flow.pendingQuestionsPerPlayer ??
               MatchSetupService.recommendedQuestionsPerPlayer(0),
           categoryWords: flow.categoryWords,
+          onBack: () => context.pop(),
           onStart: (players, roundCount, questionsPerPlayer) {
             flow.startMatch(
               players,
