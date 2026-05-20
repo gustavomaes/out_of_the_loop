@@ -11,13 +11,18 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
   const OtlBrutalistDiscoveryAppBar({
     this.onBack,
     this.onSettings,
+    this.showBack = true,
+    this.showSettings = true,
     super.key,
   });
 
   static const appName = 'OUT OF THE LOOP';
+  static const _sideSlotWidth = 48.0;
 
   final VoidCallback? onBack;
   final VoidCallback? onSettings;
+  final bool showBack;
+  final bool showSettings;
 
   @override
   Size get preferredSize => const Size.fromHeight(80);
@@ -41,16 +46,20 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Row(
                 children: [
-                  IconButton(
-                    onPressed:
-                        onBack ?? () => context.goDiscoveryTab(AppRoutes.home),
-                    icon: const Icon(
-                      OtlIcons.arrowBack,
-                      color: Colors.white,
-                      size: 22,
-                    ),
-                    tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-                  ),
+                  if (showBack)
+                    IconButton(
+                      onPressed: onBack ??
+                          () => context.goDiscoveryTab(AppRoutes.home),
+                      icon: const Icon(
+                        OtlIcons.arrowBack,
+                        color: Colors.white,
+                        size: 22,
+                      ),
+                      tooltip:
+                          MaterialLocalizations.of(context).backButtonTooltip,
+                    )
+                  else
+                    const SizedBox(width: _sideSlotWidth),
                   Expanded(
                     child: Text(
                       appName,
@@ -62,17 +71,19 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  IconButton(
-                    onPressed:
-                        onSettings ??
-                        () => context.goDiscoveryTab(AppRoutes.settings),
-                    icon: const Icon(
-                      OtlIcons.settings,
-                      color: Colors.white,
-                      size: 22,
-                    ),
-                    tooltip: 'Settings',
-                  ),
+                  if (showSettings)
+                    IconButton(
+                      onPressed: onSettings ??
+                          () => context.goDiscoveryTab(AppRoutes.settings),
+                      icon: const Icon(
+                        OtlIcons.settings,
+                        color: Colors.white,
+                        size: 22,
+                      ),
+                      tooltip: 'Settings',
+                    )
+                  else
+                    const SizedBox(width: _sideSlotWidth),
                 ],
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/app_routes.dart';
 import '../../app/app_shell.dart';
@@ -20,7 +21,10 @@ class HowToPlayScreen extends StatelessWidget {
       AppShell(
         routeName: AppRoutes.howToPlay,
         title: l10n.howToPlay,
-        appBar: OtlBrutalistAppBar(title: l10n.howToPlayScreenTitle),
+        appBar: OtlBrutalistAppBar(
+          title: l10n.howToPlayScreenTitle,
+          onBack: () => context.pop(),
+        ),
         bodyPadding: EdgeInsets.zero,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),

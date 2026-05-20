@@ -13,16 +13,12 @@ class CategorySelectionScreen extends StatefulWidget {
     LocalContentRepository? repository,
     this.language = SupportedLanguage.ptBr,
     this.onContinue,
-    this.onBack,
-    this.onSettings,
     super.key,
   }) : repository = repository ?? LocalContentRepository();
 
   final LocalContentRepository repository;
   final SupportedLanguage language;
   final ValueChanged<Category>? onContinue;
-  final VoidCallback? onBack;
-  final VoidCallback? onSettings;
 
   @override
   State<CategorySelectionScreen> createState() =>
@@ -58,9 +54,9 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
     return BrutalistScreenTheme.wrap(
       context,
       Scaffold(
-        appBar: OtlBrutalistDiscoveryAppBar(
-          onBack: widget.onBack,
-          onSettings: widget.onSettings,
+        appBar: const OtlBrutalistDiscoveryAppBar(
+          showBack: false,
+          showSettings: false,
         ),
         body: FutureBuilder<List<Category>>(
           future: _categoriesFuture,
