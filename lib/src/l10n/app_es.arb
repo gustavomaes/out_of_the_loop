@@ -198,6 +198,10 @@
   "correct": "Correcto",
   "wrong": "Incorrecto",
   "playAgain": "JUGAR DE NUEVO",
+  "newMatchDialogTitle": "NUEVA PARTIDA",
+  "newMatchDialogMessage": "¿Mantener la misma categoría o elegir otra?",
+  "newMatchKeepCategory": "MANTENER CATEGORÍA",
+  "newMatchChangeCategory": "CAMBIAR CATEGORÍA",
   "backToHome": "VOLVER AL INICIO",
   "resultsWinnerWins": "¡{name} gana!",
   "@resultsWinnerWins": {

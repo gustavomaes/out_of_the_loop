@@ -18,6 +18,7 @@ import '../features/settings/settings_screen.dart';
 import '../features/setup/category_selection_screen.dart';
 import '../features/setup/match_setup_screen.dart';
 import '../features/setup/player_setup_screen.dart';
+import '../shared/widgets/shared_widgets.dart';
 import 'app_routes.dart';
 import 'app_shell.dart';
 import 'discovery_shell.dart' show DiscoveryNavigation, DiscoveryShell;
@@ -122,23 +123,34 @@ class AppRouter {
       GoRoute(
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.players,
-        builder: (context, state) => PlayerSetupScreen(
-          roundCount:
-              flow.pendingRoundCount ?? MatchSetup.recommendedRoundCount,
-          questionsPerPlayer:
-              flow.pendingQuestionsPerPlayer ??
-              MatchSetupService.recommendedQuestionsPerPlayer(0),
-          categoryWords: flow.categoryWords,
-          onBack: () => context.pop(),
-          onStart: (players, roundCount, questionsPerPlayer) {
-            flow.startMatch(
-              players,
-              roundCount: roundCount,
-              questionsPerPlayer: questionsPerPlayer,
-            );
-            context.push(AppRoutes.gameReveal);
-          },
-        ),
+        builder: (context, state) {
+          final carryOver = flow.rematchCarryOver;
+          return PlayerSetupScreen(
+            roundCount:
+                carryOver?.roundCount ??
+                flow.pendingRoundCount ??
+                MatchSetup.recommendedRoundCount,
+            questionsPerPlayer:
+                carryOver?.questionsPerPlayer ??
+                flow.pendingQuestionsPerPlayer ??
+                MatchSetupService.recommendedQuestionsPerPlayer(0),
+            initialPlayers: carryOver?.players,
+            categoryWords: flow.categoryWords,
+            onBack: () {
+              flow.clearRematchCarryOver();
+              context.pop();
+            },
+            onStart: (players, roundCount, questionsPerPlayer) {
+              flow.clearRematchCarryOver();
+              flow.startMatch(
+                players,
+                roundCount: roundCount,
+                questionsPerPlayer: questionsPerPlayer,
+              );
+              context.push(AppRoutes.gameReveal);
+            },
+          );
+        },
       ),
       GoRoute(
         parentNavigatorKey: _rootNavigatorKey,
@@ -240,11 +252,11 @@ class AppRouter {
                 ? null
                 : flow.playerById(outPlayerId),
             language: flow.setup?.language ?? flow.language,
-            onNewMatch: () {
-              flow.resetMatch();
-              onFlowChanged();
-              context.goDiscoveryTab(AppRoutes.categories);
-            },
+            onNewMatch: () => _startNewMatch(
+              context,
+              flow: flow,
+              onFlowChanged: onFlowChanged,
+            ),
             onBackHome: () {
               flow.resetMatch();
               onFlowChanged();
@@ -259,6 +271,28 @@ class AppRouter {
         builder: (context, state) => const HowToPlayScreen(),
       ),
     ];
+  }
+
+  static Future<void> _startNewMatch(
+    BuildContext context, {
+    required GameFlowController flow,
+    required VoidCallback onFlowChanged,
+  }) async {
+    final choice = await showNewMatchDialog(context);
+    if (!context.mounted || choice == null) {
+      return;
+    }
+
+    switch (choice) {
+      case NewMatchDialogChoice.keepCategory:
+        flow.rematchKeepingCategory();
+        onFlowChanged();
+        context.pushReplacement(AppRoutes.gameReveal);
+      case NewMatchDialogChoice.changeCategory:
+        flow.prepareRematchWithNewCategory();
+        onFlowChanged();
+        context.goDiscoveryTab(AppRoutes.categories);
+    }
   }
 
   static void _cancelMatchAndGoToCategories(
@@ -333,6 +367,15 @@ class _DiscoveryCategoriesRoute extends StatelessWidget {
       onContinue: (category) async {
         await flow.selectCategory(category);
         if (!context.mounted) {
+          return;
+        }
+        final carryOver = flow.rematchCarryOver;
+        if (carryOver != null) {
+          flow.configureMatch(
+            roundCount: carryOver.roundCount,
+            questionsPerPlayer: carryOver.questionsPerPlayer,
+          );
+          context.push(AppRoutes.players);
           return;
         }
         context.push(AppRoutes.matchSetup);

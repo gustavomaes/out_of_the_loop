@@ -350,6 +350,29 @@ void main() {
     );
     expect(find.text('VIEW FINAL SCORE'), findsOneWidget);
 
+    final escaped = service.calculateRoundResult(
+      round: _roundWithVotes,
+      players: _players,
+    );
+    await tester.pumpWidget(
+      _TestApp(
+        child: RoundResultsScreen(
+          players: _players,
+          round: _roundWithVotes,
+          result: escaped,
+          language: SupportedLanguage.en,
+        ),
+      ),
+    );
+    expect(escaped.wasOutFoundByMajority, isFalse);
+    expect(
+      find.text('The out player escaped the majority vote.'),
+      findsOneWidget,
+    );
+    expect(find.text('GUESS THE WORD'), findsOneWidget);
+    expect(find.text('THE SECRET WORD WAS:'), findsNothing);
+    expect(find.text('PIZZA'), findsNothing);
+
     RoundResult? guessedResult;
     await tester.pumpWidget(
       _TestApp(

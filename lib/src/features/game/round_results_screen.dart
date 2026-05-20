@@ -83,11 +83,13 @@ class RoundResultsScreen extends StatelessWidget {
                       outPlayer: outPlayer,
                       label: l10n.roundResultsOutPlayerLabel,
                     ),
-                    const SizedBox(height: 24),
-                    RoundResultsSecretWordReveal(
-                      label: l10n.resultsSecretWordWas,
-                      secretWord: secretWord,
-                    ),
+                    if (result.wasOutFoundByMajority) ...[
+                      const SizedBox(height: 24),
+                      RoundResultsSecretWordReveal(
+                        label: l10n.resultsSecretWordWas,
+                        secretWord: secretWord,
+                      ),
+                    ],
                     const SizedBox(height: 24),
                     RoundResultsStatSection(
                       title: l10n.roundResultsVoteTotals,

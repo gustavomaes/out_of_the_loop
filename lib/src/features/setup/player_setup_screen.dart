@@ -18,6 +18,7 @@ class PlayerSetupScreen extends StatefulWidget {
   const PlayerSetupScreen({
     required this.roundCount,
     required this.questionsPerPlayer,
+    this.initialPlayers,
     this.categoryWords,
     this.onStart,
     this.onBack,
@@ -28,6 +29,7 @@ class PlayerSetupScreen extends StatefulWidget {
 
   final int roundCount;
   final int questionsPerPlayer;
+  final List<Player>? initialPlayers;
   final List<SecretWord>? categoryWords;
   final PlayerSetupStartCallback? onStart;
   final VoidCallback? onBack;
@@ -67,6 +69,17 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
     questionsPerPlayer: _questionsPerPlayer,
     categoryWords: _categoryWords,
   );
+
+  @override
+  void initState() {
+    super.initState();
+    final initialPlayers = widget.initialPlayers;
+    if (initialPlayers != null && initialPlayers.isNotEmpty) {
+      _players.addAll(initialPlayers);
+      _syncQuestionsPerPlayer();
+      _syncRoundCount();
+    }
+  }
 
   @override
   void didUpdateWidget(covariant PlayerSetupScreen oldWidget) {

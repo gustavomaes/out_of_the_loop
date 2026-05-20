@@ -375,6 +375,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get playAgain => 'PLAY AGAIN';
 
   @override
+  String get newMatchDialogTitle => 'NEW MATCH';
+
+  @override
+  String get newMatchDialogMessage =>
+      'Keep the same category or pick a new one?';
+
+  @override
+  String get newMatchKeepCategory => 'KEEP CATEGORY';
+
+  @override
+  String get newMatchChangeCategory => 'CHANGE CATEGORY';
+
+  @override
   String get backToHome => 'BACK TO HOME';
 
   @override

@@ -124,6 +124,39 @@ void main() {
     ]);
   });
 
+  testWidgets('player setup pre-fills players from a rematch carry over', (
+    tester,
+  ) async {
+    List<Player>? startedPlayers;
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: PlayerSetupScreen(
+          roundCount: 2,
+          questionsPerPlayer: 2,
+          initialPlayers: const [
+            Player(id: 'p1', name: 'Ana', avatarSeed: 'ana'),
+            Player(id: 'p2', name: 'Bia', avatarSeed: 'bia'),
+            Player(id: 'p3', name: 'Caio', avatarSeed: 'caio'),
+          ],
+          onStart: (players, roundCount, questionsPerPlayer) {
+            startedPlayers = players;
+          },
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('START GAME'));
+    await tester.pump();
+
+    expect(startedPlayers, hasLength(3));
+    expect(startedPlayers!.map((player) => player.name), [
+      'Ana',
+      'Bia',
+      'Caio',
+    ]);
+  });
+
   testWidgets('player setup passes custom round and question counts on start', (
     tester,
   ) async {
@@ -269,4 +302,3 @@ const _seedJson = '''
   ]
 }
 ''';
-

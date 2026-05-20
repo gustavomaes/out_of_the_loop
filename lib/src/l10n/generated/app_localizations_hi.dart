@@ -375,6 +375,19 @@ class AppLocalizationsHi extends AppLocalizations {
   String get playAgain => 'फिर खेलें';
 
   @override
+  String get newMatchDialogTitle => 'नया मैच';
+
+  @override
+  String get newMatchDialogMessage =>
+      'क्या आप वही श्रेणी रखना चाहते हैं या नई चुनना चाहते हैं?';
+
+  @override
+  String get newMatchKeepCategory => 'श्रेणी रखें';
+
+  @override
+  String get newMatchChangeCategory => 'श्रेणी बदलें';
+
+  @override
   String get backToHome => 'होम पर वापस जाएं';
 
   @override

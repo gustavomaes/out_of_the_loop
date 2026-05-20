@@ -2,6 +2,18 @@ import '../data/content/local_content_repository.dart';
 import '../domain/models/models.dart';
 import '../domain/services/services.dart';
 
+final class RematchCarryOver {
+  const RematchCarryOver({
+    required this.players,
+    required this.roundCount,
+    required this.questionsPerPlayer,
+  });
+
+  final List<Player> players;
+  final int roundCount;
+  final int questionsPerPlayer;
+}
+
 class GameFlowController {
   GameFlowController({
     LocalContentRepository? repository,
@@ -25,6 +37,9 @@ class GameFlowController {
   RoundResult? currentResult;
   int? pendingRoundCount;
   int? pendingQuestionsPerPlayer;
+  RematchCarryOver? rematchCarryOver;
+
+  bool get hasRematchCarryOver => rematchCarryOver != null;
 
   void configureMatch({
     required int roundCount,
@@ -148,6 +163,74 @@ class GameFlowController {
     currentResult = null;
     pendingRoundCount = null;
     pendingQuestionsPerPlayer = null;
+    rematchCarryOver = null;
+  }
+
+  void prepareRematchWithNewCategory() {
+    final activeSetup = setup;
+    if (activeSetup == null) {
+      throw StateError('Cannot rematch without a completed match setup.');
+    }
+
+    rematchCarryOver = RematchCarryOver(
+      players: _freshPlayers(_activePlayersForRematch()),
+      roundCount: activeSetup.roundCount,
+      questionsPerPlayer: activeSetup.questionsPerPlayer,
+    );
+    setup = null;
+    match = null;
+    currentResult = null;
+    pendingRoundCount = null;
+    pendingQuestionsPerPlayer = null;
+    selectedCategory = null;
+    categoryWords = const [];
+  }
+
+  void rematchKeepingCategory() {
+    final activeSetup = setup;
+    if (activeSetup == null || selectedCategory == null) {
+      throw StateError('Cannot rematch without a selected category and setup.');
+    }
+
+    final players = _freshPlayers(_activePlayersForRematch());
+    final roundCount = activeSetup.roundCount;
+    final questionsPerPlayer = activeSetup.questionsPerPlayer;
+    match = null;
+    currentResult = null;
+    startMatch(
+      players,
+      roundCount: roundCount,
+      questionsPerPlayer: questionsPerPlayer,
+    );
+  }
+
+  void clearRematchCarryOver() {
+    rematchCarryOver = null;
+  }
+
+  List<Player> _activePlayersForRematch() {
+    final activeMatch = match;
+    if (activeMatch != null) {
+      return activeMatch.players;
+    }
+
+    final activeSetup = setup;
+    if (activeSetup != null) {
+      return activeSetup.players;
+    }
+
+    throw StateError('Cannot rematch without players.');
+  }
+
+  static List<Player> _freshPlayers(List<Player> players) {
+    return [
+      for (final player in players)
+        Player(
+          id: player.id,
+          name: player.name,
+          avatarSeed: player.avatarSeed,
+        ),
+    ];
   }
 
   void _startNextRound() {

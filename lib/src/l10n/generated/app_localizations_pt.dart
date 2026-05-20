@@ -380,6 +380,19 @@ class AppLocalizationsPt extends AppLocalizations {
   String get playAgain => 'NOVA PARTIDA';
 
   @override
+  String get newMatchDialogTitle => 'NOVA PARTIDA';
+
+  @override
+  String get newMatchDialogMessage =>
+      'Quer manter a mesma categoria ou escolher outra?';
+
+  @override
+  String get newMatchKeepCategory => 'MANTER CATEGORIA';
+
+  @override
+  String get newMatchChangeCategory => 'TROCAR CATEGORIA';
+
+  @override
   String get backToHome => 'VOLTAR AO INÍCIO';
 
   @override
@@ -876,6 +889,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get playAgain => 'NOVA PARTIDA';
+
+  @override
+  String get newMatchDialogTitle => 'NOVA PARTIDA';
+
+  @override
+  String get newMatchDialogMessage =>
+      'Quer manter a mesma categoria ou escolher outra?';
+
+  @override
+  String get newMatchKeepCategory => 'MANTER CATEGORIA';
+
+  @override
+  String get newMatchChangeCategory => 'TROCAR CATEGORIA';
 
   @override
   String get backToHome => 'VOLTAR AO INÍCIO';

@@ -727,6 +727,30 @@ abstract class AppLocalizations {
   /// **'NOVA PARTIDA'**
   String get playAgain;
 
+  /// No description provided for @newMatchDialogTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'NOVA PARTIDA'**
+  String get newMatchDialogTitle;
+
+  /// No description provided for @newMatchDialogMessage.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Quer manter a mesma categoria ou escolher outra?'**
+  String get newMatchDialogMessage;
+
+  /// No description provided for @newMatchKeepCategory.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'MANTER CATEGORIA'**
+  String get newMatchKeepCategory;
+
+  /// No description provided for @newMatchChangeCategory.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TROCAR CATEGORIA'**
+  String get newMatchChangeCategory;
+
   /// No description provided for @backToHome.
   ///
   /// In pt_BR, this message translates to:

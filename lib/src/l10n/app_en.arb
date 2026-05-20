@@ -198,6 +198,10 @@
   "correct": "Correct",
   "wrong": "Wrong",
   "playAgain": "PLAY AGAIN",
+  "newMatchDialogTitle": "NEW MATCH",
+  "newMatchDialogMessage": "Keep the same category or pick a new one?",
+  "newMatchKeepCategory": "KEEP CATEGORY",
+  "newMatchChangeCategory": "CHANGE CATEGORY",
   "backToHome": "BACK TO HOME",
   "resultsWinnerWins": "{name} wins!",
   "@resultsWinnerWins": {

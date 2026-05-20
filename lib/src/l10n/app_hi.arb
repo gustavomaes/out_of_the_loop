@@ -198,6 +198,10 @@
   "correct": "सही",
   "wrong": "गलत",
   "playAgain": "फिर खेलें",
+  "newMatchDialogTitle": "नया मैच",
+  "newMatchDialogMessage": "क्या आप वही श्रेणी रखना चाहते हैं या नई चुनना चाहते हैं?",
+  "newMatchKeepCategory": "श्रेणी रखें",
+  "newMatchChangeCategory": "श्रेणी बदलें",
   "backToHome": "होम पर वापस जाएं",
   "resultsWinnerWins": "{name} जीते!",
   "@resultsWinnerWins": {
