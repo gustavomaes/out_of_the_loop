@@ -1,11 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/app_routes.dart';
 import '../../domain/models/models.dart';
 import '../../l10n/generated/app_localizations.dart';
-import '../../shared/widgets/otl_brutalist_discovery_app_bar.dart';
-import '../../shared/widgets/otl_brutalist_pill_button.dart';
+import '../../shared/widgets/shared_widgets.dart';
 import '../../theme/theme.dart';
 import 'widgets/results_out_player_card.dart';
 import 'widgets/round_results_headline.dart';
@@ -22,6 +23,7 @@ class RoundResultsScreen extends StatelessWidget {
     this.language = SupportedLanguage.ptBr,
     this.onContinue,
     this.onGuess,
+    this.onBack,
     super.key,
   });
 
@@ -32,6 +34,7 @@ class RoundResultsScreen extends StatelessWidget {
   final SupportedLanguage language;
   final VoidCallback? onContinue;
   final VoidCallback? onGuess;
+  final VoidCallback? onBack;
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +50,19 @@ class RoundResultsScreen extends StatelessWidget {
 
     return BrutalistScreenTheme.wrap(
       context,
-      Scaffold(
-        appBar: OtlBrutalistDiscoveryAppBar(onBack: () => context.pop()),
-        body: SafeArea(
+      PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) {
+          if (!didPop) {
+            unawaited(confirmExitGameOnBack(context, onBack: onBack));
+          }
+        },
+        child: Scaffold(
+          appBar: OtlBrutalistDiscoveryAppBar(
+            onBack: () => confirmExitGameOnBack(context, onBack: onBack),
+            showSettings: false,
+          ),
+          body: SafeArea(
           top: false,
           child: Center(
             child: ConstrainedBox(
@@ -137,6 +150,7 @@ class RoundResultsScreen extends StatelessWidget {
               ),
             ),
           ),
+        ),
         ),
       ),
     );

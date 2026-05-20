@@ -46,6 +46,45 @@ void main() {
     );
   });
 
+  testWidgets('question round confirms before leaving the match', (
+    tester,
+  ) async {
+    var cancelled = false;
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: QuestionRoundScreen(
+          players: _players,
+          questionTurns: _questionTurns(
+            players: _players,
+            questions: [_questions.first],
+            playerOrder: const ['p1'],
+          ),
+          onBack: () => cancelled = true,
+        ),
+      ),
+    );
+
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Leave the match?'), findsOneWidget);
+    expect(cancelled, isFalse);
+
+    await tester.tap(find.text('KEEP PLAYING'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Leave the match?'), findsNothing);
+    expect(cancelled, isFalse);
+
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('LEAVE MATCH'));
+    await tester.pumpAndSettle();
+
+    expect(cancelled, isTrue);
+  });
+
   testWidgets('question round advances through turns on one screen', (
     tester,
   ) async {
@@ -182,6 +221,30 @@ void main() {
     },
   );
 
+  testWidgets('voting confirms before leaving the match', (tester) async {
+    var cancelled = false;
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: VotingScreen(
+          players: _players,
+          onBack: () => cancelled = true,
+        ),
+      ),
+    );
+
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Leave the match?'), findsOneWidget);
+    expect(cancelled, isFalse);
+
+    await tester.tap(find.text('LEAVE MATCH'));
+    await tester.pumpAndSettle();
+
+    expect(cancelled, isTrue);
+  });
+
   testWidgets('voting collects one hidden vote per player', (tester) async {
     List<Vote>? votes;
 
@@ -232,6 +295,40 @@ void main() {
     expect(find.text('VOTE'), findsWidgets);
 
     expect(votes, isNull);
+  });
+
+  testWidgets('round results confirms before leaving the match', (tester) async {
+    var cancelled = false;
+    final service = VoteScoringService();
+    final round = _roundWithVotes;
+    final result = service.calculateRoundResult(round: round, players: _players);
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: RoundResultsScreen(
+          players: _players,
+          round: round,
+          result: result,
+          onBack: () => cancelled = true,
+        ),
+      ),
+    );
+
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Leave the match?'), findsOneWidget);
+    await tester.tap(find.text('KEEP PLAYING'));
+    await tester.pumpAndSettle();
+
+    expect(cancelled, isFalse);
+
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('LEAVE MATCH'));
+    await tester.pumpAndSettle();
+
+    expect(cancelled, isTrue);
   });
 
   testWidgets('round results show discovered and guess branches', (

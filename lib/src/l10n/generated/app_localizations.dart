@@ -511,6 +511,30 @@ abstract class AppLocalizations {
   /// **'Finalize esta resposta quando estiver pronto.'**
   String get questionRoundTimerExpiredLine2;
 
+  /// No description provided for @questionRoundExitTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Cancelar partida?'**
+  String get questionRoundExitTitle;
+
+  /// No description provided for @questionRoundExitMessage.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Se você voltar agora, a partida será cancelada e você retornará à seleção de categorias.'**
+  String get questionRoundExitMessage;
+
+  /// No description provided for @questionRoundExitConfirm.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'CANCELAR PARTIDA'**
+  String get questionRoundExitConfirm;
+
+  /// No description provided for @questionRoundExitStay.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'CONTINUAR JOGANDO'**
+  String get questionRoundExitStay;
+
   /// No description provided for @whoIsOutOfTheLoop.
   ///
   /// In pt_BR, this message translates to:

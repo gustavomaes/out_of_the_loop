@@ -165,6 +165,8 @@ class AppRouter {
             questionTurns: flow.currentRound!.questionTurns,
             language: flow.language,
             timerSettings: flow.timerSettings,
+            onBack: () =>
+                _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
             onComplete: () => context.pushReplacement(AppRoutes.gameVote),
           ),
         ),
@@ -178,6 +180,8 @@ class AppRouter {
           () => VotingScreen(
             players: flow.players,
             timerSettings: flow.timerSettings,
+            onBack: () =>
+                _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
             onComplete: (votes) {
               flow.recordVotes(votes);
               onFlowChanged();
@@ -203,6 +207,8 @@ class AppRouter {
               result: result,
               totalRoundCount: flow.setup?.roundCount,
               language: flow.setup?.language ?? flow.language,
+              onBack: () =>
+                  _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
               onContinue: () => _finishRound(context, flow, onFlowChanged),
               onGuess: () => context.push(AppRoutes.gameGuess),
             ),
@@ -255,6 +261,16 @@ class AppRouter {
         builder: (context, state) => const HowToPlayScreen(),
       ),
     ];
+  }
+
+  static void _cancelMatchAndGoToCategories(
+    BuildContext context,
+    GameFlowController flow,
+    VoidCallback onFlowChanged,
+  ) {
+    flow.resetMatch();
+    onFlowChanged();
+    context.go(AppRoutes.categories);
   }
 
   static void _finishRound(

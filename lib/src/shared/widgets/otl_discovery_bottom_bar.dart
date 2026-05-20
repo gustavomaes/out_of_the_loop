@@ -193,10 +193,7 @@ class _ActiveNavTab extends StatelessWidget {
           padding: const EdgeInsets.only(
             bottom: OtlDiscoveryBottomBar._iconLabelGap,
           ),
-          child: _DiscoveryNavIconWidget(
-            icon: item.icon,
-            color: Colors.black,
-          ),
+          child: _DiscoveryNavIconWidget(icon: item.icon, color: Colors.black),
         ),
         Text(item.label, style: labelStyle, textAlign: TextAlign.center),
       ],
@@ -244,11 +241,7 @@ class _DiscoveryNavIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (icon) {
-      _DiscoveryNavIcon.play => Icon(
-        OtlIcons.navPlay,
-        size: 24,
-        color: color,
-      ),
+      _DiscoveryNavIcon.play => Icon(OtlIcons.navPlay, size: 24, color: color),
       _DiscoveryNavIcon.profile => Icon(
         OtlIcons.navProfile,
         size: 22,

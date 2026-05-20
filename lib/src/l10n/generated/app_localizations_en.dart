@@ -258,6 +258,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get questionRoundTimerExpiredLine2 => 'Finish this answer when ready.';
 
   @override
+  String get questionRoundExitTitle => 'Leave the match?';
+
+  @override
+  String get questionRoundExitMessage =>
+      'Going back will cancel the match and return you to category selection.';
+
+  @override
+  String get questionRoundExitConfirm => 'LEAVE MATCH';
+
+  @override
+  String get questionRoundExitStay => 'KEEP PLAYING';
+
+  @override
   String get whoIsOutOfTheLoop => 'Who is out of the loop?';
 
   @override

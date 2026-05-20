@@ -263,6 +263,19 @@ class AppLocalizationsEs extends AppLocalizations {
       'Termina esta respuesta cuando estés listo.';
 
   @override
+  String get questionRoundExitTitle => '¿Cancelar la partida?';
+
+  @override
+  String get questionRoundExitMessage =>
+      'Si vuelves ahora, la partida se cancelará y regresarás a la selección de categorías.';
+
+  @override
+  String get questionRoundExitConfirm => 'CANCELAR PARTIDA';
+
+  @override
+  String get questionRoundExitStay => 'SEGUIR JUGANDO';
+
+  @override
   String get whoIsOutOfTheLoop => 'Quien esta fuera del loop?';
 
   @override

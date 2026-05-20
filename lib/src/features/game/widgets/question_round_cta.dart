@@ -19,7 +19,11 @@ class QuestionRoundCta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: _shadowDx, bottom: _shadowDy),
+      padding: const EdgeInsets.only(
+        top: 16,
+        right: _shadowDx,
+        bottom: _shadowDy,
+      ),
       child: Stack(
         clipBehavior: Clip.none,
         children: [

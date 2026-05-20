@@ -42,33 +42,13 @@ class VotingHeadline extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 280),
-          child: Column(
-            children: [
-              Text(
-                l10n.votingSubtitleLine1,
-                style: DisplayTypography.plusJakartaVotingSubtitle(
-                  color: BrutalistColors.sectionLabel,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                l10n.votingSubtitleLine2,
-                style: DisplayTypography.plusJakartaVotingSubtitle(
-                  color: BrutalistColors.sectionLabel,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                l10n.votingSubtitleLine3,
-                style: DisplayTypography.plusJakartaVotingSubtitle(
-                  color: BrutalistColors.sectionLabel,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
+        Text(
+          '${l10n.votingSubtitleLine1} ${l10n.votingSubtitleLine2} '
+          '${l10n.votingSubtitleLine3}',
+          style: DisplayTypography.plusJakartaVotingSubtitle(
+            color: BrutalistColors.sectionLabel,
           ),
+          textAlign: TextAlign.center,
         ),
       ],
     );

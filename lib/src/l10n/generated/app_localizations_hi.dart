@@ -258,6 +258,19 @@ class AppLocalizationsHi extends AppLocalizations {
       'तैयार होने पर यह जवाब पूरा करें।';
 
   @override
+  String get questionRoundExitTitle => 'मैच रद्द करें?';
+
+  @override
+  String get questionRoundExitMessage =>
+      'अभी वापस जाने पर मैच रद्द होगा और आप श्रेणी चयन पर लौटेंगे।';
+
+  @override
+  String get questionRoundExitConfirm => 'मैच छोड़ें';
+
+  @override
+  String get questionRoundExitStay => 'खेल जारी रखें';
+
+  @override
   String get whoIsOutOfTheLoop => 'लूप से बाहर कौन है?';
 
   @override

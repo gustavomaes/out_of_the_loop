@@ -264,6 +264,19 @@ class AppLocalizationsPt extends AppLocalizations {
       'Termine esta resposta quando estiver pronto.';
 
   @override
+  String get questionRoundExitTitle => 'Cancelar partida?';
+
+  @override
+  String get questionRoundExitMessage =>
+      'Se voltar agora, a partida sera cancelada e voltara a selecao de categorias.';
+
+  @override
+  String get questionRoundExitConfirm => 'CANCELAR PARTIDA';
+
+  @override
+  String get questionRoundExitStay => 'CONTINUAR JOGANDO';
+
+  @override
   String get whoIsOutOfTheLoop => 'Quem esta fora do loop?';
 
   @override
@@ -791,6 +804,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get questionRoundTimerExpiredLine2 =>
       'Finalize esta resposta quando estiver pronto.';
+
+  @override
+  String get questionRoundExitTitle => 'Cancelar partida?';
+
+  @override
+  String get questionRoundExitMessage =>
+      'Se você voltar agora, a partida será cancelada e você retornará à seleção de categorias.';
+
+  @override
+  String get questionRoundExitConfirm => 'CANCELAR PARTIDA';
+
+  @override
+  String get questionRoundExitStay => 'CONTINUAR JOGANDO';
 
   @override
   String get whoIsOutOfTheLoop => 'Quem esta fora do loop?';

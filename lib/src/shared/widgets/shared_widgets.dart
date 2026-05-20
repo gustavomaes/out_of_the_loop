@@ -4,6 +4,7 @@ export 'otl_brutalist_pill_button.dart';
 export 'otl_brutalist_shadow_card.dart';
 export 'otl_brutalist_toggle.dart';
 export 'otl_discovery_bottom_bar.dart';
+export 'otl_exit_game_dialog.dart';
 export 'otl_brutalist_surface.dart';
 export 'otl_home_backdrop.dart';
 export 'otl_party_atmosphere.dart';

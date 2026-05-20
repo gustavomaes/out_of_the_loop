@@ -1,5 +1,6 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../domain/models/models.dart';
 import '../../domain/services/vote_scoring_service.dart';
@@ -19,7 +20,6 @@ class VotingScreen extends StatefulWidget {
     this.onComplete,
     VoteScoringService? scoringService,
     this.onBack,
-    this.onSettings,
     super.key,
   }) : scoringService = scoringService ?? const VoteScoringService();
 
@@ -29,7 +29,6 @@ class VotingScreen extends StatefulWidget {
   final ValueChanged<List<Vote>>? onComplete;
   final VoteScoringService scoringService;
   final VoidCallback? onBack;
-  final VoidCallback? onSettings;
 
   @override
   State<VotingScreen> createState() => _VotingScreenState();
@@ -42,6 +41,10 @@ class _VotingScreenState extends State<VotingScreen> {
   Player get _activeVoter => widget.players[_voterIndex];
   bool get _allVotesCollected => _votes.length == widget.players.length;
 
+  Future<void> _onBackPressed() async {
+    await confirmExitGameOnBack(context, onBack: widget.onBack);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -52,12 +55,19 @@ class _VotingScreenState extends State<VotingScreen> {
 
     return BrutalistScreenTheme.wrap(
       context,
-      Scaffold(
-        appBar: OtlBrutalistDiscoveryAppBar(
-          onBack: widget.onBack ?? () => context.pop(),
-          onSettings: widget.onSettings,
-        ),
-        body: Stack(
+      PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) {
+          if (!didPop) {
+            unawaited(_onBackPressed());
+          }
+        },
+        child: Scaffold(
+          appBar: OtlBrutalistDiscoveryAppBar(
+            onBack: _onBackPressed,
+            showSettings: false,
+          ),
+          body: Stack(
           fit: StackFit.expand,
           children: [
             const OtlPartyAtmosphere.voting(),
@@ -67,7 +77,7 @@ class _VotingScreenState extends State<VotingScreen> {
                 builder: (context, viewport) {
                   final compact = viewport.maxHeight < 700;
                   final bottomInset = _allVotesCollected
-                      ? (compact ? 100.0 : 112.0)
+                      ? 0.0
                       : widget.timerSettings.enabled
                       ? (compact ? 120.0 : 140.0)
                       : 24.0;
@@ -152,6 +162,7 @@ class _VotingScreenState extends State<VotingScreen> {
                 ),
               ),
           ],
+        ),
         ),
       ),
     );

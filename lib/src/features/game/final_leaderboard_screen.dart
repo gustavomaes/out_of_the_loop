@@ -40,8 +40,9 @@ class FinalLeaderboardScreen extends StatelessWidget {
     return BrutalistScreenTheme.wrap(
       context,
       Scaffold(
-        appBar: OtlBrutalistDiscoveryAppBar(
-          onBack: onBackHome ?? () => context.goDiscoveryTab(AppRoutes.home),
+        appBar: const OtlBrutalistDiscoveryAppBar(
+          showBack: false,
+          showSettings: false,
         ),
         body: SafeArea(
           top: false,

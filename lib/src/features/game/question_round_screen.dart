@@ -1,5 +1,6 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../domain/models/models.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -20,7 +21,6 @@ class QuestionRoundScreen extends StatefulWidget {
     this.remainingSeconds,
     this.onComplete,
     this.onBack,
-    this.onSettings,
     super.key,
   });
 
@@ -31,7 +31,6 @@ class QuestionRoundScreen extends StatefulWidget {
   final int? remainingSeconds;
   final VoidCallback? onComplete;
   final VoidCallback? onBack;
-  final VoidCallback? onSettings;
 
   @override
   State<QuestionRoundScreen> createState() => _QuestionRoundScreenState();
@@ -49,6 +48,10 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
     (player) => player.id == _currentTurn.playerId,
   );
 
+  Future<void> _onBackPressed() async {
+    await confirmExitGameOnBack(context, onBack: widget.onBack);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -58,11 +61,18 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
 
     return BrutalistScreenTheme.wrap(
       context,
-      Scaffold(
-        appBar: OtlBrutalistDiscoveryAppBar(
-          onBack: widget.onBack ?? () => context.pop(),
-          onSettings: widget.onSettings,
-        ),
+      PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) {
+          if (!didPop) {
+            unawaited(_onBackPressed());
+          }
+        },
+        child: Scaffold(
+          appBar: OtlBrutalistDiscoveryAppBar(
+            onBack: _onBackPressed,
+            showSettings: false,
+          ),
         body: Stack(
           fit: StackFit.expand,
           children: [
@@ -74,21 +84,17 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
                   final compact = viewport.maxHeight < 700;
                   final sectionGap = compact ? 20.0 : 28.0;
 
-                  final cardMinHeight = (viewport.maxHeight * 0.38).clamp(
-                    160.0,
-                    300.0,
-                  );
-
                   return Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 448),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+                        padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
                         child: Column(
                           children: [
                             Expanded(
                               child: SingleChildScrollView(
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     PlayerTurnChip(
                                       label: l10n.questionRoundPlayerTurn(
@@ -96,42 +102,36 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
                                       ),
                                     ),
                                     SizedBox(height: sectionGap),
-                                    SizedBox(
-                                      height: cardMinHeight,
-                                      child: AnimatedSwitcher(
-                                        duration: const Duration(
-                                          milliseconds: 280,
-                                        ),
-                                        switchInCurve: Curves.easeOutCubic,
-                                        switchOutCurve: Curves.easeInCubic,
-                                        transitionBuilder: (child, animation) {
-                                          final offsetAnimation =
-                                              Tween<Offset>(
-                                                begin: const Offset(0.1, 0),
-                                                end: Offset.zero,
-                                              ).animate(
-                                                CurvedAnimation(
-                                                  parent: animation,
-                                                  curve: Curves.easeOutCubic,
-                                                ),
-                                              );
+                                    AnimatedSwitcher(
+                                      duration: const Duration(
+                                        milliseconds: 280,
+                                      ),
+                                      switchInCurve: Curves.easeOutCubic,
+                                      switchOutCurve: Curves.easeInCubic,
+                                      transitionBuilder: (child, animation) {
+                                        final offsetAnimation = Tween<Offset>(
+                                          begin: const Offset(0.1, 0),
+                                          end: Offset.zero,
+                                        ).animate(
+                                          CurvedAnimation(
+                                            parent: animation,
+                                            curve: Curves.easeOutCubic,
+                                          ),
+                                        );
 
-                                          return FadeTransition(
-                                            opacity: animation,
-                                            child: SlideTransition(
-                                              position: offsetAnimation,
-                                              child: child,
-                                            ),
-                                          );
-                                        },
-                                        child: QuestionCard(
-                                          key: ValueKey('turn-$_turnIndex'),
-                                          questionText: _currentTurn
-                                              .question
-                                              .text
-                                              .valueFor(widget.language)
-                                              .toUpperCase(),
-                                        ),
+                                        return FadeTransition(
+                                          opacity: animation,
+                                          child: SlideTransition(
+                                            position: offsetAnimation,
+                                            child: child,
+                                          ),
+                                        );
+                                      },
+                                      child: QuestionCard(
+                                        key: ValueKey('turn-$_turnIndex'),
+                                        questionText: _currentTurn.question.text
+                                            .valueFor(widget.language)
+                                            .toUpperCase(),
                                       ),
                                     ),
                                     SizedBox(height: sectionGap),
@@ -166,7 +166,6 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
                                         ),
                                       ],
                                     ],
-                                    SizedBox(height: compact ? 16 : 24),
                                   ],
                                 ),
                               ),
@@ -184,6 +183,7 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
               ),
             ),
           ],
+        ),
         ),
       ),
     );
