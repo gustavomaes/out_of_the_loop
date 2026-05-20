@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../domain/models/models.dart';
+import '../../../shared/sound/sound_effects_scope.dart';
 import '../../../theme/theme.dart';
 import '../category_icon.dart';
 
@@ -46,7 +47,7 @@ class OtlCategoryTile extends StatelessWidget {
         return Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: onTap,
+            onTap: otlTap(context, onTap),
             child: Stack(
               clipBehavior: Clip.none,
               fit: StackFit.expand,

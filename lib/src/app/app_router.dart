@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../data/audio/background_music_service.dart';
+import '../data/audio/sound_effects_service.dart';
 import '../data/preferences/preferences_repository.dart';
 import '../domain/models/models.dart';
 import '../domain/services/match_setup_service.dart';
@@ -29,6 +31,8 @@ class AppRouter {
   AppRouter({
     required this.flow,
     required this.preferencesRepository,
+    required this.soundEffects,
+    required this.backgroundMusic,
     required this.onFlowChanged,
     Listenable? refreshListenable,
   }) : router = GoRouter(
@@ -38,12 +42,16 @@ class AppRouter {
          routes: _routes(
            flow: flow,
            preferencesRepository: preferencesRepository,
+           soundEffects: soundEffects,
+           backgroundMusic: backgroundMusic,
            onFlowChanged: onFlowChanged,
          ),
        );
 
   final GameFlowController flow;
   final PreferencesRepository preferencesRepository;
+  final SoundEffectsService soundEffects;
+  final BackgroundMusicService backgroundMusic;
   final VoidCallback onFlowChanged;
   final GoRouter router;
 
@@ -53,6 +61,8 @@ class AppRouter {
   static List<RouteBase> _routes({
     required GameFlowController flow,
     required PreferencesRepository preferencesRepository,
+    required SoundEffectsService soundEffects,
+    required BackgroundMusicService backgroundMusic,
     required VoidCallback onFlowChanged,
   }) {
     return [
@@ -97,6 +107,8 @@ class AppRouter {
                   child: _DiscoverySettingsRoute(
                     flow: flow,
                     preferencesRepository: preferencesRepository,
+                    soundEffects: soundEffects,
+                    backgroundMusic: backgroundMusic,
                     onFlowChanged: onFlowChanged,
                   ),
                 ),
@@ -388,21 +400,35 @@ class _DiscoverySettingsRoute extends StatelessWidget {
   const _DiscoverySettingsRoute({
     required this.flow,
     required this.preferencesRepository,
+    required this.soundEffects,
+    required this.backgroundMusic,
     required this.onFlowChanged,
   });
 
   final GameFlowController flow;
   final PreferencesRepository preferencesRepository;
+  final SoundEffectsService soundEffects;
+  final BackgroundMusicService backgroundMusic;
   final VoidCallback onFlowChanged;
 
   @override
   Widget build(BuildContext context) {
     return SettingsScreen(
       initialLanguage: flow.language,
+      initialMusicEnabled: backgroundMusic.musicEnabled,
+      initialSoundEffectsEnabled: soundEffects.soundEffectsEnabled,
       onLanguageChanged: (language) {
         flow.language = language;
         onFlowChanged();
         unawaited(preferencesRepository.saveLanguage(language));
+      },
+      onMusicEnabledChanged: (enabled) {
+        unawaited(backgroundMusic.applyMusicEnabled(enabled));
+        unawaited(preferencesRepository.saveMusicEnabled(enabled));
+      },
+      onSoundEffectsEnabledChanged: (enabled) {
+        soundEffects.soundEffectsEnabled = enabled;
+        unawaited(preferencesRepository.saveSoundEffectsEnabled(enabled));
       },
     );
   }

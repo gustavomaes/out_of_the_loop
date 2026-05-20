@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
 
 enum OtlButtonVariant { primary, secondary, outline }
@@ -70,7 +71,7 @@ class OtlButton extends StatelessWidget {
     return TextButton(
       focusNode: focusNode,
       autofocus: autofocus,
-      onPressed: onPressed,
+      onPressed: otlTap(context, onPressed),
       style: ButtonStyle(
         minimumSize: const WidgetStatePropertyAll(Size(44, 44)),
         padding: WidgetStatePropertyAll(_padding),

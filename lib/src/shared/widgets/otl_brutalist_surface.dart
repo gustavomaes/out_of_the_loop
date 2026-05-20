@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../sound/sound_effects_scope.dart';
+
 class OtlBrutalistSurface extends StatelessWidget {
   const OtlBrutalistSurface({
     required this.backgroundColor,
@@ -43,7 +45,7 @@ class OtlBrutalistSurface extends StatelessWidget {
 
     return Material(
       color: Colors.transparent,
-      child: InkWell(onTap: onTap, child: content),
+      child: InkWell(onTap: otlTap(context, onTap), child: content),
     );
   }
 }

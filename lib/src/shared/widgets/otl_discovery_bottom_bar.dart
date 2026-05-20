@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/app_routes.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../icons/icons.dart';
+import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
 
 /// Figma-aligned discovery bottom bar (PLAY / CATEGORIES / PROFILE).
@@ -146,7 +147,7 @@ class _InactiveNavItem extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap,
+        onTap: otlTap(context, onTap),
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: OtlDiscoveryBottomBar._inactiveHorizontalPadding,
@@ -202,7 +203,7 @@ class _ActiveNavTab extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap,
+        onTap: otlTap(context, onTap),
         child: Stack(
           fit: StackFit.expand,
           clipBehavior: Clip.none,

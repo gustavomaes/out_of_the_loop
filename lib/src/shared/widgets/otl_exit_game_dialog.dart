@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
 
 /// Shows the exit-game dialog and runs [onBack] or pops the route when confirmed.
@@ -103,7 +104,7 @@ class _ExitGameDialogButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: onPressed,
+          onTap: otlTap(context, onPressed),
           borderRadius: BorderRadius.circular(16),
           child: Ink(
             decoration: BoxDecoration(

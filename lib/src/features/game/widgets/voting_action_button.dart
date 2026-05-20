@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/sound/sound_effects_scope.dart';
 import '../../../theme/theme.dart';
 
 class VotingActionButton extends StatelessWidget {
@@ -44,7 +45,7 @@ class VotingActionButton extends StatelessWidget {
                   ? BrutalistColors.playerCardPink
                   : BrutalistColors.headerBorder.withValues(alpha: 0.3),
               child: InkWell(
-                onTap: enabled ? onPressed : null,
+                onTap: enabled ? otlTap(context, onPressed) : null,
                 child: Ink(
                   decoration: BoxDecoration(
                     border: Border.all(

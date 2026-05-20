@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../app/app_routes.dart';
 import '../../app/discovery_shell.dart';
 import '../icons/icons.dart';
+import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
 
 /// Figma top bar: back, fixed app name, settings.
@@ -48,8 +49,11 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
                 children: [
                   if (showBack)
                     IconButton(
-                      onPressed: onBack ??
-                          () => context.goDiscoveryTab(AppRoutes.home),
+                      onPressed: otlTap(
+                        context,
+                        onBack ??
+                            () => context.goDiscoveryTab(AppRoutes.home),
+                      ),
                       icon: const Icon(
                         OtlIcons.arrowBack,
                         color: Colors.white,
@@ -73,8 +77,11 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
                   ),
                   if (showSettings)
                     IconButton(
-                      onPressed: onSettings ??
-                          () => context.goDiscoveryTab(AppRoutes.settings),
+                      onPressed: otlTap(
+                        context,
+                        onSettings ??
+                            () => context.goDiscoveryTab(AppRoutes.settings),
+                      ),
                       icon: const Icon(
                         OtlIcons.settings,
                         color: Colors.white,

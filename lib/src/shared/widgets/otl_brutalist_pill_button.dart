@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
 
 /// Figma-aligned neubrutalist pill button for the home screen.
@@ -54,7 +55,7 @@ class OtlBrutalistPillButton extends StatelessWidget {
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: onPressed,
+                onTap: otlTap(context, onPressed),
                 borderRadius: radius,
                 child: Ink(
                   decoration: BoxDecoration(

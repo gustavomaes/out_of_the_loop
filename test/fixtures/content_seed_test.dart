@@ -15,7 +15,7 @@ void main() {
     final firstWord = words.first as Map<String, dynamic>;
     final questions = firstWord['questions'] as List<dynamic>;
 
-    expect(categories, hasLength(20));
+    expect(categories, hasLength(6));
     for (final category in categories.cast<Map<String, dynamic>>()) {
       expect(category['words'], hasLength(30));
     }
@@ -47,6 +47,32 @@ void main() {
     expect(seed['languages'], ['pt-BR', 'en', 'es', 'hi']);
     expect(seed['minQuestionsPerWord'], 3);
     expect(seed['maxQuestionsPerWord'], 9);
+  });
+
+  test('questions never contain the secret word in any language', () {
+    final seed = _loadSeed();
+    final languages = _stringList(seed, 'languages');
+
+    for (final category in _objectList(seed, 'categories')) {
+      for (final word in _objectList(category, 'words')) {
+        final values = (word['value'] as Map<String, dynamic>).values
+            .cast<String>();
+        for (final question in _objectList(word, 'questions')) {
+          final text = question['text'] as Map<String, dynamic>;
+          for (final language in languages) {
+            final questionText = text[language] as String;
+            for (final secret in values) {
+              expect(
+                _questionContainsWord(questionText, secret),
+                isFalse,
+                reason:
+                    'word "${word['id']}" leaks "$secret" in $language: $questionText',
+              );
+            }
+          }
+        }
+      }
+    }
   });
 
   test('fixture validation rejects words with too few questions', () {
@@ -86,8 +112,8 @@ void _validateSeed(Map<String, dynamic> seed) {
   if (minQuestions < 3 || maxQuestions > 9 || minQuestions > maxQuestions) {
     throw const FormatException('Question boundaries must stay within 3 to 9.');
   }
-  if (categories.length != 20) {
-    throw const FormatException('Seed must include exactly 20 categories.');
+  if (categories.length != 6) {
+    throw const FormatException('Seed must include exactly 6 categories.');
   }
 
   for (final category in categories) {
@@ -149,6 +175,27 @@ void _requireHexColor(Map<String, dynamic> json, String key) {
   if (value is! String || !RegExp(r'^#[0-9A-Fa-f]{6}$').hasMatch(value)) {
     throw FormatException('$key must be a #RRGGBB color.');
   }
+}
+
+bool _questionContainsWord(String question, String word) {
+  final normalizedQuestion = question
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9\u0900-\u097F\s]'), '');
+  final normalizedWord = word
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9\u0900-\u097F\s]'), '');
+  if (normalizedWord.isEmpty) {
+    return false;
+  }
+  if (normalizedWord.contains(' ')) {
+    return normalizedQuestion.contains(normalizedWord);
+  }
+  final pattern = RegExp(
+    r'(^|[^a-z0-9\u0900-\u097F])'
+    '${RegExp.escape(normalizedWord)}'
+    r'([^a-z0-9\u0900-\u097F]|$)',
+  );
+  return pattern.hasMatch(normalizedQuestion);
 }
 
 void _requireLocalizedMap(

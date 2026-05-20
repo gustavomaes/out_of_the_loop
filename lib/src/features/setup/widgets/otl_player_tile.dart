@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../category_icon.dart';
 import '../../../shared/widgets/player_avatar.dart';
+import '../../../shared/sound/sound_effects_scope.dart';
 import '../../../theme/theme.dart';
 
 class OtlPlayerTile extends StatelessWidget {
@@ -82,7 +83,7 @@ class OtlPlayerTile extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    onPressed: onRemove,
+                    onPressed: otlTap(context, onRemove),
                     tooltip: removeTooltip,
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(

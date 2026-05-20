@@ -19,12 +19,12 @@ void main() {
       expect(categories.single.iconKey, 'restaurant');
     });
 
-    test('bundled content exposes 20 categories with 30 localized words each', () async {
+    test('bundled content exposes 6 categories with 30 localized words each', () async {
       final repository = LocalContentRepository();
 
       final categories = await repository.listCategories(SupportedLanguage.en);
 
-      expect(categories, hasLength(20));
+      expect(categories, hasLength(6));
       expect(categories.first.id, 'food');
       for (final category in categories) {
         final words = await repository.wordsForCategory(

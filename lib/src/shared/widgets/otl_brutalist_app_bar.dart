@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../icons/icons.dart';
+import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
 
 class OtlBrutalistAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -54,7 +55,7 @@ class OtlBrutalistAppBar extends StatelessWidget implements PreferredSizeWidget 
                     child: Row(
                       children: [
                         IconButton(
-                          onPressed: onBack,
+                          onPressed: otlTap(context, onBack),
                           icon: const Icon(
                             OtlIcons.arrowBack,
                             color: Colors.white,

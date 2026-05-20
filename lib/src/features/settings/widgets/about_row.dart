@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/sound/sound_effects_scope.dart';
 import '../../../theme/theme.dart';
 
 class AboutRow extends StatelessWidget {
@@ -51,6 +52,6 @@ class AboutRow extends StatelessWidget {
       return content;
     }
 
-    return InkWell(onTap: onTap, child: content);
+    return InkWell(onTap: otlTap(context, onTap), child: content);
   }
 }

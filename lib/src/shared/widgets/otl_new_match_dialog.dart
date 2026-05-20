@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
 
 enum NewMatchDialogChoice { keepCategory, changeCategory }
@@ -86,7 +87,7 @@ class _NewMatchDialogButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: onPressed,
+          onTap: otlTap(context, onPressed),
           borderRadius: BorderRadius.circular(16),
           child: Ink(
             decoration: BoxDecoration(

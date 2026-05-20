@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../../shared/sound/sound_effects_scope.dart';
 import '../../../theme/theme.dart';
 
 class MatchSetupFooter extends StatelessWidget {
@@ -54,7 +55,7 @@ class MatchSetupFooter extends StatelessWidget {
                       child: Material(
                         color: BrutalistColors.lime,
                         child: InkWell(
-                          onTap: onPressed,
+                          onTap: otlTap(context, onPressed),
                           child: Ink(
                             decoration: BoxDecoration(
                               border: Border.all(

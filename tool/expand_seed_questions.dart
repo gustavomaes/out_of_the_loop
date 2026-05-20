@@ -1,3 +1,5 @@
+// Deprecated: use tool/regenerate_seed_content.dart instead.
+// That script uses generic questions that never embed the secret word.
 // Expands every word in assets/content/seed_content.json to 9 questions.
 // ignore_for_file: avoid_print
 
