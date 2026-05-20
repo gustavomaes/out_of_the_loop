@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "720220790759",
+    "project_id": "imposter-math-squirrels",
+    "storage_bucket": "imposter-math-squirrels.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720220790759:android:3aedf7f3aa135e56956742",
+        "android_client_info": {
+          "package_name": "com.mathsquirrels.outoftheloop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_vmZ_5WFJeo-zlrJRvxEx4R-ZBAvLaDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
