@@ -240,14 +240,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get questionRoundSpeakUpLine2 => 'todos ouvirem.';
 
   @override
-  String get questionRoundTimeRemaining => 'TEMPO RESTANTE';
-
-  @override
-  String questionRoundTimeSeconds(int seconds) {
-    return '${seconds}S';
-  }
-
-  @override
   String get questionRoundDoneAnswering => 'TERMINEI DE RESPONDER';
 
   @override
@@ -255,13 +247,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get questionRoundGoToVoting => 'IR PARA VOTAÇÃO';
-
-  @override
-  String get questionRoundTimerExpiredLine1 => 'O tempo acabou.';
-
-  @override
-  String get questionRoundTimerExpiredLine2 =>
-      'Termine esta resposta quando estiver pronto.';
 
   @override
   String get questionRoundExitTitle => 'Cancelar partida?';
@@ -305,21 +290,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get votingCannotVoteSelf => 'NAO PODE VOTAR EM SI';
-
-  @override
-  String get votingTimeToVote => 'HORA DE VOTAR';
-
-  @override
-  String votingTimeSeconds(int seconds) {
-    return '${seconds}s';
-  }
-
-  @override
-  String get votingTimerExpiredLine1 => 'O tempo acabou.';
-
-  @override
-  String get votingTimerExpiredLine2 =>
-      'Registre seu voto quando estiver pronto.';
 
   @override
   String get confirmVotes => 'CONFIRMAR VOTOS';
@@ -444,9 +414,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get settingsSectionAudio => 'ÁUDIO';
 
   @override
-  String get settingsSectionTimer => 'TIMER';
-
-  @override
   String get settingsSectionAbout => 'SOBRE';
 
   @override
@@ -480,18 +447,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get settingsLanguageHindi => 'Hindi';
 
   @override
-  String get settingsUseTimer => 'Usar timer';
-
-  @override
-  String settingsTimerSeconds(int seconds) {
-    return '$seconds segundos por turno';
-  }
-
-  @override
   String get language => 'Idioma';
-
-  @override
-  String get timer => 'Timer';
 
   @override
   String get howToPlayScreenTitle => 'COMO JOGAR';
@@ -782,14 +738,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get questionRoundSpeakUpLine2 => 'todos ouvirem.';
 
   @override
-  String get questionRoundTimeRemaining => 'TEMPO RESTANTE';
-
-  @override
-  String questionRoundTimeSeconds(int seconds) {
-    return '${seconds}S';
-  }
-
-  @override
   String get questionRoundDoneAnswering => 'TERMINEI DE RESPONDER';
 
   @override
@@ -797,13 +745,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get questionRoundGoToVoting => 'IR PARA VOTAÇÃO';
-
-  @override
-  String get questionRoundTimerExpiredLine1 => 'O tempo acabou.';
-
-  @override
-  String get questionRoundTimerExpiredLine2 =>
-      'Finalize esta resposta quando estiver pronto.';
 
   @override
   String get questionRoundExitTitle => 'Cancelar partida?';
@@ -847,21 +788,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get votingCannotVoteSelf => 'NAO PODE VOTAR EM SI';
-
-  @override
-  String get votingTimeToVote => 'HORA DE VOTAR';
-
-  @override
-  String votingTimeSeconds(int seconds) {
-    return '${seconds}s';
-  }
-
-  @override
-  String get votingTimerExpiredLine1 => 'O tempo acabou.';
-
-  @override
-  String get votingTimerExpiredLine2 =>
-      'Registre seu voto quando estiver pronto.';
 
   @override
   String get confirmVotes => 'CONFIRMAR VOTOS';
@@ -986,9 +912,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get settingsSectionAudio => 'ÁUDIO';
 
   @override
-  String get settingsSectionTimer => 'TIMER';
-
-  @override
   String get settingsSectionAbout => 'SOBRE';
 
   @override
@@ -1022,18 +945,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get settingsLanguageHindi => 'Hindi';
 
   @override
-  String get settingsUseTimer => 'Usar timer';
-
-  @override
-  String settingsTimerSeconds(int seconds) {
-    return '$seconds segundos por turno';
-  }
-
-  @override
   String get language => 'Idioma';
-
-  @override
-  String get timer => 'Timer';
 
   @override
   String get howToPlayScreenTitle => 'COMO JOGAR';

@@ -235,14 +235,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get questionRoundSpeakUpLine2 => 'everyone can hear you.';
 
   @override
-  String get questionRoundTimeRemaining => 'TIME REMAINING';
-
-  @override
-  String questionRoundTimeSeconds(int seconds) {
-    return '${seconds}S';
-  }
-
-  @override
   String get questionRoundDoneAnswering => 'DONE ANSWERING';
 
   @override
@@ -250,12 +242,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get questionRoundGoToVoting => 'GO TO VOTING';
-
-  @override
-  String get questionRoundTimerExpiredLine1 => 'Time is up.';
-
-  @override
-  String get questionRoundTimerExpiredLine2 => 'Finish this answer when ready.';
 
   @override
   String get questionRoundExitTitle => 'Leave the match?';
@@ -299,20 +285,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get votingCannotVoteSelf => 'CANNOT VOTE SELF';
-
-  @override
-  String get votingTimeToVote => 'TIME TO VOTE';
-
-  @override
-  String votingTimeSeconds(int seconds) {
-    return '${seconds}s';
-  }
-
-  @override
-  String get votingTimerExpiredLine1 => 'Time is up.';
-
-  @override
-  String get votingTimerExpiredLine2 => 'Cast your vote when ready.';
 
   @override
   String get confirmVotes => 'CONFIRM VOTES';
@@ -437,9 +409,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsSectionAudio => 'AUDIO';
 
   @override
-  String get settingsSectionTimer => 'TIMER';
-
-  @override
   String get settingsSectionAbout => 'ABOUT';
 
   @override
@@ -473,18 +442,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsLanguageHindi => 'Hindi';
 
   @override
-  String get settingsUseTimer => 'Use timer';
-
-  @override
-  String settingsTimerSeconds(int seconds) {
-    return '$seconds seconds per turn';
-  }
-
-  @override
   String get language => 'Language';
-
-  @override
-  String get timer => 'Timer';
 
   @override
   String get howToPlayScreenTitle => 'HOW TO PLAY';

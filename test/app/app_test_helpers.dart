@@ -7,7 +7,7 @@ void setEnglishAppPreferences() {
   SharedPreferences.setMockInitialValues({'settings.language': 'en'});
 }
 
-/// Taps the first enabled VOTE control (skips self-vote and timer-disabled buttons).
+/// Taps the first enabled VOTE control (skips self-vote disabled buttons).
 Future<void> tapFirstEnabledVote(WidgetTester tester) async {
   final voteLabels = find.text('VOTE');
   for (var index = 0; index < voteLabels.evaluate().length; index += 1) {

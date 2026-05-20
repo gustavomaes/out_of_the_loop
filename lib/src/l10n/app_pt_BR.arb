@@ -130,20 +130,9 @@
   "questionRoundSpeakUp": "FALE ALTO!",
   "questionRoundSpeakUpLine1": "Responda a pergunta em voz alta para",
   "questionRoundSpeakUpLine2": "todos ouvirem.",
-  "questionRoundTimeRemaining": "TEMPO RESTANTE",
-  "questionRoundTimeSeconds": "{seconds}S",
-  "@questionRoundTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "questionRoundDoneAnswering": "TERMINEI DE RESPONDER",
   "questionRoundNextQuestion": "PRÓXIMA PERGUNTA",
   "questionRoundGoToVoting": "IR PARA VOTAÇÃO",
-  "questionRoundTimerExpiredLine1": "O tempo acabou.",
-  "questionRoundTimerExpiredLine2": "Finalize esta resposta quando estiver pronto.",
   "questionRoundExitTitle": "Cancelar partida?",
   "questionRoundExitMessage": "Se você voltar agora, a partida será cancelada e você retornará à seleção de categorias.",
   "questionRoundExitConfirm": "CANCELAR PARTIDA",
@@ -158,17 +147,6 @@
   "votingVote": "VOTAR",
   "votingYou": "VOCE",
   "votingCannotVoteSelf": "NAO PODE VOTAR EM SI",
-  "votingTimeToVote": "HORA DE VOTAR",
-  "votingTimeSeconds": "{seconds}s",
-  "@votingTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
-  "votingTimerExpiredLine1": "O tempo acabou.",
-  "votingTimerExpiredLine2": "Registre seu voto quando estiver pronto.",
   "confirmVotes": "CONFIRMAR VOTOS",
   "roundResults": "RESULTADO DA RODADA",
   "roundResultsHeadlineAccent": "RESULTADO",
@@ -247,7 +225,6 @@
   "settingsScreenTitle": "CONFIGURAÇÕES",
   "settingsSectionLanguage": "IDIOMA",
   "settingsSectionAudio": "ÁUDIO",
-  "settingsSectionTimer": "TIMER",
   "settingsSectionAbout": "SOBRE",
   "settingsMusic": "Música",
   "settingsSoundEffects": "Efeitos Sonoros",
@@ -259,17 +236,7 @@
   "settingsLanguageEnglish": "English",
   "settingsLanguageSpanish": "Español",
   "settingsLanguageHindi": "Hindi",
-  "settingsUseTimer": "Usar timer",
-  "settingsTimerSeconds": "{seconds} segundos por turno",
-  "@settingsTimerSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "language": "Idioma",
-  "timer": "Timer",
   "howToPlayScreenTitle": "COMO JOGAR",
   "howToPlayKapow": "KA-POW!",
   "howToPlaySecretTitle": "O SEGREDO",

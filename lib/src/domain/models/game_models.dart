@@ -148,23 +148,6 @@ final class SecretWord {
       Object.hash(id, categoryId, value, Object.hashAll(questions));
 }
 
-final class TimerSettings {
-  const TimerSettings({this.enabled = true, this.durationSeconds = 30});
-
-  final bool enabled;
-  final int durationSeconds;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is TimerSettings &&
-          enabled == other.enabled &&
-          durationSeconds == other.durationSeconds;
-
-  @override
-  int get hashCode => Object.hash(enabled, durationSeconds);
-}
-
 final class MatchSetup {
   MatchSetup({
     required this.categoryId,
@@ -172,7 +155,6 @@ final class MatchSetup {
     required this.questionsPerPlayer,
     required List<Player> players,
     required this.language,
-    this.timerSettings = const TimerSettings(),
   }) : players = List.unmodifiable(players);
 
   static const minPlayers = 3;
@@ -188,7 +170,6 @@ final class MatchSetup {
   final int questionsPerPlayer;
   final List<Player> players;
   final SupportedLanguage language;
-  final TimerSettings timerSettings;
 
   int get questionsPerRound => players.length * questionsPerPlayer;
 
@@ -205,8 +186,7 @@ final class MatchSetup {
           roundCount == other.roundCount &&
           questionsPerPlayer == other.questionsPerPlayer &&
           _listEquals(players, other.players) &&
-          language == other.language &&
-          timerSettings == other.timerSettings;
+          language == other.language;
 
   @override
   int get hashCode => Object.hash(
@@ -215,7 +195,6 @@ final class MatchSetup {
     questionsPerPlayer,
     Object.hashAll(players),
     language,
-    timerSettings,
   );
 }
 

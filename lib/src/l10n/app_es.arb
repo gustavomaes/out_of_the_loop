@@ -127,20 +127,9 @@
   "questionRoundSpeakUp": "¡HABLA EN VOZ ALTA!",
   "questionRoundSpeakUpLine1": "Responde la pregunta en voz alta para que",
   "questionRoundSpeakUpLine2": "todos te escuchen.",
-  "questionRoundTimeRemaining": "TIEMPO RESTANTE",
-  "questionRoundTimeSeconds": "{seconds}S",
-  "@questionRoundTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "questionRoundDoneAnswering": "TERMINÉ DE RESPONDER",
   "questionRoundNextQuestion": "SIGUIENTE PREGUNTA",
   "questionRoundGoToVoting": "IR A VOTAR",
-  "questionRoundTimerExpiredLine1": "Se acabó el tiempo.",
-  "questionRoundTimerExpiredLine2": "Termina esta respuesta cuando estés listo.",
   "questionRoundExitTitle": "¿Cancelar la partida?",
   "questionRoundExitMessage": "Si vuelves ahora, la partida se cancelará y regresarás a la selección de categorías.",
   "questionRoundExitConfirm": "CANCELAR PARTIDA",
@@ -155,17 +144,6 @@
   "votingVote": "VOTAR",
   "votingYou": "TU",
   "votingCannotVoteSelf": "NO PUEDES VOTARTE",
-  "votingTimeToVote": "HORA DE VOTAR",
-  "votingTimeSeconds": "{seconds}s",
-  "@votingTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
-  "votingTimerExpiredLine1": "Se acabo el tiempo.",
-  "votingTimerExpiredLine2": "Registra tu voto cuando estes listo.",
   "confirmVotes": "CONFIRMAR VOTOS",
   "roundResults": "RESULTADOS DE LA RONDA",
   "roundResultsHeadlineAccent": "RESULTADOS",
@@ -244,7 +222,6 @@
   "settingsScreenTitle": "CONFIGURACIÓN",
   "settingsSectionLanguage": "IDIOMA",
   "settingsSectionAudio": "AUDIO",
-  "settingsSectionTimer": "TEMPORIZADOR",
   "settingsSectionAbout": "ACERCA DE",
   "settingsMusic": "Música",
   "settingsSoundEffects": "Efectos de sonido",
@@ -256,17 +233,7 @@
   "settingsLanguageEnglish": "Inglés",
   "settingsLanguageSpanish": "Español",
   "settingsLanguageHindi": "Hindi",
-  "settingsUseTimer": "Usar temporizador",
-  "settingsTimerSeconds": "{seconds} segundos por turno",
-  "@settingsTimerSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "language": "Idioma",
-  "timer": "Timer",
   "howToPlayScreenTitle": "CÓMO JUGAR",
   "howToPlayKapow": "¡PUM!",
   "howToPlaySecretTitle": "EL SECRETO",

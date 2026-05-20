@@ -239,14 +239,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get questionRoundSpeakUpLine2 => 'todos te escuchen.';
 
   @override
-  String get questionRoundTimeRemaining => 'TIEMPO RESTANTE';
-
-  @override
-  String questionRoundTimeSeconds(int seconds) {
-    return '${seconds}S';
-  }
-
-  @override
   String get questionRoundDoneAnswering => 'TERMINÉ DE RESPONDER';
 
   @override
@@ -254,13 +246,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get questionRoundGoToVoting => 'IR A VOTAR';
-
-  @override
-  String get questionRoundTimerExpiredLine1 => 'Se acabó el tiempo.';
-
-  @override
-  String get questionRoundTimerExpiredLine2 =>
-      'Termina esta respuesta cuando estés listo.';
 
   @override
   String get questionRoundExitTitle => '¿Cancelar la partida?';
@@ -304,20 +289,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get votingCannotVoteSelf => 'NO PUEDES VOTARTE';
-
-  @override
-  String get votingTimeToVote => 'HORA DE VOTAR';
-
-  @override
-  String votingTimeSeconds(int seconds) {
-    return '${seconds}s';
-  }
-
-  @override
-  String get votingTimerExpiredLine1 => 'Se acabo el tiempo.';
-
-  @override
-  String get votingTimerExpiredLine2 => 'Registra tu voto cuando estes listo.';
 
   @override
   String get confirmVotes => 'CONFIRMAR VOTOS';
@@ -442,9 +413,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settingsSectionAudio => 'AUDIO';
 
   @override
-  String get settingsSectionTimer => 'TEMPORIZADOR';
-
-  @override
   String get settingsSectionAbout => 'ACERCA DE';
 
   @override
@@ -478,18 +446,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settingsLanguageHindi => 'Hindi';
 
   @override
-  String get settingsUseTimer => 'Usar temporizador';
-
-  @override
-  String settingsTimerSeconds(int seconds) {
-    return '$seconds segundos por turno';
-  }
-
-  @override
   String get language => 'Idioma';
-
-  @override
-  String get timer => 'Timer';
 
   @override
   String get howToPlayScreenTitle => 'CÓMO JUGAR';

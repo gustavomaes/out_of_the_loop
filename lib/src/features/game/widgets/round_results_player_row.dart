@@ -90,7 +90,7 @@ class RoundResultsPlayerRow extends StatelessWidget {
                     const SizedBox(width: 12),
                     Text(
                       value,
-                      style: DisplayTypography.rubikVotingTimerSeconds(
+                      style: DisplayTypography.rubikResultsWinnerTitle(
                         color: resolvedValueColor,
                       ),
                     ),

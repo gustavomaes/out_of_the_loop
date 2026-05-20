@@ -10,16 +10,13 @@ import 'widgets/about_card.dart';
 import 'widgets/audio_toggle_row.dart';
 import 'widgets/language_selector.dart';
 import 'widgets/settings_section.dart';
-import 'widgets/timer_settings_card.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
     this.initialLanguage = SupportedLanguage.ptBr,
-    this.initialTimerSettings = const TimerSettings(),
     this.initialMusicEnabled = false,
     this.initialSoundEffectsEnabled = true,
     this.onLanguageChanged,
-    this.onTimerChanged,
     this.onMusicEnabledChanged,
     this.onSoundEffectsEnabledChanged,
     this.onTermsOfUseTap,
@@ -28,11 +25,9 @@ class SettingsScreen extends StatefulWidget {
   });
 
   final SupportedLanguage initialLanguage;
-  final TimerSettings initialTimerSettings;
   final bool initialMusicEnabled;
   final bool initialSoundEffectsEnabled;
   final ValueChanged<SupportedLanguage>? onLanguageChanged;
-  final ValueChanged<TimerSettings>? onTimerChanged;
   final ValueChanged<bool>? onMusicEnabledChanged;
   final ValueChanged<bool>? onSoundEffectsEnabledChanged;
   final VoidCallback? onTermsOfUseTap;
@@ -44,7 +39,6 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   late SupportedLanguage _language = widget.initialLanguage;
-  late TimerSettings _timerSettings = widget.initialTimerSettings;
   late bool _musicEnabled = widget.initialMusicEnabled;
   late bool _soundEffectsEnabled = widget.initialSoundEffectsEnabled;
 
@@ -100,30 +94,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             const SizedBox(height: 24),
             SettingsSection(
-              label: l10n.settingsSectionTimer,
-              child: TimerSettingsCard(
-                enabled: _timerSettings.enabled,
-                durationSeconds: _timerSettings.durationSeconds,
-                useTimerLabel: l10n.settingsUseTimer,
-                durationLabel: l10n.settingsTimerSeconds(
-                  _timerSettings.durationSeconds,
-                ),
-                onEnabledChanged: (enabled) => _updateTimer(
-                  TimerSettings(
-                    enabled: enabled,
-                    durationSeconds: _timerSettings.durationSeconds,
-                  ),
-                ),
-                onDurationChanged: (seconds) => _updateTimer(
-                  TimerSettings(
-                    enabled: _timerSettings.enabled,
-                    durationSeconds: seconds,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 24),
-            SettingsSection(
               label: l10n.settingsSectionAbout,
               child: AboutCard(
                 termsLabel: l10n.settingsTermsOfUse,
@@ -138,11 +108,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
     );
-  }
-
-  void _updateTimer(TimerSettings settings) {
-    setState(() => _timerSettings = settings);
-    widget.onTimerChanged?.call(settings);
   }
 
   Future<void> _showLanguagePicker(

@@ -469,18 +469,6 @@ abstract class AppLocalizations {
   /// **'todos ouvirem.'**
   String get questionRoundSpeakUpLine2;
 
-  /// No description provided for @questionRoundTimeRemaining.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'TEMPO RESTANTE'**
-  String get questionRoundTimeRemaining;
-
-  /// No description provided for @questionRoundTimeSeconds.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'{seconds}S'**
-  String questionRoundTimeSeconds(int seconds);
-
   /// No description provided for @questionRoundDoneAnswering.
   ///
   /// In pt_BR, this message translates to:
@@ -498,18 +486,6 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'IR PARA VOTAÇÃO'**
   String get questionRoundGoToVoting;
-
-  /// No description provided for @questionRoundTimerExpiredLine1.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'O tempo acabou.'**
-  String get questionRoundTimerExpiredLine1;
-
-  /// No description provided for @questionRoundTimerExpiredLine2.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'Finalize esta resposta quando estiver pronto.'**
-  String get questionRoundTimerExpiredLine2;
 
   /// No description provided for @questionRoundExitTitle.
   ///
@@ -594,30 +570,6 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'NAO PODE VOTAR EM SI'**
   String get votingCannotVoteSelf;
-
-  /// No description provided for @votingTimeToVote.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'HORA DE VOTAR'**
-  String get votingTimeToVote;
-
-  /// No description provided for @votingTimeSeconds.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'{seconds}s'**
-  String votingTimeSeconds(int seconds);
-
-  /// No description provided for @votingTimerExpiredLine1.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'O tempo acabou.'**
-  String get votingTimerExpiredLine1;
-
-  /// No description provided for @votingTimerExpiredLine2.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'Registre seu voto quando estiver pronto.'**
-  String get votingTimerExpiredLine2;
 
   /// No description provided for @confirmVotes.
   ///
@@ -835,12 +787,6 @@ abstract class AppLocalizations {
   /// **'ÁUDIO'**
   String get settingsSectionAudio;
 
-  /// No description provided for @settingsSectionTimer.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'TIMER'**
-  String get settingsSectionTimer;
-
   /// No description provided for @settingsSectionAbout.
   ///
   /// In pt_BR, this message translates to:
@@ -907,29 +853,11 @@ abstract class AppLocalizations {
   /// **'Hindi'**
   String get settingsLanguageHindi;
 
-  /// No description provided for @settingsUseTimer.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'Usar timer'**
-  String get settingsUseTimer;
-
-  /// No description provided for @settingsTimerSeconds.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'{seconds} segundos por turno'**
-  String settingsTimerSeconds(int seconds);
-
   /// No description provided for @language.
   ///
   /// In pt_BR, this message translates to:
   /// **'Idioma'**
   String get language;
-
-  /// No description provided for @timer.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'Timer'**
-  String get timer;
 
   /// No description provided for @howToPlayScreenTitle.
   ///

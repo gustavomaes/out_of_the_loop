@@ -68,14 +68,12 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp> {
     if (!mounted) {
       return;
     }
-    if (_flow.language == preferences.language &&
-        _flow.timerSettings == preferences.timerSettings) {
+    if (_flow.language == preferences.language) {
       return;
     }
     _notifyFlowChanged();
     setState(() {
       _flow.language = preferences.language;
-      _flow.timerSettings = preferences.timerSettings;
     });
   }
 }

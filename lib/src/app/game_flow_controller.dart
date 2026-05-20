@@ -18,7 +18,6 @@ class GameFlowController {
   final VoteScoringService scoringService;
 
   SupportedLanguage language = SupportedLanguage.ptBr;
-  TimerSettings timerSettings = const TimerSettings();
   Category? selectedCategory;
   List<SecretWord> categoryWords = const [];
   MatchSetup? setup;
@@ -60,7 +59,6 @@ class GameFlowController {
       questionsPerPlayer: questionsPerPlayer,
       players: players,
       language: language,
-      timerSettings: timerSettings,
     );
     match = progressionService.startMatch(setup!);
     _startNextRound();

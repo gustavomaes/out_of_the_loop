@@ -234,14 +234,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get questionRoundSpeakUpLine2 => 'सभी सुन सकें।';
 
   @override
-  String get questionRoundTimeRemaining => 'बचा समय';
-
-  @override
-  String questionRoundTimeSeconds(int seconds) {
-    return '$secondsसे';
-  }
-
-  @override
   String get questionRoundDoneAnswering => 'जवाब पूरा';
 
   @override
@@ -249,13 +241,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get questionRoundGoToVoting => 'वोटिंग पर जाएं';
-
-  @override
-  String get questionRoundTimerExpiredLine1 => 'समय समाप्त।';
-
-  @override
-  String get questionRoundTimerExpiredLine2 =>
-      'तैयार होने पर यह जवाब पूरा करें।';
 
   @override
   String get questionRoundExitTitle => 'मैच रद्द करें?';
@@ -300,20 +285,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get votingCannotVoteSelf => 'खुद को वोट नहीं कर सकते';
-
-  @override
-  String get votingTimeToVote => 'वोट का समय';
-
-  @override
-  String votingTimeSeconds(int seconds) {
-    return '$secondsसे';
-  }
-
-  @override
-  String get votingTimerExpiredLine1 => 'समय समाप्त।';
-
-  @override
-  String get votingTimerExpiredLine2 => 'तैयार होने पर अपना वोट दें।';
 
   @override
   String get confirmVotes => 'वोट की पुष्टि करें';
@@ -438,9 +409,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingsSectionAudio => 'ऑडियो';
 
   @override
-  String get settingsSectionTimer => 'टाइमर';
-
-  @override
   String get settingsSectionAbout => 'के बारे में';
 
   @override
@@ -474,18 +442,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingsLanguageHindi => 'हिंदी';
 
   @override
-  String get settingsUseTimer => 'टाइमर उपयोग करें';
-
-  @override
-  String settingsTimerSeconds(int seconds) {
-    return 'प्रति मोड़ $seconds सेकंड';
-  }
-
-  @override
   String get language => 'भाषा';
-
-  @override
-  String get timer => 'टाइमर';
 
   @override
   String get howToPlayScreenTitle => 'कैसे खेलें';

@@ -149,7 +149,7 @@ void main() {
       );
     });
 
-    test('construct round result and timer settings', () {
+    test('construct round result', () {
       final result = RoundResult(
         outPlayerId: 'p2',
         voteCounts: {'p2': 2, 'p1': 1},
@@ -162,8 +162,6 @@ void main() {
 
       expect(result.wasOutFoundByMajority, isTrue);
       expect(result.guessWasCorrect, isNull);
-      expect(const TimerSettings(), const TimerSettings());
-      expect(const TimerSettings().durationSeconds, 30);
     });
   });
 }

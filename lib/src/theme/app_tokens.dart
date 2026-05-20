@@ -136,15 +136,6 @@ abstract final class AppTypography {
     color: AppColors.textTertiary,
   );
 
-  static const timer = TextStyle(
-    fontFamily: primaryFontFamily,
-    fontFamilyFallback: fallbackFontFamily,
-    fontSize: 48,
-    height: 1,
-    fontWeight: FontWeight.w700,
-    color: AppColors.secondaryMain,
-  );
-
   static const emphasis = TextStyle(
     fontFamily: primaryFontFamily,
     fontFamilyFallback: fallbackFontFamily,

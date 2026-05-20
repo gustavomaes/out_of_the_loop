@@ -30,23 +30,6 @@ void main() {
     expect(find.byType(OtlBrutalistToggle), findsOneWidget);
   });
 
-  testWidgets('OtlTimerExpiredMessage renders both lines', (tester) async {
-    await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
-          body: OtlTimerExpiredMessage(
-            line1: 'Time is up',
-            line2: 'Keep playing',
-            style: OtlTimerExpiredMessageStyle.questionRound,
-          ),
-        ),
-      ),
-    );
-
-    expect(find.text('Time is up'), findsOneWidget);
-    expect(find.text('Keep playing'), findsOneWidget);
-  });
-
   testWidgets('OtlPartyAtmosphere variants build without overflow', (
     tester,
   ) async {

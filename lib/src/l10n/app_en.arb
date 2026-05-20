@@ -127,20 +127,9 @@
   "questionRoundSpeakUp": "SPEAK UP!",
   "questionRoundSpeakUpLine1": "Answer the question aloud so",
   "questionRoundSpeakUpLine2": "everyone can hear you.",
-  "questionRoundTimeRemaining": "TIME REMAINING",
-  "questionRoundTimeSeconds": "{seconds}S",
-  "@questionRoundTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "questionRoundDoneAnswering": "DONE ANSWERING",
   "questionRoundNextQuestion": "NEXT QUESTION",
   "questionRoundGoToVoting": "GO TO VOTING",
-  "questionRoundTimerExpiredLine1": "Time is up.",
-  "questionRoundTimerExpiredLine2": "Finish this answer when ready.",
   "questionRoundExitTitle": "Leave the match?",
   "questionRoundExitMessage": "Going back will cancel the match and return you to category selection.",
   "questionRoundExitConfirm": "LEAVE MATCH",
@@ -155,17 +144,6 @@
   "votingVote": "VOTE",
   "votingYou": "YOU",
   "votingCannotVoteSelf": "CANNOT VOTE SELF",
-  "votingTimeToVote": "TIME TO VOTE",
-  "votingTimeSeconds": "{seconds}s",
-  "@votingTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
-  "votingTimerExpiredLine1": "Time is up.",
-  "votingTimerExpiredLine2": "Cast your vote when ready.",
   "confirmVotes": "CONFIRM VOTES",
   "roundResults": "ROUND RESULTS",
   "roundResultsHeadlineAccent": "ROUND",
@@ -244,7 +222,6 @@
   "settingsScreenTitle": "SETTINGS",
   "settingsSectionLanguage": "LANGUAGE",
   "settingsSectionAudio": "AUDIO",
-  "settingsSectionTimer": "TIMER",
   "settingsSectionAbout": "ABOUT",
   "settingsMusic": "Music",
   "settingsSoundEffects": "Sound Effects",
@@ -256,17 +233,7 @@
   "settingsLanguageEnglish": "English",
   "settingsLanguageSpanish": "Spanish",
   "settingsLanguageHindi": "Hindi",
-  "settingsUseTimer": "Use timer",
-  "settingsTimerSeconds": "{seconds} seconds per turn",
-  "@settingsTimerSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "language": "Language",
-  "timer": "Timer",
   "howToPlayScreenTitle": "HOW TO PLAY",
   "howToPlayKapow": "KA-POW!",
   "howToPlaySecretTitle": "THE SECRET",

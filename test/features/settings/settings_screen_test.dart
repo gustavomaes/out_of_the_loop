@@ -12,7 +12,6 @@ void main() {
     tester,
   ) async {
     SupportedLanguage? selectedLanguage;
-    TimerSettings? selectedTimer;
     bool? musicEnabled;
     bool? soundEffectsEnabled;
 
@@ -20,7 +19,6 @@ void main() {
       _TestApp(
         child: SettingsScreen(
           onLanguageChanged: (language) => selectedLanguage = language,
-          onTimerChanged: (timer) => selectedTimer = timer,
           onMusicEnabledChanged: (value) => musicEnabled = value,
           onSoundEffectsEnabledChanged: (value) =>
               soundEffectsEnabled = value,
@@ -56,12 +54,6 @@ void main() {
     expect(find.text('Termos de Uso'), findsOneWidget);
     expect(find.text('Privacidade'), findsOneWidget);
     expect(find.text('v0.1.0'), findsOneWidget);
-
-    await tester.scrollUntilVisible(find.text('Usar timer'), 200);
-    await tester.tap(find.text('Usar timer'));
-    await tester.pump();
-
-    expect(selectedTimer?.enabled, isFalse);
   });
 }
 

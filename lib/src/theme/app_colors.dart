@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Legacy app palette (Poppins shell, forms, timers).
+/// Legacy app palette (Poppins shell, forms).
 abstract final class AppColors {
   static const backgroundPrimary = Color(0xFF070718);
   static const backgroundSecondary = Color(0xFF12122E);
@@ -80,7 +80,4 @@ abstract final class BrutalistColors {
   /// Settings audio row icon tints (Figma).
   static const settingsMusicIcon = Color(0xFFFF3DF2);
   static const settingsSfxIcon = Color(0xFFFFE170);
-
-  /// Timer slider overlay on settings card.
-  static const sliderOverlayLime = Color(0x33B7F700);
 }

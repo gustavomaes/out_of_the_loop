@@ -160,14 +160,10 @@ void main() {
     expect(find.text('PASS TO'), findsWidgets);
   });
 
-  testWidgets('restores saved language and timer preferences on startup', (
+  testWidgets('restores saved language preferences on startup', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({
-      'settings.language': 'en',
-      'settings.timer.enabled': false,
-      'settings.timer.durationSeconds': 45,
-    });
+    SharedPreferences.setMockInitialValues({'settings.language': 'en'});
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
@@ -176,21 +172,6 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('English'), findsOneWidget);
-    final settingsScrollable = find.descendant(
-      of: find.byType(SettingsScreen),
-      matching: find.byType(Scrollable),
-    );
-    await tester.scrollUntilVisible(
-      find.text('TIMER'),
-      200,
-      scrollable: settingsScrollable,
-    );
-    expect(find.text('Use timer'), findsOneWidget);
-    await tester.ensureVisible(find.text('Use timer'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Use timer'));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('45 seconds per turn'), findsOneWidget);
   });
 }
 

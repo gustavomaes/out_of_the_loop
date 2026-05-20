@@ -390,16 +390,6 @@ abstract final class DisplayTypography {
     );
   }
 
-  /// Figma voting timer seconds (Rubik ExtraBold 28 / 32).
-  static TextStyle rubikVotingTimerSeconds({required Color color}) {
-    return _rubik(
-      color: color,
-      fontSize: 28,
-      height: 32 / 28,
-      fontWeight: FontWeight.w800,
-    );
-  }
-
   /// Figma game results winner title (Rubik ExtraBold 28 / 32).
   static TextStyle rubikResultsWinnerTitle({required Color color}) {
     return _rubik(

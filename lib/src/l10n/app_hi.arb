@@ -127,20 +127,9 @@
   "questionRoundSpeakUp": "ज़ोर से बोलें!",
   "questionRoundSpeakUpLine1": "सवाल का जवाब ज़ोर से बोलें ताकि",
   "questionRoundSpeakUpLine2": "सभी सुन सकें।",
-  "questionRoundTimeRemaining": "बचा समय",
-  "questionRoundTimeSeconds": "{seconds}से",
-  "@questionRoundTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "questionRoundDoneAnswering": "जवाब पूरा",
   "questionRoundNextQuestion": "अगला सवाल",
   "questionRoundGoToVoting": "वोटिंग पर जाएं",
-  "questionRoundTimerExpiredLine1": "समय समाप्त।",
-  "questionRoundTimerExpiredLine2": "तैयार होने पर यह जवाब पूरा करें।",
   "questionRoundExitTitle": "मैच रद्द करें?",
   "questionRoundExitMessage": "अभी वापस जाने पर मैच रद्द होगा और आप श्रेणी चयन पर लौटेंगे।",
   "questionRoundExitConfirm": "मैच छोड़ें",
@@ -155,17 +144,6 @@
   "votingVote": "वोट",
   "votingYou": "आप",
   "votingCannotVoteSelf": "खुद को वोट नहीं कर सकते",
-  "votingTimeToVote": "वोट का समय",
-  "votingTimeSeconds": "{seconds}से",
-  "@votingTimeSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
-  "votingTimerExpiredLine1": "समय समाप्त।",
-  "votingTimerExpiredLine2": "तैयार होने पर अपना वोट दें।",
   "confirmVotes": "वोट की पुष्टि करें",
   "roundResults": "राउंड परिणाम",
   "roundResultsHeadlineAccent": "राउंड",
@@ -244,7 +222,6 @@
   "settingsScreenTitle": "सेटिंग्स",
   "settingsSectionLanguage": "भाषा",
   "settingsSectionAudio": "ऑडियो",
-  "settingsSectionTimer": "टाइमर",
   "settingsSectionAbout": "के बारे में",
   "settingsMusic": "संगीत",
   "settingsSoundEffects": "ध्वनि प्रभाव",
@@ -256,17 +233,7 @@
   "settingsLanguageEnglish": "अंग्रेज़ी",
   "settingsLanguageSpanish": "स्पेनिश",
   "settingsLanguageHindi": "हिंदी",
-  "settingsUseTimer": "टाइमर उपयोग करें",
-  "settingsTimerSeconds": "प्रति मोड़ {seconds} सेकंड",
-  "@settingsTimerSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "int"
-      }
-    }
-  },
   "language": "भाषा",
-  "timer": "टाइमर",
   "howToPlayScreenTitle": "कैसे खेलें",
   "howToPlayKapow": "धमाका!",
   "howToPlaySecretTitle": "रहस्य",

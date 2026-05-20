@@ -164,7 +164,6 @@ class AppRouter {
             players: flow.players,
             questionTurns: flow.currentRound!.questionTurns,
             language: flow.language,
-            timerSettings: flow.timerSettings,
             onBack: () =>
                 _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
             onComplete: () => context.pushReplacement(AppRoutes.gameVote),
@@ -179,7 +178,6 @@ class AppRouter {
           AppRoutes.gameVote,
           () => VotingScreen(
             players: flow.players,
-            timerSettings: flow.timerSettings,
             onBack: () =>
                 _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
             onComplete: (votes) {
@@ -358,16 +356,10 @@ class _DiscoverySettingsRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return SettingsScreen(
       initialLanguage: flow.language,
-      initialTimerSettings: flow.timerSettings,
       onLanguageChanged: (language) {
         flow.language = language;
         onFlowChanged();
         unawaited(preferencesRepository.saveLanguage(language));
-      },
-      onTimerChanged: (timerSettings) {
-        flow.timerSettings = timerSettings;
-        onFlowChanged();
-        unawaited(preferencesRepository.saveTimerSettings(timerSettings));
       },
     );
   }

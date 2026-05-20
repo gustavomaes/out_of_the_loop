@@ -10,13 +10,10 @@ import '../../theme/theme.dart';
 import 'widgets/voting_confirm_cta.dart';
 import 'widgets/voting_headline.dart';
 import 'widgets/voting_player_card.dart';
-import 'widgets/voting_timer_dock.dart';
 
 class VotingScreen extends StatefulWidget {
   const VotingScreen({
     required this.players,
-    this.timerSettings = const TimerSettings(),
-    this.remainingSeconds,
     this.onComplete,
     VoteScoringService? scoringService,
     this.onBack,
@@ -24,8 +21,6 @@ class VotingScreen extends StatefulWidget {
   }) : scoringService = scoringService ?? const VoteScoringService();
 
   final List<Player> players;
-  final TimerSettings timerSettings;
-  final int? remainingSeconds;
   final ValueChanged<List<Vote>>? onComplete;
   final VoteScoringService scoringService;
   final VoidCallback? onBack;
@@ -48,10 +43,7 @@ class _VotingScreenState extends State<VotingScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final remainingSeconds =
-        widget.remainingSeconds ?? widget.timerSettings.durationSeconds;
-    final timerExpired = widget.timerSettings.enabled && remainingSeconds == 0;
-    final votingDisabled = timerExpired || _allVotesCollected;
+    final votingDisabled = _allVotesCollected;
 
     return BrutalistScreenTheme.wrap(
       context,
@@ -76,17 +68,12 @@ class _VotingScreenState extends State<VotingScreen> {
               child: LayoutBuilder(
                 builder: (context, viewport) {
                   final compact = viewport.maxHeight < 700;
-                  final bottomInset = _allVotesCollected
-                      ? 0.0
-                      : widget.timerSettings.enabled
-                      ? (compact ? 120.0 : 140.0)
-                      : 24.0;
 
                   return Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 448),
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(20, 16, 20, bottomInset),
+                        padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                         child: Column(
                           children: [
                             Expanded(
@@ -121,16 +108,6 @@ class _VotingScreenState extends State<VotingScreen> {
                                         ),
                                       ),
                                     ),
-                                    if (timerExpired && !_allVotesCollected)
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          top: 12,
-                                        ),
-                                        child: OtlTimerExpiredMessage(
-                                          line1: l10n.votingTimerExpiredLine1,
-                                          line2: l10n.votingTimerExpiredLine2,
-                                        ),
-                                      ),
                                   ],
                                 ),
                               ),
@@ -149,18 +126,6 @@ class _VotingScreenState extends State<VotingScreen> {
                 },
               ),
             ),
-            if (widget.timerSettings.enabled && !_allVotesCollected)
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: VotingTimerDock(
-                  timeToVoteLabel: l10n.votingTimeToVote,
-                  secondsLabel: l10n.votingTimeSeconds(remainingSeconds),
-                  remainingSeconds: remainingSeconds,
-                  totalSeconds: widget.timerSettings.durationSeconds,
-                ),
-              ),
           ],
         ),
         ),

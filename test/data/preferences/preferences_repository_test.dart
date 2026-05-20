@@ -5,32 +5,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   group('PreferencesRepository', () {
-    test('loads defaults when no local preferences exist', () async {
-      SharedPreferences.setMockInitialValues({});
-      const repository = PreferencesRepository();
+    const repository = PreferencesRepository();
 
+    test('returns defaults when preferences are empty', () async {
+      SharedPreferences.setMockInitialValues({});
       final preferences = await repository.load();
 
       expect(preferences.language, SupportedLanguage.ptBr);
-      expect(preferences.timerSettings, const TimerSettings());
     });
 
-    test('saves and restores language and timer settings', () async {
+    test('saves and restores language', () async {
       SharedPreferences.setMockInitialValues({});
-      const repository = PreferencesRepository();
-
       await repository.saveLanguage(SupportedLanguage.en);
-      await repository.saveTimerSettings(
-        const TimerSettings(enabled: false, durationSeconds: 45),
-      );
 
       final preferences = await repository.load();
-
       expect(preferences.language, SupportedLanguage.en);
-      expect(
-        preferences.timerSettings,
-        const TimerSettings(enabled: false, durationSeconds: 45),
-      );
     });
   });
 }

@@ -184,43 +184,6 @@ void main() {
     expect(completed, isTrue);
   });
 
-  testWidgets(
-    'question round uses configured timer and allows expired advance',
-    (tester) async {
-      var completed = false;
-
-      await tester.pumpWidget(
-        _TestApp(
-          child: QuestionRoundScreen(
-            players: _players,
-            questionTurns: _questionTurns(
-              players: _players,
-              questions: [_questions.first],
-              playerOrder: const ['p1'],
-            ),
-            timerSettings: const TimerSettings(durationSeconds: 12),
-            remainingSeconds: 0,
-            onComplete: () => completed = true,
-          ),
-        ),
-      );
-
-      expect(find.text('0S'), findsOneWidget);
-      expect(find.text('Time is up.'), findsOneWidget);
-      expect(
-        find.text('Finish this answer when ready.'),
-        findsOneWidget,
-      );
-
-      await tester.tap(find.text('DONE ANSWERING'));
-      await tester.pump();
-      await tester.tap(find.text('GO TO VOTING'));
-      await tester.pump();
-
-      expect(completed, isTrue);
-    },
-  );
-
   testWidgets('voting confirms before leaving the match', (tester) async {
     var cancelled = false;
 
@@ -271,30 +234,6 @@ void main() {
     await tester.pump();
 
     expect(votes, hasLength(3));
-  });
-
-  testWidgets('voting uses configured timer and expiration records no vote', (
-    tester,
-  ) async {
-    List<Vote>? votes;
-
-    await tester.pumpWidget(
-      _TestApp(
-        child: VotingScreen(
-          players: _players,
-          timerSettings: const TimerSettings(durationSeconds: 12),
-          remainingSeconds: 0,
-          onComplete: (value) => votes = value,
-        ),
-      ),
-    );
-
-    expect(find.text('Time is up.'), findsOneWidget);
-    expect(find.text('Cast your vote when ready.'), findsOneWidget);
-    expect(find.text('CONFIRM VOTES'), findsNothing);
-    expect(find.text('VOTE'), findsWidgets);
-
-    expect(votes, isNull);
   });
 
   testWidgets('round results confirms before leaving the match', (tester) async {

@@ -25,7 +25,6 @@ void main() {
       expect(AppTypography.h1.fontFamily, 'Poppins');
       expect(AppTypography.h1.fontSize, 32);
       expect(AppTypography.h1.fontWeight, FontWeight.w700);
-      expect(AppTypography.timer.fontSize, 48);
       expect(AppTypography.emphasis.letterSpacing, 1);
     });
   });

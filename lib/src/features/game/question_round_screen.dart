@@ -9,7 +9,6 @@ import '../../theme/theme.dart';
 import 'widgets/player_turn_chip.dart';
 import 'widgets/question_card.dart';
 import 'widgets/question_round_cta.dart';
-import 'widgets/question_round_timer.dart';
 import 'widgets/speak_up_prompt.dart';
 
 class QuestionRoundScreen extends StatefulWidget {
@@ -17,8 +16,6 @@ class QuestionRoundScreen extends StatefulWidget {
     required this.players,
     required this.questionTurns,
     this.language = SupportedLanguage.ptBr,
-    this.timerSettings = const TimerSettings(),
-    this.remainingSeconds,
     this.onComplete,
     this.onBack,
     super.key,
@@ -27,8 +24,6 @@ class QuestionRoundScreen extends StatefulWidget {
   final List<Player> players;
   final List<QuestionTurn> questionTurns;
   final SupportedLanguage language;
-  final TimerSettings timerSettings;
-  final int? remainingSeconds;
   final VoidCallback? onComplete;
   final VoidCallback? onBack;
 
@@ -55,9 +50,6 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final remainingSeconds =
-        widget.remainingSeconds ?? widget.timerSettings.durationSeconds;
-    final timerExpired = widget.timerSettings.enabled && remainingSeconds == 0;
 
     return BrutalistScreenTheme.wrap(
       context,
@@ -140,32 +132,6 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
                                       line1: l10n.questionRoundSpeakUpLine1,
                                       line2: l10n.questionRoundSpeakUpLine2,
                                     ),
-                                    if (widget.timerSettings.enabled) ...[
-                                      SizedBox(height: compact ? 16 : 20),
-                                      QuestionRoundTimer(
-                                        timeRemainingLabel:
-                                            l10n.questionRoundTimeRemaining,
-                                        secondsLabel:
-                                            l10n.questionRoundTimeSeconds(
-                                          remainingSeconds,
-                                        ),
-                                        remainingSeconds: remainingSeconds,
-                                        totalSeconds: widget
-                                            .timerSettings
-                                            .durationSeconds,
-                                      ),
-                                      if (timerExpired) ...[
-                                        const SizedBox(height: 12),
-                                        OtlTimerExpiredMessage(
-                                          line1: l10n
-                                              .questionRoundTimerExpiredLine1,
-                                          line2: l10n
-                                              .questionRoundTimerExpiredLine2,
-                                          style: OtlTimerExpiredMessageStyle
-                                              .questionRound,
-                                        ),
-                                      ],
-                                    ],
                                   ],
                                 ),
                               ),
