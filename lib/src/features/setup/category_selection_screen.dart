@@ -79,7 +79,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
             final categories = snapshot.data ?? const <Category>[];
 
             return ListView(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 134),
+              padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
               children: [
                 CategoryHeader(
                   title: l10n.pickCategory,

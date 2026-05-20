@@ -7,6 +7,14 @@ void setEnglishAppPreferences() {
   SharedPreferences.setMockInitialValues({'settings.language': 'en'});
 }
 
+/// Taps the [cardIndex] player card's VOTE control on the voting screen.
+Future<void> tapVoteAtCardIndex(WidgetTester tester, int cardIndex) async {
+  final voteLabels = find.text('VOTE');
+  await tester.ensureVisible(voteLabels.at(cardIndex));
+  await tester.tap(voteLabels.at(cardIndex));
+  await tester.pump();
+}
+
 /// Taps the first enabled VOTE control (skips self-vote disabled buttons).
 Future<void> tapFirstEnabledVote(WidgetTester tester) async {
   final voteLabels = find.text('VOTE');

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../domain/models/models.dart';
 import '../../domain/services/vote_scoring_service.dart';
@@ -14,6 +13,7 @@ class GuessScreen extends StatelessWidget {
   const GuessScreen({
     required this.players,
     required this.round,
+    this.onBack,
     this.onResolved,
     VoteScoringService? scoringService,
     super.key,
@@ -21,6 +21,7 @@ class GuessScreen extends StatelessWidget {
 
   final List<Player> players;
   final RoundState round;
+  final VoidCallback? onBack;
   final ValueChanged<RoundResult>? onResolved;
   final VoteScoringService scoringService;
 
@@ -31,8 +32,15 @@ class GuessScreen extends StatelessWidget {
 
     return BrutalistScreenTheme.wrap(
       context,
-      Scaffold(
-        appBar: OtlBrutalistDiscoveryAppBar(onBack: () => context.pop()),
+      PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) {
+          if (!didPop) {
+            onBack?.call();
+          }
+        },
+        child: Scaffold(
+        appBar: OtlBrutalistDiscoveryAppBar(onBack: onBack),
         body: SafeArea(
           top: false,
           child: Center(
@@ -92,6 +100,7 @@ class GuessScreen extends StatelessWidget {
               ),
             ),
           ),
+        ),
         ),
       ),
     );

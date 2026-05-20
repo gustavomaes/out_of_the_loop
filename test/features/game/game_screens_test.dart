@@ -374,15 +374,21 @@ void main() {
     expect(find.text('PIZZA'), findsNothing);
 
     RoundResult? guessedResult;
+    var guessBacked = false;
     await tester.pumpWidget(
       _TestApp(
         child: GuessScreen(
           players: _players,
           round: _roundWithVotes,
+          onBack: () => guessBacked = true,
           onResolved: (result) => guessedResult = result,
         ),
       ),
     );
+
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pump();
+    expect(guessBacked, isTrue);
 
     await tester.tap(find.text('GOT IT RIGHT'));
     await tester.pump();

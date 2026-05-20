@@ -174,6 +174,8 @@ class AppRouter {
             players: flow.players,
             round: flow.currentRound!,
             language: flow.language,
+            onBack: () =>
+                _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
             onComplete: () => context.pushReplacement(AppRoutes.gameQuestions),
           ),
         ),
@@ -246,6 +248,7 @@ class AppRouter {
           () => GuessScreen(
             players: flow.players,
             round: flow.currentRound!,
+            onBack: () => context.pop(),
             onResolved: (result) =>
                 _finishRound(context, flow, onFlowChanged, result: result),
           ),
@@ -330,7 +333,7 @@ class AppRouter {
     final isFinalRound = flow.resolveCurrentRound(resolved);
     onFlowChanged();
     final nextRoute = isFinalRound ? AppRoutes.gameFinal : AppRoutes.gameReveal;
-    context.pushReplacement(nextRoute);
+    context.go(nextRoute);
   }
 
   static Widget _gameRoute(

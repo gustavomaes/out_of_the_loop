@@ -1,5 +1,6 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../domain/models/models.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -39,15 +40,26 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
   bool get _isOutPlayer => _activePlayer.id == widget.round.outPlayerId;
   bool get _isLastPlayer => _activeIndex == widget.players.length - 1;
 
+  Future<void> _onBackPressed() async {
+    await confirmExitGameOnBack(context, onBack: widget.onBack);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
     return BrutalistScreenTheme.wrap(
       context,
-      Scaffold(
+      PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) {
+          if (!didPop) {
+            unawaited(_onBackPressed());
+          }
+        },
+        child: Scaffold(
         appBar: OtlBrutalistDiscoveryAppBar(
-          onBack: widget.onBack ?? () => context.pop(),
+          onBack: _onBackPressed,
           onSettings: widget.onSettings,
         ),
         body: Stack(
@@ -96,6 +108,7 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
               ),
             ),
           ],
+        ),
         ),
       ),
     );
