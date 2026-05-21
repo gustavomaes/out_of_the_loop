@@ -1,187 +1,1262 @@
 {
-  "pizza": {"pt-BR": "Pizza", "en": "Pizza", "es": "Pizza", "hi": "पिज़्ज़ा"},
-  "burger": {"pt-BR": "Hambúrguer", "en": "Burger", "es": "Hamburguesa", "hi": "बर्गर"},
-  "sushi": {"pt-BR": "Sushi", "en": "Sushi", "es": "Sushi", "hi": "सुशी"},
-  "taco": {"pt-BR": "Taco", "en": "Taco", "es": "Taco", "hi": "टैको"},
-  "pasta": {"pt-BR": "Massa", "en": "Pasta", "es": "Pasta", "hi": "पास्ता"},
-  "salad": {"pt-BR": "Salada", "en": "Salad", "es": "Ensalada", "hi": "सलाद"},
-  "cake": {"pt-BR": "Bolo", "en": "Cake", "es": "Pastel", "hi": "केक"},
-  "ice_cream": {"pt-BR": "Sorvete", "en": "Ice cream", "es": "Helado", "hi": "आइसक्रीम"},
-  "popcorn": {"pt-BR": "Pipoca", "en": "Popcorn", "es": "Palomitas", "hi": "पॉपकॉर्न"},
-  "sandwich": {"pt-BR": "Sanduíche", "en": "Sandwich", "es": "Sándwich", "hi": "सैंडविच"},
-  "ramen": {"pt-BR": "Lámen", "en": "Ramen", "es": "Ramen", "hi": "रामेन"},
-  "curry": {"pt-BR": "Curry", "en": "Curry", "es": "Curry", "hi": "करी"},
-  "pancake": {"pt-BR": "Panqueca", "en": "Pancake", "es": "Panqueque", "hi": "पैनकेक"},
-  "steak": {"pt-BR": "Bife", "en": "Steak", "es": "Bistec", "hi": "स्टेक"},
-  "dumpling": {"pt-BR": "Bolinho", "en": "Dumpling", "es": "Empanadilla", "hi": "डंपलिंग"},
-  "paella": {"pt-BR": "Paella", "en": "Paella", "es": "Paella", "hi": "पाएला"},
-  "hot_dog": {"pt-BR": "Cachorro-quente", "en": "Hot dog", "es": "Perrito caliente", "hi": "हॉट डॉग"},
-  "fries": {"pt-BR": "Batata frita", "en": "Fries", "es": "Papas fritas", "hi": "फ्रेंच फ्राइज़"},
-  "chocolate": {"pt-BR": "Chocolate", "en": "Chocolate", "es": "Chocolate", "hi": "चॉकलेट"},
-  "cheese": {"pt-BR": "Queijo", "en": "Cheese", "es": "Queso", "hi": "पनीर"},
-  "apple": {"pt-BR": "Maçã", "en": "Apple", "es": "Manzana", "hi": "सेब"},
-  "banana": {"pt-BR": "Banana", "en": "Banana", "es": "Plátano", "hi": "केला"},
-  "coffee": {"pt-BR": "Café", "en": "Coffee", "es": "Café", "hi": "कॉफ़ी"},
-  "tea": {"pt-BR": "Chá", "en": "Tea", "es": "Té", "hi": "चाय"},
-  "smoothie": {"pt-BR": "Vitamina", "en": "Smoothie", "es": "Batido", "hi": "स्मूदी"},
-  "bread": {"pt-BR": "Pão", "en": "Bread", "es": "Pan", "hi": "रोटी"},
-  "soup": {"pt-BR": "Sopa", "en": "Soup", "es": "Sopa", "hi": "सूप"},
-  "lasagna": {"pt-BR": "Lasanha", "en": "Lasagna", "es": "Lasaña", "hi": "लज़ान्या"},
-  "donut": {"pt-BR": "Rosquinha", "en": "Donut", "es": "Dona", "hi": "डोनट"},
-  "omelet": {"pt-BR": "Omelete", "en": "Omelet", "es": "Tortilla", "hi": "ऑमलेट"},
-
-  "superhero": {"pt-BR": "Super-herói", "en": "Superhero", "es": "Superhéroe", "hi": "सुपरहीरो"},
-  "detective": {"pt-BR": "Detetive", "en": "Detective", "es": "Detective", "hi": "जासूस"},
-  "space_odyssey": {"pt-BR": "Odisséia espacial", "en": "Space odyssey", "es": "Odisea espacial", "hi": "अंतरिक्ष यात्रा"},
-  "romantic_comedy": {"pt-BR": "Comédia romântica", "en": "Romantic comedy", "es": "Comedia romántica", "hi": "रोमांटिक कॉमेडी"},
-  "horror": {"pt-BR": "Terror", "en": "Horror", "es": "Terror", "hi": "हॉरर"},
-  "animated_movie": {"pt-BR": "Animação", "en": "Animated movie", "es": "Película animada", "hi": "एनिमेशन फ़िल्म"},
-  "musical": {"pt-BR": "Musical", "en": "Musical", "es": "Musical", "hi": "संगीतमय फ़िल्म"},
-  "western": {"pt-BR": "Faroeste", "en": "Western", "es": "Western", "hi": "वेस्टर्न"},
-  "spy_thriller": {"pt-BR": "Espionagem", "en": "Spy thriller", "es": "Thriller de espías", "hi": "जासूसी थ्रिलर"},
-  "time_travel": {"pt-BR": "Viagem no tempo", "en": "Time travel", "es": "Viaje en el tiempo", "hi": "समय यात्रा"},
-  "documentary": {"pt-BR": "Documentário", "en": "Documentary", "es": "Documental", "hi": "डॉक्यूमेंट्री"},
-  "fantasy_epic": {"pt-BR": "Épico de fantasia", "en": "Fantasy epic", "es": "Épica de fantasía", "hi": "फंतासी महाकाव्य"},
-  "sports_movie": {"pt-BR": "Filme esportivo", "en": "Sports movie", "es": "Película deportiva", "hi": "खेल फ़िल्म"},
-  "courtroom_drama": {"pt-BR": "Drama jurídico", "en": "Courtroom drama", "es": "Drama judicial", "hi": "कोर्टरूम ड्रामा"},
-  "road_trip": {"pt-BR": "Viagem de carro", "en": "Road trip", "es": "Viaje por carretera", "hi": "सड़क यात्रा"},
-  "martial_arts": {"pt-BR": "Artes marciais", "en": "Martial arts", "es": "Artes marciales", "hi": "मार्शल आर्ट"},
-  "monster_movie": {"pt-BR": "Filme de monstro", "en": "Monster movie", "es": "Película de monstruos", "hi": "राक्षस फ़िल्म"},
-  "heist": {"pt-BR": "Assalto", "en": "Heist", "es": "Atraco", "hi": "डकैती"},
-  "coming_of_age": {"pt-BR": "Rito de passagem", "en": "Coming of age", "es": "Mayoría de edad", "hi": "वयस्कता"},
-  "silent_film": {"pt-BR": "Filme mudo", "en": "Silent film", "es": "Cine mudo", "hi": "मूक फ़िल्म"},
-  "noir": {"pt-BR": "Filme noir", "en": "Film noir", "es": "Cine negro", "hi": "नॉयर"},
-  "zombie": {"pt-BR": "Zumbi", "en": "Zombie", "es": "Zombi", "hi": "ज़ॉम्बी"},
-  "pirate": {"pt-BR": "Pirata", "en": "Pirate", "es": "Pirata", "hi": "समुद्री डाकू"},
-  "disaster": {"pt-BR": "Desastre", "en": "Disaster", "es": "Desastre", "hi": "आपदा"},
-  "fairy_tale": {"pt-BR": "Conto de fadas", "en": "Fairy tale", "es": "Cuento de hadas", "hi": "परी कथा"},
-  "biopic": {"pt-BR": "Cinebiografia", "en": "Biopic", "es": "Biopic", "hi": "जीवनी फ़िल्म"},
-  "war_movie": {"pt-BR": "Filme de guerra", "en": "War movie", "es": "Película de guerra", "hi": "युद्ध फ़िल्म"},
-  "alien_invasion": {"pt-BR": "Invasão alienígena", "en": "Alien invasion", "es": "Invasión alienígena", "hi": "एलियन आक्रमण"},
-  "dance_movie": {"pt-BR": "Filme de dança", "en": "Dance movie", "es": "Película de baile", "hi": "नृत्य फ़िल्म"},
-  "mystery": {"pt-BR": "Mistério", "en": "Mystery", "es": "Misterio", "hi": "रहस्य"},
-
-  "soccer": {"pt-BR": "Futebol", "en": "Soccer", "es": "Fútbol", "hi": "फ़ुटबॉल"},
-  "basketball": {"pt-BR": "Basquete", "en": "Basketball", "es": "Baloncesto", "hi": "बास्केटबॉल"},
-  "tennis": {"pt-BR": "Tênis", "en": "Tennis", "es": "Tenis", "hi": "टेनिस"},
-  "volleyball": {"pt-BR": "Vôlei", "en": "Volleyball", "es": "Voleibol", "hi": "वॉलीबॉल"},
-  "swimming": {"pt-BR": "Natação", "en": "Swimming", "es": "Natación", "hi": "तैराकी"},
-  "running": {"pt-BR": "Corrida", "en": "Running", "es": "Atletismo", "hi": "दौड़"},
-  "cycling": {"pt-BR": "Ciclismo", "en": "Cycling", "es": "Ciclismo", "hi": "साइकिलिंग"},
-  "baseball": {"pt-BR": "Beisebol", "en": "Baseball", "es": "Béisbol", "hi": "बेसबॉल"},
-  "rugby": {"pt-BR": "Rúgbi", "en": "Rugby", "es": "Rugby", "hi": "रग्बी"},
-  "cricket": {"pt-BR": "Críquete", "en": "Cricket", "es": "Críquet", "hi": "क्रिकेट"},
-  "boxing": {"pt-BR": "Boxe", "en": "Boxing", "es": "Boxeo", "hi": "मुक्केबाज़ी"},
-  "skiing": {"pt-BR": "Esqui", "en": "Skiing", "es": "Esquí", "hi": "स्कीइंग"},
-  "surfing": {"pt-BR": "Surfe", "en": "Surfing", "es": "Surf", "hi": "सर्फ़िंग"},
-  "skateboarding": {"pt-BR": "Skate", "en": "Skateboarding", "es": "Skateboard", "hi": "स्केटबोर्डिंग"},
-  "golf": {"pt-BR": "Golfe", "en": "Golf", "es": "Golf", "hi": "गोल्फ़"},
-  "table_tennis": {"pt-BR": "Tênis de mesa", "en": "Table tennis", "es": "Tenis de mesa", "hi": "टेबल टेनिस"},
-  "badminton": {"pt-BR": "Badminton", "en": "Badminton", "es": "Bádminton", "hi": "बैडमिंटन"},
-  "hockey": {"pt-BR": "Hóquei", "en": "Hockey", "es": "Hockey", "hi": "हॉकी"},
-  "gymnastics": {"pt-BR": "Ginástica", "en": "Gymnastics", "es": "Gimnasia", "hi": "जिमनास्टिक"},
-  "martial_arts_sport": {"pt-BR": "Luta", "en": "Martial arts", "es": "Artes marciales", "hi": "मार्शल आर्ट"},
-  "climbing": {"pt-BR": "Escalada", "en": "Climbing", "es": "Escalada", "hi": "चढ़ाई"},
-  "archery": {"pt-BR": "Arco e flecha", "en": "Archery", "es": "Tiro con arco", "hi": "तीरंदाजी"},
-  "bowling": {"pt-BR": "Boliche", "en": "Bowling", "es": "Bolos", "hi": "बॉलिंग"},
-  "fencing": {"pt-BR": "Esgrima", "en": "Fencing", "es": "Esgrima", "hi": "तलवारबाज़ी"},
-  "rowing": {"pt-BR": "Remo", "en": "Rowing", "es": "Remo", "hi": "रोइंग"},
-  "handball": {"pt-BR": "Handebol", "en": "Handball", "es": "Balonmano", "hi": "हैंडबॉल"},
-  "snowboarding": {"pt-BR": "Snowboard", "en": "Snowboarding", "es": "Snowboard", "hi": "स्नोबोर्डिंग"},
-  "triathlon": {"pt-BR": "Triatlo", "en": "Triathlon", "es": "Triatlón", "hi": "ट्रायथलॉन"},
-  "wrestling": {"pt-BR": "Luta livre", "en": "Wrestling", "es": "Lucha libre", "hi": "कुश्ती"},
-  "yoga": {"pt-BR": "Ioga", "en": "Yoga", "es": "Yoga", "hi": "योग"},
-
-  "guitar": {"pt-BR": "Guitarra", "en": "Guitar", "es": "Guitarra", "hi": "गिटार"},
-  "piano": {"pt-BR": "Piano", "en": "Piano", "es": "Piano", "hi": "पियानो"},
-  "drums": {"pt-BR": "Bateria", "en": "Drums", "es": "Batería", "hi": "ड्रम"},
-  "violin": {"pt-BR": "Violino", "en": "Violin", "es": "Violín", "hi": "वायलिन"},
-  "microphone": {"pt-BR": "Microfone", "en": "Microphone", "es": "Micrófono", "hi": "माइक्रोफ़ोन"},
-  "concert": {"pt-BR": "Show", "en": "Concert", "es": "Concierto", "hi": "संगीत कार्यक्रम"},
-  "dj": {"pt-BR": "DJ", "en": "DJ", "es": "DJ", "hi": "डीजे"},
-  "karaoke": {"pt-BR": "Karaokê", "en": "Karaoke", "es": "Karaoke", "hi": "कराओके"},
-  "jazz": {"pt-BR": "Jazz", "en": "Jazz", "es": "Jazz", "hi": "जैज़"},
-  "rock": {"pt-BR": "Rock", "en": "Rock", "es": "Rock", "hi": "रॉक"},
-  "pop_song": {"pt-BR": "Pop", "en": "Pop song", "es": "Canción pop", "hi": "पॉप गाना"},
-  "opera": {"pt-BR": "Ópera", "en": "Opera", "es": "Ópera", "hi": "ओपेरा"},
-  "saxophone": {"pt-BR": "Saxofone", "en": "Saxophone", "es": "Saxofón", "hi": "सैक्सोफ़ोन"},
-  "flute": {"pt-BR": "Flauta", "en": "Flute", "es": "Flauta", "hi": "बांसुरी"},
-  "choir": {"pt-BR": "Coral", "en": "Choir", "es": "Coro", "hi": "गायक मंडली"},
-  "playlist": {"pt-BR": "Playlist", "en": "Playlist", "es": "Lista de reproducción", "hi": "प्लेलिस्ट"},
-  "headphones": {"pt-BR": "Fone de ouvido", "en": "Headphones", "es": "Auriculares", "hi": "हेडफ़ोन"},
-  "vinyl": {"pt-BR": "Vinil", "en": "Vinyl", "es": "Vinilo", "hi": "विनाइल"},
-  "rap": {"pt-BR": "Rap", "en": "Rap", "es": "Rap", "hi": "रैप"},
-  "country_music": {"pt-BR": "Country", "en": "Country music", "es": "Música country", "hi": "कंट्री संगीत"},
-  "reggae": {"pt-BR": "Reggae", "en": "Reggae", "es": "Reggae", "hi": "रेगे"},
-  "classical_music": {"pt-BR": "Música clássica", "en": "Classical music", "es": "Música clásica", "hi": "शास्त्रीय संगीत"},
-  "festival": {"pt-BR": "Festival", "en": "Festival", "es": "Festival", "hi": "त्योहार"},
-  "bass": {"pt-BR": "Baixo", "en": "Bass", "es": "Bajo", "hi": "बास"},
-  "trumpet": {"pt-BR": "Trompete", "en": "Trumpet", "es": "Trompeta", "hi": "तुरही"},
-  "songwriter": {"pt-BR": "Compositor", "en": "Songwriter", "es": "Compositor", "hi": "गीतकार"},
-  "dance_floor": {"pt-BR": "Pista de dança", "en": "Dance floor", "es": "Pista de baile", "hi": "डांस फ़्लोर"},
-  "lullaby": {"pt-BR": "Canção de ninar", "en": "Lullaby", "es": "Canción de cuna", "hi": "लोरी"},
-  "music_video": {"pt-BR": "Clipe musical", "en": "Music video", "es": "Videoclip", "hi": "संगीत वीडियो"},
-  "album": {"pt-BR": "Álbum", "en": "Album", "es": "Álbum", "hi": "एल्बम"},
-
-  "beach": {"pt-BR": "Praia", "en": "Beach", "es": "Playa", "hi": "समुद्र तट"},
-  "mountain": {"pt-BR": "Montanha", "en": "Mountain", "es": "Montaña", "hi": "पहाड़"},
-  "airport": {"pt-BR": "Aeroporto", "en": "Airport", "es": "Aeropuerto", "hi": "हवाई अड्डा"},
-  "passport": {"pt-BR": "Passaporte", "en": "Passport", "es": "Pasaporte", "hi": "पासपोर्ट"},
-  "hotel": {"pt-BR": "Hotel", "en": "Hotel", "es": "Hotel", "hi": "होटल"},
-  "camping": {"pt-BR": "Acampamento", "en": "Camping", "es": "Campamento", "hi": "कैम्पिंग"},
-  "road_trip_travel": {"pt-BR": "Viagem de carro", "en": "Road trip", "es": "Viaje por carretera", "hi": "सड़क यात्रा"},
-  "museum": {"pt-BR": "Museu", "en": "Museum", "es": "Museo", "hi": "संग्रहालय"},
-  "train": {"pt-BR": "Trem", "en": "Train", "es": "Tren", "hi": "ट्रेन"},
-  "cruise": {"pt-BR": "Cruzeiro", "en": "Cruise", "es": "Crucero", "hi": "क्रूज़"},
-  "backpack": {"pt-BR": "Mochila", "en": "Backpack", "es": "Mochila", "hi": "बैग"},
-  "map": {"pt-BR": "Mapa", "en": "Map", "es": "Mapa", "hi": "नक्शा"},
-  "souvenir": {"pt-BR": "Lembrancinha", "en": "Souvenir", "es": "Recuerdo", "hi": "यादगार"},
-  "city_tour": {"pt-BR": "Passeio urbano", "en": "City tour", "es": "Tour urbano", "hi": "शहर भ्रमण"},
-  "desert": {"pt-BR": "Deserto", "en": "Desert", "es": "Desierto", "hi": "रेगिस्तान"},
-  "waterfall": {"pt-BR": "Cachoeira", "en": "Waterfall", "es": "Cascada", "hi": "झरना"},
-  "island": {"pt-BR": "Ilha", "en": "Island", "es": "Isla", "hi": "द्वीप"},
-  "hostel": {"pt-BR": "Hostel", "en": "Hostel", "es": "Albergue", "hi": "हॉस्टल"},
-  "safari": {"pt-BR": "Safári", "en": "Safari", "es": "Safari", "hi": "सफ़ारी"},
-  "temple": {"pt-BR": "Templo", "en": "Temple", "es": "Templo", "hi": "मंदिर"},
-  "castle": {"pt-BR": "Castelo", "en": "Castle", "es": "Castillo", "hi": "किला"},
-  "bus": {"pt-BR": "Ônibus", "en": "Bus", "es": "Autobús", "hi": "बस"},
-  "taxi": {"pt-BR": "Táxi", "en": "Taxi", "es": "Taxi", "hi": "टैक्सी"},
-  "luggage": {"pt-BR": "Bagagem", "en": "Luggage", "es": "Equipaje", "hi": "सामान"},
-  "market": {"pt-BR": "Mercado", "en": "Market", "es": "Mercado", "hi": "बाज़ार"},
-  "hiking": {"pt-BR": "Trilha", "en": "Hiking", "es": "Senderismo", "hi": "पैदल यात्रा"},
-  "cave": {"pt-BR": "Caverna", "en": "Cave", "es": "Cueva", "hi": "गुफा"},
-  "lake": {"pt-BR": "Lago", "en": "Lake", "es": "Lago", "hi": "झील"},
-  "guidebook": {"pt-BR": "Guia de viagem", "en": "Guidebook", "es": "Guía de viaje", "hi": "गाइडबुक"},
-  "sunset": {"pt-BR": "Pôr do sol", "en": "Sunset", "es": "Atardecer", "hi": "सूर्यास्त"},
-
-  "dog": {"pt-BR": "Cachorro", "en": "Dog", "es": "Perro", "hi": "कुत्ता"},
-  "cat": {"pt-BR": "Gato", "en": "Cat", "es": "Gato", "hi": "बिल्ली"},
-  "elephant": {"pt-BR": "Elefante", "en": "Elephant", "es": "Elefante", "hi": "हाथी"},
-  "lion": {"pt-BR": "Leão", "en": "Lion", "es": "León", "hi": "शेर"},
-  "tiger": {"pt-BR": "Tigre", "en": "Tiger", "es": "Tigre", "hi": "बाघ"},
-  "giraffe": {"pt-BR": "Girafa", "en": "Giraffe", "es": "Jirafa", "hi": "जिराफ़"},
-  "penguin": {"pt-BR": "Pinguim", "en": "Penguin", "es": "Pingüino", "hi": "पेंगुइन"},
-  "dolphin": {"pt-BR": "Golfinho", "en": "Dolphin", "es": "Delfín", "hi": "डॉल्फ़िन"},
-  "shark": {"pt-BR": "Tubarão", "en": "Shark", "es": "Tiburón", "hi": "शार्क"},
-  "eagle": {"pt-BR": "Águia", "en": "Eagle", "es": "Águila", "hi": "गरुड़"},
-  "owl": {"pt-BR": "Coruja", "en": "Owl", "es": "Búho", "hi": "उल्लू"},
-  "horse": {"pt-BR": "Cavalo", "en": "Horse", "es": "Caballo", "hi": "घोड़ा"},
-  "rabbit": {"pt-BR": "Coelho", "en": "Rabbit", "es": "Conejo", "hi": "खरगोश"},
-  "panda": {"pt-BR": "Panda", "en": "Panda", "es": "Panda", "hi": "पांडा"},
-  "kangaroo": {"pt-BR": "Canguru", "en": "Kangaroo", "es": "Canguro", "hi": "कंगारू"},
-  "monkey": {"pt-BR": "Macaco", "en": "Monkey", "es": "Mono", "hi": "बंदर"},
-  "snake": {"pt-BR": "Cobra", "en": "Snake", "es": "Serpiente", "hi": "साँप"},
-  "turtle": {"pt-BR": "Tartaruga", "en": "Turtle", "es": "Tortuga", "hi": "कछुआ"},
-  "fox": {"pt-BR": "Raposa", "en": "Fox", "es": "Zorro", "hi": "लोमड़ी"},
-  "bear": {"pt-BR": "Urso", "en": "Bear", "es": "Oso", "hi": "भालू"},
-  "wolf": {"pt-BR": "Lobo", "en": "Wolf", "es": "Lobo", "hi": "भेड़िया"},
-  "zebra": {"pt-BR": "Zebra", "en": "Zebra", "es": "Cebra", "hi": "ज़ेबरा"},
-  "frog": {"pt-BR": "Sapo", "en": "Frog", "es": "Rana", "hi": "मेंढक"},
-  "whale": {"pt-BR": "Baleia", "en": "Whale", "es": "Ballena", "hi": "व्हेल"},
-  "octopus": {"pt-BR": "Polvo", "en": "Octopus", "es": "Pulpo", "hi": "ऑक्टोपस"},
-  "parrot": {"pt-BR": "Papagaio", "en": "Parrot", "es": "Loro", "hi": "तोता"},
-  "camel": {"pt-BR": "Camelo", "en": "Camel", "es": "Camello", "hi": "ऊँट"},
-  "koala": {"pt-BR": "Coala", "en": "Koala", "es": "Koala", "hi": "कोआला"},
-  "bee": {"pt-BR": "Abelha", "en": "Bee", "es": "Abeja", "hi": "मधुमक्खी"},
-  "butterfly": {"pt-BR": "Borboleta", "en": "Butterfly", "es": "Mariposa", "hi": "तितली"}
+  "pizza": {
+    "pt-BR": "Pizza",
+    "en": "Pizza",
+    "es": "Pizza",
+    "hi": "पिज़्ज़ा",
+    "ar": "بيتزا"
+  },
+  "burger": {
+    "pt-BR": "Hambúrguer",
+    "en": "Burger",
+    "es": "Hamburguesa",
+    "hi": "बर्गर",
+    "ar": "برجر"
+  },
+  "sushi": {
+    "pt-BR": "Sushi",
+    "en": "Sushi",
+    "es": "Sushi",
+    "hi": "सुशी",
+    "ar": "سوشي"
+  },
+  "taco": {
+    "pt-BR": "Taco",
+    "en": "Taco",
+    "es": "Taco",
+    "hi": "टैको",
+    "ar": "تاكو"
+  },
+  "pasta": {
+    "pt-BR": "Massa",
+    "en": "Pasta",
+    "es": "Pasta",
+    "hi": "पास्ता",
+    "ar": "معكرونة"
+  },
+  "salad": {
+    "pt-BR": "Salada",
+    "en": "Salad",
+    "es": "Ensalada",
+    "hi": "सलाद",
+    "ar": "سلطة"
+  },
+  "cake": {
+    "pt-BR": "Bolo",
+    "en": "Cake",
+    "es": "Pastel",
+    "hi": "केक",
+    "ar": "كعكة"
+  },
+  "ice_cream": {
+    "pt-BR": "Sorvete",
+    "en": "Ice cream",
+    "es": "Helado",
+    "hi": "आइसक्रीम",
+    "ar": "آيسكريم"
+  },
+  "popcorn": {
+    "pt-BR": "Pipoca",
+    "en": "Popcorn",
+    "es": "Palomitas",
+    "hi": "पॉपकॉर्न",
+    "ar": "فشار"
+  },
+  "sandwich": {
+    "pt-BR": "Sanduíche",
+    "en": "Sandwich",
+    "es": "Sándwich",
+    "hi": "सैंडविच",
+    "ar": "ساندويتش"
+  },
+  "ramen": {
+    "pt-BR": "Lámen",
+    "en": "Ramen",
+    "es": "Ramen",
+    "hi": "रामेन",
+    "ar": "رامن"
+  },
+  "curry": {
+    "pt-BR": "Curry",
+    "en": "Curry",
+    "es": "Curry",
+    "hi": "करी",
+    "ar": "كاري"
+  },
+  "pancake": {
+    "pt-BR": "Panqueca",
+    "en": "Pancake",
+    "es": "Panqueque",
+    "hi": "पैनकेक",
+    "ar": "فطيرة"
+  },
+  "steak": {
+    "pt-BR": "Bife",
+    "en": "Steak",
+    "es": "Bistec",
+    "hi": "स्टेक",
+    "ar": "ستيك"
+  },
+  "dumpling": {
+    "pt-BR": "Bolinho",
+    "en": "Dumpling",
+    "es": "Empanadilla",
+    "hi": "डंपलिंग",
+    "ar": "زلابية"
+  },
+  "paella": {
+    "pt-BR": "Paella",
+    "en": "Paella",
+    "es": "Paella",
+    "hi": "पाएला",
+    "ar": "بايلا"
+  },
+  "hot_dog": {
+    "pt-BR": "Cachorro-quente",
+    "en": "Hot dog",
+    "es": "Perrito caliente",
+    "hi": "हॉट डॉग",
+    "ar": "هوت دوغ"
+  },
+  "fries": {
+    "pt-BR": "Batata frita",
+    "en": "Fries",
+    "es": "Papas fritas",
+    "hi": "फ्रेंच फ्राइज़",
+    "ar": "بطاطس مقلية"
+  },
+  "chocolate": {
+    "pt-BR": "Chocolate",
+    "en": "Chocolate",
+    "es": "Chocolate",
+    "hi": "चॉकलेट",
+    "ar": "شوكولاتة"
+  },
+  "cheese": {
+    "pt-BR": "Queijo",
+    "en": "Cheese",
+    "es": "Queso",
+    "hi": "पनीर",
+    "ar": "جبن"
+  },
+  "apple": {
+    "pt-BR": "Maçã",
+    "en": "Apple",
+    "es": "Manzana",
+    "hi": "सेब",
+    "ar": "تفاح"
+  },
+  "banana": {
+    "pt-BR": "Banana",
+    "en": "Banana",
+    "es": "Plátano",
+    "hi": "केला",
+    "ar": "موز"
+  },
+  "coffee": {
+    "pt-BR": "Café",
+    "en": "Coffee",
+    "es": "Café",
+    "hi": "कॉफ़ी",
+    "ar": "قهوة"
+  },
+  "tea": {
+    "pt-BR": "Chá",
+    "en": "Tea",
+    "es": "Té",
+    "hi": "चाय",
+    "ar": "شاي"
+  },
+  "smoothie": {
+    "pt-BR": "Vitamina",
+    "en": "Smoothie",
+    "es": "Batido",
+    "hi": "स्मूदी",
+    "ar": "سموذي"
+  },
+  "bread": {
+    "pt-BR": "Pão",
+    "en": "Bread",
+    "es": "Pan",
+    "hi": "रोटी",
+    "ar": "خبز"
+  },
+  "soup": {
+    "pt-BR": "Sopa",
+    "en": "Soup",
+    "es": "Sopa",
+    "hi": "सूप",
+    "ar": "حساء"
+  },
+  "lasagna": {
+    "pt-BR": "Lasanha",
+    "en": "Lasagna",
+    "es": "Lasaña",
+    "hi": "लज़ान्या",
+    "ar": "لازانيا"
+  },
+  "donut": {
+    "pt-BR": "Rosquinha",
+    "en": "Donut",
+    "es": "Dona",
+    "hi": "डोनट",
+    "ar": "دونات"
+  },
+  "omelet": {
+    "pt-BR": "Omelete",
+    "en": "Omelet",
+    "es": "Tortilla",
+    "hi": "ऑमलेट",
+    "ar": "أومليت"
+  },
+  "superhero": {
+    "pt-BR": "Super-herói",
+    "en": "Superhero",
+    "es": "Superhéroe",
+    "hi": "सुपरहीरो",
+    "ar": "بطل خارق"
+  },
+  "detective": {
+    "pt-BR": "Detetive",
+    "en": "Detective",
+    "es": "Detective",
+    "hi": "जासूस",
+    "ar": "محقق"
+  },
+  "space_odyssey": {
+    "pt-BR": "Odisséia espacial",
+    "en": "Space odyssey",
+    "es": "Odisea espacial",
+    "hi": "अंतरिक्ष यात्रा",
+    "ar": "رحلة فضائية"
+  },
+  "romantic_comedy": {
+    "pt-BR": "Comédia romântica",
+    "en": "Romantic comedy",
+    "es": "Comedia romántica",
+    "hi": "रोमांटिक कॉमेडी",
+    "ar": "كوميديا رومانسية"
+  },
+  "horror": {
+    "pt-BR": "Terror",
+    "en": "Horror",
+    "es": "Terror",
+    "hi": "हॉरर",
+    "ar": "رعب"
+  },
+  "animated_movie": {
+    "pt-BR": "Animação",
+    "en": "Animated movie",
+    "es": "Película animada",
+    "hi": "एनिमेशन फ़िल्म",
+    "ar": "فيلم رسوم متحركة"
+  },
+  "musical": {
+    "pt-BR": "Musical",
+    "en": "Musical",
+    "es": "Musical",
+    "hi": "संगीतमय फ़िल्म",
+    "ar": "مسرحية موسيقية"
+  },
+  "western": {
+    "pt-BR": "Faroeste",
+    "en": "Western",
+    "es": "Western",
+    "hi": "वेस्टर्न",
+    "ar": "فيلم غربي"
+  },
+  "spy_thriller": {
+    "pt-BR": "Espionagem",
+    "en": "Spy thriller",
+    "es": "Thriller de espías",
+    "hi": "जासूसी थ्रिलर",
+    "ar": "تشويق تجسس"
+  },
+  "time_travel": {
+    "pt-BR": "Viagem no tempo",
+    "en": "Time travel",
+    "es": "Viaje en el tiempo",
+    "hi": "समय यात्रा",
+    "ar": "سفر عبر الزمن"
+  },
+  "documentary": {
+    "pt-BR": "Documentário",
+    "en": "Documentary",
+    "es": "Documental",
+    "hi": "डॉक्यूमेंट्री",
+    "ar": "وثائقي"
+  },
+  "fantasy_epic": {
+    "pt-BR": "Épico de fantasia",
+    "en": "Fantasy epic",
+    "es": "Épica de fantasía",
+    "hi": "फंतासी महाकाव्य",
+    "ar": "ملحمة خيالية"
+  },
+  "sports_movie": {
+    "pt-BR": "Filme esportivo",
+    "en": "Sports movie",
+    "es": "Película deportiva",
+    "hi": "खेल फ़िल्म",
+    "ar": "فيلم رياضي"
+  },
+  "courtroom_drama": {
+    "pt-BR": "Drama jurídico",
+    "en": "Courtroom drama",
+    "es": "Drama judicial",
+    "hi": "कोर्टरूम ड्रामा",
+    "ar": "دراما محكمة"
+  },
+  "road_trip": {
+    "pt-BR": "Viagem de carro",
+    "en": "Road trip",
+    "es": "Viaje por carretera",
+    "hi": "सड़क यात्रा",
+    "ar": "رحلة برية"
+  },
+  "martial_arts": {
+    "pt-BR": "Artes marciais",
+    "en": "Martial arts",
+    "es": "Artes marciales",
+    "hi": "मार्शल आर्ट",
+    "ar": "فنون قتالية"
+  },
+  "monster_movie": {
+    "pt-BR": "Filme de monstro",
+    "en": "Monster movie",
+    "es": "Película de monstruos",
+    "hi": "राक्षस फ़िल्म",
+    "ar": "فيلم وحوش"
+  },
+  "heist": {
+    "pt-BR": "Assalto",
+    "en": "Heist",
+    "es": "Atraco",
+    "hi": "डकैती",
+    "ar": "سرقة"
+  },
+  "coming_of_age": {
+    "pt-BR": "Rito de passagem",
+    "en": "Coming of age",
+    "es": "Mayoría de edad",
+    "hi": "वयस्कता",
+    "ar": "بلوغ"
+  },
+  "silent_film": {
+    "pt-BR": "Filme mudo",
+    "en": "Silent film",
+    "es": "Cine mudo",
+    "hi": "मूक फ़िल्म",
+    "ar": "فيلم صامت"
+  },
+  "noir": {
+    "pt-BR": "Filme noir",
+    "en": "Film noir",
+    "es": "Cine negro",
+    "hi": "नॉयर",
+    "ar": "فيلم نوار"
+  },
+  "zombie": {
+    "pt-BR": "Zumbi",
+    "en": "Zombie",
+    "es": "Zombi",
+    "hi": "ज़ॉम्बी",
+    "ar": "زومبي"
+  },
+  "pirate": {
+    "pt-BR": "Pirata",
+    "en": "Pirate",
+    "es": "Pirata",
+    "hi": "समुद्री डाकू",
+    "ar": "قرصان"
+  },
+  "disaster": {
+    "pt-BR": "Desastre",
+    "en": "Disaster",
+    "es": "Desastre",
+    "hi": "आपदा",
+    "ar": "كارثة"
+  },
+  "fairy_tale": {
+    "pt-BR": "Conto de fadas",
+    "en": "Fairy tale",
+    "es": "Cuento de hadas",
+    "hi": "परी कथा",
+    "ar": "حكاية خيالية"
+  },
+  "biopic": {
+    "pt-BR": "Cinebiografia",
+    "en": "Biopic",
+    "es": "Biopic",
+    "hi": "जीवनी फ़िल्म",
+    "ar": "سيرة ذاتية"
+  },
+  "war_movie": {
+    "pt-BR": "Filme de guerra",
+    "en": "War movie",
+    "es": "Película de guerra",
+    "hi": "युद्ध फ़िल्म",
+    "ar": "فيلم حرب"
+  },
+  "alien_invasion": {
+    "pt-BR": "Invasão alienígena",
+    "en": "Alien invasion",
+    "es": "Invasión alienígena",
+    "hi": "एलियन आक्रमण",
+    "ar": "غزو فضائي"
+  },
+  "dance_movie": {
+    "pt-BR": "Filme de dança",
+    "en": "Dance movie",
+    "es": "Película de baile",
+    "hi": "नृत्य फ़िल्म",
+    "ar": "فيلم رقص"
+  },
+  "mystery": {
+    "pt-BR": "Mistério",
+    "en": "Mystery",
+    "es": "Misterio",
+    "hi": "रहस्य",
+    "ar": "غموض"
+  },
+  "soccer": {
+    "pt-BR": "Futebol",
+    "en": "Soccer",
+    "es": "Fútbol",
+    "hi": "फ़ुटबॉल",
+    "ar": "كرة قدم"
+  },
+  "basketball": {
+    "pt-BR": "Basquete",
+    "en": "Basketball",
+    "es": "Baloncesto",
+    "hi": "बास्केटबॉल",
+    "ar": "كرة سلة"
+  },
+  "tennis": {
+    "pt-BR": "Tênis",
+    "en": "Tennis",
+    "es": "Tenis",
+    "hi": "टेनिस",
+    "ar": "تنس"
+  },
+  "volleyball": {
+    "pt-BR": "Vôlei",
+    "en": "Volleyball",
+    "es": "Voleibol",
+    "hi": "वॉलीबॉल",
+    "ar": "كرة طائرة"
+  },
+  "swimming": {
+    "pt-BR": "Natação",
+    "en": "Swimming",
+    "es": "Natación",
+    "hi": "तैराकी",
+    "ar": "سباحة"
+  },
+  "running": {
+    "pt-BR": "Corrida",
+    "en": "Running",
+    "es": "Atletismo",
+    "hi": "दौड़",
+    "ar": "جري"
+  },
+  "cycling": {
+    "pt-BR": "Ciclismo",
+    "en": "Cycling",
+    "es": "Ciclismo",
+    "hi": "साइकिलिंग",
+    "ar": "دراجات"
+  },
+  "baseball": {
+    "pt-BR": "Beisebol",
+    "en": "Baseball",
+    "es": "Béisbol",
+    "hi": "बेसबॉल",
+    "ar": "بيسبول"
+  },
+  "rugby": {
+    "pt-BR": "Rúgbi",
+    "en": "Rugby",
+    "es": "Rugby",
+    "hi": "रग्बी",
+    "ar": "رغبي"
+  },
+  "cricket": {
+    "pt-BR": "Críquete",
+    "en": "Cricket",
+    "es": "Críquet",
+    "hi": "क्रिकेट",
+    "ar": "كريكيت"
+  },
+  "boxing": {
+    "pt-BR": "Boxe",
+    "en": "Boxing",
+    "es": "Boxeo",
+    "hi": "मुक्केबाज़ी",
+    "ar": "ملاكمة"
+  },
+  "skiing": {
+    "pt-BR": "Esqui",
+    "en": "Skiing",
+    "es": "Esquí",
+    "hi": "स्कीइंग",
+    "ar": "تزلج"
+  },
+  "surfing": {
+    "pt-BR": "Surfe",
+    "en": "Surfing",
+    "es": "Surf",
+    "hi": "सर्फ़िंग",
+    "ar": "ركوب أمواج"
+  },
+  "skateboarding": {
+    "pt-BR": "Skate",
+    "en": "Skateboarding",
+    "es": "Skateboard",
+    "hi": "स्केटबोर्डिंग",
+    "ar": "تزلج على اللوح"
+  },
+  "golf": {
+    "pt-BR": "Golfe",
+    "en": "Golf",
+    "es": "Golf",
+    "hi": "गोल्फ़",
+    "ar": "غولف"
+  },
+  "table_tennis": {
+    "pt-BR": "Tênis de mesa",
+    "en": "Table tennis",
+    "es": "Tenis de mesa",
+    "hi": "टेबल टेनिस",
+    "ar": "تنس طاولة"
+  },
+  "badminton": {
+    "pt-BR": "Badminton",
+    "en": "Badminton",
+    "es": "Bádminton",
+    "hi": "बैडमिंटन",
+    "ar": "ريشة طائرة"
+  },
+  "hockey": {
+    "pt-BR": "Hóquei",
+    "en": "Hockey",
+    "es": "Hockey",
+    "hi": "हॉकी",
+    "ar": "هوكي"
+  },
+  "gymnastics": {
+    "pt-BR": "Ginástica",
+    "en": "Gymnastics",
+    "es": "Gimnasia",
+    "hi": "जिमनास्टिक",
+    "ar": "جمباز"
+  },
+  "martial_arts_sport": {
+    "pt-BR": "Luta",
+    "en": "Martial arts",
+    "es": "Artes marciales",
+    "hi": "मार्शल आर्ट",
+    "ar": "فنون قتالية"
+  },
+  "climbing": {
+    "pt-BR": "Escalada",
+    "en": "Climbing",
+    "es": "Escalada",
+    "hi": "चढ़ाई",
+    "ar": "تسلق"
+  },
+  "archery": {
+    "pt-BR": "Arco e flecha",
+    "en": "Archery",
+    "es": "Tiro con arco",
+    "hi": "तीरंदाजी",
+    "ar": "رماية"
+  },
+  "bowling": {
+    "pt-BR": "Boliche",
+    "en": "Bowling",
+    "es": "Bolos",
+    "hi": "बॉलिंग",
+    "ar": "بولينغ"
+  },
+  "fencing": {
+    "pt-BR": "Esgrima",
+    "en": "Fencing",
+    "es": "Esgrima",
+    "hi": "तलवारबाज़ी",
+    "ar": "مبارزة"
+  },
+  "rowing": {
+    "pt-BR": "Remo",
+    "en": "Rowing",
+    "es": "Remo",
+    "hi": "रोइंग",
+    "ar": "تجديف"
+  },
+  "handball": {
+    "pt-BR": "Handebol",
+    "en": "Handball",
+    "es": "Balonmano",
+    "hi": "हैंडबॉल",
+    "ar": "كرة يد"
+  },
+  "snowboarding": {
+    "pt-BR": "Snowboard",
+    "en": "Snowboarding",
+    "es": "Snowboard",
+    "hi": "स्नोबोर्डिंग",
+    "ar": "تزلج على الجليد"
+  },
+  "triathlon": {
+    "pt-BR": "Triatlo",
+    "en": "Triathlon",
+    "es": "Triatlón",
+    "hi": "ट्रायथलॉन",
+    "ar": "ترياثلون"
+  },
+  "wrestling": {
+    "pt-BR": "Luta livre",
+    "en": "Wrestling",
+    "es": "Lucha libre",
+    "hi": "कुश्ती",
+    "ar": "مصارعة"
+  },
+  "yoga": {
+    "pt-BR": "Ioga",
+    "en": "Yoga",
+    "es": "Yoga",
+    "hi": "योग",
+    "ar": "يوغا"
+  },
+  "guitar": {
+    "pt-BR": "Guitarra",
+    "en": "Guitar",
+    "es": "Guitarra",
+    "hi": "गिटार",
+    "ar": "غيتار"
+  },
+  "piano": {
+    "pt-BR": "Piano",
+    "en": "Piano",
+    "es": "Piano",
+    "hi": "पियानो",
+    "ar": "بيانو"
+  },
+  "drums": {
+    "pt-BR": "Bateria",
+    "en": "Drums",
+    "es": "Batería",
+    "hi": "ड्रम",
+    "ar": "طبول"
+  },
+  "violin": {
+    "pt-BR": "Violino",
+    "en": "Violin",
+    "es": "Violín",
+    "hi": "वायलिन",
+    "ar": "كمان"
+  },
+  "microphone": {
+    "pt-BR": "Microfone",
+    "en": "Microphone",
+    "es": "Micrófono",
+    "hi": "माइक्रोफ़ोन",
+    "ar": "ميكروفون"
+  },
+  "concert": {
+    "pt-BR": "Show",
+    "en": "Concert",
+    "es": "Concierto",
+    "hi": "संगीत कार्यक्रम",
+    "ar": "حفلة"
+  },
+  "dj": {
+    "pt-BR": "DJ",
+    "en": "DJ",
+    "es": "DJ",
+    "hi": "डीजे",
+    "ar": "دي جي"
+  },
+  "karaoke": {
+    "pt-BR": "Karaokê",
+    "en": "Karaoke",
+    "es": "Karaoke",
+    "hi": "कराओके",
+    "ar": "كاريوكي"
+  },
+  "jazz": {
+    "pt-BR": "Jazz",
+    "en": "Jazz",
+    "es": "Jazz",
+    "hi": "जैज़",
+    "ar": "جاز"
+  },
+  "rock": {
+    "pt-BR": "Rock",
+    "en": "Rock",
+    "es": "Rock",
+    "hi": "रॉक",
+    "ar": "روك"
+  },
+  "pop_song": {
+    "pt-BR": "Pop",
+    "en": "Pop song",
+    "es": "Canción pop",
+    "hi": "पॉप गाना",
+    "ar": "أغنية بوب"
+  },
+  "opera": {
+    "pt-BR": "Ópera",
+    "en": "Opera",
+    "es": "Ópera",
+    "hi": "ओपेरा",
+    "ar": "أوبرا"
+  },
+  "saxophone": {
+    "pt-BR": "Saxofone",
+    "en": "Saxophone",
+    "es": "Saxofón",
+    "hi": "सैक्सोफ़ोन",
+    "ar": "ساكسفون"
+  },
+  "flute": {
+    "pt-BR": "Flauta",
+    "en": "Flute",
+    "es": "Flauta",
+    "hi": "बांसुरी",
+    "ar": "ناي"
+  },
+  "choir": {
+    "pt-BR": "Coral",
+    "en": "Choir",
+    "es": "Coro",
+    "hi": "गायक मंडली",
+    "ar": "جوقة"
+  },
+  "playlist": {
+    "pt-BR": "Playlist",
+    "en": "Playlist",
+    "es": "Lista de reproducción",
+    "hi": "प्लेलिस्ट",
+    "ar": "قائمة تشغيل"
+  },
+  "headphones": {
+    "pt-BR": "Fone de ouvido",
+    "en": "Headphones",
+    "es": "Auriculares",
+    "hi": "हेडफ़ोन",
+    "ar": "سماعات"
+  },
+  "vinyl": {
+    "pt-BR": "Vinil",
+    "en": "Vinyl",
+    "es": "Vinilo",
+    "hi": "विनाइल",
+    "ar": "أسطوانة"
+  },
+  "rap": {
+    "pt-BR": "Rap",
+    "en": "Rap",
+    "es": "Rap",
+    "hi": "रैप",
+    "ar": "راب"
+  },
+  "country_music": {
+    "pt-BR": "Country",
+    "en": "Country music",
+    "es": "Música country",
+    "hi": "कंट्री संगीत",
+    "ar": "موسيقى كانتري"
+  },
+  "reggae": {
+    "pt-BR": "Reggae",
+    "en": "Reggae",
+    "es": "Reggae",
+    "hi": "रेगे",
+    "ar": "ريغي"
+  },
+  "classical_music": {
+    "pt-BR": "Música clássica",
+    "en": "Classical music",
+    "es": "Música clásica",
+    "hi": "शास्त्रीय संगीत",
+    "ar": "موسيقى كلاسيكية"
+  },
+  "festival": {
+    "pt-BR": "Festival",
+    "en": "Festival",
+    "es": "Festival",
+    "hi": "त्योहार",
+    "ar": "مهرجان"
+  },
+  "bass": {
+    "pt-BR": "Baixo",
+    "en": "Bass",
+    "es": "Bajo",
+    "hi": "बास",
+    "ar": "باس"
+  },
+  "trumpet": {
+    "pt-BR": "Trompete",
+    "en": "Trumpet",
+    "es": "Trompeta",
+    "hi": "तुरही",
+    "ar": "بوق"
+  },
+  "songwriter": {
+    "pt-BR": "Compositor",
+    "en": "Songwriter",
+    "es": "Compositor",
+    "hi": "गीतकार",
+    "ar": "مؤلف أغاني"
+  },
+  "dance_floor": {
+    "pt-BR": "Pista de dança",
+    "en": "Dance floor",
+    "es": "Pista de baile",
+    "hi": "डांस फ़्लोर",
+    "ar": "حلبة رقص"
+  },
+  "lullaby": {
+    "pt-BR": "Canção de ninar",
+    "en": "Lullaby",
+    "es": "Canción de cuna",
+    "hi": "लोरी",
+    "ar": "تهويدة"
+  },
+  "music_video": {
+    "pt-BR": "Clipe musical",
+    "en": "Music video",
+    "es": "Videoclip",
+    "hi": "संगीत वीडियो",
+    "ar": "فيديو كليب"
+  },
+  "album": {
+    "pt-BR": "Álbum",
+    "en": "Album",
+    "es": "Álbum",
+    "hi": "एल्बम",
+    "ar": "ألبوم"
+  },
+  "beach": {
+    "pt-BR": "Praia",
+    "en": "Beach",
+    "es": "Playa",
+    "hi": "समुद्र तट",
+    "ar": "شاطئ"
+  },
+  "mountain": {
+    "pt-BR": "Montanha",
+    "en": "Mountain",
+    "es": "Montaña",
+    "hi": "पहाड़",
+    "ar": "جبل"
+  },
+  "airport": {
+    "pt-BR": "Aeroporto",
+    "en": "Airport",
+    "es": "Aeropuerto",
+    "hi": "हवाई अड्डा",
+    "ar": "مطار"
+  },
+  "passport": {
+    "pt-BR": "Passaporte",
+    "en": "Passport",
+    "es": "Pasaporte",
+    "hi": "पासपोर्ट",
+    "ar": "جواز سفر"
+  },
+  "hotel": {
+    "pt-BR": "Hotel",
+    "en": "Hotel",
+    "es": "Hotel",
+    "hi": "होटल",
+    "ar": "فندق"
+  },
+  "camping": {
+    "pt-BR": "Acampamento",
+    "en": "Camping",
+    "es": "Campamento",
+    "hi": "कैम्पिंग",
+    "ar": "تخييم"
+  },
+  "road_trip_travel": {
+    "pt-BR": "Viagem de carro",
+    "en": "Road trip",
+    "es": "Viaje por carretera",
+    "hi": "सड़क यात्रा",
+    "ar": "رحلة برية"
+  },
+  "museum": {
+    "pt-BR": "Museu",
+    "en": "Museum",
+    "es": "Museo",
+    "hi": "संग्रहालय",
+    "ar": "متحف"
+  },
+  "train": {
+    "pt-BR": "Trem",
+    "en": "Train",
+    "es": "Tren",
+    "hi": "ट्रेन",
+    "ar": "قطار"
+  },
+  "cruise": {
+    "pt-BR": "Cruzeiro",
+    "en": "Cruise",
+    "es": "Crucero",
+    "hi": "क्रूज़",
+    "ar": "رحلة بحرية"
+  },
+  "backpack": {
+    "pt-BR": "Mochila",
+    "en": "Backpack",
+    "es": "Mochila",
+    "hi": "बैग",
+    "ar": "حقيبة ظهر"
+  },
+  "map": {
+    "pt-BR": "Mapa",
+    "en": "Map",
+    "es": "Mapa",
+    "hi": "नक्शा",
+    "ar": "خريطة"
+  },
+  "souvenir": {
+    "pt-BR": "Lembrancinha",
+    "en": "Souvenir",
+    "es": "Recuerdo",
+    "hi": "यादगार",
+    "ar": "تذكار"
+  },
+  "city_tour": {
+    "pt-BR": "Passeio urbano",
+    "en": "City tour",
+    "es": "Tour urbano",
+    "hi": "शहर भ्रमण",
+    "ar": "جولة في المدينة"
+  },
+  "desert": {
+    "pt-BR": "Deserto",
+    "en": "Desert",
+    "es": "Desierto",
+    "hi": "रेगिस्तान",
+    "ar": "صحراء"
+  },
+  "waterfall": {
+    "pt-BR": "Cachoeira",
+    "en": "Waterfall",
+    "es": "Cascada",
+    "hi": "झरना",
+    "ar": "شلال"
+  },
+  "island": {
+    "pt-BR": "Ilha",
+    "en": "Island",
+    "es": "Isla",
+    "hi": "द्वीप",
+    "ar": "جزيرة"
+  },
+  "hostel": {
+    "pt-BR": "Hostel",
+    "en": "Hostel",
+    "es": "Albergue",
+    "hi": "हॉस्टल",
+    "ar": "نزل"
+  },
+  "safari": {
+    "pt-BR": "Safári",
+    "en": "Safari",
+    "es": "Safari",
+    "hi": "सफ़ारी",
+    "ar": "سفاري"
+  },
+  "temple": {
+    "pt-BR": "Templo",
+    "en": "Temple",
+    "es": "Templo",
+    "hi": "मंदिर",
+    "ar": "معبد"
+  },
+  "castle": {
+    "pt-BR": "Castelo",
+    "en": "Castle",
+    "es": "Castillo",
+    "hi": "किला",
+    "ar": "قلعة"
+  },
+  "bus": {
+    "pt-BR": "Ônibus",
+    "en": "Bus",
+    "es": "Autobús",
+    "hi": "बस",
+    "ar": "حافلة"
+  },
+  "taxi": {
+    "pt-BR": "Táxi",
+    "en": "Taxi",
+    "es": "Taxi",
+    "hi": "टैक्सी",
+    "ar": "تاكسي"
+  },
+  "luggage": {
+    "pt-BR": "Bagagem",
+    "en": "Luggage",
+    "es": "Equipaje",
+    "hi": "सामान",
+    "ar": "أمتعة"
+  },
+  "market": {
+    "pt-BR": "Mercado",
+    "en": "Market",
+    "es": "Mercado",
+    "hi": "बाज़ार",
+    "ar": "سوق"
+  },
+  "hiking": {
+    "pt-BR": "Trilha",
+    "en": "Hiking",
+    "es": "Senderismo",
+    "hi": "पैदल यात्रा",
+    "ar": "تنزه"
+  },
+  "cave": {
+    "pt-BR": "Caverna",
+    "en": "Cave",
+    "es": "Cueva",
+    "hi": "गुफा",
+    "ar": "كهف"
+  },
+  "lake": {
+    "pt-BR": "Lago",
+    "en": "Lake",
+    "es": "Lago",
+    "hi": "झील",
+    "ar": "بحيرة"
+  },
+  "guidebook": {
+    "pt-BR": "Guia de viagem",
+    "en": "Guidebook",
+    "es": "Guía de viaje",
+    "hi": "गाइडबुक",
+    "ar": "دليل سفر"
+  },
+  "sunset": {
+    "pt-BR": "Pôr do sol",
+    "en": "Sunset",
+    "es": "Atardecer",
+    "hi": "सूर्यास्त",
+    "ar": "غروب"
+  },
+  "dog": {
+    "pt-BR": "Cachorro",
+    "en": "Dog",
+    "es": "Perro",
+    "hi": "कुत्ता",
+    "ar": "كلب"
+  },
+  "cat": {
+    "pt-BR": "Gato",
+    "en": "Cat",
+    "es": "Gato",
+    "hi": "बिल्ली",
+    "ar": "قطة"
+  },
+  "elephant": {
+    "pt-BR": "Elefante",
+    "en": "Elephant",
+    "es": "Elefante",
+    "hi": "हाथी",
+    "ar": "فيل"
+  },
+  "lion": {
+    "pt-BR": "Leão",
+    "en": "Lion",
+    "es": "León",
+    "hi": "शेर",
+    "ar": "أسد"
+  },
+  "tiger": {
+    "pt-BR": "Tigre",
+    "en": "Tiger",
+    "es": "Tigre",
+    "hi": "बाघ",
+    "ar": "نمر"
+  },
+  "giraffe": {
+    "pt-BR": "Girafa",
+    "en": "Giraffe",
+    "es": "Jirafa",
+    "hi": "जिराफ़",
+    "ar": "زرافة"
+  },
+  "penguin": {
+    "pt-BR": "Pinguim",
+    "en": "Penguin",
+    "es": "Pingüino",
+    "hi": "पेंगुइन",
+    "ar": "بطريق"
+  },
+  "dolphin": {
+    "pt-BR": "Golfinho",
+    "en": "Dolphin",
+    "es": "Delfín",
+    "hi": "डॉल्फ़िन",
+    "ar": "دلفين"
+  },
+  "shark": {
+    "pt-BR": "Tubarão",
+    "en": "Shark",
+    "es": "Tiburón",
+    "hi": "शार्क",
+    "ar": "قرش"
+  },
+  "eagle": {
+    "pt-BR": "Águia",
+    "en": "Eagle",
+    "es": "Águila",
+    "hi": "गरुड़",
+    "ar": "نسر"
+  },
+  "owl": {
+    "pt-BR": "Coruja",
+    "en": "Owl",
+    "es": "Búho",
+    "hi": "उल्लू",
+    "ar": "بومة"
+  },
+  "horse": {
+    "pt-BR": "Cavalo",
+    "en": "Horse",
+    "es": "Caballo",
+    "hi": "घोड़ा",
+    "ar": "حصان"
+  },
+  "rabbit": {
+    "pt-BR": "Coelho",
+    "en": "Rabbit",
+    "es": "Conejo",
+    "hi": "खरगोश",
+    "ar": "أرنب"
+  },
+  "panda": {
+    "pt-BR": "Panda",
+    "en": "Panda",
+    "es": "Panda",
+    "hi": "पांडा",
+    "ar": "باندا"
+  },
+  "kangaroo": {
+    "pt-BR": "Canguru",
+    "en": "Kangaroo",
+    "es": "Canguro",
+    "hi": "कंगारू",
+    "ar": "كنغر"
+  },
+  "monkey": {
+    "pt-BR": "Macaco",
+    "en": "Monkey",
+    "es": "Mono",
+    "hi": "बंदर",
+    "ar": "قرد"
+  },
+  "snake": {
+    "pt-BR": "Cobra",
+    "en": "Snake",
+    "es": "Serpiente",
+    "hi": "साँप",
+    "ar": "ثعبان"
+  },
+  "turtle": {
+    "pt-BR": "Tartaruga",
+    "en": "Turtle",
+    "es": "Tortuga",
+    "hi": "कछुआ",
+    "ar": "سلحفاة"
+  },
+  "fox": {
+    "pt-BR": "Raposa",
+    "en": "Fox",
+    "es": "Zorro",
+    "hi": "लोमड़ी",
+    "ar": "ثعلب"
+  },
+  "bear": {
+    "pt-BR": "Urso",
+    "en": "Bear",
+    "es": "Oso",
+    "hi": "भालू",
+    "ar": "دب"
+  },
+  "wolf": {
+    "pt-BR": "Lobo",
+    "en": "Wolf",
+    "es": "Lobo",
+    "hi": "भेड़िया",
+    "ar": "ذئب"
+  },
+  "zebra": {
+    "pt-BR": "Zebra",
+    "en": "Zebra",
+    "es": "Cebra",
+    "hi": "ज़ेबरा",
+    "ar": "حمار وحشي"
+  },
+  "frog": {
+    "pt-BR": "Sapo",
+    "en": "Frog",
+    "es": "Rana",
+    "hi": "मेंढक",
+    "ar": "ضفدع"
+  },
+  "whale": {
+    "pt-BR": "Baleia",
+    "en": "Whale",
+    "es": "Ballena",
+    "hi": "व्हेल",
+    "ar": "حوت"
+  },
+  "octopus": {
+    "pt-BR": "Polvo",
+    "en": "Octopus",
+    "es": "Pulpo",
+    "hi": "ऑक्टोपस",
+    "ar": "أخطبوط"
+  },
+  "parrot": {
+    "pt-BR": "Papagaio",
+    "en": "Parrot",
+    "es": "Loro",
+    "hi": "तोता",
+    "ar": "ببغاء"
+  },
+  "camel": {
+    "pt-BR": "Camelo",
+    "en": "Camel",
+    "es": "Camello",
+    "hi": "ऊँट",
+    "ar": "جمل"
+  },
+  "koala": {
+    "pt-BR": "Coala",
+    "en": "Koala",
+    "es": "Koala",
+    "hi": "कोआला",
+    "ar": "كوالا"
+  },
+  "bee": {
+    "pt-BR": "Abelha",
+    "en": "Bee",
+    "es": "Abeja",
+    "hi": "मधुमक्खी",
+    "ar": "نحلة"
+  },
+  "butterfly": {
+    "pt-BR": "Borboleta",
+    "en": "Butterfly",
+    "es": "Mariposa",
+    "hi": "तितली",
+    "ar": "فراشة"
+  }
 }

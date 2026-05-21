@@ -459,6 +459,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settingsLanguageHindi => 'Hindi';
 
   @override
+  String get settingsLanguageArabic => 'Árabe';
+
+  @override
   String get language => 'Idioma';
 
   @override

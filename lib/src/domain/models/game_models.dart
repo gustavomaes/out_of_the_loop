@@ -2,7 +2,8 @@ enum SupportedLanguage {
   ptBr('pt-BR'),
   en('en'),
   es('es'),
-  hi('hi');
+  hi('hi'),
+  ar('ar');
 
   const SupportedLanguage(this.code);
 

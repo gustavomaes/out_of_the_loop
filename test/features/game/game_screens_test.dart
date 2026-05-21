@@ -145,6 +145,7 @@ void main() {
           SupportedLanguage.en: 'Question ${index + 1}',
           SupportedLanguage.es: 'Question ${index + 1}',
           SupportedLanguage.hi: 'Question ${index + 1}',
+          SupportedLanguage.ar: 'Question ${index + 1}',
         }),
       ),
     );
@@ -417,6 +418,7 @@ void main() {
         SupportedLanguage.ptBr: 'Rosquinha',
         SupportedLanguage.es: 'Dona',
         SupportedLanguage.hi: 'डोनट',
+        SupportedLanguage.ar: 'دونات',
       }),
       questions: const [],
     );
@@ -526,6 +528,7 @@ final _questions = List.generate(
       SupportedLanguage.en: 'Question ${index + 1}',
       SupportedLanguage.es: 'Question ${index + 1}',
       SupportedLanguage.hi: 'Question ${index + 1}',
+      SupportedLanguage.ar: 'Question ${index + 1}',
     }),
   ),
 );
@@ -538,6 +541,7 @@ final _word = SecretWord(
     SupportedLanguage.en: 'Pizza',
     SupportedLanguage.es: 'Pizza',
     SupportedLanguage.hi: 'Pizza',
+    SupportedLanguage.ar: 'بيتزا',
   }),
   questions: _questions,
 );

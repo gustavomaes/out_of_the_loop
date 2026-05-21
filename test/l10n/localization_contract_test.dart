@@ -10,6 +10,7 @@ void main() {
       Locale('en'),
       Locale('es'),
       Locale('hi'),
+      Locale('ar'),
     ]);
   });
 
@@ -40,6 +41,10 @@ void main() {
     expect(
       OutOfTheLoopLocalizations.resolve(const Locale('hi', 'IN')),
       const Locale('hi'),
+    );
+    expect(
+      OutOfTheLoopLocalizations.resolve(const Locale('ar', 'SA')),
+      const Locale('ar'),
     );
   });
 

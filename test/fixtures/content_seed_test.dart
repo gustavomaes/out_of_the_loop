@@ -44,7 +44,7 @@ void main() {
     final seed = _loadSeed();
 
     expect(seed['schemaVersion'], 1);
-    expect(seed['languages'], ['pt-BR', 'en', 'es', 'hi']);
+    expect(seed['languages'], ['pt-BR', 'en', 'es', 'hi', 'ar']);
     expect(seed['minQuestionsPerWord'], 3);
     expect(seed['maxQuestionsPerWord'], 9);
   });
@@ -106,7 +106,7 @@ void _validateSeed(Map<String, dynamic> seed) {
   final maxQuestions = _intField(seed, 'maxQuestionsPerWord');
   final categories = _objectList(seed, 'categories');
 
-  if (languages.length != 4 || !languages.contains('pt-BR')) {
+  if (languages.length != 5 || !languages.contains('pt-BR')) {
     throw const FormatException('Seed must include all MVP languages.');
   }
   if (minQuestions < 3 || maxQuestions > 9 || minQuestions > maxQuestions) {
@@ -180,10 +180,10 @@ void _requireHexColor(Map<String, dynamic> json, String key) {
 bool _questionContainsWord(String question, String word) {
   final normalizedQuestion = question
       .toLowerCase()
-      .replaceAll(RegExp(r'[^a-z0-9\u0900-\u097F\s]'), '');
+      .replaceAll(RegExp(r'[^a-z0-9\u0600-\u06FF\u0900-\u097F\s]'), '');
   final normalizedWord = word
       .toLowerCase()
-      .replaceAll(RegExp(r'[^a-z0-9\u0900-\u097F\s]'), '');
+      .replaceAll(RegExp(r'[^a-z0-9\u0600-\u06FF\u0900-\u097F\s]'), '');
   if (normalizedWord.isEmpty) {
     return false;
   }
@@ -191,9 +191,9 @@ bool _questionContainsWord(String question, String word) {
     return normalizedQuestion.contains(normalizedWord);
   }
   final pattern = RegExp(
-    r'(^|[^a-z0-9\u0900-\u097F])'
+    r'(^|[^a-z0-9\u0600-\u06FF\u0900-\u097F])'
     '${RegExp.escape(normalizedWord)}'
-    r'([^a-z0-9\u0900-\u097F]|$)',
+    r'([^a-z0-9\u0600-\u06FF\u0900-\u097F]|$)',
   );
   return pattern.hasMatch(normalizedQuestion);
 }

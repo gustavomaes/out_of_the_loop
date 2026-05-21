@@ -460,6 +460,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get settingsLanguageHindi => 'Hindi';
 
   @override
+  String get settingsLanguageArabic => 'Árabe';
+
+  @override
   String get language => 'Idioma';
 
   @override
@@ -969,6 +972,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get settingsLanguageHindi => 'Hindi';
+
+  @override
+  String get settingsLanguageArabic => 'Árabe';
 
   @override
   String get language => 'Idioma';

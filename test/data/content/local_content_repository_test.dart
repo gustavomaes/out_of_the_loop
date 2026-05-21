@@ -118,7 +118,7 @@ String _validSeedJson() => jsonEncode(_validSeed());
 Map<String, Object?> _validSeed() {
   return {
     'schemaVersion': 1,
-    'languages': ['pt-BR', 'en', 'es', 'hi'],
+    'languages': ['pt-BR', 'en', 'es', 'hi', 'ar'],
     'minQuestionsPerWord': 3,
     'maxQuestionsPerWord': 9,
     'categories': [
@@ -127,7 +127,13 @@ Map<String, Object?> _validSeed() {
         'iconKey': 'restaurant',
         'primary': '#B7F700',
         'secondary': '#D4FF66',
-        'name': {'pt-BR': 'Comida', 'en': 'Food', 'es': 'Comida', 'hi': 'खाना'},
+        'name': {
+          'pt-BR': 'Comida',
+          'en': 'Food',
+          'es': 'Comida',
+          'hi': 'खाना',
+          'ar': 'طعام',
+        },
         'words': [
           {
             'id': 'pizza',
@@ -140,6 +146,7 @@ Map<String, Object?> _validSeed() {
                   'en': 'When would you eat this?',
                   'es': 'Cuando comerias esto?',
                   'hi': 'आप इसे कब खाएंगे?',
+                  'ar': 'متى ستأكل هذا؟',
                 },
               },
               {'id': 'pizza-q2', 'text': _localized('Best topping?')},
@@ -157,4 +164,5 @@ Map<String, String> _localized(String value) => {
   'en': value,
   'es': value,
   'hi': value,
+  'ar': value,
 };

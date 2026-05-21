@@ -83,6 +83,7 @@ SecretWord _word(String id, {required int questionCount}) {
       SupportedLanguage.ptBr: 'Palavra',
       SupportedLanguage.es: 'Palabra',
       SupportedLanguage.hi: 'Word',
+      SupportedLanguage.ar: 'كلمة',
     }),
     questions: List.generate(
       questionCount,
@@ -94,6 +95,7 @@ SecretWord _word(String id, {required int questionCount}) {
           SupportedLanguage.ptBr: 'Pergunta',
           SupportedLanguage.es: 'Pregunta',
           SupportedLanguage.hi: 'Question',
+          SupportedLanguage.ar: 'سؤال',
         }),
       ),
     ),

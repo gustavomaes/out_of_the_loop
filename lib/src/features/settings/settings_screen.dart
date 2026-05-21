@@ -158,6 +158,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       SupportedLanguage.en => l10n.settingsLanguageEnglish,
       SupportedLanguage.es => l10n.settingsLanguageSpanish,
       SupportedLanguage.hi => l10n.settingsLanguageHindi,
+      SupportedLanguage.ar => l10n.settingsLanguageArabic,
     };
   }
 }

@@ -198,4 +198,5 @@ LocalizedText _localized(String value) => LocalizedText({
   SupportedLanguage.en: value,
   SupportedLanguage.es: value,
   SupportedLanguage.hi: value,
+  SupportedLanguage.ar: value,
 });

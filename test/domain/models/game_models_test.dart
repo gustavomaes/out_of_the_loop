@@ -7,6 +7,7 @@ void main() {
     SupportedLanguage.en: 'Pizza',
     SupportedLanguage.es: 'Pizza',
     SupportedLanguage.hi: 'पिज़्ज़ा',
+    SupportedLanguage.ar: 'بيتزا',
   });
 
   const question = Question(
@@ -17,6 +18,7 @@ void main() {
       SupportedLanguage.en: 'When would you eat this?',
       SupportedLanguage.es: 'Cuando comerias esto?',
       SupportedLanguage.hi: 'आप इसे कब खाएंगे?',
+      SupportedLanguage.ar: 'متى ستأكل هذا؟',
     }),
   );
 

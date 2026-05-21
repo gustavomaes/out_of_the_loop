@@ -72,6 +72,7 @@ List<Question> _questions(int count) => List.generate(
       SupportedLanguage.en: 'Question ${index + 1}',
       SupportedLanguage.es: 'Question ${index + 1}',
       SupportedLanguage.hi: 'Question ${index + 1}',
+      SupportedLanguage.ar: 'Question ${index + 1}',
     }),
   ),
 );

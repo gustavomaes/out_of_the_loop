@@ -1,0 +1,258 @@
+{
+  "@@locale": "ar",
+  "appTitle": "خارج الحلقة",
+  "startGame": "ابدأ اللعبة",
+  "navPlay": "العب",
+  "navCategories": "الفئات",
+  "navProfile": "الملف",
+  "howToPlay": "كيف تلعب",
+  "pickCategory": "اختر فئة",
+  "pickCategorySubtitle": "اختر ساحة المعركة. الحلقة في انتظارك.",
+  "categoryFoodAndDrink": "طعام وشراب",
+  "categoryTravel": "سفر",
+  "categoryMovies": "أفلام",
+  "categoryAnimals": "حيوانات",
+  "categorySports": "رياضة",
+  "categoryTech": "تقنية",
+  "categoriesLoadError": "تعذر تحميل الفئات.",
+  "addPlayer": "أضف لاعبًا",
+  "addPlayerButton": "أضف",
+  "playerSetupTitleLine1": "من سيلعب",
+  "playerSetupTitleLine2": "؟",
+  "playerSetupPlayerCountBadge": "3-9 لاعبين",
+  "playerNameHint": "اسم اللاعب",
+  "playerSetupStartGame": "ابدأ اللعبة",
+  "playerSetupRemovePlayer": "إزالة {playerName}",
+  "@playerSetupRemovePlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "playerSetupErrorEmptyName": "لا يمكن أن يكون الاسم فارغًا.",
+  "playerSetupErrorDuplicateName": "يجب أن تكون أسماء اللاعبين فريدة.",
+  "playerSetupErrorTooManyPlayers": "المباراة تدعم حتى 9 لاعبين.",
+  "playerSetupErrorTooFewPlayers": "أضف 3 لاعبين على الأقل.",
+  "playerSetupErrorInvalidRoundCount": "عدد جولات غير صالح.",
+  "playerSetupErrorInvalidQuestions": "اختر بين 1 و3 أسئلة لكل لاعب.",
+  "playerSetupErrorInsufficientWords": "هذه الفئة لا تحتوي على كلمات كافية لهذا العدد من الجولات.",
+  "playerSetupErrorInsufficientQuestions": "هذه الفئة لا تحتوي على أسئلة كافية لهذا العدد من اللاعبين.",
+  "matchSetupTitleLine1": "إعداد",
+  "matchSetupTitleLine2": "المباراة",
+  "matchSetupRulesBadge": "1–5 جولات · 1–3 أسئلة",
+  "matchSetupSubtitle": "حدد القواعد قبل إضافة اللاعبين.",
+  "matchSetupQuestionsSection": "أسئلة لكل لاعب",
+  "matchSetupQuestionsDescription": "كم سؤالًا يجيب كل لاعب في كل جولة؟",
+  "matchSetupQuestionsRecommendation": "لـ 3–4 لاعبين نوصي بـ {recommended}؛ لـ 5 أو أكثر، 1 (حتى 3 إذا سمحت الفئة).",
+  "@matchSetupQuestionsRecommendation": {
+    "placeholders": {
+      "recommended": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsSection": "جولات المباراة",
+  "matchSetupRoundsDescription": "كم جولة ستكون لهذه المباراة؟",
+  "matchSetupRoundsRecommended": "موصى به: {count} جولات.",
+  "@matchSetupRoundsRecommended": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupRoundsValue": "الجولات: {count}",
+  "@matchSetupRoundsValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupQuestionCountChip": "{count, plural, =1{سؤال واحد} other{{count} أسئلة}}",
+  "@matchSetupQuestionCountChip": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupSummary": "{roundCount, plural, =1{جولة واحدة} other{{roundCount} جولات}} · {questionCount, plural, =1{سؤال واحد} other{{questionCount} أسئلة}} لكل لاعب",
+  "@matchSetupSummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      },
+      "questionCount": {
+        "type": "int"
+      }
+    }
+  },
+  "matchSetupContinue": "متابعة",
+  "startMatch": "ابدأ المباراة",
+  "revealMyWord": "اكشف دوري",
+  "secretRevealRound": "الجولة {roundNumber}",
+  "@secretRevealRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "secretRevealPassTo": "مرّر إلى",
+  "secretRevealPassToPlayer": "{playerName}",
+  "@secretRevealPassToPlayer": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealPrivacyLine1": "تأكد أن لا أحد آخر",
+  "secretRevealPrivacyLine2": "ينظر إلى شاشتك.",
+  "secretRevealTopSecret": "سري للغاية",
+  "secretRevealNextPlayer": "اللاعب التالي",
+  "secretRevealStartQuestions": "ابدأ الأسئلة",
+  "outOfLoopMessage": "أنت خارج الحلقة — تصرف بشكل طبيعي.",
+  "doneAnswering": "انتهيت من الإجابة",
+  "questionRoundPlayerTurn": "دور {playerName}",
+  "@questionRoundPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "questionRoundSpeakUp": "تحدث بصوت عالٍ!",
+  "questionRoundSpeakUpLine1": "أجب عن السؤال بصوت عالٍ",
+  "questionRoundSpeakUpLine2": "حتى يسمعك الجميع.",
+  "questionRoundDoneAnswering": "انتهيت من الإجابة",
+  "questionRoundNextQuestion": "السؤال التالي",
+  "questionRoundGoToVoting": "انتقل إلى التصويت",
+  "questionRoundExitTitle": "مغادرة المباراة؟",
+  "questionRoundExitMessage": "العودة ستلغي المباراة وتعيدك إلى اختيار الفئة.",
+  "questionRoundExitConfirm": "مغادرة المباراة",
+  "questionRoundExitStay": "واصل اللعب",
+  "whoIsOutOfTheLoop": "من خارج الحلقة؟",
+  "votingHeadlineWhoIs": "من",
+  "votingHeadlineOutOf": "خارج",
+  "votingHeadlineTheLoop": "الحلقة؟",
+  "votingSubtitleLine1": "اعثر على المتلاعب! صوّت للاعب",
+  "votingSubtitleLine2": "الذي تعتقد أنه لا يعرف",
+  "votingSubtitleLine3": "الكلمة السرية.",
+  "votingVote": "صوّت",
+  "votingYou": "أنت",
+  "votingCannotVoteSelf": "لا يمكنك التصويت لنفسك",
+  "confirmVotes": "تأكيد الأصوات",
+  "roundResults": "نتائج الجولة",
+  "roundResultsHeadlineAccent": "نتائج",
+  "roundResultsHeadlineMain": "الجولة",
+  "roundResultsOutPlayerLabel": "اللاعب الخارج كان",
+  "roundResultsMajorityFound": "وجدت المجموعة اللاعب الخارج بالأغلبية.",
+  "roundResultsMajorityEscaped": "نجا اللاعب الخارج من تصويت الأغلبية.",
+  "roundResultsVoteTotals": "مجموع الأصوات",
+  "roundResultsRoundPoints": "نقاط الجولة",
+  "roundResultsVoteCount": "{count} أصوات",
+  "@roundResultsVoteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsPointsGain": "+{points}",
+  "@roundResultsPointsGain": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsContinue": "متابعة",
+  "roundResultsGoToRound": "انتقل إلى الجولة {roundNumber}",
+  "@roundResultsGoToRound": {
+    "placeholders": {
+      "roundNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "roundResultsViewFinalScore": "عرض النتيجة النهائية",
+  "guessWord": "خمّن الكلمة",
+  "guessHeadlineAccent": "خمّن",
+  "guessHeadlineMain": "الكلمة",
+  "guessPlayerTurn": "{name}، دورك",
+  "@guessPlayerTurn": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "guessInstructionLine1": "قل الكلمة السرية بصوت عالٍ.",
+  "guessInstructionLine2": "المجموعة تقرر إن",
+  "guessInstructionLine3": "أصبت.",
+  "guessCorrectButton": "أصبت",
+  "guessWrongButton": "أخطأت",
+  "correct": "صحيح",
+  "wrong": "خطأ",
+  "playAgain": "العب مجددًا",
+  "newMatchDialogTitle": "مباراة جديدة",
+  "newMatchDialogMessage": "الإبقاء على نفس الفئة أم اختيار فئة جديدة؟",
+  "newMatchKeepCategory": "الإبقاء على الفئة",
+  "newMatchChangeCategory": "تغيير الفئة",
+  "backToHome": "العودة للرئيسية",
+  "resultsWinnerWins": "{name} يفوز!",
+  "@resultsWinnerWins": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsTheMastermind": "العقل المدبر",
+  "resultsSecretWordWas": "الكلمة السرية كانت:",
+  "resultsOutPlayerWas": "{name} كان خارج الحلقة!",
+  "@resultsOutPlayerWas": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultsLeaderboard": "لوحة المتصدرين",
+  "settings": "الإعدادات",
+  "settingsScreenTitle": "الإعدادات",
+  "settingsSectionLanguage": "اللغة",
+  "settingsSectionAudio": "الصوت",
+  "settingsSectionAbout": "حول",
+  "settingsMusic": "الموسيقى",
+  "settingsSoundEffects": "المؤثرات الصوتية",
+  "settingsTermsOfUse": "شروط الاستخدام",
+  "settingsPrivacy": "الخصوصية",
+  "settingsAppVersionLabel": "إصدار التطبيق",
+  "settingsAppVersionValue": "v0.1.0",
+  "settingsLanguagePortuguese": "البرتغالية",
+  "settingsLanguageEnglish": "الإنجليزية",
+  "settingsLanguageSpanish": "الإسبانية",
+  "settingsLanguageHindi": "الهندية",
+  "settingsLanguageArabic": "العربية",
+  "language": "اللغة",
+  "howToPlayScreenTitle": "كيف تلعب",
+  "howToPlayKapow": "بوم!",
+  "howToPlaySecretTitle": "السر",
+  "howToPlaySecretBodyBefore": "كل لاعب يرى الكلمة السرية، إلا واحدًا... وهو ",
+  "howToPlaySecretBodyHighlight": "خارج الحلقة!",
+  "howToPlayQuestionTitle": "السؤال",
+  "howToPlayQuestionBodyBefore": "أجب عن أسئلة مضحكة حول الكلمة دون جعلها واضحة جدًا. ",
+  "howToPlayQuestionBodyEmphasis": "كن ذكيًا!",
+  "howToPlayVoteTitle": "التصويت",
+  "howToPlayVoteBodyBefore": "حاول اكتشاف من لا يعرف شيئًا و",
+  "howToPlayVoteBodyHighlight": "صوّت!",
+  "howToPlayVoteBodyAfter": " أشر بثقة.",
+  "howToPlayOutcomeTitle": "الخاتمة",
+  "howToPlayOutcomeBodyBefore": "إذا خمّن لاعب «خارج الحلقة» الكلمة في النهاية، ",
+  "howToPlayOutcomeBodyHighlight": "يفوز",
+  "howToPlayOutcomeBodyAfter": " ويصبح العقل المدبر!"
+}

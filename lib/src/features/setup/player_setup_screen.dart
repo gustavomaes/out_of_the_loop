@@ -299,6 +299,7 @@ final _defaultPlayableWords = List.generate(
       SupportedLanguage.en: 'Word ${wordIndex + 1}',
       SupportedLanguage.es: 'Palabra ${wordIndex + 1}',
       SupportedLanguage.hi: 'Word ${wordIndex + 1}',
+      SupportedLanguage.ar: 'Word ${wordIndex + 1}',
     }),
     questions: List.generate(
       9,
@@ -310,6 +311,7 @@ final _defaultPlayableWords = List.generate(
           SupportedLanguage.en: 'Question ${questionIndex + 1}',
           SupportedLanguage.es: 'Pregunta ${questionIndex + 1}',
           SupportedLanguage.hi: 'Question ${questionIndex + 1}',
+          SupportedLanguage.ar: 'Question ${questionIndex + 1}',
         }),
       ),
     ),

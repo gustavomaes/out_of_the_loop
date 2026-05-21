@@ -5,9 +5,54 @@
 import 'dart:convert';
 import 'dart:io';
 
-const _languages = ['pt-BR', 'en', 'es', 'hi'];
+const _languages = ['pt-BR', 'en', 'es', 'hi', 'ar'];
 const _categoryIds = ['food', 'movies', 'sports', 'music', 'travel', 'animals'];
 const _questionsPerWord = 9;
+
+const _categoryNames = <String, Map<String, String>>{
+  'food': {
+    'pt-BR': 'Comida',
+    'en': 'Food',
+    'es': 'Comida',
+    'hi': 'भोजन',
+    'ar': 'طعام',
+  },
+  'movies': {
+    'pt-BR': 'Filmes',
+    'en': 'Movies',
+    'es': 'Peliculas',
+    'hi': 'फ़िल्में',
+    'ar': 'أفلام',
+  },
+  'sports': {
+    'pt-BR': 'Esportes',
+    'en': 'Sports',
+    'es': 'Deportes',
+    'hi': 'खेल',
+    'ar': 'رياضة',
+  },
+  'music': {
+    'pt-BR': 'Musica',
+    'en': 'Music',
+    'es': 'Musica',
+    'hi': 'संगीत',
+    'ar': 'موسيقى',
+  },
+  'travel': {
+    'pt-BR': 'Viagem',
+    'en': 'Travel',
+    'es': 'Viaje',
+    'hi': 'यात्रा',
+    'ar': 'سفر',
+  },
+  'animals': {
+    'pt-BR': 'Animais',
+    'en': 'Animals',
+    'es': 'Animales',
+    'hi': 'जानवर',
+    'ar': 'حيوانات',
+  },
+};
 
 const _questionTemplates = <Map<String, String>>[
     {
@@ -15,54 +60,63 @@ const _questionTemplates = <Map<String, String>>[
       'en': 'In what situation would you use or find this?',
       'es': 'En que situacion usarias o encontrarias esto?',
       'hi': 'आप किस स्थिति में इसका उपयोग करेंगे या इसे पाएंगे?',
+      'ar': 'في أي موقف ستستخدم هذا أو تجده؟',
     },
     {
       'pt-BR': 'Que detalhe faz isso ser reconhecivel para voce?',
       'en': 'What detail makes this recognizable to you?',
       'es': 'Que detalle hace que esto sea reconocible para ti?',
       'hi': 'कौन सा विवरण इसे आपके लिए पहचानने योग्य बनाता है?',
+      'ar': 'ما التفصيل الذي يجعل هذا مميزًا بالنسبة لك؟',
     },
     {
       'pt-BR': 'Com quem voce associaria isso em uma conversa?',
       'en': 'Who would you associate this with in a conversation?',
       'es': 'Con quien asociarias esto en una conversacion?',
       'hi': 'बातचीत में आप इसे किससे जोड़ेंगे?',
+      'ar': 'مع من ستربط هذا في محادثة؟',
     },
     {
       'pt-BR': 'Onde voce NAO esperaria encontrar isso?',
       'en': 'Where would you NOT expect to find this?',
       'es': 'Donde NO esperarias encontrar esto?',
       'hi': 'आप इसे कहाँ नहीं पाने की उम्मीद करेंगे?',
+      'ar': 'أين لا تتوقع أن تجد هذا؟',
     },
     {
       'pt-BR': 'Que sentimento isso desperta em voce?',
       'en': 'What feeling does this bring up for you?',
       'es': 'Que sentimiento te despierta esto?',
       'hi': 'यह आपमें किस भावना को जगाता है?',
+      'ar': 'ما الشعور الذي يثيره هذا لديك؟',
     },
     {
       'pt-BR': 'O que voce precisa para aproveitar isso?',
       'en': 'What do you need to enjoy this?',
       'es': 'Que necesitas para disfrutar esto?',
       'hi': 'इसका आनंद लेने के लिए आपको क्या चाहिए?',
+      'ar': 'ماذا تحتاج للاستمتاع بهذا؟',
     },
     {
       'pt-BR': 'Isso combina mais com dia ou noite?',
       'en': 'Does this fit better with day or night?',
       'es': 'Esto encaja mejor de dia o de noche?',
       'hi': 'यह दिन या रात के साथ बेहतर फिट बैठता है?',
+      'ar': 'هل يناسب هذا النهار أم الليل أكثر؟',
     },
     {
       'pt-BR': 'Criancas ou adultos curtem mais isso?',
       'en': 'Do children or adults enjoy this more?',
       'es': 'Los ninos o los adultos disfrutan mas esto?',
       'hi': 'बच्चे या बड़े इसका अधिक आनंद लेते हैं?',
+      'ar': 'هل يستمتع به الأطفال أم البالغون أكثر؟',
     },
     {
       'pt-BR': 'Que cheiro ou som lembra isso para voce?',
       'en': 'What smell or sound reminds you of this?',
       'es': 'Que olor o sonido te recuerda a esto?',
       'hi': 'कौन सी गंध या आवाज़ आपको इसकी याद दिलाती है?',
+      'ar': 'ما الرائحة أو الصوت الذي يذكّرك بهذا؟',
     },
 ];
 
@@ -125,10 +179,15 @@ void main() {
       });
     }
 
+    final categoryName = _categoryNames[categoryId];
+    if (categoryName == null) {
+      throw StateError('Missing category name localization for $categoryId.');
+    }
+
     categories.add({
-      'id': category['id'],
+      'id': categoryId,
       'iconKey': category['iconKey'],
-      'name': category['name'],
+      'name': categoryName,
       'words': rebuiltWords,
       'primary': category['primary'],
       'secondary': category['secondary'],
@@ -181,15 +240,16 @@ bool _containsWord(String question, String word) {
     return normalizedQuestion.contains(normalizedWord);
   }
   final pattern = RegExp(
-    r'(^|[^a-z0-9\u0900-\u097F])'
+    r'(^|[^a-z0-9\u0600-\u06FF\u0900-\u097F])'
     '${RegExp.escape(normalizedWord)}'
-    r'([^a-z0-9\u0900-\u097F]|$)',
+    r'([^a-z0-9\u0600-\u06FF\u0900-\u097F]|$)',
   );
   return pattern.hasMatch(normalizedQuestion);
 }
 
-String _normalize(String input) =>
-    input.toLowerCase().replaceAll(RegExp(r'[^a-z0-9\u0900-\u097F\s]'), '');
+String _normalize(String input) => input
+    .toLowerCase()
+    .replaceAll(RegExp(r'[^a-z0-9\u0600-\u06FF\u0900-\u097F\s]'), '');
 
 void _validateSeed(Map<String, dynamic> seed) {
   final categories = seed['categories'] as List<dynamic>;

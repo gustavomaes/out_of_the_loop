@@ -10,6 +10,7 @@ abstract final class OutOfTheLoopLocalizations {
     Locale('en'),
     Locale('es'),
     Locale('hi'),
+    Locale('ar'),
   ];
 
   static Locale resolve(Locale? requestedLocale) {
@@ -44,6 +45,7 @@ abstract final class OutOfTheLoopLocalizations {
       SupportedLanguage.en => const Locale('en'),
       SupportedLanguage.es => const Locale('es'),
       SupportedLanguage.hi => const Locale('hi'),
+      SupportedLanguage.ar => const Locale('ar'),
     };
   }
 }
