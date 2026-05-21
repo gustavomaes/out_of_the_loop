@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/data/preferences/preferences_repository.dart';
 import 'package:outoftheloop/src/domain/models/models.dart';
@@ -7,11 +8,27 @@ void main() {
   group('PreferencesRepository', () {
     const repository = PreferencesRepository();
 
-    test('returns defaults when preferences are empty', () async {
+    test('uses device locale and persists it when preferences are empty', () async {
       SharedPreferences.setMockInitialValues({});
-      final preferences = await repository.load();
+      const deviceRepository = PreferencesRepository(
+        deviceLocale: Locale('es'),
+      );
 
-      expect(preferences.language, SupportedLanguage.ptBr);
+      final preferences = await deviceRepository.load();
+      final stored = await SharedPreferences.getInstance();
+
+      expect(preferences.language, SupportedLanguage.es);
+      expect(stored.getString('settings.language'), 'es');
+    });
+
+    test('returns defaults for audio when preferences are empty', () async {
+      SharedPreferences.setMockInitialValues({});
+      const deviceRepository = PreferencesRepository(
+        deviceLocale: Locale('en'),
+      );
+
+      final preferences = await deviceRepository.load();
+
       expect(preferences.musicEnabled, isFalse);
       expect(preferences.soundEffectsEnabled, isTrue);
     });
@@ -22,6 +39,19 @@ void main() {
 
       final preferences = await repository.load();
       expect(preferences.language, SupportedLanguage.en);
+    });
+
+    test('does not overwrite saved language on load', () async {
+      SharedPreferences.setMockInitialValues({
+        'settings.language': 'hi',
+      });
+      const deviceRepository = PreferencesRepository(
+        deviceLocale: Locale('es'),
+      );
+
+      final preferences = await deviceRepository.load();
+
+      expect(preferences.language, SupportedLanguage.hi);
     });
 
     test('saves and restores music preference', () async {

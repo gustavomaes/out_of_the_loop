@@ -29,7 +29,7 @@ class GameFlowController {
   final MatchProgressionService progressionService;
   final VoteScoringService scoringService;
 
-  SupportedLanguage language = SupportedLanguage.ptBr;
+  SupportedLanguage language = SupportedLanguage.en;
   Category? selectedCategory;
   List<SecretWord> categoryWords = const [];
   MatchSetup? setup;

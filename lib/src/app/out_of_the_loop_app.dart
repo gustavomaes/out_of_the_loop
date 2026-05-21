@@ -32,6 +32,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
   final _soundEffects = SoundEffectsService();
   final _backgroundMusic = BackgroundMusicService();
   final _routerRefresh = ValueNotifier<int>(0);
+  var _preferencesReady = false;
   late final AppRouter _appRouter = AppRouter(
     flow: _flow,
     analytics: _analytics,
@@ -46,7 +47,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _restorePreferences();
+    unawaited(_loadPreferences());
   }
 
   @override
@@ -65,6 +66,14 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
 
   @override
   Widget build(BuildContext context) {
+    if (!_preferencesReady) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: OutOfTheLoopTheme.dark,
+        home: const SizedBox.shrink(),
+      );
+    }
+
     return SoundEffectsScope(
       service: _soundEffects,
       child: MaterialApp.router(
@@ -86,34 +95,23 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
     _routerRefresh.value++;
   }
 
-  Future<void> _restorePreferences() async {
+  Future<void> _loadPreferences() async {
     final preferences = await widget.preferencesRepository.load();
     if (!mounted) {
       return;
     }
-    final languageChanged = _flow.language != preferences.language;
-    final musicChanged =
-        _backgroundMusic.musicEnabled != preferences.musicEnabled;
-    final soundChanged =
-        _soundEffects.soundEffectsEnabled != preferences.soundEffectsEnabled;
-    if (!languageChanged && !musicChanged && !soundChanged) {
+
+    _flow.language = preferences.language;
+    _soundEffects.soundEffectsEnabled = preferences.soundEffectsEnabled;
+    await _backgroundMusic.applyMusicEnabled(preferences.musicEnabled);
+
+    if (!mounted) {
       return;
     }
+
     setState(() {
-      if (languageChanged) {
-        _flow.language = preferences.language;
-      }
-      if (soundChanged) {
-        _soundEffects.soundEffectsEnabled = preferences.soundEffectsEnabled;
-      }
+      _preferencesReady = true;
     });
-    if (musicChanged) {
-      unawaited(
-        _backgroundMusic.applyMusicEnabled(preferences.musicEnabled),
-      );
-    }
-    if (languageChanged) {
-      _notifyFlowChanged();
-    }
+    _notifyFlowChanged();
   }
 }

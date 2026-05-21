@@ -16,7 +16,7 @@ class FinalLeaderboardScreen extends StatelessWidget {
     required this.players,
     this.secretWord,
     this.outPlayer,
-    this.language = SupportedLanguage.ptBr,
+    this.language = SupportedLanguage.en,
     this.onNewMatch,
     this.onBackHome,
     super.key,

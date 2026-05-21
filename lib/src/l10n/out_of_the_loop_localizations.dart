@@ -3,11 +3,11 @@ import 'package:flutter/widgets.dart';
 import '../domain/models/models.dart';
 
 abstract final class OutOfTheLoopLocalizations {
-  static const fallbackLocale = Locale('pt', 'BR');
+  static const fallbackLocale = Locale('en');
 
   static const supportedLocales = <Locale>[
     fallbackLocale,
-    Locale('en'),
+    Locale('pt', 'BR'),
     Locale('es'),
     Locale('hi'),
     Locale('ar'),
@@ -32,8 +32,8 @@ abstract final class OutOfTheLoopLocalizations {
       }
     }
 
-    if (requestedLocale.languageCode == fallbackLocale.languageCode) {
-      return fallbackLocale;
+    if (requestedLocale.languageCode == 'pt') {
+      return const Locale('pt', 'BR');
     }
 
     return fallbackLocale;
@@ -41,11 +41,25 @@ abstract final class OutOfTheLoopLocalizations {
 
   static Locale localeFor(SupportedLanguage language) {
     return switch (language) {
-      SupportedLanguage.ptBr => fallbackLocale,
-      SupportedLanguage.en => const Locale('en'),
+      SupportedLanguage.ptBr => const Locale('pt', 'BR'),
+      SupportedLanguage.en => fallbackLocale,
       SupportedLanguage.es => const Locale('es'),
       SupportedLanguage.hi => const Locale('hi'),
       SupportedLanguage.ar => const Locale('ar'),
+    };
+  }
+
+  /// Maps the device (or requested) locale to in-game content language.
+  ///
+  /// Unsupported locales fall back to English rather than Portuguese.
+  static SupportedLanguage supportedLanguageFrom(Locale locale) {
+    return switch (locale.languageCode) {
+      'pt' => SupportedLanguage.ptBr,
+      'en' => SupportedLanguage.en,
+      'es' => SupportedLanguage.es,
+      'hi' => SupportedLanguage.hi,
+      'ar' => SupportedLanguage.ar,
+      _ => SupportedLanguage.en,
     };
   }
 }

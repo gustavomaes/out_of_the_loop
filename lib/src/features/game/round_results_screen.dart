@@ -20,7 +20,7 @@ class RoundResultsScreen extends StatelessWidget {
     required this.round,
     required this.result,
     this.totalRoundCount,
-    this.language = SupportedLanguage.ptBr,
+    this.language = SupportedLanguage.en,
     this.onContinue,
     this.onGuess,
     this.onBack,

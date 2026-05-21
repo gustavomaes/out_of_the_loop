@@ -15,7 +15,7 @@ class QuestionRoundScreen extends StatefulWidget {
   const QuestionRoundScreen({
     required this.players,
     required this.questionTurns,
-    this.language = SupportedLanguage.ptBr,
+    this.language = SupportedLanguage.en,
     this.onComplete,
     this.onBack,
     super.key,

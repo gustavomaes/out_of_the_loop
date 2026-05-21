@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../domain/models/models.dart';
+import '../../l10n/out_of_the_loop_localizations.dart';
 
 final class PreferencesSnapshot {
   const PreferencesSnapshot({
@@ -15,7 +18,10 @@ final class PreferencesSnapshot {
 }
 
 final class PreferencesRepository {
-  const PreferencesRepository();
+  const PreferencesRepository({Locale? deviceLocale})
+    : _deviceLocale = deviceLocale;
+
+  final Locale? _deviceLocale;
 
   static const _languageKey = 'settings.language';
   static const _musicKey = 'settings.music';
@@ -23,8 +29,15 @@ final class PreferencesRepository {
 
   Future<PreferencesSnapshot> load() async {
     final preferences = await SharedPreferences.getInstance();
+    final savedLanguageCode = preferences.getString(_languageKey);
+    final language = _resolveLanguage(savedLanguageCode);
+
+    if (savedLanguageCode == null) {
+      await preferences.setString(_languageKey, language.code);
+    }
+
     return PreferencesSnapshot(
-      language: _languageFromCode(preferences.getString(_languageKey)),
+      language: language,
       musicEnabled: preferences.getBool(_musicKey) ?? false,
       soundEffectsEnabled: preferences.getBool(_soundEffectsKey) ?? true,
     );
@@ -45,10 +58,18 @@ final class PreferencesRepository {
     await preferences.setBool(_soundEffectsKey, enabled);
   }
 
-  SupportedLanguage _languageFromCode(String? code) {
-    return SupportedLanguage.values
-            .where((language) => language.code == code)
-            .firstOrNull ??
-        SupportedLanguage.ptBr;
+  SupportedLanguage _resolveLanguage(String? savedCode) {
+    if (savedCode != null) {
+      return SupportedLanguage.values
+              .where((language) => language.code == savedCode)
+              .firstOrNull ??
+          _defaultLanguage();
+    }
+    return _defaultLanguage();
+  }
+
+  SupportedLanguage _defaultLanguage() {
+    final locale = _deviceLocale ?? PlatformDispatcher.instance.locale;
+    return OutOfTheLoopLocalizations.supportedLanguageFrom(locale);
   }
 }

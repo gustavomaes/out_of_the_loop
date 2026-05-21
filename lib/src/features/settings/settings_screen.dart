@@ -13,7 +13,7 @@ import 'widgets/settings_section.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
-    this.initialLanguage = SupportedLanguage.ptBr,
+    this.initialLanguage = SupportedLanguage.en,
     this.initialMusicEnabled = false,
     this.initialSoundEffectsEnabled = true,
     this.onLanguageChanged,

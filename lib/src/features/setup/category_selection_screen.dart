@@ -11,7 +11,7 @@ import 'widgets/otl_category_bento_grid.dart';
 class CategorySelectionScreen extends StatefulWidget {
   CategorySelectionScreen({
     LocalContentRepository? repository,
-    this.language = SupportedLanguage.ptBr,
+    this.language = SupportedLanguage.en,
     this.onContinue,
     super.key,
   }) : repository = repository ?? LocalContentRepository();

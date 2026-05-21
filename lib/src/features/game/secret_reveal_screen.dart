@@ -14,7 +14,7 @@ class SecretRevealScreen extends StatefulWidget {
   const SecretRevealScreen({
     required this.players,
     required this.round,
-    this.language = SupportedLanguage.ptBr,
+    this.language = SupportedLanguage.en,
     this.onComplete,
     this.onBack,
     this.onSettings,

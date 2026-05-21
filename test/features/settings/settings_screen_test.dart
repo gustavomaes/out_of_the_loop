@@ -26,33 +26,33 @@ void main() {
       ),
     );
 
-    expect(find.text('CONFIGURAÇÕES'), findsOneWidget);
-    expect(find.text('IDIOMA'), findsOneWidget);
-    expect(find.text('ÁUDIO'), findsOneWidget);
-    expect(find.text('Português'), findsOneWidget);
-    expect(find.text('Música'), findsOneWidget);
-    expect(find.text('Efeitos Sonoros'), findsOneWidget);
+    expect(find.text('SETTINGS'), findsOneWidget);
+    expect(find.text('LANGUAGE'), findsOneWidget);
+    expect(find.text('AUDIO'), findsOneWidget);
+    expect(find.text('English'), findsOneWidget);
+    expect(find.text('Music'), findsOneWidget);
+    expect(find.text('Sound Effects'), findsOneWidget);
 
-    await tester.tap(find.text('Português'));
-    await tester.pumpAndSettle();
     await tester.tap(find.text('English'));
     await tester.pumpAndSettle();
+    await tester.tap(find.text('Portuguese'));
+    await tester.pumpAndSettle();
 
-    expect(selectedLanguage, SupportedLanguage.en);
-    expect(find.text('English'), findsOneWidget);
+    expect(selectedLanguage, SupportedLanguage.ptBr);
+    expect(find.text('Portuguese'), findsOneWidget);
 
-    await tester.tap(find.text('Música'));
+    await tester.tap(find.text('Music'));
     await tester.pump();
     expect(musicEnabled, isTrue);
 
-    await tester.tap(find.text('Efeitos Sonoros'));
+    await tester.tap(find.text('Sound Effects'));
     await tester.pump();
     expect(soundEffectsEnabled, isFalse);
 
-    await tester.scrollUntilVisible(find.text('SOBRE'), 200);
-    expect(find.text('SOBRE'), findsOneWidget);
-    expect(find.text('Termos de Uso'), findsOneWidget);
-    expect(find.text('Privacidade'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('ABOUT'), 200);
+    expect(find.text('ABOUT'), findsOneWidget);
+    expect(find.text('Terms of Use'), findsOneWidget);
+    expect(find.text('Privacy'), findsOneWidget);
     expect(find.text('v0.1.0'), findsOneWidget);
   });
 }
