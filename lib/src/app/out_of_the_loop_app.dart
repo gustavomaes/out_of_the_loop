@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../data/analytics/analytics_service.dart';
 import '../data/audio/background_music_service.dart';
 import '../data/audio/sound_effects_service.dart';
 import '../data/preferences/preferences_repository.dart';
@@ -27,11 +28,13 @@ class OutOfTheLoopApp extends StatefulWidget {
 class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
     with WidgetsBindingObserver {
   final _flow = GameFlowController();
+  final _analytics = AnalyticsService();
   final _soundEffects = SoundEffectsService();
   final _backgroundMusic = BackgroundMusicService();
   final _routerRefresh = ValueNotifier<int>(0);
   late final AppRouter _appRouter = AppRouter(
     flow: _flow,
+    analytics: _analytics,
     preferencesRepository: widget.preferencesRepository,
     soundEffects: _soundEffects,
     backgroundMusic: _backgroundMusic,

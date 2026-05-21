@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../data/analytics/analytics_events.dart';
+import '../data/analytics/analytics_screens.dart';
+import '../data/analytics/analytics_service.dart';
 import '../data/audio/background_music_service.dart';
 import '../data/audio/sound_effects_service.dart';
 import '../data/preferences/preferences_repository.dart';
@@ -34,32 +37,41 @@ class AppRouter {
     required this.soundEffects,
     required this.backgroundMusic,
     required this.onFlowChanged,
+    AnalyticsService? analytics,
     Listenable? refreshListenable,
-  }) : router = GoRouter(
-         initialLocation: AppRoutes.home,
-         refreshListenable: refreshListenable,
-         navigatorKey: _rootNavigatorKey,
-         routes: _routes(
-           flow: flow,
-           preferencesRepository: preferencesRepository,
-           soundEffects: soundEffects,
-           backgroundMusic: backgroundMusic,
-           onFlowChanged: onFlowChanged,
-         ),
-       );
+  }) {
+    final service = analytics ?? AnalyticsService();
+    this.analytics = service;
+    router = GoRouter(
+      initialLocation: AppRoutes.home,
+      refreshListenable: refreshListenable,
+      navigatorKey: _rootNavigatorKey,
+      observers: [service.routeObserver],
+      routes: _routes(
+        flow: flow,
+        analytics: service,
+        preferencesRepository: preferencesRepository,
+        soundEffects: soundEffects,
+        backgroundMusic: backgroundMusic,
+        onFlowChanged: onFlowChanged,
+      ),
+    );
+  }
 
   final GameFlowController flow;
+  late final AnalyticsService analytics;
   final PreferencesRepository preferencesRepository;
   final SoundEffectsService soundEffects;
   final BackgroundMusicService backgroundMusic;
   final VoidCallback onFlowChanged;
-  final GoRouter router;
+  late final GoRouter router;
 
   static final GlobalKey<NavigatorState> _rootNavigatorKey =
       GlobalKey<NavigatorState>();
 
   static List<RouteBase> _routes({
     required GameFlowController flow,
+    required AnalyticsService analytics,
     required PreferencesRepository preferencesRepository,
     required SoundEffectsService soundEffects,
     required BackgroundMusicService backgroundMusic,
@@ -80,6 +92,7 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                name: AnalyticsScreens.home,
                 path: AppRoutes.home,
                 pageBuilder: (context, state) =>
                     const NoTransitionPage(child: _DiscoveryHomeRoute()),
@@ -89,10 +102,12 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                name: AnalyticsScreens.categories,
                 path: AppRoutes.categories,
                 pageBuilder: (context, state) => NoTransitionPage(
                   child: _DiscoveryCategoriesRoute(
                     flow: flow,
+                    analytics: analytics,
                     onFlowChanged: onFlowChanged,
                   ),
                 ),
@@ -102,10 +117,12 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                name: AnalyticsScreens.settings,
                 path: AppRoutes.settings,
                 pageBuilder: (context, state) => NoTransitionPage(
                   child: _DiscoverySettingsRoute(
                     flow: flow,
+                    analytics: analytics,
                     preferencesRepository: preferencesRepository,
                     soundEffects: soundEffects,
                     backgroundMusic: backgroundMusic,
@@ -118,6 +135,7 @@ class AppRouter {
         ],
       ),
       GoRoute(
+        name: AnalyticsScreens.matchSetup,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.matchSetup,
         builder: (context, state) => MatchSetupScreen(
@@ -128,11 +146,18 @@ class AppRouter {
               roundCount: roundCount,
               questionsPerPlayer: questionsPerPlayer,
             );
+            unawaited(
+              analytics.logConfigureMatch(
+                roundCount: roundCount,
+                questionsPerPlayer: questionsPerPlayer,
+              ),
+            );
             context.push(AppRoutes.players);
           },
         ),
       ),
       GoRoute(
+        name: AnalyticsScreens.players,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.players,
         builder: (context, state) {
@@ -159,12 +184,25 @@ class AppRouter {
                 roundCount: roundCount,
                 questionsPerPlayer: questionsPerPlayer,
               );
+              final categoryId = flow.selectedCategory?.id;
+              if (categoryId != null) {
+                unawaited(
+                  analytics.logStartMatch(
+                    categoryId: categoryId,
+                    language: flow.language,
+                    playerCount: players.length,
+                    roundCount: roundCount,
+                    questionsPerPlayer: questionsPerPlayer,
+                  ),
+                );
+              }
               context.push(AppRoutes.gameReveal);
             },
           );
         },
       ),
       GoRoute(
+        name: AnalyticsScreens.gameReveal,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameReveal,
         builder: (context, state) => _gameRoute(
@@ -174,13 +212,18 @@ class AppRouter {
             players: flow.players,
             round: flow.currentRound!,
             language: flow.language,
-            onBack: () =>
-                _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
+            onBack: () => _cancelMatchAndGoToCategories(
+              context,
+              flow,
+              analytics,
+              onFlowChanged,
+            ),
             onComplete: () => context.pushReplacement(AppRoutes.gameQuestions),
           ),
         ),
       ),
       GoRoute(
+        name: AnalyticsScreens.gameQuestions,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameQuestions,
         builder: (context, state) => _gameRoute(
@@ -190,13 +233,18 @@ class AppRouter {
             players: flow.players,
             questionTurns: flow.currentRound!.questionTurns,
             language: flow.language,
-            onBack: () =>
-                _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
+            onBack: () => _cancelMatchAndGoToCategories(
+              context,
+              flow,
+              analytics,
+              onFlowChanged,
+            ),
             onComplete: () => context.pushReplacement(AppRoutes.gameVote),
           ),
         ),
       ),
       GoRoute(
+        name: AnalyticsScreens.gameVote,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameVote,
         builder: (context, state) => _gameRoute(
@@ -204,17 +252,25 @@ class AppRouter {
           AppRoutes.gameVote,
           () => VotingScreen(
             players: flow.players,
-            onBack: () =>
-                _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
+            onBack: () => _cancelMatchAndGoToCategories(
+              context,
+              flow,
+              analytics,
+              onFlowChanged,
+            ),
             onComplete: (votes) {
               flow.recordVotes(votes);
               onFlowChanged();
+              unawaited(
+                analytics.logCompleteVoting(playerCount: flow.players.length),
+              );
               context.pushReplacement(AppRoutes.gameResults);
             },
           ),
         ),
       ),
       GoRoute(
+        name: AnalyticsScreens.gameResults,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameResults,
         builder: (context, state) {
@@ -231,15 +287,25 @@ class AppRouter {
               result: result,
               totalRoundCount: flow.setup?.roundCount,
               language: flow.setup?.language ?? flow.language,
-              onBack: () =>
-                  _cancelMatchAndGoToCategories(context, flow, onFlowChanged),
-              onContinue: () => _finishRound(context, flow, onFlowChanged),
+              onBack: () => _cancelMatchAndGoToCategories(
+                context,
+                flow,
+                analytics,
+                onFlowChanged,
+              ),
+              onContinue: () => _finishRound(
+                context,
+                flow,
+                analytics,
+                onFlowChanged,
+              ),
               onGuess: () => context.push(AppRoutes.gameGuess),
             ),
           );
         },
       ),
       GoRoute(
+        name: AnalyticsScreens.gameGuess,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameGuess,
         builder: (context, state) => _gameRoute(
@@ -249,12 +315,24 @@ class AppRouter {
             players: flow.players,
             round: flow.currentRound!,
             onBack: () => context.pop(),
-            onResolved: (result) =>
-                _finishRound(context, flow, onFlowChanged, result: result),
+            onResolved: (result) {
+              final guessCorrect = result.guessWasCorrect;
+              if (guessCorrect != null) {
+                unawaited(analytics.logSubmitGuess(guessCorrect: guessCorrect));
+              }
+              _finishRound(
+                context,
+                flow,
+                analytics,
+                onFlowChanged,
+                result: result,
+              );
+            },
           ),
         ),
       ),
       GoRoute(
+        name: AnalyticsScreens.gameFinal,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameFinal,
         builder: (context, state) {
@@ -270,6 +348,7 @@ class AppRouter {
             onNewMatch: () => _startNewMatch(
               context,
               flow: flow,
+              analytics: analytics,
               onFlowChanged: onFlowChanged,
             ),
             onBackHome: () {
@@ -281,6 +360,7 @@ class AppRouter {
         },
       ),
       GoRoute(
+        name: AnalyticsScreens.howToPlay,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.howToPlay,
         builder: (context, state) => const HowToPlayScreen(),
@@ -291,6 +371,7 @@ class AppRouter {
   static Future<void> _startNewMatch(
     BuildContext context, {
     required GameFlowController flow,
+    required AnalyticsService analytics,
     required VoidCallback onFlowChanged,
   }) async {
     final choice = await showNewMatchDialog(context);
@@ -300,10 +381,20 @@ class AppRouter {
 
     switch (choice) {
       case NewMatchDialogChoice.keepCategory:
+        unawaited(
+          analytics.logRematchStarted(
+            rematchType: AnalyticsEvents.rematchTypeKeepCategory,
+          ),
+        );
         flow.rematchKeepingCategory();
         onFlowChanged();
         context.pushReplacement(AppRoutes.gameReveal);
       case NewMatchDialogChoice.changeCategory:
+        unawaited(
+          analytics.logRematchStarted(
+            rematchType: AnalyticsEvents.rematchTypeChangeCategory,
+          ),
+        );
         flow.prepareRematchWithNewCategory();
         onFlowChanged();
         context.goDiscoveryTab(AppRoutes.categories);
@@ -313,8 +404,13 @@ class AppRouter {
   static void _cancelMatchAndGoToCategories(
     BuildContext context,
     GameFlowController flow,
+    AnalyticsService analytics,
     VoidCallback onFlowChanged,
   ) {
+    final roundNumber = flow.currentRound?.roundNumber;
+    if (roundNumber != null) {
+      unawaited(analytics.logCancelMatch(roundNumber: roundNumber));
+    }
     flow.resetMatch();
     onFlowChanged();
     context.go(AppRoutes.categories);
@@ -323,6 +419,7 @@ class AppRouter {
   static void _finishRound(
     BuildContext context,
     GameFlowController flow,
+    AnalyticsService analytics,
     VoidCallback onFlowChanged, {
     RoundResult? result,
   }) {
@@ -330,7 +427,28 @@ class AppRouter {
     if (resolved == null) {
       return;
     }
+    final roundNumber = flow.currentRound?.roundNumber ?? 0;
     final isFinalRound = flow.resolveCurrentRound(resolved);
+    unawaited(
+      analytics.logCompleteRound(
+        roundNumber: roundNumber,
+        outFoundMajority: resolved.wasOutFoundByMajority,
+        guessCorrect: resolved.guessWasCorrect,
+        isMatchEnd: isFinalRound,
+      ),
+    );
+    if (isFinalRound) {
+      final setup = flow.setup;
+      if (setup != null) {
+        unawaited(
+          analytics.logMatchFinished(
+            categoryId: setup.categoryId,
+            playerCount: setup.players.length,
+            roundCount: setup.roundCount,
+          ),
+        );
+      }
+    }
     onFlowChanged();
     final nextRoute = isFinalRound ? AppRoutes.gameFinal : AppRoutes.gameReveal;
     context.go(nextRoute);
@@ -368,10 +486,12 @@ class _DiscoveryHomeRoute extends StatelessWidget {
 class _DiscoveryCategoriesRoute extends StatelessWidget {
   const _DiscoveryCategoriesRoute({
     required this.flow,
+    required this.analytics,
     required this.onFlowChanged,
   });
 
   final GameFlowController flow;
+  final AnalyticsService analytics;
   final VoidCallback onFlowChanged;
 
   @override
@@ -381,6 +501,7 @@ class _DiscoveryCategoriesRoute extends StatelessWidget {
       language: flow.language,
       onContinue: (category) async {
         await flow.selectCategory(category);
+        unawaited(analytics.logSelectCategory(categoryId: category.id));
         if (!context.mounted) {
           return;
         }
@@ -402,6 +523,7 @@ class _DiscoveryCategoriesRoute extends StatelessWidget {
 class _DiscoverySettingsRoute extends StatelessWidget {
   const _DiscoverySettingsRoute({
     required this.flow,
+    required this.analytics,
     required this.preferencesRepository,
     required this.soundEffects,
     required this.backgroundMusic,
@@ -409,6 +531,7 @@ class _DiscoverySettingsRoute extends StatelessWidget {
   });
 
   final GameFlowController flow;
+  final AnalyticsService analytics;
   final PreferencesRepository preferencesRepository;
   final SoundEffectsService soundEffects;
   final BackgroundMusicService backgroundMusic;
@@ -424,14 +547,32 @@ class _DiscoverySettingsRoute extends StatelessWidget {
         flow.language = language;
         onFlowChanged();
         unawaited(preferencesRepository.saveLanguage(language));
+        unawaited(
+          analytics.logChangeSetting(
+            settingName: AnalyticsEvents.settingLanguage,
+            settingValue: language.code,
+          ),
+        );
       },
       onMusicEnabledChanged: (enabled) {
         unawaited(backgroundMusic.applyMusicEnabled(enabled));
         unawaited(preferencesRepository.saveMusicEnabled(enabled));
+        unawaited(
+          analytics.logChangeSetting(
+            settingName: AnalyticsEvents.settingMusicEnabled,
+            settingValue: enabled.toString(),
+          ),
+        );
       },
       onSoundEffectsEnabledChanged: (enabled) {
         soundEffects.soundEffectsEnabled = enabled;
         unawaited(preferencesRepository.saveSoundEffectsEnabled(enabled));
+        unawaited(
+          analytics.logChangeSetting(
+            settingName: AnalyticsEvents.settingSoundEffectsEnabled,
+            settingValue: enabled.toString(),
+          ),
+        );
       },
     );
   }
