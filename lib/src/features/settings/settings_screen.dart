@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/app_routes.dart';
 import '../../app/app_shell.dart';
@@ -19,10 +20,11 @@ class SettingsScreen extends StatefulWidget {
     this.onLanguageChanged,
     this.onMusicEnabledChanged,
     this.onSoundEffectsEnabledChanged,
-    this.onTermsOfUseTap,
-    this.onPrivacyTap,
     super.key,
   });
+
+  static const privacyPolicyUrl =
+      'https://mathsquirrels.com.br/politica-de-privacidade.html';
 
   final SupportedLanguage initialLanguage;
   final bool initialMusicEnabled;
@@ -30,8 +32,6 @@ class SettingsScreen extends StatefulWidget {
   final ValueChanged<SupportedLanguage>? onLanguageChanged;
   final ValueChanged<bool>? onMusicEnabledChanged;
   final ValueChanged<bool>? onSoundEffectsEnabledChanged;
-  final VoidCallback? onTermsOfUseTap;
-  final VoidCallback? onPrivacyTap;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -96,18 +96,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SettingsSection(
               label: l10n.settingsSectionAbout,
               child: AboutCard(
-                termsLabel: l10n.settingsTermsOfUse,
                 privacyLabel: l10n.settingsPrivacy,
                 versionLabel: l10n.settingsAppVersionLabel,
                 versionValue: l10n.settingsAppVersionValue,
-                onTermsTap: widget.onTermsOfUseTap,
-                onPrivacyTap: widget.onPrivacyTap,
+                onPrivacyTap: _openPrivacyPolicy,
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _openPrivacyPolicy() async {
+    final uri = Uri.parse(SettingsScreen.privacyPolicyUrl);
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
   Future<void> _showLanguagePicker(

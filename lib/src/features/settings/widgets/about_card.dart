@@ -7,20 +7,16 @@ import 'about_row.dart';
 
 class AboutCard extends StatelessWidget {
   const AboutCard({
-    required this.termsLabel,
     required this.privacyLabel,
     required this.versionLabel,
     required this.versionValue,
-    this.onTermsTap,
     this.onPrivacyTap,
     super.key,
   });
 
-  final String termsLabel;
   final String privacyLabel;
   final String versionLabel;
   final String versionValue;
-  final VoidCallback? onTermsTap;
   final VoidCallback? onPrivacyTap;
 
   @override
@@ -31,12 +27,6 @@ class AboutCard extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       child: Column(
         children: [
-          AboutRow(
-            label: termsLabel,
-            onTap: onTermsTap,
-            showChevron: true,
-          ),
-          const AboutDivider(),
           AboutRow(
             label: privacyLabel,
             onTap: onPrivacyTap,

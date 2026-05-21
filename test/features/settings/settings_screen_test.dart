@@ -51,7 +51,7 @@ void main() {
 
     await tester.scrollUntilVisible(find.text('ABOUT'), 200);
     expect(find.text('ABOUT'), findsOneWidget);
-    expect(find.text('Terms of Use'), findsOneWidget);
+    expect(find.text('Terms of Use'), findsNothing);
     expect(find.text('Privacy'), findsOneWidget);
     expect(find.text('v0.1.0'), findsOneWidget);
   });
