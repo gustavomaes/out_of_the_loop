@@ -11,6 +11,7 @@ import '../l10n/out_of_the_loop_localizations.dart';
 import '../shared/sound/sound_effects_scope.dart';
 import '../theme/theme.dart';
 import 'app_router.dart';
+import 'app_splash_screen.dart';
 import 'game_flow_controller.dart';
 
 class OutOfTheLoopApp extends StatefulWidget {
@@ -70,7 +71,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: OutOfTheLoopTheme.dark,
-        home: const SizedBox.shrink(),
+        home: const AppSplashScreen(),
       );
     }
 
