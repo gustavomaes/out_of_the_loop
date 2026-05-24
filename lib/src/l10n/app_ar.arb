@@ -109,11 +109,38 @@
       }
     }
   },
+  "secretRevealViewerLine1": "{playerName}",
+  "@secretRevealViewerLine1": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealViewerLine2": "سيرى كلمته",
+  "secretRevealHandPhoneLine": "مرّر الهاتف لهذا اللاعب فقط.",
   "secretRevealPrivacyLine1": "تأكد أن لا أحد آخر",
-  "secretRevealPrivacyLine2": "ينظر إلى شاشتك.",
+  "secretRevealPrivacyLine2": "ينظر إلى الشاشة.",
+  "secretRevealConfirmTitle": "هل هذا {playerName}؟",
+  "@secretRevealConfirmTitle": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealConfirmMessage": "أكّد أن من يمسك الهاتف هو من يجب أن يرى الكلمة فقط.",
+  "secretRevealConfirmYes": "نعم، اكشف",
+  "secretRevealConfirmNo": "ليس بعد",
   "secretRevealTopSecret": "سري للغاية",
   "secretRevealNextPlayer": "اللاعب التالي",
+  "secretRevealFinished": "انتهيت",
   "secretRevealStartQuestions": "ابدأ الأسئلة",
+  "questionsReadyTitleLine1": "الجميع",
+  "questionsReadyTitleLine2": "جاهز؟",
+  "questionsReadyBody": "عندما يرى الجميع كلمتهم، ابدأوا جولة الأسئلة.",
+  "questionsReadyThemeLabel": "الموضوع",
+  "questionsReadyStartQuestions": "ابدأ الأسئلة",
   "outOfLoopMessage": "أنت خارج الحلقة — تصرف بشكل طبيعي.",
   "doneAnswering": "انتهيت من الإجابة",
   "questionRoundPlayerTurn": "دور {playerName}",

@@ -109,11 +109,38 @@
       }
     }
   },
+  "secretRevealViewerLine1": "{playerName}",
+  "@secretRevealViewerLine1": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealViewerLine2": "verá su palabra",
+  "secretRevealHandPhoneLine": "Pasa el móvil solo a esta persona.",
   "secretRevealPrivacyLine1": "Asegúrate de que nadie más",
-  "secretRevealPrivacyLine2": "esté mirando tu pantalla.",
+  "secretRevealPrivacyLine2": "esté mirando la pantalla.",
+  "secretRevealConfirmTitle": "¿Es {playerName}?",
+  "@secretRevealConfirmTitle": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealConfirmMessage": "Confirma que solo quien debe ver la palabra tiene el móvil.",
+  "secretRevealConfirmYes": "SÍ, REVELAR",
+  "secretRevealConfirmNo": "AÚN NO",
   "secretRevealTopSecret": "TOP SECRETO",
   "secretRevealNextPlayer": "SIGUIENTE JUGADOR",
+  "secretRevealFinished": "LISTO",
   "secretRevealStartQuestions": "INICIAR PREGUNTAS",
+  "questionsReadyTitleLine1": "¿TODOS",
+  "questionsReadyTitleLine2": "LISTOS?",
+  "questionsReadyBody": "Cuando todos hayan visto su palabra, empiecen la ronda de preguntas.",
+  "questionsReadyThemeLabel": "TEMA",
+  "questionsReadyStartQuestions": "INICIAR PREGUNTAS",
   "outOfLoopMessage": "Estás FUERA del círculo — actúa con naturalidad.",
   "doneAnswering": "Termine de responder",
   "questionRoundPlayerTurn": "Turno de {playerName}",

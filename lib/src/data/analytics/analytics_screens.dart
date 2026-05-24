@@ -6,6 +6,7 @@ abstract final class AnalyticsScreens {
   static const matchSetup = 'match_setup';
   static const players = 'players';
   static const gameReveal = 'game_reveal';
+  static const gameReady = 'game_ready';
   static const gameQuestions = 'game_questions';
   static const gameVote = 'game_vote';
   static const gameResults = 'game_results';

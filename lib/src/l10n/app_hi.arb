@@ -109,11 +109,38 @@
       }
     }
   },
+  "secretRevealViewerLine1": "{playerName}",
+  "@secretRevealViewerLine1": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealViewerLine2": "अपना शब्द देखेगा",
+  "secretRevealHandPhoneLine": "फोन केवल इस खिलाड़ी को दें।",
   "secretRevealPrivacyLine1": "सुनिश्चित करें कि कोई और",
-  "secretRevealPrivacyLine2": "आपकी स्क्रीन नहीं देख रहा।",
+  "secretRevealPrivacyLine2": "स्क्रीन नहीं देख रहा।",
+  "secretRevealConfirmTitle": "क्या यह {playerName} है?",
+  "@secretRevealConfirmTitle": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealConfirmMessage": "पुष्टि करें कि फोन केवल उसी के पास है जिसे शब्द देखना है।",
+  "secretRevealConfirmYes": "हाँ, दिखाएँ",
+  "secretRevealConfirmNo": "अभी नहीं",
   "secretRevealTopSecret": "गुप्त",
   "secretRevealNextPlayer": "अगला खिलाड़ी",
+  "secretRevealFinished": "हो गया",
   "secretRevealStartQuestions": "प्रश्न शुरू करें",
+  "questionsReadyTitleLine1": "सब",
+  "questionsReadyTitleLine2": "तैयार?",
+  "questionsReadyBody": "जब सभी ने अपना शब्द देख लिया हो, प्रश्न राउंड शुरू करें।",
+  "questionsReadyThemeLabel": "थीम",
+  "questionsReadyStartQuestions": "प्रश्न शुरू करें",
   "outOfLoopMessage": "आप लूप से बाहर हैं — स्वाभाविक रहें।",
   "doneAnswering": "उत्तर पूरा हुआ",
   "questionRoundPlayerTurn": "{playerName} की बारी",

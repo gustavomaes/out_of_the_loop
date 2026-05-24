@@ -405,6 +405,24 @@ abstract class AppLocalizations {
   /// **'{playerName}'**
   String secretRevealPassToPlayer(String playerName);
 
+  /// No description provided for @secretRevealViewerLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{playerName}'**
+  String secretRevealViewerLine1(String playerName);
+
+  /// No description provided for @secretRevealViewerLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'vai ver a palavra'**
+  String get secretRevealViewerLine2;
+
+  /// No description provided for @secretRevealHandPhoneLine.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Passe o celular só para esta pessoa.'**
+  String get secretRevealHandPhoneLine;
+
   /// No description provided for @secretRevealPrivacyLine1.
   ///
   /// In pt_BR, this message translates to:
@@ -414,8 +432,32 @@ abstract class AppLocalizations {
   /// No description provided for @secretRevealPrivacyLine2.
   ///
   /// In pt_BR, this message translates to:
-  /// **'está olhando para sua tela.'**
+  /// **'está olhando para a tela.'**
   String get secretRevealPrivacyLine2;
+
+  /// No description provided for @secretRevealConfirmTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'É {playerName}?'**
+  String secretRevealConfirmTitle(String playerName);
+
+  /// No description provided for @secretRevealConfirmMessage.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Confirme que só quem vai ver a palavra está com o celular.'**
+  String get secretRevealConfirmMessage;
+
+  /// No description provided for @secretRevealConfirmYes.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'SIM, REVELAR'**
+  String get secretRevealConfirmYes;
+
+  /// No description provided for @secretRevealConfirmNo.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'AINDA NÃO'**
+  String get secretRevealConfirmNo;
 
   /// No description provided for @secretRevealTopSecret.
   ///
@@ -429,11 +471,47 @@ abstract class AppLocalizations {
   /// **'PRÓXIMO JOGADOR'**
   String get secretRevealNextPlayer;
 
+  /// No description provided for @secretRevealFinished.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TERMINEI'**
+  String get secretRevealFinished;
+
   /// No description provided for @secretRevealStartQuestions.
   ///
   /// In pt_BR, this message translates to:
   /// **'INICIAR PERGUNTAS'**
   String get secretRevealStartQuestions;
+
+  /// No description provided for @questionsReadyTitleLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TODOS'**
+  String get questionsReadyTitleLine1;
+
+  /// No description provided for @questionsReadyTitleLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PRONTOS?'**
+  String get questionsReadyTitleLine2;
+
+  /// No description provided for @questionsReadyBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Quando todos já viram a palavra deles, iniciem a rodada de perguntas.'**
+  String get questionsReadyBody;
+
+  /// No description provided for @questionsReadyThemeLabel.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'TEMA'**
+  String get questionsReadyThemeLabel;
+
+  /// No description provided for @questionsReadyStartQuestions.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'INICIAR PERGUNTAS'**
+  String get questionsReadyStartQuestions;
 
   /// No description provided for @outOfLoopMessage.
   ///

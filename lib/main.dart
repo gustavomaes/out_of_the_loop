@@ -6,8 +6,6 @@ import 'src/app/out_of_the_loop_app.dart';
 
 Future<void> main() async {
   await bootstrapFirebase();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const OutOfTheLoopApp());
 }

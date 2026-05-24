@@ -199,10 +199,36 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
+  String secretRevealViewerLine1(String playerName) {
+    return '$playerName';
+  }
+
+  @override
+  String get secretRevealViewerLine2 => 'अपना शब्द देखेगा';
+
+  @override
+  String get secretRevealHandPhoneLine => 'फोन केवल इस खिलाड़ी को दें।';
+
+  @override
   String get secretRevealPrivacyLine1 => 'सुनिश्चित करें कि कोई और';
 
   @override
-  String get secretRevealPrivacyLine2 => 'आपकी स्क्रीन नहीं देख रहा।';
+  String get secretRevealPrivacyLine2 => 'स्क्रीन नहीं देख रहा।';
+
+  @override
+  String secretRevealConfirmTitle(String playerName) {
+    return 'क्या यह $playerName है?';
+  }
+
+  @override
+  String get secretRevealConfirmMessage =>
+      'पुष्टि करें कि फोन केवल उसी के पास है जिसे शब्द देखना है।';
+
+  @override
+  String get secretRevealConfirmYes => 'हाँ, दिखाएँ';
+
+  @override
+  String get secretRevealConfirmNo => 'अभी नहीं';
 
   @override
   String get secretRevealTopSecret => 'गुप्त';
@@ -211,7 +237,26 @@ class AppLocalizationsHi extends AppLocalizations {
   String get secretRevealNextPlayer => 'अगला खिलाड़ी';
 
   @override
+  String get secretRevealFinished => 'हो गया';
+
+  @override
   String get secretRevealStartQuestions => 'प्रश्न शुरू करें';
+
+  @override
+  String get questionsReadyTitleLine1 => 'सब';
+
+  @override
+  String get questionsReadyTitleLine2 => 'तैयार?';
+
+  @override
+  String get questionsReadyBody =>
+      'जब सभी ने अपना शब्द देख लिया हो, प्रश्न राउंड शुरू करें।';
+
+  @override
+  String get questionsReadyThemeLabel => 'थीम';
+
+  @override
+  String get questionsReadyStartQuestions => 'प्रश्न शुरू करें';
 
   @override
   String get outOfLoopMessage => 'आप लूप से बाहर हैं — स्वाभाविक रहें।';

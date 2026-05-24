@@ -70,7 +70,8 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
               top: false,
               child: LayoutBuilder(
                 builder: (context, viewport) {
-                  final sectionGap = viewport.maxHeight < 700 ? 24.0 : 40.0;
+                  final compact = viewport.maxHeight < 700;
+                  final sectionGap = compact ? 24.0 : 40.0;
 
                   return Center(
                     child: ConstrainedBox(
@@ -79,12 +80,17 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
                         padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                         child: Column(
                           children: [
-                            SecretRevealInstructions(
-                              l10n: l10n,
-                              roundNumber: widget.round.roundNumber,
-                              playerName: _activePlayer.name,
+                            Flexible(
+                              flex: compact ? 2 : 1,
+                              child: SingleChildScrollView(
+                                child: SecretRevealInstructions(
+                                  l10n: l10n,
+                                  roundNumber: widget.round.roundNumber,
+                                  playerName: _activePlayer.name,
+                                ),
+                              ),
                             ),
-                            SizedBox(height: sectionGap),
+                            SizedBox(height: compact ? 16 : sectionGap),
                             Expanded(
                               child: SecretCard(
                                 revealed: _revealed,
@@ -97,7 +103,7 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
                               label: _ctaLabel(l10n),
                               onPressed: _revealed
                                   ? _advance
-                                  : () => setState(() => _revealed = true),
+                                  : () => unawaited(_confirmAndReveal()),
                             ),
                           ],
                         ),
@@ -126,9 +132,20 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
       return l10n.revealMyWord;
     }
     if (_isLastPlayer) {
-      return l10n.secretRevealStartQuestions;
+      return l10n.secretRevealFinished;
     }
     return l10n.secretRevealNextPlayer;
+  }
+
+  Future<void> _confirmAndReveal() async {
+    final confirmed = await showSecretRevealConfirmDialog(
+      context,
+      playerName: _activePlayer.name,
+    );
+    if (!confirmed || !mounted) {
+      return;
+    }
+    setState(() => _revealed = true);
   }
 
   void _advance() {

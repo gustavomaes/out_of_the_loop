@@ -29,14 +29,22 @@ class SecretRevealInstructions extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         HeadingWithShadow(
-          line1: l10n.secretRevealPassTo,
-          line2: l10n.secretRevealPassToPlayer(playerName),
+          line1: l10n.secretRevealViewerLine1(playerName),
+          line2: l10n.secretRevealViewerLine2,
         ),
         const SizedBox(height: 16),
         ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 280),
+          constraints: const BoxConstraints(maxWidth: 300),
           child: Column(
             children: [
+              Text(
+                l10n.secretRevealHandPhoneLine,
+                style: DisplayTypography.plusJakartaSecretRevealBody(
+                  color: BrutalistColors.playerCardYellow,
+                ).copyWith(fontWeight: FontWeight.w700),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 12),
               Text(
                 l10n.secretRevealPrivacyLine1,
                 style: DisplayTypography.plusJakartaSecretRevealBody(

@@ -202,10 +202,36 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String secretRevealViewerLine1(String playerName) {
+    return '$playerName';
+  }
+
+  @override
+  String get secretRevealViewerLine2 => 'verá su palabra';
+
+  @override
+  String get secretRevealHandPhoneLine => 'Pasa el móvil solo a esta persona.';
+
+  @override
   String get secretRevealPrivacyLine1 => 'Asegúrate de que nadie más';
 
   @override
-  String get secretRevealPrivacyLine2 => 'esté mirando tu pantalla.';
+  String get secretRevealPrivacyLine2 => 'esté mirando la pantalla.';
+
+  @override
+  String secretRevealConfirmTitle(String playerName) {
+    return '¿Es $playerName?';
+  }
+
+  @override
+  String get secretRevealConfirmMessage =>
+      'Confirma que solo quien debe ver la palabra tiene el móvil.';
+
+  @override
+  String get secretRevealConfirmYes => 'SÍ, REVELAR';
+
+  @override
+  String get secretRevealConfirmNo => 'AÚN NO';
 
   @override
   String get secretRevealTopSecret => 'TOP SECRETO';
@@ -214,7 +240,26 @@ class AppLocalizationsEs extends AppLocalizations {
   String get secretRevealNextPlayer => 'SIGUIENTE JUGADOR';
 
   @override
+  String get secretRevealFinished => 'LISTO';
+
+  @override
   String get secretRevealStartQuestions => 'INICIAR PREGUNTAS';
+
+  @override
+  String get questionsReadyTitleLine1 => '¿TODOS';
+
+  @override
+  String get questionsReadyTitleLine2 => 'LISTOS?';
+
+  @override
+  String get questionsReadyBody =>
+      'Cuando todos hayan visto su palabra, empiecen la ronda de preguntas.';
+
+  @override
+  String get questionsReadyThemeLabel => 'TEMA';
+
+  @override
+  String get questionsReadyStartQuestions => 'INICIAR PREGUNTAS';
 
   @override
   String get outOfLoopMessage =>

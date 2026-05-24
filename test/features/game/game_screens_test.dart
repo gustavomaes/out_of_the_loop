@@ -26,7 +26,12 @@ void main() {
     expect(find.text('Pizza'), findsNothing);
     expect(find.textContaining('OUT of the loop'), findsNothing);
 
+    await tester.ensureVisible(find.text('REVEAL MY ROLE'));
     await tester.tap(find.text('REVEAL MY ROLE'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Is it Ana?'), findsOneWidget);
+    await tester.tap(find.text('YES, REVEAL'));
     await tester.pumpAndSettle();
 
     expect(find.text('Pizza'), findsOneWidget);
@@ -37,7 +42,11 @@ void main() {
     expect(find.text('Pizza'), findsNothing);
     expect(find.text('Bia'), findsWidgets);
 
+    await tester.ensureVisible(find.text('REVEAL MY ROLE'));
     await tester.tap(find.text('REVEAL MY ROLE'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('YES, REVEAL'));
     await tester.pumpAndSettle();
 
     expect(

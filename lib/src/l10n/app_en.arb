@@ -109,11 +109,38 @@
       }
     }
   },
+  "secretRevealViewerLine1": "{playerName}",
+  "@secretRevealViewerLine1": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealViewerLine2": "will see their word",
+  "secretRevealHandPhoneLine": "Hand the phone only to this player.",
   "secretRevealPrivacyLine1": "Make sure nobody else is",
-  "secretRevealPrivacyLine2": "looking at your screen.",
+  "secretRevealPrivacyLine2": "looking at the screen.",
+  "secretRevealConfirmTitle": "Is it {playerName}?",
+  "@secretRevealConfirmTitle": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "secretRevealConfirmMessage": "Confirm only the person who should see the word is holding the phone.",
+  "secretRevealConfirmYes": "YES, REVEAL",
+  "secretRevealConfirmNo": "NOT YET",
   "secretRevealTopSecret": "TOP SECRET",
   "secretRevealNextPlayer": "NEXT PLAYER",
+  "secretRevealFinished": "I''M DONE",
   "secretRevealStartQuestions": "START QUESTIONS",
+  "questionsReadyTitleLine1": "EVERYONE",
+  "questionsReadyTitleLine2": "READY?",
+  "questionsReadyBody": "When everyone has seen their word, start the question round.",
+  "questionsReadyThemeLabel": "THEME",
+  "questionsReadyStartQuestions": "START QUESTIONS",
   "outOfLoopMessage": "You are OUT of the loop - act naturally.",
   "doneAnswering": "Done answering",
   "questionRoundPlayerTurn": "{playerName}''s turn",

@@ -4,6 +4,7 @@ abstract final class AppRoutes {
   static const matchSetup = '/match-setup';
   static const players = '/players';
   static const gameReveal = '/game/reveal';
+  static const gameReady = '/game/ready';
   static const gameQuestions = '/game/questions';
   static const gameVote = '/game/vote';
   static const gameResults = '/game/results';
@@ -18,6 +19,7 @@ abstract final class AppRoutes {
     matchSetup,
     players,
     gameReveal,
+    gameReady,
     gameQuestions,
     gameVote,
     gameResults,

@@ -15,6 +15,7 @@ import '../features/game/final_leaderboard_screen.dart';
 import '../features/game/question_round_screen.dart';
 import '../features/game/guess_screen.dart';
 import '../features/game/round_results_screen.dart';
+import '../features/game/questions_ready_screen.dart';
 import '../features/game/secret_reveal_screen.dart';
 import '../features/game/voting_screen.dart';
 import '../features/home/home_screen.dart';
@@ -218,8 +219,36 @@ class AppRouter {
               analytics,
               onFlowChanged,
             ),
-            onComplete: () => context.pushReplacement(AppRoutes.gameQuestions),
+            onComplete: () => context.pushReplacement(AppRoutes.gameReady),
           ),
+        ),
+      ),
+      GoRoute(
+        name: AnalyticsScreens.gameReady,
+        parentNavigatorKey: _rootNavigatorKey,
+        path: AppRoutes.gameReady,
+        builder: (context, state) => _gameRoute(
+          flow,
+          AppRoutes.gameReady,
+          () {
+            final category = flow.selectedCategory;
+            if (category == null) {
+              return _placeholder(AppRoutes.gameReady);
+            }
+            return QuestionsReadyScreen(
+              category: category,
+              language: flow.language,
+              roundNumber: flow.currentRound!.roundNumber,
+              onBack: () => _cancelMatchAndGoToCategories(
+                context,
+                flow,
+                analytics,
+                onFlowChanged,
+              ),
+              onStart: () =>
+                  context.pushReplacement(AppRoutes.gameQuestions),
+            );
+          },
         ),
       ),
       GoRoute(
@@ -584,6 +613,7 @@ const _routeTitles = <String, String>{
   AppRoutes.matchSetup: 'Match Setup',
   AppRoutes.players: 'Players',
   AppRoutes.gameReveal: 'Secret Reveal',
+  AppRoutes.gameReady: 'Ready for Questions',
   AppRoutes.gameQuestions: 'Questions',
   AppRoutes.gameVote: 'Vote',
   AppRoutes.gameResults: 'Results',
