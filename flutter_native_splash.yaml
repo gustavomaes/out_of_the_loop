@@ -1,0 +1,10 @@
+# Regenerate native splash assets:
+#   dart pub add --dev flutter_native_splash
+#   dart run flutter_native_splash:create
+#   dart pub remove flutter_native_splash
+flutter_native_splash:
+  color: "#111125"
+  image: assets/images/app_icon.png
+  android_12:
+    color: "#111125"
+    image: assets/images/app_icon.png
