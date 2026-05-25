@@ -15,6 +15,7 @@ void main() {
         players: players,
         questions: questions,
         outPlayerId: 'p1',
+        questionsPerPlayer: 2,
       );
 
       expect(turns, hasLength(6));
@@ -35,6 +36,7 @@ void main() {
           players: players,
           questions: questions,
           outPlayerId: 'p2',
+          questionsPerPlayer: 2,
         );
 
         expect(turns.first.playerId, isNot('p2'));
@@ -50,6 +52,7 @@ void main() {
         players: players,
         questions: questions,
         outPlayerId: 'p1',
+        questionsPerPlayer: 2,
       );
 
       expect(turns.map((turn) => turn.playerId).toList(), isNot(['p0', 'p1', 'p2', 'p0', 'p1', 'p2']));

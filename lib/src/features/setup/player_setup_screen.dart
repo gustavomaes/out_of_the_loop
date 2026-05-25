@@ -47,7 +47,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
   late var _roundCount = widget.roundCount;
   var _roundCountTouched = true;
   late var _questionsPerPlayer = widget.questionsPerPlayer;
-  var _questionsPerPlayerTouched = true;
+  var _questionsPerPlayerTouched = false;
 
   List<SecretWord> get _categoryWords =>
       widget.categoryWords ?? _defaultPlayableWords;
@@ -204,12 +204,13 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
 
   void _syncQuestionsPerPlayer() {
     final maxValue = _maxQuestionsPerPlayer;
-    final recommended = MatchSetupService.recommendedQuestionsPerPlayer(
-      _players.length,
+    final configuredValue = _questionsPerPlayerTouched
+        ? _questionsPerPlayer
+        : widget.questionsPerPlayer;
+    final nextValue = configuredValue.clamp(
+      MatchSetup.minQuestionsPerPlayer,
+      maxValue,
     );
-    final nextValue = _questionsPerPlayerTouched
-        ? _questionsPerPlayer.clamp(MatchSetup.minQuestionsPerPlayer, maxValue)
-        : recommended.clamp(MatchSetup.minQuestionsPerPlayer, maxValue);
 
     if (nextValue == _questionsPerPlayer) {
       return;

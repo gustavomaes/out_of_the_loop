@@ -209,10 +209,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get secretRevealHandPhoneLine => 'مرّر الهاتف لهذا اللاعب فقط.';
 
   @override
-  String get secretRevealPrivacyLine1 => 'تأكد أن لا أحد آخر';
-
-  @override
-  String get secretRevealPrivacyLine2 => 'ينظر إلى الشاشة.';
+  String get secretRevealPrivacy => 'تأكد أن لا أحد آخر ينظر إلى الشاشة.';
 
   @override
   String secretRevealConfirmTitle(String playerName) {
@@ -267,6 +264,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String questionRoundPlayerTurn(String playerName) {
     return 'دور $playerName';
   }
+
+  @override
+  String get questionRoundAnsweringNow => 'يجيب الآن';
 
   @override
   String get questionRoundSpeakUp => 'تحدث بصوت عالٍ!';
@@ -330,6 +330,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get votingCannotVoteSelf => 'لا يمكنك التصويت لنفسك';
 
   @override
+  String votingPlayerTurn(String playerName) {
+    return 'دور $playerName للتصويت';
+  }
+
+  @override
+  String get votingNow => 'يصوّت الآن';
+
+  @override
+  String get votingCandidatesSection => 'اختر مشتبهاً';
+
+  @override
   String get confirmVotes => 'تأكيد الأصوات';
 
   @override
@@ -351,6 +362,17 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get roundResultsMajorityEscaped =>
       'نجا اللاعب الخارج من تصويت الأغلبية.';
+
+  @override
+  String get roundResultsGuessReminderTitle => 'لا تقل الكلمة!';
+
+  @override
+  String get roundResultsGuessReminderLine1 =>
+      'سيحاول اللاعب الخارج تخمينها الآن.';
+
+  @override
+  String get roundResultsGuessReminderLine2 =>
+      'ابقوا صامتين — لا تقولوا الكلمة ولا تعطوا تلميحات.';
 
   @override
   String get roundResultsVoteTotals => 'مجموع الأصوات';

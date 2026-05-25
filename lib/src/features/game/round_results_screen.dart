@@ -9,6 +9,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/shared_widgets.dart';
 import '../../theme/theme.dart';
 import 'widgets/results_out_player_card.dart';
+import 'widgets/round_results_guess_reminder.dart';
 import 'widgets/round_results_headline.dart';
 import 'widgets/round_results_player_row.dart';
 import 'widgets/round_results_secret_word_reveal.dart';
@@ -83,6 +84,14 @@ class RoundResultsScreen extends StatelessWidget {
                       outPlayer: outPlayer,
                       label: l10n.roundResultsOutPlayerLabel,
                     ),
+                    if (!result.wasOutFoundByMajority) ...[
+                      const SizedBox(height: 20),
+                      RoundResultsGuessReminder(
+                        title: l10n.roundResultsGuessReminderTitle,
+                        line1: l10n.roundResultsGuessReminderLine1,
+                        line2: l10n.roundResultsGuessReminderLine2,
+                      ),
+                    ],
                     if (result.wasOutFoundByMajority) ...[
                       const SizedBox(height: 24),
                       RoundResultsSecretWordReveal(

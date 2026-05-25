@@ -80,22 +80,40 @@ class _SecretRevealScreenState extends State<SecretRevealScreen> {
                         padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                         child: Column(
                           children: [
-                            Flexible(
-                              flex: compact ? 2 : 1,
-                              child: SingleChildScrollView(
-                                child: SecretRevealInstructions(
-                                  l10n: l10n,
-                                  roundNumber: widget.round.roundNumber,
-                                  playerName: _activePlayer.name,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: compact ? 16 : sectionGap),
                             Expanded(
-                              child: SecretCard(
-                                revealed: _revealed,
-                                topSecretLabel: l10n.secretRevealTopSecret,
-                                roleText: _roleText(l10n),
+                              child: LayoutBuilder(
+                                builder: (context, area) {
+                                  return SingleChildScrollView(
+                                    child: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        minHeight: area.maxHeight,
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        children: [
+                                          SecretRevealInstructions(
+                                            l10n: l10n,
+                                            roundNumber:
+                                                widget.round.roundNumber,
+                                            playerName: _activePlayer.name,
+                                          ),
+                                          SizedBox(
+                                            height: compact ? 16 : sectionGap,
+                                          ),
+                                          SecretCard(
+                                            revealed: _revealed,
+                                            topSecretLabel:
+                                                l10n.secretRevealTopSecret,
+                                            roleText: _roleText(l10n),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                             SizedBox(height: sectionGap),

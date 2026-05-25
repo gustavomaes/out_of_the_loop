@@ -33,11 +33,16 @@ void main() {
     for (var index = 0; index < 3; index += 1) {
       await tester.tap(find.text('REVEAL MY ROLE'));
       await tester.pumpAndSettle();
+      await tester.tap(find.text('YES, REVEAL'));
+      await tester.pumpAndSettle();
       await tester.tap(
-        find.text(index == 2 ? 'START QUESTIONS' : 'NEXT PLAYER'),
+        find.text(index == 2 ? "I'M DONE" : 'NEXT PLAYER'),
       );
       await tester.pumpAndSettle();
     }
+
+    await tester.tap(find.text('START QUESTIONS'));
+    await tester.pumpAndSettle();
 
     for (var index = 0; index < 6; index += 1) {
       await tester.tap(find.text('DONE ANSWERING'));

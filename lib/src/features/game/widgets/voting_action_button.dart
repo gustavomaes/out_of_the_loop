@@ -60,7 +60,7 @@ class VotingActionButton extends StatelessWidget {
                       label,
                       style: DisplayTypography.rubikVotingButton(
                         color: enabled
-                            ? BrutalistColors.turnChipText
+                            ? Colors.white
                             : BrutalistColors.sectionLabel,
                       ),
                     ),

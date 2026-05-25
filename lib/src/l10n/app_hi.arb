@@ -119,8 +119,7 @@
   },
   "secretRevealViewerLine2": "अपना शब्द देखेगा",
   "secretRevealHandPhoneLine": "फोन केवल इस खिलाड़ी को दें।",
-  "secretRevealPrivacyLine1": "सुनिश्चित करें कि कोई और",
-  "secretRevealPrivacyLine2": "स्क्रीन नहीं देख रहा।",
+  "secretRevealPrivacy": "सुनिश्चित करें कि कोई और स्क्रीन नहीं देख रहा।",
   "secretRevealConfirmTitle": "क्या यह {playerName} है?",
   "@secretRevealConfirmTitle": {
     "placeholders": {
@@ -151,6 +150,7 @@
       }
     }
   },
+  "questionRoundAnsweringNow": "अभी जवाब दे रहे हैं",
   "questionRoundSpeakUp": "ज़ोर से बोलें!",
   "questionRoundSpeakUpLine1": "सवाल का जवाब ज़ोर से बोलें ताकि",
   "questionRoundSpeakUpLine2": "सभी सुन सकें।",
@@ -171,6 +171,16 @@
   "votingVote": "वोट",
   "votingYou": "आप",
   "votingCannotVoteSelf": "खुद को वोट नहीं कर सकते",
+  "votingPlayerTurn": "{playerName} का वोट",
+  "@votingPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "votingNow": "अभी वोट कर रहे हैं",
+  "votingCandidatesSection": "एक संदिग्ध चुनें",
   "confirmVotes": "वोट की पुष्टि करें",
   "roundResults": "राउंड परिणाम",
   "roundResultsHeadlineAccent": "राउंड",
@@ -178,6 +188,9 @@
   "roundResultsOutPlayerLabel": "बाहर का खिलाड़ी था",
   "roundResultsMajorityFound": "समूह ने बहुमत से बाहर के खिलाड़ी को पहचान लिया।",
   "roundResultsMajorityEscaped": "बाहर का खिलाड़ी बहुमत वोट से बच गया।",
+  "roundResultsGuessReminderTitle": "शब्द मत बोलो!",
+  "roundResultsGuessReminderLine1": "बाहर का खिलाड़ी अब अनुमान लगाएगा।",
+  "roundResultsGuessReminderLine2": "चुप रहें — शब्द मत बताएं और संकेत मत दें।",
   "roundResultsVoteTotals": "कुल वोट",
   "roundResultsRoundPoints": "राउंड अंक",
   "roundResultsVoteCount": "{count} वोट",

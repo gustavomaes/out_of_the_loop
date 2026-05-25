@@ -32,6 +32,11 @@ void main() {
       );
     });
 
+    test('generates question turns from configured questions per player', () {
+      expect(flow.currentRound?.questionTurns, hasLength(6));
+      expect(flow.setup?.questionsPerPlayer, 2);
+    });
+
     test('rematchKeepingCategory starts a fresh match with same setup', () {
       flow.rematchKeepingCategory();
 

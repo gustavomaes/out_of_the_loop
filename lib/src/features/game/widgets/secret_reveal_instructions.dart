@@ -34,7 +34,7 @@ class SecretRevealInstructions extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 300),
+          constraints: const BoxConstraints(maxWidth: 360),
           child: Column(
             children: [
               Text(
@@ -46,14 +46,7 @@ class SecretRevealInstructions extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                l10n.secretRevealPrivacyLine1,
-                style: DisplayTypography.plusJakartaSecretRevealBody(
-                  color: BrutalistColors.sectionLabel,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                l10n.secretRevealPrivacyLine2,
+                l10n.secretRevealPrivacy,
                 style: DisplayTypography.plusJakartaSecretRevealBody(
                   color: BrutalistColors.sectionLabel,
                 ),

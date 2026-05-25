@@ -119,8 +119,7 @@
   },
   "secretRevealViewerLine2": "سيرى كلمته",
   "secretRevealHandPhoneLine": "مرّر الهاتف لهذا اللاعب فقط.",
-  "secretRevealPrivacyLine1": "تأكد أن لا أحد آخر",
-  "secretRevealPrivacyLine2": "ينظر إلى الشاشة.",
+  "secretRevealPrivacy": "تأكد أن لا أحد آخر ينظر إلى الشاشة.",
   "secretRevealConfirmTitle": "هل هذا {playerName}؟",
   "@secretRevealConfirmTitle": {
     "placeholders": {
@@ -151,6 +150,7 @@
       }
     }
   },
+  "questionRoundAnsweringNow": "يجيب الآن",
   "questionRoundSpeakUp": "تحدث بصوت عالٍ!",
   "questionRoundSpeakUpLine1": "أجب عن السؤال بصوت عالٍ",
   "questionRoundSpeakUpLine2": "حتى يسمعك الجميع.",
@@ -171,6 +171,16 @@
   "votingVote": "صوّت",
   "votingYou": "أنت",
   "votingCannotVoteSelf": "لا يمكنك التصويت لنفسك",
+  "votingPlayerTurn": "دور {playerName} للتصويت",
+  "@votingPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "votingNow": "يصوّت الآن",
+  "votingCandidatesSection": "اختر مشتبهاً",
   "confirmVotes": "تأكيد الأصوات",
   "roundResults": "نتائج الجولة",
   "roundResultsHeadlineAccent": "نتائج",
@@ -178,6 +188,9 @@
   "roundResultsOutPlayerLabel": "اللاعب الخارج كان",
   "roundResultsMajorityFound": "وجدت المجموعة اللاعب الخارج بالأغلبية.",
   "roundResultsMajorityEscaped": "نجا اللاعب الخارج من تصويت الأغلبية.",
+  "roundResultsGuessReminderTitle": "لا تقل الكلمة!",
+  "roundResultsGuessReminderLine1": "سيحاول اللاعب الخارج تخمينها الآن.",
+  "roundResultsGuessReminderLine2": "ابقوا صامتين — لا تقولوا الكلمة ولا تعطوا تلميحات.",
   "roundResultsVoteTotals": "مجموع الأصوات",
   "roundResultsRoundPoints": "نقاط الجولة",
   "roundResultsVoteCount": "{count} أصوات",

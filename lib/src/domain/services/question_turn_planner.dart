@@ -11,12 +11,20 @@ final class QuestionTurnPlanner {
     required List<Player> players,
     required List<Question> questions,
     required String outPlayerId,
+    required int questionsPerPlayer,
   }) {
-    if (questions.isEmpty) {
+    if (questions.isEmpty || questionsPerPlayer < 1) {
       return const [];
     }
 
-    final questionsPerPlayer = questions.length ~/ players.length;
+    final expectedCount = players.length * questionsPerPlayer;
+    if (questions.length != expectedCount) {
+      throw StateError(
+        'Expected $expectedCount questions for ${players.length} players '
+        'at $questionsPerPlayer questions each, got ${questions.length}.',
+      );
+    }
+
     final assignments = <String>[];
     for (final player in players) {
       assignments.addAll(List.filled(questionsPerPlayer, player.id));

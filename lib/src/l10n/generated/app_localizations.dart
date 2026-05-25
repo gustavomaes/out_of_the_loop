@@ -423,17 +423,11 @@ abstract class AppLocalizations {
   /// **'Passe o celular só para esta pessoa.'**
   String get secretRevealHandPhoneLine;
 
-  /// No description provided for @secretRevealPrivacyLine1.
+  /// No description provided for @secretRevealPrivacy.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Certifique-se de que ninguém mais'**
-  String get secretRevealPrivacyLine1;
-
-  /// No description provided for @secretRevealPrivacyLine2.
-  ///
-  /// In pt_BR, this message translates to:
-  /// **'está olhando para a tela.'**
-  String get secretRevealPrivacyLine2;
+  /// **'Certifique-se de que ninguém mais está olhando para a tela.'**
+  String get secretRevealPrivacy;
 
   /// No description provided for @secretRevealConfirmTitle.
   ///
@@ -530,6 +524,12 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'Vez de {playerName}'**
   String questionRoundPlayerTurn(String playerName);
+
+  /// No description provided for @questionRoundAnsweringNow.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'RESPONDENDO AGORA'**
+  String get questionRoundAnsweringNow;
 
   /// No description provided for @questionRoundSpeakUp.
   ///
@@ -651,6 +651,24 @@ abstract class AppLocalizations {
   /// **'NAO PODE VOTAR EM SI'**
   String get votingCannotVoteSelf;
 
+  /// No description provided for @votingPlayerTurn.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Vez de {playerName} votar'**
+  String votingPlayerTurn(String playerName);
+
+  /// No description provided for @votingNow.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'VOTANDO AGORA'**
+  String get votingNow;
+
+  /// No description provided for @votingCandidatesSection.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'ESCOLHA UM SUSPEITO'**
+  String get votingCandidatesSection;
+
   /// No description provided for @confirmVotes.
   ///
   /// In pt_BR, this message translates to:
@@ -692,6 +710,24 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'O jogador fora escapou da votacao por maioria.'**
   String get roundResultsMajorityEscaped;
+
+  /// No description provided for @roundResultsGuessReminderTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'NAO DIGA A PALAVRA!'**
+  String get roundResultsGuessReminderTitle;
+
+  /// No description provided for @roundResultsGuessReminderLine1.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O jogador fora vai tentar adivinhar.'**
+  String get roundResultsGuessReminderLine1;
+
+  /// No description provided for @roundResultsGuessReminderLine2.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Fiquem em silencio — nao falem a palavra nem deem dicas.'**
+  String get roundResultsGuessReminderLine2;
 
   /// No description provided for @roundResultsVoteTotals.
   ///

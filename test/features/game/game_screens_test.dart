@@ -113,7 +113,8 @@ void main() {
       ),
     );
 
-    expect(find.text("Ana's turn"), findsOneWidget);
+    expect(find.text('ANSWERING NOW'), findsOneWidget);
+    expect(find.text('Ana'), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
@@ -122,14 +123,14 @@ void main() {
     await tester.tap(find.text('NEXT QUESTION'));
     await tester.pumpAndSettle();
 
-    expect(find.text("Bia's turn"), findsOneWidget);
+    expect(find.text('Bia'), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
     await tester.tap(find.text('NEXT QUESTION'));
     await tester.pumpAndSettle();
 
-    expect(find.text("Caio's turn"), findsOneWidget);
+    expect(find.text('Caio'), findsOneWidget);
 
     await tester.tap(find.text('DONE ANSWERING'));
     await tester.pump();
@@ -173,16 +174,16 @@ void main() {
       ),
     );
 
-    expect(find.text("Ana's turn"), findsOneWidget);
+    expect(find.text('Ana'), findsOneWidget);
 
     await _advanceQuestion(tester);
-    expect(find.text("Bia's turn"), findsOneWidget);
+    expect(find.text('Bia'), findsOneWidget);
 
     await _advanceQuestion(tester);
-    expect(find.text("Caio's turn"), findsOneWidget);
+    expect(find.text('Caio'), findsOneWidget);
 
     await _advanceQuestion(tester);
-    expect(find.text("Ana's turn"), findsOneWidget);
+    expect(find.text('Ana'), findsOneWidget);
 
     await _advanceQuestion(tester);
     await _advanceQuestion(tester);
@@ -231,13 +232,15 @@ void main() {
     );
 
     expect(find.text('WHO IS'), findsWidgets);
+    expect(find.text('VOTING NOW'), findsOneWidget);
+    expect(find.text('PICK A SUSPECT'), findsOneWidget);
+    expect(find.text('YOU'), findsNothing);
 
     for (var vote = 0; vote < 3; vote += 1) {
       await tapFirstEnabledVote(tester);
     }
 
-    expect(find.text('YOU'), findsOneWidget);
-    expect(find.text('CANNOT VOTE SELF'), findsOneWidget);
+    expect(find.text('CANNOT VOTE SELF'), findsNothing);
 
     expect(find.text('CONFIRM VOTES'), findsOneWidget);
     await tester.tap(find.text('CONFIRM VOTES'));
@@ -379,6 +382,7 @@ void main() {
       find.text('The out player escaped the majority vote.'),
       findsOneWidget,
     );
+    expect(find.text("DON'T SAY THE WORD!"), findsOneWidget);
     expect(find.text('GUESS THE WORD'), findsOneWidget);
     expect(find.text('THE SECRET WORD WAS:'), findsNothing);
     expect(find.text('PIZZA'), findsNothing);

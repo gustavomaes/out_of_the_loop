@@ -157,6 +157,35 @@ void main() {
     ]);
   });
 
+  testWidgets('player setup keeps match question count for three players', (
+    tester,
+  ) async {
+    int? startedQuestionsPerPlayer;
+
+    await tester.pumpWidget(
+      _TestApp(
+        child: PlayerSetupScreen(
+          roundCount: 3,
+          questionsPerPlayer: 1,
+          onStart: (_, __, questionsPerPlayer) {
+            startedQuestionsPerPlayer = questionsPerPlayer;
+          },
+        ),
+      ),
+    );
+
+    for (final name in ['Ana', 'Bia', 'Caio']) {
+      await tester.enterText(find.byType(TextField), name);
+      await tester.tap(find.text('ADD'));
+      await tester.pump();
+    }
+
+    await tester.tap(find.text('START GAME'));
+    await tester.pump();
+
+    expect(startedQuestionsPerPlayer, 1);
+  });
+
   testWidgets('player setup passes custom round and question counts on start', (
     tester,
   ) async {

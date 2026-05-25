@@ -6,8 +6,9 @@ import '../../domain/models/models.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/shared_widgets.dart';
 import '../../theme/theme.dart';
-import 'widgets/player_turn_chip.dart';
+import 'widgets/active_player_banner.dart';
 import 'widgets/question_card.dart';
+import 'widgets/voting_avatar.dart';
 import 'widgets/question_round_cta.dart';
 import 'widgets/speak_up_prompt.dart';
 
@@ -50,6 +51,9 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final currentPlayerIndex = widget.players.indexWhere(
+      (player) => player.id == _currentPlayer.id,
+    );
 
     return BrutalistScreenTheme.wrap(
       context,
@@ -88,9 +92,39 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    PlayerTurnChip(
-                                      label: l10n.questionRoundPlayerTurn(
-                                        _currentPlayer.name,
+                                    AnimatedSwitcher(
+                                      duration: const Duration(
+                                        milliseconds: 280,
+                                      ),
+                                      switchInCurve: Curves.easeOutCubic,
+                                      switchOutCurve: Curves.easeInCubic,
+                                      transitionBuilder: (child, animation) {
+                                        return FadeTransition(
+                                          opacity: animation,
+                                          child: SlideTransition(
+                                            position: Tween<Offset>(
+                                              begin: const Offset(0, -0.08),
+                                              end: Offset.zero,
+                                            ).animate(
+                                              CurvedAnimation(
+                                                parent: animation,
+                                                curve: Curves.easeOutCubic,
+                                              ),
+                                            ),
+                                            child: child,
+                                          ),
+                                        );
+                                      },
+                                      child: ActivePlayerBanner(
+                                        key: ValueKey(_currentPlayer.id),
+                                        player: _currentPlayer,
+                                        statusLabel:
+                                            l10n.questionRoundAnsweringNow,
+                                        avatarColor: votingAvatarColorForIndex(
+                                          currentPlayerIndex >= 0
+                                              ? currentPlayerIndex
+                                              : 0,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(height: sectionGap),

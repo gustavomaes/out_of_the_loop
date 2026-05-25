@@ -19,65 +19,64 @@ class SecretCard extends StatelessWidget {
 
   static const _shadowDx = 4.0;
   static const _shadowDy = 8.0;
+  /// Fits icon + one line of text + padding; card grows when copy is longer.
+  static const _minHeight = 176.0;
+  static const _verticalPadding = 28.0;
 
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.only(right: _shadowDx, bottom: _shadowDy),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final verticalPadding = constraints.maxHeight < 220 ? 20.0 : 32.0;
-
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Positioned.fill(
-                child: Transform.translate(
-                  offset: const Offset(_shadowDx, _shadowDy),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                  ),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Positioned.fill(
+            child: Transform.translate(
+              offset: const Offset(_shadowDx, _shadowDy),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(32),
                 ),
               ),
-              SizedBox(
-                width: double.infinity,
-                height: constraints.maxHeight,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: BrutalistColors.cardBackground,
-                    borderRadius: BorderRadius.circular(32),
-                    border: Border.all(color: Colors.black, width: 6),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(26),
-                    child: Stack(
-                      children: [
-                        const Positioned.fill(child: SecretCardPattern()),
-                        Center(
-                          child: SingleChildScrollView(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 30,
-                              vertical: verticalPadding,
-                            ),
-                            child: AnimatedSwitcher(
-                              duration: const Duration(milliseconds: 200),
-                              child: revealed
-                                  ? RevealedRole(roleText: roleText)
-                                  : HiddenRole(topSecretLabel: topSecretLabel),
-                            ),
-                          ),
+            ),
+          ),
+          ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: _minHeight),
+            child: SizedBox(
+              width: double.infinity,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: BrutalistColors.cardBackground,
+                  borderRadius: BorderRadius.circular(32),
+                  border: Border.all(color: Colors.black, width: 6),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(26),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      const Positioned.fill(child: SecretCardPattern()),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: _verticalPadding,
                         ),
-                      ],
-                    ),
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 200),
+                          child: revealed
+                              ? RevealedRole(roleText: roleText)
+                              : HiddenRole(topSecretLabel: topSecretLabel),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ],
-          );
-        },
+            ),
+          ),
+        ],
       ),
     );
   }

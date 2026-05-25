@@ -119,8 +119,7 @@
   },
   "secretRevealViewerLine2": "will see their word",
   "secretRevealHandPhoneLine": "Hand the phone only to this player.",
-  "secretRevealPrivacyLine1": "Make sure nobody else is",
-  "secretRevealPrivacyLine2": "looking at the screen.",
+  "secretRevealPrivacy": "Make sure nobody else is looking at the screen.",
   "secretRevealConfirmTitle": "Is it {playerName}?",
   "@secretRevealConfirmTitle": {
     "placeholders": {
@@ -151,6 +150,7 @@
       }
     }
   },
+  "questionRoundAnsweringNow": "ANSWERING NOW",
   "questionRoundSpeakUp": "SPEAK UP!",
   "questionRoundSpeakUpLine1": "Answer the question aloud so",
   "questionRoundSpeakUpLine2": "everyone can hear you.",
@@ -171,6 +171,16 @@
   "votingVote": "VOTE",
   "votingYou": "YOU",
   "votingCannotVoteSelf": "CANNOT VOTE SELF",
+  "votingPlayerTurn": "{playerName}''s turn to vote",
+  "@votingPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "votingNow": "VOTING NOW",
+  "votingCandidatesSection": "PICK A SUSPECT",
   "confirmVotes": "CONFIRM VOTES",
   "roundResults": "ROUND RESULTS",
   "roundResultsHeadlineAccent": "ROUND",
@@ -178,6 +188,9 @@
   "roundResultsOutPlayerLabel": "THE OUT PLAYER WAS",
   "roundResultsMajorityFound": "The group found the out player by majority.",
   "roundResultsMajorityEscaped": "The out player escaped the majority vote.",
+  "roundResultsGuessReminderTitle": "DON''T SAY THE WORD!",
+  "roundResultsGuessReminderLine1": "The out player gets to guess now.",
+  "roundResultsGuessReminderLine2": "Stay quiet — don''t say the word or give hints.",
   "roundResultsVoteTotals": "VOTE TOTALS",
   "roundResultsRoundPoints": "ROUND POINTS",
   "roundResultsVoteCount": "{count} votes",

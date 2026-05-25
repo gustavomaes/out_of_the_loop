@@ -47,6 +47,7 @@ final class RoundGenerationService {
         players: players,
         questions: questions,
         outPlayerId: outPlayer.id,
+        questionsPerPlayer: questionsPerPlayer,
       ),
       phase: RoundPhase.reveal,
     );

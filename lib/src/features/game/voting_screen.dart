@@ -10,6 +10,7 @@ import '../../theme/theme.dart';
 import 'widgets/voting_confirm_cta.dart';
 import 'widgets/voting_headline.dart';
 import 'widgets/voting_player_card.dart';
+import 'widgets/active_player_banner.dart';
 
 class VotingScreen extends StatefulWidget {
   const VotingScreen({
@@ -44,6 +45,11 @@ class _VotingScreenState extends State<VotingScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final votingDisabled = _allVotesCollected;
+    final voteCandidates = widget.players
+        .asMap()
+        .entries
+        .where((entry) => entry.value.id != _activeVoter.id)
+        .toList();
 
     return BrutalistScreenTheme.wrap(
       context,
@@ -82,31 +88,45 @@ class _VotingScreenState extends State<VotingScreen> {
                                   children: [
                                     VotingHeadline(l10n: l10n),
                                     SizedBox(height: compact ? 16 : 24),
-                                    ...widget.players.asMap().entries.map(
-                                      (entry) => Padding(
-                                        padding: EdgeInsets.only(
-                                          bottom: entry.key <
-                                                  widget.players.length - 1
-                                              ? 16
-                                              : 0,
-                                        ),
-                                        child: VotingPlayerCard(
-                                          player: entry.value,
-                                          index: entry.key,
-                                          isSelf:
-                                              entry.value.id ==
-                                              _activeVoter.id,
-                                          voteLabel: l10n.votingVote,
-                                          youLabel: l10n.votingYou,
-                                          cannotVoteSelfLabel:
-                                              l10n.votingCannotVoteSelf,
-                                          onVote: votingDisabled
-                                              ? null
-                                              : () => _recordVote(
-                                                  entry.value.id,
-                                                ),
+                                    ActivePlayerBanner(
+                                      player: _activeVoter,
+                                      statusLabel: l10n.votingNow,
+                                    ),
+                                    SizedBox(height: compact ? 16 : 20),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        l10n.votingCandidatesSection,
+                                        style:
+                                            DisplayTypography
+                                                .spaceGroteskSectionLabel(
+                                          color: BrutalistColors.sectionLabel,
                                         ),
                                       ),
+                                    ),
+                                    const SizedBox(height: 12),
+                                    ...voteCandidates.asMap().entries.map(
+                                      (entry) {
+                                        final candidate = entry.value;
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            bottom: entry.key <
+                                                    voteCandidates.length - 1
+                                                ? 16
+                                                : 0,
+                                          ),
+                                          child: VotingPlayerCard(
+                                            player: candidate.value,
+                                            index: candidate.key,
+                                            voteLabel: l10n.votingVote,
+                                            onVote: votingDisabled
+                                                ? null
+                                                : () => _recordVote(
+                                                    candidate.value.id,
+                                                  ),
+                                          ),
+                                        );
+                                      },
                                     ),
                                   ],
                                 ),

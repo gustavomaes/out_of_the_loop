@@ -119,8 +119,7 @@
   },
   "secretRevealViewerLine2": "verá su palabra",
   "secretRevealHandPhoneLine": "Pasa el móvil solo a esta persona.",
-  "secretRevealPrivacyLine1": "Asegúrate de que nadie más",
-  "secretRevealPrivacyLine2": "esté mirando la pantalla.",
+  "secretRevealPrivacy": "Asegúrate de que nadie más esté mirando la pantalla.",
   "secretRevealConfirmTitle": "¿Es {playerName}?",
   "@secretRevealConfirmTitle": {
     "placeholders": {
@@ -151,6 +150,7 @@
       }
     }
   },
+  "questionRoundAnsweringNow": "RESPONDIENDO AHORA",
   "questionRoundSpeakUp": "¡HABLA EN VOZ ALTA!",
   "questionRoundSpeakUpLine1": "Responde la pregunta en voz alta para que",
   "questionRoundSpeakUpLine2": "todos te escuchen.",
@@ -171,6 +171,16 @@
   "votingVote": "VOTAR",
   "votingYou": "TU",
   "votingCannotVoteSelf": "NO PUEDES VOTARTE",
+  "votingPlayerTurn": "Turno de {playerName} para votar",
+  "@votingPlayerTurn": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      }
+    }
+  },
+  "votingNow": "VOTANDO AHORA",
+  "votingCandidatesSection": "ELIGE UN SOSPECHOSO",
   "confirmVotes": "CONFIRMAR VOTOS",
   "roundResults": "RESULTADOS DE LA RONDA",
   "roundResultsHeadlineAccent": "RESULTADOS",
@@ -178,6 +188,9 @@
   "roundResultsOutPlayerLabel": "EL JUGADOR FUERA ERA",
   "roundResultsMajorityFound": "El grupo encontro al jugador fuera por mayoria.",
   "roundResultsMajorityEscaped": "El jugador fuera escapo de la votacion por mayoria.",
+  "roundResultsGuessReminderTitle": "NO DIGAS LA PALABRA!",
+  "roundResultsGuessReminderLine1": "El jugador fuera intentara adivinar.",
+  "roundResultsGuessReminderLine2": "Quedense en silencio — no digan la palabra ni den pistas.",
   "roundResultsVoteTotals": "TOTAL DE VOTOS",
   "roundResultsRoundPoints": "PUNTOS DE LA RONDA",
   "roundResultsVoteCount": "{count} votos",
