@@ -1,3 +1,4 @@
+export 'app_review_prompt.dart';
 export 'match_progression_service.dart';
 export 'match_setup_service.dart';
 export 'question_turn_planner.dart';

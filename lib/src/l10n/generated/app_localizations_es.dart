@@ -583,4 +583,17 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get howToPlayOutcomeBodyAfter => ' ¡y se convierte en el cerebro!';
+
+  @override
+  String get reviewPromptTitle => '¿Les gustó la partida?';
+
+  @override
+  String get reviewPromptMessage =>
+      'Si la mesa se divirtió, una reseña en la tienda ayuda a que el juego llegue a más personas.';
+
+  @override
+  String get reviewPromptRate => 'VALORAR';
+
+  @override
+  String get reviewPromptLater => 'AHORA NO';
 }

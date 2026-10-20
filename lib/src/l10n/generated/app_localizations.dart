@@ -1100,6 +1100,30 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **' e vira o mestre!'**
   String get howToPlayOutcomeBodyAfter;
+
+  /// No description provided for @reviewPromptTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Curtiu a partida?'**
+  String get reviewPromptTitle;
+
+  /// No description provided for @reviewPromptMessage.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Se a galera se divertiu, uma avaliação na loja ajuda o jogo a chegar em mais mesas.'**
+  String get reviewPromptMessage;
+
+  /// No description provided for @reviewPromptRate.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'AVALIAR'**
+  String get reviewPromptRate;
+
+  /// No description provided for @reviewPromptLater.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'AGORA NÃO'**
+  String get reviewPromptLater;
 }
 
 class _AppLocalizationsDelegate

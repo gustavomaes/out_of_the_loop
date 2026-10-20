@@ -294,5 +294,9 @@
   "howToPlayOutcomeTitle": "الخاتمة",
   "howToPlayOutcomeBodyBefore": "إذا خمّن لاعب «خارج الحلقة» الكلمة في النهاية، ",
   "howToPlayOutcomeBodyHighlight": "يفوز",
-  "howToPlayOutcomeBodyAfter": " ويصبح العقل المدبر!"
+  "howToPlayOutcomeBodyAfter": " ويصبح العقل المدبر!",
+  "reviewPromptTitle": "هل استمتعتم بالمباراة؟",
+  "reviewPromptMessage": "إذا استمتعت المجموعة، فتقييم في المتجر يساعد اللعبة على الوصول إلى المزيد من الطاولات.",
+  "reviewPromptRate": "قيّم التطبيق",
+  "reviewPromptLater": "ليس الآن"
 }

@@ -578,4 +578,17 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get howToPlayOutcomeBodyAfter => ' और मास्टरमाइंड बन जाता है!';
+
+  @override
+  String get reviewPromptTitle => 'मैच मज़ेदार रहा?';
+
+  @override
+  String get reviewPromptMessage =>
+      'अगर सबको मज़ा आया, तो स्टोर पर एक समीक्षा गेम को और लोगों तक पहुँचाती है।';
+
+  @override
+  String get reviewPromptRate => 'रेट करें';
+
+  @override
+  String get reviewPromptLater => 'अभी नहीं';
 }

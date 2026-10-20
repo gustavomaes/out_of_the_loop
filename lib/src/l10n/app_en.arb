@@ -294,5 +294,9 @@
   "howToPlayOutcomeTitle": "THE FINALE",
   "howToPlayOutcomeBodyBefore": "If the 'Out of the Loop' player guesses the word at the end, ",
   "howToPlayOutcomeBodyHighlight": "they win",
-  "howToPlayOutcomeBodyAfter": " and become the mastermind!"
+  "howToPlayOutcomeBodyAfter": " and become the mastermind!",
+  "reviewPromptTitle": "Enjoyed the match?",
+  "reviewPromptMessage": "If the table had fun, a store review helps the game reach more people.",
+  "reviewPromptRate": "RATE THE APP",
+  "reviewPromptLater": "NOT NOW"
 }

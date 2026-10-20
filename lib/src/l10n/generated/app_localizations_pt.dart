@@ -584,6 +584,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get howToPlayOutcomeBodyAfter => ' e vira o mestre!';
+
+  @override
+  String get reviewPromptTitle => 'Curtiu a partida?';
+
+  @override
+  String get reviewPromptMessage =>
+      'Se a galera se divertiu, uma avaliação na loja ajuda o jogo a chegar em mais mesas.';
+
+  @override
+  String get reviewPromptRate => 'AVALIAR';
+
+  @override
+  String get reviewPromptLater => 'AGORA NÃO';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1167,4 +1180,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get howToPlayOutcomeBodyAfter => ' e vira o mestre!';
+
+  @override
+  String get reviewPromptTitle => 'Curtiu a partida?';
+
+  @override
+  String get reviewPromptMessage =>
+      'Se a galera se divertiu, uma avaliação na loja ajuda o jogo a chegar em mais mesas.';
+
+  @override
+  String get reviewPromptRate => 'AVALIAR';
+
+  @override
+  String get reviewPromptLater => 'AGORA NÃO';
 }

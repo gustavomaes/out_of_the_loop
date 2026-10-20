@@ -575,4 +575,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get howToPlayOutcomeBodyAfter => ' ويصبح العقل المدبر!';
+
+  @override
+  String get reviewPromptTitle => 'هل استمتعتم بالمباراة؟';
+
+  @override
+  String get reviewPromptMessage =>
+      'إذا استمتعت المجموعة، فتقييم في المتجر يساعد اللعبة على الوصول إلى المزيد من الطاولات.';
+
+  @override
+  String get reviewPromptRate => 'قيّم التطبيق';
+
+  @override
+  String get reviewPromptLater => 'ليس الآن';
 }

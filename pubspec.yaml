@@ -17,6 +17,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   go_router: ^17.2.3
+  in_app_review: ^2.0.11
   intl: any
   shared_preferences: ^2.5.5
   url_launcher: ^6.3.2

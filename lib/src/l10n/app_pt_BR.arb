@@ -297,5 +297,9 @@
   "howToPlayOutcomeTitle": "O DESFECHO",
   "howToPlayOutcomeBodyBefore": "Se o 'Fora do Loop' adivinhar a palavra no final, ",
   "howToPlayOutcomeBodyHighlight": "ele ganha",
-  "howToPlayOutcomeBodyAfter": " e vira o mestre!"
+  "howToPlayOutcomeBodyAfter": " e vira o mestre!",
+  "reviewPromptTitle": "Curtiu a partida?",
+  "reviewPromptMessage": "Se a galera se divertiu, uma avaliação na loja ajuda o jogo a chegar em mais mesas.",
+  "reviewPromptRate": "AVALIAR",
+  "reviewPromptLater": "AGORA NÃO"
 }

@@ -7,6 +7,7 @@ export 'otl_discovery_bottom_bar.dart';
 export 'otl_exit_game_dialog.dart';
 export 'otl_secret_reveal_confirm_dialog.dart';
 export 'otl_new_match_dialog.dart';
+export 'otl_review_prompt_dialog.dart';
 export 'otl_brutalist_surface.dart';
 export 'otl_home_backdrop.dart';
 export 'otl_party_atmosphere.dart';

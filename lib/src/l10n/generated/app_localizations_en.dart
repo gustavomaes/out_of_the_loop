@@ -578,4 +578,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get howToPlayOutcomeBodyAfter => ' and become the mastermind!';
+
+  @override
+  String get reviewPromptTitle => 'Enjoyed the match?';
+
+  @override
+  String get reviewPromptMessage =>
+      'If the table had fun, a store review helps the game reach more people.';
+
+  @override
+  String get reviewPromptRate => 'RATE THE APP';
+
+  @override
+  String get reviewPromptLater => 'NOT NOW';
 }

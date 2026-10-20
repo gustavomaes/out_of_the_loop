@@ -294,5 +294,9 @@
   "howToPlayOutcomeTitle": "अंत",
   "howToPlayOutcomeBodyBefore": "अगर 'लूप से बाहर' खिलाड़ी अंत में शब्द सही अनुमान लगाए, तो ",
   "howToPlayOutcomeBodyHighlight": "वह जीतता है",
-  "howToPlayOutcomeBodyAfter": " और मास्टरमाइंड बन जाता है!"
+  "howToPlayOutcomeBodyAfter": " और मास्टरमाइंड बन जाता है!",
+  "reviewPromptTitle": "मैच मज़ेदार रहा?",
+  "reviewPromptMessage": "अगर सबको मज़ा आया, तो स्टोर पर एक समीक्षा गेम को और लोगों तक पहुँचाती है।",
+  "reviewPromptRate": "रेट करें",
+  "reviewPromptLater": "अभी नहीं"
 }

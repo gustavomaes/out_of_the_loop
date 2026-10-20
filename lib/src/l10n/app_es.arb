@@ -294,5 +294,9 @@
   "howToPlayOutcomeTitle": "EL DESENLACE",
   "howToPlayOutcomeBodyBefore": "Si el 'Fuera del Loop' adivina la palabra al final, ",
   "howToPlayOutcomeBodyHighlight": "gana",
-  "howToPlayOutcomeBodyAfter": " ¡y se convierte en el cerebro!"
+  "howToPlayOutcomeBodyAfter": " ¡y se convierte en el cerebro!",
+  "reviewPromptTitle": "¿Les gustó la partida?",
+  "reviewPromptMessage": "Si la mesa se divirtió, una reseña en la tienda ayuda a que el juego llegue a más personas.",
+  "reviewPromptRate": "VALORAR",
+  "reviewPromptLater": "AHORA NO"
 }

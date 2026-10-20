@@ -10,7 +10,9 @@ import '../data/audio/background_music_service.dart';
 import '../data/audio/sound_effects_service.dart';
 import '../data/preferences/preferences_repository.dart';
 import '../domain/models/models.dart';
+import '../domain/services/app_review_prompt.dart';
 import '../domain/services/match_setup_service.dart';
+import '../features/game/final_leaderboard_review_gate.dart';
 import '../features/game/final_leaderboard_screen.dart';
 import '../features/game/question_round_screen.dart';
 import '../features/game/guess_screen.dart';
@@ -40,7 +42,8 @@ class AppRouter {
     required this.onFlowChanged,
     AnalyticsService? analytics,
     Listenable? refreshListenable,
-  }) {
+    AppReviewPrompt? reviewPrompt,
+  }) : reviewPrompt = reviewPrompt ?? AppReviewPrompt() {
     final service = analytics ?? AnalyticsService();
     this.analytics = service;
     router = GoRouter(
@@ -55,6 +58,7 @@ class AppRouter {
         soundEffects: soundEffects,
         backgroundMusic: backgroundMusic,
         onFlowChanged: onFlowChanged,
+        reviewPrompt: this.reviewPrompt,
       ),
     );
   }
@@ -65,6 +69,7 @@ class AppRouter {
   final SoundEffectsService soundEffects;
   final BackgroundMusicService backgroundMusic;
   final VoidCallback onFlowChanged;
+  final AppReviewPrompt reviewPrompt;
   late final GoRouter router;
 
   static final GlobalKey<NavigatorState> _rootNavigatorKey =
@@ -77,6 +82,7 @@ class AppRouter {
     required SoundEffectsService soundEffects,
     required BackgroundMusicService backgroundMusic,
     required VoidCallback onFlowChanged,
+    required AppReviewPrompt reviewPrompt,
   }) {
     return [
       StatefulShellRoute(
@@ -367,24 +373,27 @@ class AppRouter {
         builder: (context, state) {
           final lastRound = flow.lastCompletedRound;
           final outPlayerId = lastRound?.outPlayerId;
-          return FinalLeaderboardScreen(
-            players: flow.finalRanking(),
-            secretWord: lastRound?.secretWord,
-            outPlayer: outPlayerId == null
-                ? null
-                : flow.playerById(outPlayerId),
-            language: flow.setup?.language ?? flow.language,
-            onNewMatch: () => _startNewMatch(
-              context,
-              flow: flow,
-              analytics: analytics,
-              onFlowChanged: onFlowChanged,
+          return FinalLeaderboardReviewGate(
+            reviewPrompt: reviewPrompt,
+            child: FinalLeaderboardScreen(
+              players: flow.finalRanking(),
+              secretWord: lastRound?.secretWord,
+              outPlayer: outPlayerId == null
+                  ? null
+                  : flow.playerById(outPlayerId),
+              language: flow.setup?.language ?? flow.language,
+              onNewMatch: () => _startNewMatch(
+                context,
+                flow: flow,
+                analytics: analytics,
+                onFlowChanged: onFlowChanged,
+              ),
+              onBackHome: () {
+                flow.resetMatch();
+                onFlowChanged();
+                context.goDiscoveryTab(AppRoutes.home);
+              },
             ),
-            onBackHome: () {
-              flow.resetMatch();
-              onFlowChanged();
-              context.goDiscoveryTab(AppRoutes.home);
-            },
           );
         },
       ),
