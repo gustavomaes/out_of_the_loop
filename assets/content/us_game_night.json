@@ -1,0 +1,3767 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "us-1",
+  "languages": [
+    "en"
+  ],
+  "minQuestionsPerWord": 3,
+  "maxQuestionsPerWord": 9,
+  "categories": [
+    {
+      "id": "us_backyard",
+      "iconKey": "celebration",
+      "name": {
+        "en": "Backyard Hangout"
+      },
+      "primary": "#CAFF36",
+      "secondary": "#2C223F",
+      "description": "Classic cookout energy, backyard games, and summer weekends.",
+      "words": [
+        {
+          "id": "us_backyard_01",
+          "value": {
+            "en": "Cornhole"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_01-q1",
+              "text": {
+                "en": "When aiming a beanbag at a slanted board, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q2",
+              "text": {
+                "en": "When aiming a beanbag at a slanted board, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q3",
+              "text": {
+                "en": "When aiming a beanbag at a slanted board, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q4",
+              "text": {
+                "en": "When choosing a throwing spot on the lawn, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q5",
+              "text": {
+                "en": "When choosing a throwing spot on the lawn, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q6",
+              "text": {
+                "en": "When choosing a throwing spot on the lawn, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q7",
+              "text": {
+                "en": "When keeping score in a backyard bag-toss match, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q8",
+              "text": {
+                "en": "When keeping score in a backyard bag-toss match, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_01-q9",
+              "text": {
+                "en": "When keeping score in a backyard bag-toss match, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_02",
+          "value": {
+            "en": "S’mores"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_02-q1",
+              "text": {
+                "en": "When toasting a marshmallow over embers, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q2",
+              "text": {
+                "en": "When toasting a marshmallow over embers, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q3",
+              "text": {
+                "en": "When toasting a marshmallow over embers, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q4",
+              "text": {
+                "en": "When assembling a gooey campfire sandwich, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q5",
+              "text": {
+                "en": "When assembling a gooey campfire sandwich, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q6",
+              "text": {
+                "en": "When assembling a gooey campfire sandwich, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q7",
+              "text": {
+                "en": "When biting through crackers filled with melted sweetness, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q8",
+              "text": {
+                "en": "When biting through crackers filled with melted sweetness, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_02-q9",
+              "text": {
+                "en": "When biting through crackers filled with melted sweetness, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_03",
+          "value": {
+            "en": "Lawn chair"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_03-q1",
+              "text": {
+                "en": "When unfolding a low outdoor seat, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q2",
+              "text": {
+                "en": "When unfolding a low outdoor seat, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q3",
+              "text": {
+                "en": "When unfolding a low outdoor seat, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q4",
+              "text": {
+                "en": "When choosing a comfortable place to sit on grass, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q5",
+              "text": {
+                "en": "When choosing a comfortable place to sit on grass, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q6",
+              "text": {
+                "en": "When choosing a comfortable place to sit on grass, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q7",
+              "text": {
+                "en": "When packing a portable seat after a cookout, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q8",
+              "text": {
+                "en": "When packing a portable seat after a cookout, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_03-q9",
+              "text": {
+                "en": "When packing a portable seat after a cookout, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_04",
+          "value": {
+            "en": "Cooler"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_04-q1",
+              "text": {
+                "en": "When packing ice around picnic drinks, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q2",
+              "text": {
+                "en": "When packing ice around picnic drinks, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q3",
+              "text": {
+                "en": "When packing ice around picnic drinks, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q4",
+              "text": {
+                "en": "When choosing an insulated container for a hot day, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q5",
+              "text": {
+                "en": "When choosing an insulated container for a hot day, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q6",
+              "text": {
+                "en": "When choosing an insulated container for a hot day, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q7",
+              "text": {
+                "en": "When keeping refreshments cold far from a refrigerator, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q8",
+              "text": {
+                "en": "When keeping refreshments cold far from a refrigerator, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_04-q9",
+              "text": {
+                "en": "When keeping refreshments cold far from a refrigerator, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_05",
+          "value": {
+            "en": "Pool float"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_05-q1",
+              "text": {
+                "en": "When balancing on an inflatable in water, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q2",
+              "text": {
+                "en": "When balancing on an inflatable in water, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q3",
+              "text": {
+                "en": "When balancing on an inflatable in water, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q4",
+              "text": {
+                "en": "When choosing a shape for a floating lounger, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q5",
+              "text": {
+                "en": "When choosing a shape for a floating lounger, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q6",
+              "text": {
+                "en": "When choosing a shape for a floating lounger, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q7",
+              "text": {
+                "en": "When drying and deflating a large water toy, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q8",
+              "text": {
+                "en": "When drying and deflating a large water toy, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_05-q9",
+              "text": {
+                "en": "When drying and deflating a large water toy, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_06",
+          "value": {
+            "en": "Hot dog"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_06-q1",
+              "text": {
+                "en": "When grilling sausages for a backyard crowd, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q2",
+              "text": {
+                "en": "When grilling sausages for a backyard crowd, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q3",
+              "text": {
+                "en": "When grilling sausages for a backyard crowd, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q4",
+              "text": {
+                "en": "When setting out condiments beside long buns, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q5",
+              "text": {
+                "en": "When setting out condiments beside long buns, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q6",
+              "text": {
+                "en": "When setting out condiments beside long buns, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q7",
+              "text": {
+                "en": "When carrying a loaded sausage bun across the lawn, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q8",
+              "text": {
+                "en": "When carrying a loaded sausage bun across the lawn, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_06-q9",
+              "text": {
+                "en": "When carrying a loaded sausage bun across the lawn, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_07",
+          "value": {
+            "en": "Picnic blanket"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_07-q1",
+              "text": {
+                "en": "When spreading fabric on grass for lunch, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q2",
+              "text": {
+                "en": "When spreading fabric on grass for lunch, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q3",
+              "text": {
+                "en": "When spreading fabric on grass for lunch, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q4",
+              "text": {
+                "en": "When choosing a dry patch for a ground-level meal, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q5",
+              "text": {
+                "en": "When choosing a dry patch for a ground-level meal, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q6",
+              "text": {
+                "en": "When choosing a dry patch for a ground-level meal, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q7",
+              "text": {
+                "en": "When shaking crumbs from a fabric picnic base, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q8",
+              "text": {
+                "en": "When shaking crumbs from a fabric picnic base, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_07-q9",
+              "text": {
+                "en": "When shaking crumbs from a fabric picnic base, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_08",
+          "value": {
+            "en": "Charcoal grill"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_08-q1",
+              "text": {
+                "en": "When lighting solid fuel under a cooking grate, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q2",
+              "text": {
+                "en": "When lighting solid fuel under a cooking grate, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q3",
+              "text": {
+                "en": "When lighting solid fuel under a cooking grate, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q4",
+              "text": {
+                "en": "When controlling heat over glowing briquettes, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q5",
+              "text": {
+                "en": "When controlling heat over glowing briquettes, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q6",
+              "text": {
+                "en": "When controlling heat over glowing briquettes, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q7",
+              "text": {
+                "en": "When waiting for smoky coals to cool after cooking, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q8",
+              "text": {
+                "en": "When waiting for smoky coals to cool after cooking, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_08-q9",
+              "text": {
+                "en": "When waiting for smoky coals to cool after cooking, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_09",
+          "value": {
+            "en": "Lemonade"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_09-q1",
+              "text": {
+                "en": "When balancing sugar and squeezed citrus, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q2",
+              "text": {
+                "en": "When balancing sugar and squeezed citrus, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q3",
+              "text": {
+                "en": "When balancing sugar and squeezed citrus, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q4",
+              "text": {
+                "en": "When choosing chilled pitchers for a sunny gathering, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q5",
+              "text": {
+                "en": "When choosing chilled pitchers for a sunny gathering, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q6",
+              "text": {
+                "en": "When choosing chilled pitchers for a sunny gathering, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q7",
+              "text": {
+                "en": "When serving a tart yellow drink over ice, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q8",
+              "text": {
+                "en": "When serving a tart yellow drink over ice, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_09-q9",
+              "text": {
+                "en": "When serving a tart yellow drink over ice, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_10",
+          "value": {
+            "en": "Fire pit"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_10-q1",
+              "text": {
+                "en": "When gathering around an outdoor flame after dark, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q2",
+              "text": {
+                "en": "When gathering around an outdoor flame after dark, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q3",
+              "text": {
+                "en": "When gathering around an outdoor flame after dark, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q4",
+              "text": {
+                "en": "When choosing a safe spot for an enclosed backyard fire, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q5",
+              "text": {
+                "en": "When choosing a safe spot for an enclosed backyard fire, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q6",
+              "text": {
+                "en": "When choosing a safe spot for an enclosed backyard fire, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q7",
+              "text": {
+                "en": "When arranging seats around glowing outdoor embers, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q8",
+              "text": {
+                "en": "When arranging seats around glowing outdoor embers, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_10-q9",
+              "text": {
+                "en": "When arranging seats around glowing outdoor embers, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_11",
+          "value": {
+            "en": "Bug spray"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_11-q1",
+              "text": {
+                "en": "When applying insect repellent before dusk, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q2",
+              "text": {
+                "en": "When applying insect repellent before dusk, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q3",
+              "text": {
+                "en": "When applying insect repellent before dusk, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q4",
+              "text": {
+                "en": "When choosing a repellent scent for an outdoor evening, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q5",
+              "text": {
+                "en": "When choosing a repellent scent for an outdoor evening, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q6",
+              "text": {
+                "en": "When choosing a repellent scent for an outdoor evening, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q7",
+              "text": {
+                "en": "When checking coverage against biting insects, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q8",
+              "text": {
+                "en": "When checking coverage against biting insects, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_11-q9",
+              "text": {
+                "en": "When checking coverage against biting insects, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_12",
+          "value": {
+            "en": "Sprinkler"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_12-q1",
+              "text": {
+                "en": "When positioning a rotating lawn-watering device, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q2",
+              "text": {
+                "en": "When positioning a rotating lawn-watering device, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q3",
+              "text": {
+                "en": "When positioning a rotating lawn-watering device, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q4",
+              "text": {
+                "en": "When setting a water pattern away from open windows, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q5",
+              "text": {
+                "en": "When setting a water pattern away from open windows, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q6",
+              "text": {
+                "en": "When setting a water pattern away from open windows, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q7",
+              "text": {
+                "en": "When watching children dodge moving jets on the lawn, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q8",
+              "text": {
+                "en": "When watching children dodge moving jets on the lawn, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_12-q9",
+              "text": {
+                "en": "When watching children dodge moving jets on the lawn, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_13",
+          "value": {
+            "en": "Watermelon"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_13-q1",
+              "text": {
+                "en": "When cutting a large green-rinded fruit for guests, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q2",
+              "text": {
+                "en": "When cutting a large green-rinded fruit for guests, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q3",
+              "text": {
+                "en": "When cutting a large green-rinded fruit for guests, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q4",
+              "text": {
+                "en": "When choosing a sweet red-fleshed summer fruit, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q5",
+              "text": {
+                "en": "When choosing a sweet red-fleshed summer fruit, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q6",
+              "text": {
+                "en": "When choosing a sweet red-fleshed summer fruit, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q7",
+              "text": {
+                "en": "When serving juicy wedges without dripping everywhere, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q8",
+              "text": {
+                "en": "When serving juicy wedges without dripping everywhere, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_13-q9",
+              "text": {
+                "en": "When serving juicy wedges without dripping everywhere, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_14",
+          "value": {
+            "en": "Paper plate"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_14-q1",
+              "text": {
+                "en": "When balancing food on a disposable dinner surface, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q2",
+              "text": {
+                "en": "When balancing food on a disposable dinner surface, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q3",
+              "text": {
+                "en": "When balancing food on a disposable dinner surface, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q4",
+              "text": {
+                "en": "When choosing sturdy disposable tableware, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q5",
+              "text": {
+                "en": "When choosing sturdy disposable tableware, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q6",
+              "text": {
+                "en": "When choosing sturdy disposable tableware, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q7",
+              "text": {
+                "en": "When sorting used lightweight dinnerware after a cookout, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q8",
+              "text": {
+                "en": "When sorting used lightweight dinnerware after a cookout, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_14-q9",
+              "text": {
+                "en": "When sorting used lightweight dinnerware after a cookout, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_15",
+          "value": {
+            "en": "Frisbee"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_15-q1",
+              "text": {
+                "en": "When throwing a flying disc across the yard, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q2",
+              "text": {
+                "en": "When throwing a flying disc across the yard, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q3",
+              "text": {
+                "en": "When throwing a flying disc across the yard, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q4",
+              "text": {
+                "en": "When adjusting a disc throw for the breeze, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q5",
+              "text": {
+                "en": "When adjusting a disc throw for the breeze, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q6",
+              "text": {
+                "en": "When adjusting a disc throw for the breeze, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q7",
+              "text": {
+                "en": "When catching a spinning disc with a friend, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q8",
+              "text": {
+                "en": "When catching a spinning disc with a friend, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_15-q9",
+              "text": {
+                "en": "When catching a spinning disc with a friend, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_16",
+          "value": {
+            "en": "Picnic basket"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_16-q1",
+              "text": {
+                "en": "When arranging lunch inside a woven carrier, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q2",
+              "text": {
+                "en": "When arranging lunch inside a woven carrier, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q3",
+              "text": {
+                "en": "When arranging lunch inside a woven carrier, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q4",
+              "text": {
+                "en": "When choosing a handled carrier for an outdoor meal, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q5",
+              "text": {
+                "en": "When choosing a handled carrier for an outdoor meal, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q6",
+              "text": {
+                "en": "When choosing a handled carrier for an outdoor meal, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q7",
+              "text": {
+                "en": "When unpacking sandwiches from a wicker container, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q8",
+              "text": {
+                "en": "When unpacking sandwiches from a wicker container, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_16-q9",
+              "text": {
+                "en": "When unpacking sandwiches from a wicker container, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_17",
+          "value": {
+            "en": "Burger"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_17-q1",
+              "text": {
+                "en": "When grilling patties for guests with different preferences, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q2",
+              "text": {
+                "en": "When grilling patties for guests with different preferences, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q3",
+              "text": {
+                "en": "When grilling patties for guests with different preferences, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q4",
+              "text": {
+                "en": "When setting up a bun-and-patty topping station, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q5",
+              "text": {
+                "en": "When setting up a bun-and-patty topping station, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q6",
+              "text": {
+                "en": "When setting up a bun-and-patty topping station, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q7",
+              "text": {
+                "en": "When serving stacked grilled sandwiches before they cool, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q8",
+              "text": {
+                "en": "When serving stacked grilled sandwiches before they cool, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_17-q9",
+              "text": {
+                "en": "When serving stacked grilled sandwiches before they cool, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_18",
+          "value": {
+            "en": "Garden hose"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_18-q1",
+              "text": {
+                "en": "When uncoiling a long watering tube, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q2",
+              "text": {
+                "en": "When uncoiling a long watering tube, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q3",
+              "text": {
+                "en": "When uncoiling a long watering tube, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q4",
+              "text": {
+                "en": "When choosing a nozzle for garden watering, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q5",
+              "text": {
+                "en": "When choosing a nozzle for garden watering, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q6",
+              "text": {
+                "en": "When choosing a nozzle for garden watering, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q7",
+              "text": {
+                "en": "When stopping a kink from blocking outdoor water flow, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q8",
+              "text": {
+                "en": "When stopping a kink from blocking outdoor water flow, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_18-q9",
+              "text": {
+                "en": "When stopping a kink from blocking outdoor water flow, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_19",
+          "value": {
+            "en": "String lights"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_19-q1",
+              "text": {
+                "en": "When hanging tiny bulbs over a patio, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q2",
+              "text": {
+                "en": "When hanging tiny bulbs over a patio, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q3",
+              "text": {
+                "en": "When hanging tiny bulbs over a patio, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q4",
+              "text": {
+                "en": "When choosing warm lighting for an outdoor evening, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q5",
+              "text": {
+                "en": "When choosing warm lighting for an outdoor evening, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q6",
+              "text": {
+                "en": "When choosing warm lighting for an outdoor evening, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q7",
+              "text": {
+                "en": "When untangling a line of decorative bulbs, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q8",
+              "text": {
+                "en": "When untangling a line of decorative bulbs, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_19-q9",
+              "text": {
+                "en": "When untangling a line of decorative bulbs, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_backyard_20",
+          "value": {
+            "en": "Lawn mower"
+          },
+          "questions": [
+            {
+              "id": "us_backyard_20-q1",
+              "text": {
+                "en": "When cutting grass before a weekend gathering, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q2",
+              "text": {
+                "en": "When cutting grass before a weekend gathering, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q3",
+              "text": {
+                "en": "When cutting grass before a weekend gathering, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q4",
+              "text": {
+                "en": "When choosing equipment for a small patch of turf, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q5",
+              "text": {
+                "en": "When choosing equipment for a small patch of turf, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q6",
+              "text": {
+                "en": "When choosing equipment for a small patch of turf, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q7",
+              "text": {
+                "en": "When clearing the yard before using a motorized grass cutter, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q8",
+              "text": {
+                "en": "When clearing the yard before using a motorized grass cutter, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_backyard_20-q9",
+              "text": {
+                "en": "When clearing the yard before using a motorized grass cutter, what would you remember afterward?"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "us_roadtrip",
+      "iconKey": "directions_car",
+      "name": {
+        "en": "Road Trip"
+      },
+      "primary": "#FFE170",
+      "secondary": "#2C223F",
+      "description": "Highway stops, snack runs, and the things every passenger knows.",
+      "words": [
+        {
+          "id": "us_roadtrip_01",
+          "value": {
+            "en": "Rest stop"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_01-q1",
+              "text": {
+                "en": "When pulling off the highway for a short break, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q2",
+              "text": {
+                "en": "When pulling off the highway for a short break, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q3",
+              "text": {
+                "en": "When pulling off the highway for a short break, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q4",
+              "text": {
+                "en": "When choosing a roadside pause with restrooms, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q5",
+              "text": {
+                "en": "When choosing a roadside pause with restrooms, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q6",
+              "text": {
+                "en": "When choosing a roadside pause with restrooms, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q7",
+              "text": {
+                "en": "When stretching your legs at a highway stopping area, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q8",
+              "text": {
+                "en": "When stretching your legs at a highway stopping area, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_01-q9",
+              "text": {
+                "en": "When stretching your legs at a highway stopping area, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_02",
+          "value": {
+            "en": "Motel"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_02-q1",
+              "text": {
+                "en": "When checking into roadside lodging after a long drive, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q2",
+              "text": {
+                "en": "When checking into roadside lodging after a long drive, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q3",
+              "text": {
+                "en": "When checking into roadside lodging after a long drive, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q4",
+              "text": {
+                "en": "When choosing a room with parking nearby, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q5",
+              "text": {
+                "en": "When choosing a room with parking nearby, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q6",
+              "text": {
+                "en": "When choosing a room with parking nearby, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q7",
+              "text": {
+                "en": "When leaving an overnight roadside room early, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q8",
+              "text": {
+                "en": "When leaving an overnight roadside room early, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_02-q9",
+              "text": {
+                "en": "When leaving an overnight roadside room early, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_03",
+          "value": {
+            "en": "Toll booth"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_03-q1",
+              "text": {
+                "en": "When approaching a lane that collects road fees, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q2",
+              "text": {
+                "en": "When approaching a lane that collects road fees, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q3",
+              "text": {
+                "en": "When approaching a lane that collects road fees, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q4",
+              "text": {
+                "en": "When choosing between electronic and cash road payment, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q5",
+              "text": {
+                "en": "When choosing between electronic and cash road payment, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q6",
+              "text": {
+                "en": "When choosing between electronic and cash road payment, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q7",
+              "text": {
+                "en": "When keeping a receipt after paying to use a road, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q8",
+              "text": {
+                "en": "When keeping a receipt after paying to use a road, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_03-q9",
+              "text": {
+                "en": "When keeping a receipt after paying to use a road, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_04",
+          "value": {
+            "en": "Gas station"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_04-q1",
+              "text": {
+                "en": "When stopping at a roadside fuel pump, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q2",
+              "text": {
+                "en": "When stopping at a roadside fuel pump, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q3",
+              "text": {
+                "en": "When stopping at a roadside fuel pump, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q4",
+              "text": {
+                "en": "When choosing a fueling stop with snacks, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q5",
+              "text": {
+                "en": "When choosing a fueling stop with snacks, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q6",
+              "text": {
+                "en": "When choosing a fueling stop with snacks, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q7",
+              "text": {
+                "en": "When checking the pump before filling a vehicle, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q8",
+              "text": {
+                "en": "When checking the pump before filling a vehicle, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_04-q9",
+              "text": {
+                "en": "When checking the pump before filling a vehicle, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_05",
+          "value": {
+            "en": "License plate"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_05-q1",
+              "text": {
+                "en": "When reading the identification tag on another vehicle, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q2",
+              "text": {
+                "en": "When reading the identification tag on another vehicle, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q3",
+              "text": {
+                "en": "When reading the identification tag on another vehicle, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q4",
+              "text": {
+                "en": "When noticing regional designs on vehicle registration tags, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q5",
+              "text": {
+                "en": "When noticing regional designs on vehicle registration tags, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q6",
+              "text": {
+                "en": "When noticing regional designs on vehicle registration tags, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q7",
+              "text": {
+                "en": "When checking a rental car's exterior identification number, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q8",
+              "text": {
+                "en": "When checking a rental car's exterior identification number, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_05-q9",
+              "text": {
+                "en": "When checking a rental car's exterior identification number, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_06",
+          "value": {
+            "en": "Spare tire"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_06-q1",
+              "text": {
+                "en": "When locating a backup wheel after a puncture, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q2",
+              "text": {
+                "en": "When locating a backup wheel after a puncture, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q3",
+              "text": {
+                "en": "When locating a backup wheel after a puncture, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q4",
+              "text": {
+                "en": "When checking the pressure of an unused emergency wheel, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q5",
+              "text": {
+                "en": "When checking the pressure of an unused emergency wheel, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q6",
+              "text": {
+                "en": "When checking the pressure of an unused emergency wheel, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q7",
+              "text": {
+                "en": "When making room for a replacement wheel in a loaded car, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q8",
+              "text": {
+                "en": "When making room for a replacement wheel in a loaded car, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_06-q9",
+              "text": {
+                "en": "When making room for a replacement wheel in a loaded car, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_07",
+          "value": {
+            "en": "Road atlas"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_07-q1",
+              "text": {
+                "en": "When finding a highway in a bound collection of route charts, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q2",
+              "text": {
+                "en": "When finding a highway in a bound collection of route charts, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q3",
+              "text": {
+                "en": "When finding a highway in a bound collection of route charts, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q4",
+              "text": {
+                "en": "When choosing a printed road reference for offline use, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q5",
+              "text": {
+                "en": "When choosing a printed road reference for offline use, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q6",
+              "text": {
+                "en": "When choosing a printed road reference for offline use, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q7",
+              "text": {
+                "en": "When following an interstate route across printed pages, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q8",
+              "text": {
+                "en": "When following an interstate route across printed pages, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_07-q9",
+              "text": {
+                "en": "When following an interstate route across printed pages, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_08",
+          "value": {
+            "en": "Travel mug"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_08-q1",
+              "text": {
+                "en": "When closing a spill-resistant hot-drink lid, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q2",
+              "text": {
+                "en": "When closing a spill-resistant hot-drink lid, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q3",
+              "text": {
+                "en": "When closing a spill-resistant hot-drink lid, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q4",
+              "text": {
+                "en": "When choosing an insulated cup for the car, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q5",
+              "text": {
+                "en": "When choosing an insulated cup for the car, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q6",
+              "text": {
+                "en": "When choosing an insulated cup for the car, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q7",
+              "text": {
+                "en": "When cleaning a reusable drink container after a long drive, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q8",
+              "text": {
+                "en": "When cleaning a reusable drink container after a long drive, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_08-q9",
+              "text": {
+                "en": "When cleaning a reusable drink container after a long drive, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_09",
+          "value": {
+            "en": "Seat belt"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_09-q1",
+              "text": {
+                "en": "When fastening a safety restraint before departure, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q2",
+              "text": {
+                "en": "When fastening a safety restraint before departure, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q3",
+              "text": {
+                "en": "When fastening a safety restraint before departure, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q4",
+              "text": {
+                "en": "When adjusting a shoulder strap in the passenger seat, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q5",
+              "text": {
+                "en": "When adjusting a shoulder strap in the passenger seat, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q6",
+              "text": {
+                "en": "When adjusting a shoulder strap in the passenger seat, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q7",
+              "text": {
+                "en": "When checking that a passenger restraint clicks securely, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q8",
+              "text": {
+                "en": "When checking that a passenger restraint clicks securely, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_09-q9",
+              "text": {
+                "en": "When checking that a passenger restraint clicks securely, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_10",
+          "value": {
+            "en": "Trunk"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_10-q1",
+              "text": {
+                "en": "When fitting bags into a rear cargo compartment, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q2",
+              "text": {
+                "en": "When fitting bags into a rear cargo compartment, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q3",
+              "text": {
+                "en": "When fitting bags into a rear cargo compartment, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q4",
+              "text": {
+                "en": "When organizing a car's enclosed storage space, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q5",
+              "text": {
+                "en": "When organizing a car's enclosed storage space, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q6",
+              "text": {
+                "en": "When organizing a car's enclosed storage space, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q7",
+              "text": {
+                "en": "When checking the rear luggage area before returning a rental, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q8",
+              "text": {
+                "en": "When checking the rear luggage area before returning a rental, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_10-q9",
+              "text": {
+                "en": "When checking the rear luggage area before returning a rental, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_11",
+          "value": {
+            "en": "Windshield wipers"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_11-q1",
+              "text": {
+                "en": "When adjusting moving blades during rain, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q2",
+              "text": {
+                "en": "When adjusting moving blades during rain, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q3",
+              "text": {
+                "en": "When adjusting moving blades during rain, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q4",
+              "text": {
+                "en": "When choosing a clearing speed for a wet front window, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q5",
+              "text": {
+                "en": "When choosing a clearing speed for a wet front window, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q6",
+              "text": {
+                "en": "When choosing a clearing speed for a wet front window, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q7",
+              "text": {
+                "en": "When checking rubber blades before a stormy drive, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q8",
+              "text": {
+                "en": "When checking rubber blades before a stormy drive, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_11-q9",
+              "text": {
+                "en": "When checking rubber blades before a stormy drive, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_12",
+          "value": {
+            "en": "Audiobook"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_12-q1",
+              "text": {
+                "en": "When following a narrated story on the highway, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q2",
+              "text": {
+                "en": "When following a narrated story on the highway, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q3",
+              "text": {
+                "en": "When following a narrated story on the highway, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q4",
+              "text": {
+                "en": "When choosing a spoken book for several passengers, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q5",
+              "text": {
+                "en": "When choosing a spoken book for several passengers, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q6",
+              "text": {
+                "en": "When choosing a spoken book for several passengers, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q7",
+              "text": {
+                "en": "When resuming a chapter after a roadside break, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q8",
+              "text": {
+                "en": "When resuming a chapter after a roadside break, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_12-q9",
+              "text": {
+                "en": "When resuming a chapter after a roadside break, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_13",
+          "value": {
+            "en": "Trail mix"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_13-q1",
+              "text": {
+                "en": "When mixing nuts and dried fruit for the drive, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q2",
+              "text": {
+                "en": "When mixing nuts and dried fruit for the drive, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q3",
+              "text": {
+                "en": "When mixing nuts and dried fruit for the drive, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q4",
+              "text": {
+                "en": "When choosing a handful snack with contrasting textures, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q5",
+              "text": {
+                "en": "When choosing a handful snack with contrasting textures, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q6",
+              "text": {
+                "en": "When choosing a handful snack with contrasting textures, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q7",
+              "text": {
+                "en": "When sharing a pouch of sweet-and-salty pieces, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q8",
+              "text": {
+                "en": "When sharing a pouch of sweet-and-salty pieces, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_13-q9",
+              "text": {
+                "en": "When sharing a pouch of sweet-and-salty pieces, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_14",
+          "value": {
+            "en": "Beef jerky"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_14-q1",
+              "text": {
+                "en": "When chewing dried seasoned meat on a journey, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q2",
+              "text": {
+                "en": "When chewing dried seasoned meat on a journey, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q3",
+              "text": {
+                "en": "When chewing dried seasoned meat on a journey, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q4",
+              "text": {
+                "en": "When choosing a shelf-stable savory protein snack, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q5",
+              "text": {
+                "en": "When choosing a shelf-stable savory protein snack, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q6",
+              "text": {
+                "en": "When choosing a shelf-stable savory protein snack, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q7",
+              "text": {
+                "en": "When resealing a packet of chewy dried strips, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q8",
+              "text": {
+                "en": "When resealing a packet of chewy dried strips, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_14-q9",
+              "text": {
+                "en": "When resealing a packet of chewy dried strips, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_15",
+          "value": {
+            "en": "Sunglasses"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_15-q1",
+              "text": {
+                "en": "When putting on tinted lenses in bright traffic, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q2",
+              "text": {
+                "en": "When putting on tinted lenses in bright traffic, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q3",
+              "text": {
+                "en": "When putting on tinted lenses in bright traffic, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q4",
+              "text": {
+                "en": "When choosing frames that fit comfortably during a long drive, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q5",
+              "text": {
+                "en": "When choosing frames that fit comfortably during a long drive, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q6",
+              "text": {
+                "en": "When choosing frames that fit comfortably during a long drive, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q7",
+              "text": {
+                "en": "When storing sun-protective eyewear within reach, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q8",
+              "text": {
+                "en": "When storing sun-protective eyewear within reach, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_15-q9",
+              "text": {
+                "en": "When storing sun-protective eyewear within reach, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_16",
+          "value": {
+            "en": "Postcard"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_16-q1",
+              "text": {
+                "en": "When writing a short greeting on a picture card, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q2",
+              "text": {
+                "en": "When writing a short greeting on a picture card, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q3",
+              "text": {
+                "en": "When writing a short greeting on a picture card, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q4",
+              "text": {
+                "en": "When choosing a scenic card to mail home, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q5",
+              "text": {
+                "en": "When choosing a scenic card to mail home, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q6",
+              "text": {
+                "en": "When choosing a scenic card to mail home, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q7",
+              "text": {
+                "en": "When finding a stamp for a holiday greeting card, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q8",
+              "text": {
+                "en": "When finding a stamp for a holiday greeting card, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_16-q9",
+              "text": {
+                "en": "When finding a stamp for a holiday greeting card, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_17",
+          "value": {
+            "en": "Scenic overlook"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_17-q1",
+              "text": {
+                "en": "When pulling into a roadside viewpoint, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q2",
+              "text": {
+                "en": "When pulling into a roadside viewpoint, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q3",
+              "text": {
+                "en": "When pulling into a roadside viewpoint, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q4",
+              "text": {
+                "en": "When choosing a panorama worth a driving detour, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q5",
+              "text": {
+                "en": "When choosing a panorama worth a driving detour, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q6",
+              "text": {
+                "en": "When choosing a panorama worth a driving detour, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q7",
+              "text": {
+                "en": "When taking a photo from an elevated highway turnout, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q8",
+              "text": {
+                "en": "When taking a photo from an elevated highway turnout, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_17-q9",
+              "text": {
+                "en": "When taking a photo from an elevated highway turnout, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_18",
+          "value": {
+            "en": "Car wash"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_18-q1",
+              "text": {
+                "en": "When lining up for a vehicle-cleaning tunnel, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q2",
+              "text": {
+                "en": "When lining up for a vehicle-cleaning tunnel, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q3",
+              "text": {
+                "en": "When lining up for a vehicle-cleaning tunnel, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q4",
+              "text": {
+                "en": "When choosing a cleaning cycle after a muddy drive, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q5",
+              "text": {
+                "en": "When choosing a cleaning cycle after a muddy drive, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q6",
+              "text": {
+                "en": "When choosing a cleaning cycle after a muddy drive, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q7",
+              "text": {
+                "en": "When watching brushes remove grime from the windows, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q8",
+              "text": {
+                "en": "When watching brushes remove grime from the windows, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_18-q9",
+              "text": {
+                "en": "When watching brushes remove grime from the windows, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_19",
+          "value": {
+            "en": "National park"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_19-q1",
+              "text": {
+                "en": "When planning a visit to a federally protected landscape, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q2",
+              "text": {
+                "en": "When planning a visit to a federally protected landscape, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q3",
+              "text": {
+                "en": "When planning a visit to a federally protected landscape, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q4",
+              "text": {
+                "en": "When choosing trails within a large conservation area, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q5",
+              "text": {
+                "en": "When choosing trails within a large conservation area, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q6",
+              "text": {
+                "en": "When choosing trails within a large conservation area, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q7",
+              "text": {
+                "en": "When checking entry rules for a protected public wilderness, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q8",
+              "text": {
+                "en": "When checking entry rules for a protected public wilderness, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_19-q9",
+              "text": {
+                "en": "When checking entry rules for a protected public wilderness, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_roadtrip_20",
+          "value": {
+            "en": "Souvenir"
+          },
+          "questions": [
+            {
+              "id": "us_roadtrip_20-q1",
+              "text": {
+                "en": "When choosing a keepsake at a roadside gift shop, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q2",
+              "text": {
+                "en": "When choosing a keepsake at a roadside gift shop, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q3",
+              "text": {
+                "en": "When choosing a keepsake at a roadside gift shop, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q4",
+              "text": {
+                "en": "When fitting a trip memento into an already packed car, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q5",
+              "text": {
+                "en": "When fitting a trip memento into an already packed car, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q6",
+              "text": {
+                "en": "When fitting a trip memento into an already packed car, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q7",
+              "text": {
+                "en": "When giving a small travel reminder to someone back home, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q8",
+              "text": {
+                "en": "When giving a small travel reminder to someone back home, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_roadtrip_20-q9",
+              "text": {
+                "en": "When giving a small travel reminder to someone back home, what would you remember afterward?"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "us_holidays",
+      "iconKey": "auto_fix_high",
+      "name": {
+        "en": "Holiday Hangout"
+      },
+      "primary": "#FF58BC",
+      "secondary": "#2C223F",
+      "description": "Fall gatherings, winter traditions, and New Year’s party moments.",
+      "words": [
+        {
+          "id": "us_holidays_01",
+          "value": {
+            "en": "Stocking"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_01-q1",
+              "text": {
+                "en": "When hanging a fabric gift pouch near a fireplace, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q2",
+              "text": {
+                "en": "When hanging a fabric gift pouch near a fireplace, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q3",
+              "text": {
+                "en": "When hanging a fabric gift pouch near a fireplace, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q4",
+              "text": {
+                "en": "When choosing tiny surprises for a festive sock-shaped pouch, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q5",
+              "text": {
+                "en": "When choosing tiny surprises for a festive sock-shaped pouch, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q6",
+              "text": {
+                "en": "When choosing tiny surprises for a festive sock-shaped pouch, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q7",
+              "text": {
+                "en": "When unpacking small treats on a special morning, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q8",
+              "text": {
+                "en": "When unpacking small treats on a special morning, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_01-q9",
+              "text": {
+                "en": "When unpacking small treats on a special morning, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_02",
+          "value": {
+            "en": "Snow globe"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_02-q1",
+              "text": {
+                "en": "When shaking a miniature scene inside a glass sphere, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q2",
+              "text": {
+                "en": "When shaking a miniature scene inside a glass sphere, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q3",
+              "text": {
+                "en": "When shaking a miniature scene inside a glass sphere, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q4",
+              "text": {
+                "en": "When choosing a decorative globe with falling white flakes, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q5",
+              "text": {
+                "en": "When choosing a decorative globe with falling white flakes, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q6",
+              "text": {
+                "en": "When choosing a decorative globe with falling white flakes, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q7",
+              "text": {
+                "en": "When displaying a fragile water-filled winter ornament, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q8",
+              "text": {
+                "en": "When displaying a fragile water-filled winter ornament, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_02-q9",
+              "text": {
+                "en": "When displaying a fragile water-filled winter ornament, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_03",
+          "value": {
+            "en": "Gingerbread house"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_03-q1",
+              "text": {
+                "en": "When joining edible walls with icing, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q2",
+              "text": {
+                "en": "When joining edible walls with icing, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q3",
+              "text": {
+                "en": "When joining edible walls with icing, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q4",
+              "text": {
+                "en": "When choosing candy decorations for a baked miniature building, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q5",
+              "text": {
+                "en": "When choosing candy decorations for a baked miniature building, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q6",
+              "text": {
+                "en": "When choosing candy decorations for a baked miniature building, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q7",
+              "text": {
+                "en": "When keeping a spiced-cookie roof from collapsing, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q8",
+              "text": {
+                "en": "When keeping a spiced-cookie roof from collapsing, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_03-q9",
+              "text": {
+                "en": "When keeping a spiced-cookie roof from collapsing, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_04",
+          "value": {
+            "en": "Turkey"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_04-q1",
+              "text": {
+                "en": "When carving a large roasted holiday bird, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q2",
+              "text": {
+                "en": "When carving a large roasted holiday bird, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q3",
+              "text": {
+                "en": "When carving a large roasted holiday bird, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q4",
+              "text": {
+                "en": "When planning oven space for a whole festive bird, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q5",
+              "text": {
+                "en": "When planning oven space for a whole festive bird, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q6",
+              "text": {
+                "en": "When planning oven space for a whole festive bird, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q7",
+              "text": {
+                "en": "When serving a roast centerpiece at a fall gathering, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q8",
+              "text": {
+                "en": "When serving a roast centerpiece at a fall gathering, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_04-q9",
+              "text": {
+                "en": "When serving a roast centerpiece at a fall gathering, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_05",
+          "value": {
+            "en": "Cranberry sauce"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_05-q1",
+              "text": {
+                "en": "When balancing tart berries with sweetness for a holiday side, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q2",
+              "text": {
+                "en": "When balancing tart berries with sweetness for a holiday side, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q3",
+              "text": {
+                "en": "When balancing tart berries with sweetness for a holiday side, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q4",
+              "text": {
+                "en": "When choosing a smooth or chunky red berry accompaniment, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q5",
+              "text": {
+                "en": "When choosing a smooth or chunky red berry accompaniment, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q6",
+              "text": {
+                "en": "When choosing a smooth or chunky red berry accompaniment, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q7",
+              "text": {
+                "en": "When serving a chilled berry condiment beside a roast, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q8",
+              "text": {
+                "en": "When serving a chilled berry condiment beside a roast, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_05-q9",
+              "text": {
+                "en": "When serving a chilled berry condiment beside a roast, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_06",
+          "value": {
+            "en": "Gift wrap"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_06-q1",
+              "text": {
+                "en": "When covering a present with decorative paper, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q2",
+              "text": {
+                "en": "When covering a present with decorative paper, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q3",
+              "text": {
+                "en": "When covering a present with decorative paper, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q4",
+              "text": {
+                "en": "When choosing ribbons for a hidden surprise, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q5",
+              "text": {
+                "en": "When choosing ribbons for a hidden surprise, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q6",
+              "text": {
+                "en": "When choosing ribbons for a hidden surprise, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q7",
+              "text": {
+                "en": "When folding neat corners around a boxed present, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q8",
+              "text": {
+                "en": "When folding neat corners around a boxed present, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_06-q9",
+              "text": {
+                "en": "When folding neat corners around a boxed present, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_07",
+          "value": {
+            "en": "Ugly sweater"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_07-q1",
+              "text": {
+                "en": "When wearing deliberately ridiculous winter knitwear, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q2",
+              "text": {
+                "en": "When wearing deliberately ridiculous winter knitwear, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q3",
+              "text": {
+                "en": "When wearing deliberately ridiculous winter knitwear, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q4",
+              "text": {
+                "en": "When choosing a loud knitted design for a themed gathering, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q5",
+              "text": {
+                "en": "When choosing a loud knitted design for a themed gathering, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q6",
+              "text": {
+                "en": "When choosing a loud knitted design for a themed gathering, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q7",
+              "text": {
+                "en": "When comparing festive knitwear with friends, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q8",
+              "text": {
+                "en": "When comparing festive knitwear with friends, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_07-q9",
+              "text": {
+                "en": "When comparing festive knitwear with friends, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_08",
+          "value": {
+            "en": "Mistletoe"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_08-q1",
+              "text": {
+                "en": "When hanging a sprig above a doorway, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q2",
+              "text": {
+                "en": "When hanging a sprig above a doorway, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q3",
+              "text": {
+                "en": "When hanging a sprig above a doorway, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q4",
+              "text": {
+                "en": "When responding to a traditional doorway kissing custom, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q5",
+              "text": {
+                "en": "When responding to a traditional doorway kissing custom, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q6",
+              "text": {
+                "en": "When responding to a traditional doorway kissing custom, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q7",
+              "text": {
+                "en": "When choosing a festive plant decoration for an archway, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q8",
+              "text": {
+                "en": "When choosing a festive plant decoration for an archway, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_08-q9",
+              "text": {
+                "en": "When choosing a festive plant decoration for an archway, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_09",
+          "value": {
+            "en": "Pumpkin pie"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_09-q1",
+              "text": {
+                "en": "When slicing an orange spiced holiday dessert, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q2",
+              "text": {
+                "en": "When slicing an orange spiced holiday dessert, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q3",
+              "text": {
+                "en": "When slicing an orange spiced holiday dessert, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q4",
+              "text": {
+                "en": "When choosing a creamy topping for an autumn custard filling, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q5",
+              "text": {
+                "en": "When choosing a creamy topping for an autumn custard filling, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q6",
+              "text": {
+                "en": "When choosing a creamy topping for an autumn custard filling, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q7",
+              "text": {
+                "en": "When serving a pastry-crust fall dessert after dinner, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q8",
+              "text": {
+                "en": "When serving a pastry-crust fall dessert after dinner, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_09-q9",
+              "text": {
+                "en": "When serving a pastry-crust fall dessert after dinner, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_10",
+          "value": {
+            "en": "Advent calendar"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_10-q1",
+              "text": {
+                "en": "When opening one numbered compartment each December morning, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q2",
+              "text": {
+                "en": "When opening one numbered compartment each December morning, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q3",
+              "text": {
+                "en": "When opening one numbered compartment each December morning, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q4",
+              "text": {
+                "en": "When choosing a daily-surprise box before a winter holiday, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q5",
+              "text": {
+                "en": "When choosing a daily-surprise box before a winter holiday, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q6",
+              "text": {
+                "en": "When choosing a daily-surprise box before a winter holiday, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q7",
+              "text": {
+                "en": "When resisting the urge to open tomorrow's little door, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q8",
+              "text": {
+                "en": "When resisting the urge to open tomorrow's little door, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_10-q9",
+              "text": {
+                "en": "When resisting the urge to open tomorrow's little door, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_11",
+          "value": {
+            "en": "Sparkler"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_11-q1",
+              "text": {
+                "en": "When holding a glowing handheld firework at a celebration, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q2",
+              "text": {
+                "en": "When holding a glowing handheld firework at a celebration, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q3",
+              "text": {
+                "en": "When holding a glowing handheld firework at a celebration, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q4",
+              "text": {
+                "en": "When choosing a place for a brief shower of handheld sparks, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q5",
+              "text": {
+                "en": "When choosing a place for a brief shower of handheld sparks, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q6",
+              "text": {
+                "en": "When choosing a place for a brief shower of handheld sparks, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q7",
+              "text": {
+                "en": "When watching a thin festive stick burn down, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q8",
+              "text": {
+                "en": "When watching a thin festive stick burn down, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_11-q9",
+              "text": {
+                "en": "When watching a thin festive stick burn down, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_12",
+          "value": {
+            "en": "Candy corn"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_12-q1",
+              "text": {
+                "en": "When sorting tiny tricolored autumn sweets, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q2",
+              "text": {
+                "en": "When sorting tiny tricolored autumn sweets, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q3",
+              "text": {
+                "en": "When sorting tiny tricolored autumn sweets, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q4",
+              "text": {
+                "en": "When choosing a fall treat with a waxy texture, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q5",
+              "text": {
+                "en": "When choosing a fall treat with a waxy texture, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q6",
+              "text": {
+                "en": "When choosing a fall treat with a waxy texture, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q7",
+              "text": {
+                "en": "When sharing triangular orange-yellow-white candies, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q8",
+              "text": {
+                "en": "When sharing triangular orange-yellow-white candies, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_12-q9",
+              "text": {
+                "en": "When sharing triangular orange-yellow-white candies, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_13",
+          "value": {
+            "en": "Jack-o’-lantern"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_13-q1",
+              "text": {
+                "en": "When carving a face into a hollow orange gourd, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q2",
+              "text": {
+                "en": "When carving a face into a hollow orange gourd, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q3",
+              "text": {
+                "en": "When carving a face into a hollow orange gourd, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q4",
+              "text": {
+                "en": "When choosing a light for a carved autumn face, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q5",
+              "text": {
+                "en": "When choosing a light for a carved autumn face, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q6",
+              "text": {
+                "en": "When choosing a light for a carved autumn face, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q7",
+              "text": {
+                "en": "When displaying a glowing carved decoration on a doorstep, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q8",
+              "text": {
+                "en": "When displaying a glowing carved decoration on a doorstep, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_13-q9",
+              "text": {
+                "en": "When displaying a glowing carved decoration on a doorstep, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_14",
+          "value": {
+            "en": "Parade"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_14-q1",
+              "text": {
+                "en": "When watching decorated floats pass along a street, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q2",
+              "text": {
+                "en": "When watching decorated floats pass along a street, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q3",
+              "text": {
+                "en": "When watching decorated floats pass along a street, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q4",
+              "text": {
+                "en": "When choosing a curbside spot for marching bands, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q5",
+              "text": {
+                "en": "When choosing a curbside spot for marching bands, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q6",
+              "text": {
+                "en": "When choosing a curbside spot for marching bands, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q7",
+              "text": {
+                "en": "When following a festive procession through town, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q8",
+              "text": {
+                "en": "When following a festive procession through town, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_14-q9",
+              "text": {
+                "en": "When following a festive procession through town, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_15",
+          "value": {
+            "en": "Confetti"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_15-q1",
+              "text": {
+                "en": "When tossing tiny colorful paper pieces into the air, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q2",
+              "text": {
+                "en": "When tossing tiny colorful paper pieces into the air, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q3",
+              "text": {
+                "en": "When tossing tiny colorful paper pieces into the air, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q4",
+              "text": {
+                "en": "When choosing celebratory paper shapes for a party, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q5",
+              "text": {
+                "en": "When choosing celebratory paper shapes for a party, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q6",
+              "text": {
+                "en": "When choosing celebratory paper shapes for a party, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q7",
+              "text": {
+                "en": "When cleaning scattered paper bits after a celebration, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q8",
+              "text": {
+                "en": "When cleaning scattered paper bits after a celebration, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_15-q9",
+              "text": {
+                "en": "When cleaning scattered paper bits after a celebration, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_16",
+          "value": {
+            "en": "Party hat"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_16-q1",
+              "text": {
+                "en": "When wearing a cone-shaped birthday accessory, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q2",
+              "text": {
+                "en": "When wearing a cone-shaped birthday accessory, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q3",
+              "text": {
+                "en": "When wearing a cone-shaped birthday accessory, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q4",
+              "text": {
+                "en": "When choosing colorful headwear for guests, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q5",
+              "text": {
+                "en": "When choosing colorful headwear for guests, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q6",
+              "text": {
+                "en": "When choosing colorful headwear for guests, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q7",
+              "text": {
+                "en": "When keeping an elastic festive headpiece comfortable, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q8",
+              "text": {
+                "en": "When keeping an elastic festive headpiece comfortable, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_16-q9",
+              "text": {
+                "en": "When keeping an elastic festive headpiece comfortable, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_17",
+          "value": {
+            "en": "Countdown"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_17-q1",
+              "text": {
+                "en": "When calling numbers backward with a crowd, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q2",
+              "text": {
+                "en": "When calling numbers backward with a crowd, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q3",
+              "text": {
+                "en": "When calling numbers backward with a crowd, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q4",
+              "text": {
+                "en": "When joining the last ten seconds before midnight, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q5",
+              "text": {
+                "en": "When joining the last ten seconds before midnight, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q6",
+              "text": {
+                "en": "When joining the last ten seconds before midnight, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q7",
+              "text": {
+                "en": "When waiting for a shared signal at zero, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q8",
+              "text": {
+                "en": "When waiting for a shared signal at zero, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_17-q9",
+              "text": {
+                "en": "When waiting for a shared signal at zero, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_18",
+          "value": {
+            "en": "Wreath"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_18-q1",
+              "text": {
+                "en": "When hanging a decorative circle on the front door, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q2",
+              "text": {
+                "en": "When hanging a decorative circle on the front door, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q3",
+              "text": {
+                "en": "When hanging a decorative circle on the front door, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q4",
+              "text": {
+                "en": "When choosing greenery for a round seasonal decoration, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q5",
+              "text": {
+                "en": "When choosing greenery for a round seasonal decoration, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q6",
+              "text": {
+                "en": "When choosing greenery for a round seasonal decoration, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q7",
+              "text": {
+                "en": "When storing a circular ornament between celebrations, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q8",
+              "text": {
+                "en": "When storing a circular ornament between celebrations, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_18-q9",
+              "text": {
+                "en": "When storing a circular ornament between celebrations, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_19",
+          "value": {
+            "en": "Gravy boat"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_19-q1",
+              "text": {
+                "en": "When passing a small spouted sauce vessel at dinner, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q2",
+              "text": {
+                "en": "When passing a small spouted sauce vessel at dinner, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q3",
+              "text": {
+                "en": "When passing a small spouted sauce vessel at dinner, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q4",
+              "text": {
+                "en": "When choosing a serving container for warm roast drippings, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q5",
+              "text": {
+                "en": "When choosing a serving container for warm roast drippings, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q6",
+              "text": {
+                "en": "When choosing a serving container for warm roast drippings, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q7",
+              "text": {
+                "en": "When pouring brown sauce neatly from a handled table vessel, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q8",
+              "text": {
+                "en": "When pouring brown sauce neatly from a handled table vessel, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_19-q9",
+              "text": {
+                "en": "When pouring brown sauce neatly from a handled table vessel, what would you remember afterward?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "us_holidays_20",
+          "value": {
+            "en": "Place card"
+          },
+          "questions": [
+            {
+              "id": "us_holidays_20-q1",
+              "text": {
+                "en": "When finding your seat from a written name, what deserves the most attention?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q2",
+              "text": {
+                "en": "When finding your seat from a written name, what mistake is easy to make?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q3",
+              "text": {
+                "en": "When finding your seat from a written name, what would make the experience more enjoyable?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q4",
+              "text": {
+                "en": "When choosing small name labels for a dinner arrangement, what would you recommend to a beginner?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q5",
+              "text": {
+                "en": "When choosing small name labels for a dinner arrangement, what would you decide first?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q6",
+              "text": {
+                "en": "When choosing small name labels for a dinner arrangement, what might be harder than it looks?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q7",
+              "text": {
+                "en": "When arranging guest names around a festive table, what detail might other people miss?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q8",
+              "text": {
+                "en": "When arranging guest names around a festive table, what would you like to try differently?"
+              }
+            },
+            {
+              "id": "us_holidays_20-q9",
+              "text": {
+                "en": "When arranging guest names around a festive table, what would you remember afterward?"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
