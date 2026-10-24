@@ -1,4 +1,5 @@
 abstract final class AppRoutes {
+  static const onboarding = '/onboarding';
   static const home = '/';
   static const categories = '/categories';
   static const matchSetup = '/match-setup';
@@ -12,6 +13,7 @@ abstract final class AppRoutes {
   static const gameFinal = '/game/final';
   static const howToPlay = '/how-to-play';
   static const settings = '/settings';
+  static const packs = '/packs';
 
   static const all = <String>[
     home,
@@ -27,11 +29,9 @@ abstract final class AppRoutes {
     gameFinal,
     howToPlay,
     settings,
+    packs,
+    onboarding,
   ];
 
-  static const bottomNavigationRoutes = <String>[
-    home,
-    categories,
-    settings,
-  ];
+  static const bottomNavigationRoutes = <String>[home, categories, settings];
 }

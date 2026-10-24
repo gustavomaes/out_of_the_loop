@@ -40,9 +40,8 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
 
   QuestionTurn get _currentTurn => widget.questionTurns[_turnIndex];
 
-  Player get _currentPlayer => widget.players.firstWhere(
-    (player) => player.id == _currentTurn.playerId,
-  );
+  Player get _currentPlayer =>
+      widget.players.firstWhere((player) => player.id == _currentTurn.playerId);
 
   Future<void> _onBackPressed() async {
     await confirmExitGameOnBack(context, onBack: widget.onBack);
@@ -69,121 +68,129 @@ class _QuestionRoundScreenState extends State<QuestionRoundScreen> {
             onBack: _onBackPressed,
             showSettings: false,
           ),
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            const OtlPartyAtmosphere.questionRound(),
-            SafeArea(
-              top: false,
-              child: LayoutBuilder(
-                builder: (context, viewport) {
-                  final compact = viewport.maxHeight < 700;
-                  final sectionGap = compact ? 20.0 : 28.0;
+          body: Stack(
+            fit: StackFit.expand,
+            children: [
+              const OtlPartyAtmosphere.questionRound(),
+              SafeArea(
+                top: false,
+                child: LayoutBuilder(
+                  builder: (context, viewport) {
+                    final compact = viewport.maxHeight < 700;
+                    final sectionGap = compact ? 20.0 : 28.0;
 
-                  return Center(
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 448),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    AnimatedSwitcher(
-                                      duration: const Duration(
-                                        milliseconds: 280,
-                                      ),
-                                      switchInCurve: Curves.easeOutCubic,
-                                      switchOutCurve: Curves.easeInCubic,
-                                      transitionBuilder: (child, animation) {
-                                        return FadeTransition(
-                                          opacity: animation,
-                                          child: SlideTransition(
-                                            position: Tween<Offset>(
-                                              begin: const Offset(0, -0.08),
-                                              end: Offset.zero,
-                                            ).animate(
-                                              CurvedAnimation(
-                                                parent: animation,
-                                                curve: Curves.easeOutCubic,
-                                              ),
+                    return Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 448),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      AnimatedSwitcher(
+                                        duration: const Duration(
+                                          milliseconds: 280,
+                                        ),
+                                        switchInCurve: Curves.easeOutCubic,
+                                        switchOutCurve: Curves.easeInCubic,
+                                        transitionBuilder: (child, animation) {
+                                          return FadeTransition(
+                                            opacity: animation,
+                                            child: SlideTransition(
+                                              position:
+                                                  Tween<Offset>(
+                                                    begin: const Offset(
+                                                      0,
+                                                      -0.08,
+                                                    ),
+                                                    end: Offset.zero,
+                                                  ).animate(
+                                                    CurvedAnimation(
+                                                      parent: animation,
+                                                      curve:
+                                                          Curves.easeOutCubic,
+                                                    ),
+                                                  ),
+                                              child: child,
                                             ),
-                                            child: child,
-                                          ),
-                                        );
-                                      },
-                                      child: ActivePlayerBanner(
-                                        key: ValueKey(_currentPlayer.id),
-                                        player: _currentPlayer,
-                                        statusLabel:
-                                            l10n.questionRoundAnsweringNow,
-                                        avatarColor: votingAvatarColorForIndex(
-                                          currentPlayerIndex >= 0
-                                              ? currentPlayerIndex
-                                              : 0,
+                                          );
+                                        },
+                                        child: ActivePlayerBanner(
+                                          key: ValueKey(_currentPlayer.id),
+                                          player: _currentPlayer,
+                                          statusLabel:
+                                              l10n.questionRoundAnsweringNow,
+                                          avatarColor:
+                                              votingAvatarColorForIndex(
+                                                currentPlayerIndex >= 0
+                                                    ? currentPlayerIndex
+                                                    : 0,
+                                              ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: sectionGap),
-                                    AnimatedSwitcher(
-                                      duration: const Duration(
-                                        milliseconds: 280,
-                                      ),
-                                      switchInCurve: Curves.easeOutCubic,
-                                      switchOutCurve: Curves.easeInCubic,
-                                      transitionBuilder: (child, animation) {
-                                        final offsetAnimation = Tween<Offset>(
-                                          begin: const Offset(0.1, 0),
-                                          end: Offset.zero,
-                                        ).animate(
-                                          CurvedAnimation(
-                                            parent: animation,
-                                            curve: Curves.easeOutCubic,
-                                          ),
-                                        );
+                                      SizedBox(height: sectionGap),
+                                      AnimatedSwitcher(
+                                        duration: const Duration(
+                                          milliseconds: 280,
+                                        ),
+                                        switchInCurve: Curves.easeOutCubic,
+                                        switchOutCurve: Curves.easeInCubic,
+                                        transitionBuilder: (child, animation) {
+                                          final offsetAnimation =
+                                              Tween<Offset>(
+                                                begin: const Offset(0.1, 0),
+                                                end: Offset.zero,
+                                              ).animate(
+                                                CurvedAnimation(
+                                                  parent: animation,
+                                                  curve: Curves.easeOutCubic,
+                                                ),
+                                              );
 
-                                        return FadeTransition(
-                                          opacity: animation,
-                                          child: SlideTransition(
-                                            position: offsetAnimation,
-                                            child: child,
-                                          ),
-                                        );
-                                      },
-                                      child: QuestionCard(
-                                        key: ValueKey('turn-$_turnIndex'),
-                                        questionText: _currentTurn.question.text
-                                            .valueFor(widget.language)
-                                            .toUpperCase(),
+                                          return FadeTransition(
+                                            opacity: animation,
+                                            child: SlideTransition(
+                                              position: offsetAnimation,
+                                              child: child,
+                                            ),
+                                          );
+                                        },
+                                        child: QuestionCard(
+                                          key: ValueKey('turn-$_turnIndex'),
+                                          questionText: _currentTurn
+                                              .question
+                                              .text
+                                              .valueFor(widget.language),
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(height: sectionGap),
-                                    SpeakUpPrompt(
-                                      title: l10n.questionRoundSpeakUp,
-                                      line1: l10n.questionRoundSpeakUpLine1,
-                                      line2: l10n.questionRoundSpeakUpLine2,
-                                    ),
-                                  ],
+                                      SizedBox(height: sectionGap),
+                                      SpeakUpPrompt(
+                                        title: l10n.questionRoundSpeakUp,
+                                        line1: l10n.questionRoundSpeakUpLine1,
+                                        line2: l10n.questionRoundSpeakUpLine2,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            QuestionRoundCta(
-                              label: _primaryButtonLabel(l10n),
-                              onPressed: _onPrimaryPressed,
-                            ),
-                          ],
+                              QuestionRoundCta(
+                                label: _primaryButtonLabel(l10n),
+                                onPressed: _onPrimaryPressed,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
         ),
       ),
     );

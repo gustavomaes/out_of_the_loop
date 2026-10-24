@@ -1,6 +1,7 @@
 {
   "@@locale": "hi",
   "appTitle": "Out of the Loop",
+  "homeTagline": "सब जानते हैं। एक को छोड़कर।",
   "startGame": "खेल शुरू करें",
   "navPlay": "खेलें",
   "navCategories": "श्रेणियाँ",
@@ -285,7 +286,7 @@
   "howToPlaySecretBodyBefore": "हर खिलाड़ी गुप्त शब्द देखता है, सिवाय एक के... जो ",
   "howToPlaySecretBodyHighlight": "लूप से बाहर है!",
   "howToPlayQuestionTitle": "सवाल",
-  "howToPlayQuestionBodyBefore": "शब्द के बारे में मज़ेदार सवालों के जवाब दें, बिना सब कुछ बता दिए। ",
+  "howToPlayQuestionBodyBefore": "निर्देशित मोड में ऐप के सवालों के जवाब दें। स्वतंत्र खेल में एक शब्द का संकेत दें। ",
   "howToPlayQuestionBodyEmphasis": "चतुर बनो!",
   "howToPlayVoteTitle": "वोट",
   "howToPlayVoteBodyBefore": "पहचानें कौन कुछ नहीं जानता और ",
@@ -298,5 +299,81 @@
   "reviewPromptTitle": "मैच मज़ेदार रहा?",
   "reviewPromptMessage": "अगर सबको मज़ा आया, तो स्टोर पर एक समीक्षा गेम को और लोगों तक पहुँचाती है।",
   "reviewPromptRate": "रेट करें",
-  "reviewPromptLater": "अभी नहीं"
+  "reviewPromptLater": "अभी नहीं",
+  "gameModeLabel": "आप कैसे खेलेंगे?",
+  "guidedMode": "निर्देशित",
+  "guidedModeDescription": "ऐप के सवालों के जवाब दें।",
+  "freeMode": "स्वतंत्र खेल",
+  "freeModeDescription": "एक शब्द का संकेत दें और झांसा दें।",
+  "freeClueTitle": "एक शब्द। सोचकर बोलें।",
+  "freeClueBody": "गुप्त शब्द बोले बिना संकेत दें। इम्पोस्टर को घुलना-मिलना होगा।",
+  "clueDone": "संकेत दे दिया",
+  "anotherLap": "एक और दौर",
+  "voteNow": "अब वोट दें",
+  "cluesReady": "सबने संकेत दे दिया है।",
+  "savedGroupHint": "आपका पिछला समूह तैयार है। नाम बदल सकते हैं।",
+  "historySection": "नए दौर",
+  "historyDescription": "हाल के शब्द और सवाल दोहराए नहीं जाते। पैक खत्म होने पर सबसे पुराने शब्द लौटते हैं।",
+  "resetHistory": "शब्द इतिहास रीसेट करें",
+  "historyReset": "शब्द इतिहास रीसेट हो गया।",
+  "forgetGroup": "सहेजा समूह हटाएं",
+  "groupForgotten": "सहेजा समूह हटा दिया गया।",
+  "gameNightPacks": "गेम नाइट पैक",
+  "packsSubtitle": "अगली मुलाकात के लिए नए विषय। सामग्री अंग्रेज़ी में।",
+  "packPurchaseOnce": "एक बार खरीदें। कोई सदस्यता नहीं।",
+  "packOwned": "खेलने के लिए तैयार",
+  "packPlay": "यह पैक खेलें",
+  "packBuy": "पैक अनलॉक करें",
+  "packUnavailable": "खरीद अभी उपलब्ध नहीं है। मुफ़्त श्रेणियां अभी भी खेल सकते हैं।",
+  "restorePurchases": "खरीद बहाल करें",
+  "purchaseFailed": "खरीद पूरी नहीं हो सकी। फिर कोशिश करें।",
+  "purchasePending": "खरीद की स्वीकृति बाकी है। मुफ़्त खेल जारी रखें।",
+  "purchaseRestored": "खरीद जांच ली गई। उपलब्ध पैक नीचे हैं।",
+  "purchaseSuccess": "आपका पैक तैयार है। चलिए खेलें!",
+  "packEnglishOnly": "अंग्रेज़ी सामग्री",
+  "packBundleTitle": "गेम नाइट संग्रह",
+  "packBundleDescription": "यहां दिए तीनों पैक। एक बार खरीदें और रखें।",
+  "roundsOnlySummary": "{roundCount} दौर · एक शब्द के संकेत",
+  "@roundsOnlySummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      }
+    }
+  },
+  "packWordCount": "{count} शब्द · निर्देशित और स्वतंत्र खेल",
+  "@packWordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "readyToPlay": "खेलने के लिए तैयार",
+  "explorePacks": "पैक देखें",
+  "packEnglishContent": "अंग्रेज़ी सामग्री वाला पैक",
+  "onboardingSkip": "छोड़ें",
+  "onboardingNext": "आगे बढ़ें",
+  "onboardingStart": "खेल शुरू करें",
+  "onboardingReplay": "इंटरैक्टिव ट्यूटोरियल फिर देखें",
+  "onboardingStep": "चरण {step} / 3",
+  "onboardingSecretTitle": "सब जानते हैं। एक को छोड़कर।",
+  "onboardingSecretBody": "3 से 9 लोगों को इकट्ठा करें। एक को छोड़कर सभी को एक ही गुप्त शब्द मिलता है। Out of the Loop खिलाड़ी को जानने का नाटक करना होगा!",
+  "onboardingPassTitle": "अपना राज़ देखें और फ़ोन आगे दें।",
+  "onboardingPassBody": "अभ्यास के लिए कार्ड पर टैप करें। असली खेल में अपना रोल अकेले देखें, शब्द छिपाएँ और फ़ोन अगले खिलाड़ी को दें।",
+  "onboardingVoteTitle": "संकेत दें। झाँसा दें। वोट करें।",
+  "onboardingVoteBody": "गाइडेड मोड में सवालों के जवाब दें। फ़्री मोड में एक शब्द का संकेत दें। फिर Out of the Loop खिलाड़ी को पहचानने के लिए वोट करें। अगर वह अंत में शब्द का अनुमान लगा ले, तो वह जीतता है!",
+  "onboardingWord": "पिज़्ज़ा",
+  "onboardingOut": "Out of the Loop",
+  "onboardingReveal": "दिखाने के लिए टैप करें",
+  "onboardingHide": "छिपाने के लिए टैप करें",
+  "onboardingVoteLabel": "कौन झाँसा दे रहा है?",
+  "onboardingSaveError": "सेव नहीं हो सका। फिर कोशिश करें।",
+  "@onboardingStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  }
 }

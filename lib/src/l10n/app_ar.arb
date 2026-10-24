@@ -1,6 +1,7 @@
 {
   "@@locale": "ar",
   "appTitle": "خارج الحلقة",
+  "homeTagline": "الجميع يعرف. إلا واحدًا.",
   "startGame": "ابدأ اللعبة",
   "navPlay": "العب",
   "navCategories": "الفئات",
@@ -285,7 +286,7 @@
   "howToPlaySecretBodyBefore": "كل لاعب يرى الكلمة السرية، إلا واحدًا... وهو ",
   "howToPlaySecretBodyHighlight": "خارج الحلقة!",
   "howToPlayQuestionTitle": "السؤال",
-  "howToPlayQuestionBodyBefore": "أجب عن أسئلة مضحكة حول الكلمة دون جعلها واضحة جدًا. ",
+  "howToPlayQuestionBodyBefore": "في اللعب الموجّه، أجب عن أسئلة التطبيق. في اللعب الحر، قدّم تلميحًا من كلمة واحدة. ",
   "howToPlayQuestionBodyEmphasis": "كن ذكيًا!",
   "howToPlayVoteTitle": "التصويت",
   "howToPlayVoteBodyBefore": "حاول اكتشاف من لا يعرف شيئًا و",
@@ -298,5 +299,81 @@
   "reviewPromptTitle": "هل استمتعتم بالمباراة؟",
   "reviewPromptMessage": "إذا استمتعت المجموعة، فتقييم في المتجر يساعد اللعبة على الوصول إلى المزيد من الطاولات.",
   "reviewPromptRate": "قيّم التطبيق",
-  "reviewPromptLater": "ليس الآن"
+  "reviewPromptLater": "ليس الآن",
+  "gameModeLabel": "كيف ستلعبون؟",
+  "guidedMode": "موجّه",
+  "guidedModeDescription": "أجيبوا عن أسئلة التطبيق.",
+  "freeMode": "لعب حر",
+  "freeModeDescription": "قدّموا تلميحات من كلمة واحدة وحاولوا التمويه.",
+  "freeClueTitle": "كلمة واحدة. اخترها بعناية.",
+  "freeClueBody": "قل تلميحًا دون ذكر الكلمة السرية. على المتسلل الاندماج.",
+  "clueDone": "قدّمت تلميحي",
+  "anotherLap": "جولة أخرى",
+  "voteNow": "صوّتوا الآن",
+  "cluesReady": "قدّم الجميع تلميحًا.",
+  "savedGroupHint": "مجموعتك السابقة جاهزة. عدّل الأسماء لتغييرها.",
+  "historySection": "جولات جديدة",
+  "historyDescription": "نتجنب الكلمات والأسئلة الحديثة. عند نفاد الحزمة، تعود الأقدم.",
+  "resetHistory": "إعادة ضبط سجل الكلمات",
+  "historyReset": "تمت إعادة ضبط سجل الكلمات.",
+  "forgetGroup": "نسيان المجموعة المحفوظة",
+  "groupForgotten": "تم حذف المجموعة المحفوظة.",
+  "gameNightPacks": "حزم ليلة الألعاب",
+  "packsSubtitle": "مواضيع جديدة للقائكم القادم. المحتوى بالإنجليزية.",
+  "packPurchaseOnce": "شراء لمرة واحدة. دون اشتراك.",
+  "packOwned": "جاهز للعب",
+  "packPlay": "العب بهذه الحزمة",
+  "packBuy": "افتح الحزمة",
+  "packUnavailable": "الشراء غير متاح حاليًا. الفئات المجانية لا تزال متاحة.",
+  "restorePurchases": "استعادة المشتريات",
+  "purchaseFailed": "تعذّر إتمام الشراء. حاول مجددًا.",
+  "purchasePending": "عملية الشراء بانتظار الموافقة. يمكنك مواصلة اللعب مجانًا.",
+  "purchaseRestored": "تم التحقق من المشتريات. الحزم المتاحة أدناه.",
+  "purchaseSuccess": "حزمتك جاهزة. لنلعب!",
+  "packEnglishOnly": "محتوى بالإنجليزية",
+  "packBundleTitle": "مجموعة ليلة الألعاب",
+  "packBundleDescription": "الحزم الثلاث المعروضة هنا بعملية شراء واحدة.",
+  "roundsOnlySummary": "{roundCount} جولات · تلميحات من كلمة واحدة",
+  "@roundsOnlySummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      }
+    }
+  },
+  "packWordCount": "{count} كلمة · لعب موجّه وحر",
+  "@packWordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "readyToPlay": "جاهز للعب",
+  "explorePacks": "استكشف الحزم",
+  "packEnglishContent": "حزمة بمحتوى باللغة الإنجليزية",
+  "onboardingSkip": "تخطي",
+  "onboardingNext": "متابعة",
+  "onboardingStart": "بدء جولة",
+  "onboardingReplay": "إعادة الشرح التفاعلي",
+  "onboardingStep": "الخطوة {step} من 3",
+  "onboardingSecretTitle": "الجميع يعرف. إلا واحدًا.",
+  "onboardingSecretBody": "اجمع من 3 إلى 9 أشخاص. يحصل الجميع على الكلمة السرية نفسها باستثناء شخص واحد: على اللاعب خارج الحلقة أن يتظاهر بمعرفتها!",
+  "onboardingPassTitle": "شاهد سرك ومرر الهاتف.",
+  "onboardingPassBody": "اضغط على البطاقة للتدريب. في اللعبة، شاهد دورك وحدك ثم أخفِ الكلمة ومرر الهاتف إلى اللاعب التالي.",
+  "onboardingVoteTitle": "أعطِ تلميحات. خادع. صوّت.",
+  "onboardingVoteBody": "في الوضع الموجّه، أجب عن الأسئلة. في الوضع الحر، أعطِ تلميحًا من كلمة واحدة. ثم صوّتوا لمن هو خارج الحلقة. إذا خمن ذلك اللاعب الكلمة في النهاية، يفوز!",
+  "onboardingWord": "بيتزا",
+  "onboardingOut": "خارج الحلقة",
+  "onboardingReveal": "اضغط للكشف",
+  "onboardingHide": "اضغط للإخفاء",
+  "onboardingVoteLabel": "من يخادع؟",
+  "onboardingSaveError": "تعذر الحفظ. حاول مرة أخرى.",
+  "@onboardingStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  }
 }

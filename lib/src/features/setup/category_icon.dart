@@ -27,5 +27,5 @@ IconData categoryIconFor(String? iconKey) {
 }
 
 Color contrastingForeground(Color background) {
-  return background.computeLuminance() > 0.55 ? Colors.black : Colors.white;
+  return background.computeLuminance() > 0.179 ? Colors.black : Colors.white;
 }

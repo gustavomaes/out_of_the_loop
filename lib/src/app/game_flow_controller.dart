@@ -1,3 +1,6 @@
+import '../data/content/us_pack_catalog.dart';
+import '../data/session/session_repository.dart';
+import '../domain/models/play_history.dart';
 import '../data/content/local_content_repository.dart';
 import '../domain/models/models.dart';
 import '../domain/services/services.dart';
@@ -17,12 +20,68 @@ final class RematchCarryOver {
 class GameFlowController {
   GameFlowController({
     LocalContentRepository? repository,
+    this.sessionRepository,
+    UsPackCatalog? usPackCatalog,
+    bool Function(String)? packAccess,
     RoundGenerationService? roundGenerationService,
     this.progressionService = const MatchProgressionService(),
     this.scoringService = const VoteScoringService(),
-  }) : repository = repository ?? LocalContentRepository(),
+  }) : usPackCatalog = usPackCatalog ?? UsPackCatalog(),
+       packAccess = packAccess ?? ((_) => false),
+       repository = repository ?? LocalContentRepository(),
        roundGenerationService =
            roundGenerationService ?? RoundGenerationService();
+
+  final UsPackCatalog usPackCatalog;
+  final bool Function(String) packAccess;
+  final SessionRepository? sessionRepository;
+  PlayHistory history = PlayHistory();
+  GameMode mode = GameMode.guided;
+  List<Player> savedPlayers = const [];
+  int savedRoundCount = 3;
+  int savedQuestionsPerPlayer = 1;
+  Future<void> _saving = Future.value();
+  bool sessionSaveFailed = false;
+  Future<void> loadSession() async {
+    final saved = await sessionRepository?.load();
+    if (saved == null) return;
+    history = saved.history;
+    mode = saved.mode;
+    savedPlayers = saved.players;
+    savedRoundCount = saved.roundCount;
+    savedQuestionsPerPlayer = saved.questionsPerPlayer;
+  }
+
+  Future<void> flushSession() => _saving;
+  void resetHistory() {
+    history.clear();
+    _saveSession();
+  }
+
+  void forgetSavedGroup() {
+    savedPlayers = const [];
+    _saveSession();
+  }
+
+  void _saveSession() {
+    final store = sessionRepository;
+    if (store == null) return;
+    final snapshot = SavedSession(
+      history: PlayHistory(words: history.words, questions: history.questions),
+      players: List.of(savedPlayers),
+      mode: mode,
+      roundCount: savedRoundCount,
+      questionsPerPlayer: savedQuestionsPerPlayer,
+    );
+    _saving = _saving.then((_) async {
+      try {
+        await store.save(snapshot);
+        sessionSaveFailed = false;
+      } on Object {
+        sessionSaveFailed = true;
+      }
+    });
+  }
 
   final LocalContentRepository repository;
   final RoundGenerationService roundGenerationService;
@@ -31,6 +90,7 @@ class GameFlowController {
 
   SupportedLanguage language = SupportedLanguage.en;
   Category? selectedCategory;
+  SupportedLanguage? _selectedContentLanguage;
   List<SecretWord> categoryWords = const [];
   MatchSetup? setup;
   MatchState? match;
@@ -53,9 +113,27 @@ class GameFlowController {
   RoundState? get currentRound => match?.currentRound;
   bool get hasActiveRound => currentRound != null && match != null;
 
-  Future<void> selectCategory(Category category) async {
+  Future<void> selectCategory(
+    Category category, {
+    SupportedLanguage? contentLanguage,
+  }) async {
+    final selectedLanguage = contentLanguage ?? language;
+    if (UsPackCatalog.ids.contains(category.id)) {
+      if (selectedLanguage != SupportedLanguage.en ||
+          !packAccess(category.id)) {
+        throw StateError('Pack is not available.');
+      }
+      final pack = await usPackCatalog.find(category.id);
+      if (pack == null) throw StateError('Pack is missing.');
+      categoryWords = pack.content.words;
+    } else {
+      categoryWords = await repository.wordsForCategory(
+        category.id,
+        selectedLanguage,
+      );
+    }
     selectedCategory = category;
-    categoryWords = await repository.wordsForCategory(category.id, language);
+    _selectedContentLanguage = selectedLanguage;
   }
 
   void startMatch(
@@ -68,13 +146,20 @@ class GameFlowController {
       throw StateError('Select a category before starting a match.');
     }
 
+    if (UsPackCatalog.ids.contains(category.id) && !packAccess(category.id)) {
+      throw StateError('Pack access required.');
+    }
     setup = MatchSetup(
       categoryId: category.id,
       roundCount: roundCount,
       questionsPerPlayer: questionsPerPlayer,
       players: players,
-      language: language,
+      language: _selectedContentLanguage ?? language,
+      mode: mode,
     );
+    savedPlayers = _freshPlayers(players);
+    savedRoundCount = roundCount;
+    savedQuestionsPerPlayer = questionsPerPlayer;
     match = progressionService.startMatch(setup!);
     _startNextRound();
   }
@@ -225,11 +310,7 @@ class GameFlowController {
   static List<Player> _freshPlayers(List<Player> players) {
     return [
       for (final player in players)
-        Player(
-          id: player.id,
-          name: player.name,
-          avatarSeed: player.avatarSeed,
-        ),
+        Player(id: player.id, name: player.name, avatarSeed: player.avatarSeed),
     ];
   }
 
@@ -246,8 +327,13 @@ class GameFlowController {
       questionsPerPlayer: activeSetup.questionsPerPlayer,
       categoryWords: categoryWords,
       usedWordIds: activeMatch.usedWordIds,
+      history: history,
+      language: activeSetup.language,
+      mode: activeSetup.mode,
     );
     match = progressionService.startRound(match: activeMatch, round: round);
+    history.record(round, activeSetup.language);
+    _saveSession();
   }
 
   void _replaceCurrentRound(RoundState round) {

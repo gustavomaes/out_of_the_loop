@@ -12,6 +12,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get appTitle => 'Out of the Loop';
 
   @override
+  String get homeTagline => 'Todos sabem. Menos um.';
+
+  @override
   String get startGame => 'JOGAR';
 
   @override
@@ -554,7 +557,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get howToPlayQuestionBodyBefore =>
-      'Responda perguntas engraçadas sobre a palavra sem dar na cara o que é. ';
+      'No modo guiado, responde às perguntas da app. No modo livre, dá uma pista de uma palavra. ';
 
   @override
   String get howToPlayQuestionBodyEmphasis => 'Seja esperto!';
@@ -597,6 +600,190 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get reviewPromptLater => 'AGORA NÃO';
+
+  @override
+  String get gameModeLabel => 'Como vocês vão jogar?';
+
+  @override
+  String get guidedMode => 'Guiado';
+
+  @override
+  String get guidedModeDescription => 'Respondam às perguntas do app.';
+
+  @override
+  String get freeMode => 'Modo livre';
+
+  @override
+  String get freeModeDescription =>
+      'Deem pistas de uma palavra e tentem disfarçar.';
+
+  @override
+  String get freeClueTitle => 'Uma palavra. Capriche na pista.';
+
+  @override
+  String get freeClueBody =>
+      'Dê uma pista em voz alta sem dizer a palavra secreta. O impostor precisa disfarçar.';
+
+  @override
+  String get clueDone => 'Já dei minha pista';
+
+  @override
+  String get anotherLap => 'Mais uma volta';
+
+  @override
+  String get voteNow => 'Votar agora';
+
+  @override
+  String get cluesReady => 'Todos já deram uma pista.';
+
+  @override
+  String get savedGroupHint =>
+      'O último grupo está pronto. Adiciona ou remove jogadores se quiseres.';
+
+  @override
+  String get historySection => 'Rodadas diferentes';
+
+  @override
+  String get historyDescription =>
+      'Palavras e perguntas recentes são evitadas neste aparelho. Ao esgotar o pacote, as mais antigas voltam.';
+
+  @override
+  String get resetHistory => 'Reiniciar histórico de palavras';
+
+  @override
+  String get historyReset => 'Histórico de palavras reiniciado.';
+
+  @override
+  String get forgetGroup => 'Esquecer grupo salvo';
+
+  @override
+  String get groupForgotten => 'Grupo salvo removido.';
+
+  @override
+  String get gameNightPacks => 'Pacotes para jogar juntos';
+
+  @override
+  String get packsSubtitle =>
+      'Novos assuntos para o próximo encontro. Conteúdo em inglês.';
+
+  @override
+  String get packPurchaseOnce => 'Compra única. Sem assinatura.';
+
+  @override
+  String get packOwned => 'Pronto para jogar';
+
+  @override
+  String get packPlay => 'Jogar este pacote';
+
+  @override
+  String get packBuy => 'Desbloquear pacote';
+
+  @override
+  String get packUnavailable =>
+      'As compras estão indisponíveis no momento. Suas categorias gratuitas continuam disponíveis.';
+
+  @override
+  String get restorePurchases => 'Restaurar compras';
+
+  @override
+  String get purchaseFailed =>
+      'Não foi possível concluir a compra. Tente novamente.';
+
+  @override
+  String get purchasePending =>
+      'Sua compra aguarda aprovação. Você pode continuar nas categorias gratuitas.';
+
+  @override
+  String get purchaseRestored =>
+      'Compras verificadas. Seus pacotes disponíveis aparecem abaixo.';
+
+  @override
+  String get purchaseSuccess => 'Seu pacote está pronto. Vamos jogar!';
+
+  @override
+  String get packEnglishOnly => 'Conteúdo em inglês';
+
+  @override
+  String get packBundleTitle => 'Coleção Game Night';
+
+  @override
+  String get packBundleDescription =>
+      'Os três pacotes listados aqui. Uma compra para manter todos.';
+
+  @override
+  String roundsOnlySummary(int roundCount) {
+    return '$roundCount rodadas · pistas de uma palavra';
+  }
+
+  @override
+  String packWordCount(int count) {
+    return '$count palavras · guiado e livre';
+  }
+
+  @override
+  String get readyToPlay => 'Para jogar';
+
+  @override
+  String get explorePacks => 'Explorar pacotes';
+
+  @override
+  String get packEnglishContent => 'Pacote com conteúdo em inglês';
+
+  @override
+  String get onboardingSkip => 'Pular';
+
+  @override
+  String get onboardingNext => 'Continuar';
+
+  @override
+  String get onboardingStart => 'Começar partida';
+
+  @override
+  String get onboardingReplay => 'Rever tutorial interativo';
+
+  @override
+  String onboardingStep(int step) {
+    return 'PASSO $step DE 3';
+  }
+
+  @override
+  String get onboardingSecretTitle => 'Todos sabem. Menos um.';
+
+  @override
+  String get onboardingSecretBody =>
+      'Junte de 3 a 9 pessoas. Todos recebem a mesma palavra secreta, exceto uma pessoa: quem está Fora do Loop precisa blefar!';
+
+  @override
+  String get onboardingPassTitle => 'Veja seu segredo e passe o celular.';
+
+  @override
+  String get onboardingPassBody =>
+      'Toque no card para praticar. Na partida, veja seu papel sem mostrar aos outros, esconda a palavra e passe o celular para a próxima pessoa.';
+
+  @override
+  String get onboardingVoteTitle => 'Dê pistas. Blefe. Vote.';
+
+  @override
+  String get onboardingVoteBody =>
+      'No modo guiado, responda às perguntas. No livre, dê uma pista de uma palavra. Depois, votem em quem está Fora do Loop. Se essa pessoa adivinhar a palavra no final, ela ganha!';
+
+  @override
+  String get onboardingWord => 'Pizza';
+
+  @override
+  String get onboardingOut => 'Fora do Loop';
+
+  @override
+  String get onboardingReveal => 'Toque para revelar';
+
+  @override
+  String get onboardingHide => 'Toque para esconder';
+
+  @override
+  String get onboardingVoteLabel => 'Quem está blefando?';
+
+  @override
+  String get onboardingSaveError => 'Não foi possível salvar. Tente novamente.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -605,6 +792,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get appTitle => 'Out of the Loop';
+
+  @override
+  String get homeTagline => 'Todo mundo sabe. Menos um.';
 
   @override
   String get startGame => 'JOGAR';
@@ -1150,7 +1340,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get howToPlayQuestionBodyBefore =>
-      'Responda perguntas engraçadas sobre a palavra sem dar na cara o que é. ';
+      'No modo guiado, responda às perguntas do app. No modo livre, dê uma pista de uma palavra. ';
 
   @override
   String get howToPlayQuestionBodyEmphasis => 'Seja esperto!';
@@ -1193,4 +1383,188 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get reviewPromptLater => 'AGORA NÃO';
+
+  @override
+  String get gameModeLabel => 'Como vocês vão jogar?';
+
+  @override
+  String get guidedMode => 'Guiado';
+
+  @override
+  String get guidedModeDescription => 'Respondam às perguntas do app.';
+
+  @override
+  String get freeMode => 'Modo livre';
+
+  @override
+  String get freeModeDescription =>
+      'Deem pistas de uma palavra e tentem disfarçar.';
+
+  @override
+  String get freeClueTitle => 'Uma palavra. Capriche na pista.';
+
+  @override
+  String get freeClueBody =>
+      'Dê uma pista em voz alta sem dizer a palavra secreta. O impostor precisa disfarçar.';
+
+  @override
+  String get clueDone => 'Já dei minha pista';
+
+  @override
+  String get anotherLap => 'Mais uma volta';
+
+  @override
+  String get voteNow => 'Votar agora';
+
+  @override
+  String get cluesReady => 'Todos já deram uma pista.';
+
+  @override
+  String get savedGroupHint =>
+      'Seu último grupo está pronto. Adicione ou remova jogadores se quiser.';
+
+  @override
+  String get historySection => 'Rodadas diferentes';
+
+  @override
+  String get historyDescription =>
+      'Palavras e perguntas recentes são evitadas neste aparelho. Ao esgotar o pacote, as mais antigas voltam.';
+
+  @override
+  String get resetHistory => 'Reiniciar histórico de palavras';
+
+  @override
+  String get historyReset => 'Histórico de palavras reiniciado.';
+
+  @override
+  String get forgetGroup => 'Esquecer grupo salvo';
+
+  @override
+  String get groupForgotten => 'Grupo salvo removido.';
+
+  @override
+  String get gameNightPacks => 'Pacotes para jogar juntos';
+
+  @override
+  String get packsSubtitle =>
+      'Novos assuntos para o próximo encontro. Conteúdo em inglês.';
+
+  @override
+  String get packPurchaseOnce => 'Compra única. Sem assinatura.';
+
+  @override
+  String get packOwned => 'Pronto para jogar';
+
+  @override
+  String get packPlay => 'Jogar este pacote';
+
+  @override
+  String get packBuy => 'Desbloquear pacote';
+
+  @override
+  String get packUnavailable =>
+      'As compras estão indisponíveis no momento. Suas categorias gratuitas continuam disponíveis.';
+
+  @override
+  String get restorePurchases => 'Restaurar compras';
+
+  @override
+  String get purchaseFailed =>
+      'Não foi possível concluir a compra. Tente novamente.';
+
+  @override
+  String get purchasePending =>
+      'Sua compra aguarda aprovação. Você pode continuar nas categorias gratuitas.';
+
+  @override
+  String get purchaseRestored =>
+      'Compras verificadas. Seus pacotes disponíveis aparecem abaixo.';
+
+  @override
+  String get purchaseSuccess => 'Seu pacote está pronto. Vamos jogar!';
+
+  @override
+  String get packEnglishOnly => 'Conteúdo em inglês';
+
+  @override
+  String get packBundleTitle => 'Coleção Game Night';
+
+  @override
+  String get packBundleDescription =>
+      'Os três pacotes listados aqui. Uma compra para manter todos.';
+
+  @override
+  String roundsOnlySummary(int roundCount) {
+    return '$roundCount rodadas · pistas de uma palavra';
+  }
+
+  @override
+  String packWordCount(int count) {
+    return '$count palavras · guiado e livre';
+  }
+
+  @override
+  String get readyToPlay => 'Para jogar';
+
+  @override
+  String get explorePacks => 'Explorar pacotes';
+
+  @override
+  String get packEnglishContent => 'Pacote com conteúdo em inglês';
+
+  @override
+  String get onboardingSkip => 'Pular';
+
+  @override
+  String get onboardingNext => 'Continuar';
+
+  @override
+  String get onboardingStart => 'Começar partida';
+
+  @override
+  String get onboardingReplay => 'Rever tutorial interativo';
+
+  @override
+  String onboardingStep(int step) {
+    return 'PASSO $step DE 3';
+  }
+
+  @override
+  String get onboardingSecretTitle => 'Todos sabem. Menos um.';
+
+  @override
+  String get onboardingSecretBody =>
+      'Junte de 3 a 9 pessoas. Todos recebem a mesma palavra secreta, exceto uma pessoa: quem está Fora do Loop precisa blefar!';
+
+  @override
+  String get onboardingPassTitle => 'Veja seu segredo e passe o celular.';
+
+  @override
+  String get onboardingPassBody =>
+      'Toque no card para praticar. Na partida, veja seu papel sem mostrar aos outros, esconda a palavra e passe o celular para a próxima pessoa.';
+
+  @override
+  String get onboardingVoteTitle => 'Dê pistas. Blefe. Vote.';
+
+  @override
+  String get onboardingVoteBody =>
+      'No modo guiado, responda às perguntas. No livre, dê uma pista de uma palavra. Depois, votem em quem está Fora do Loop. Se essa pessoa adivinhar a palavra no final, ela ganha!';
+
+  @override
+  String get onboardingWord => 'Pizza';
+
+  @override
+  String get onboardingOut => 'Fora do Loop';
+
+  @override
+  String get onboardingReveal => 'Toque para revelar';
+
+  @override
+  String get onboardingHide => 'Toque para esconder';
+
+  @override
+  String get onboardingVoteLabel => 'Quem está blefando?';
+
+  @override
+  String get onboardingSaveError => 'Não foi possível salvar. Tente novamente.';
 }

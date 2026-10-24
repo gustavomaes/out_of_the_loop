@@ -25,8 +25,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('OUT OF THE'), findsNWidgets(2));
-    expect(find.text('LOOP'), findsNWidgets(2));
+    expect(find.text('OUT OF THE'), findsOneWidget);
+    expect(find.text('LOOP'), findsOneWidget);
     expect(find.text(l10n.startGame), findsOneWidget);
     expect(find.text(l10n.howToPlay), findsOneWidget);
     expect(find.text('A party game of secrets'), findsNothing);
@@ -42,10 +42,7 @@ void main() {
 
   testWidgets('shows english button copy when locale is en', (tester) async {
     await tester.pumpWidget(
-      const _TestApp(
-        locale: Locale('en'),
-        child: HomeScreen(),
-      ),
+      const _TestApp(locale: Locale('en'), child: HomeScreen()),
     );
     await tester.pumpAndSettle();
 

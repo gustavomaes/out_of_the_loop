@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:outoftheloop/src/app/app_routes.dart';
 import 'package:outoftheloop/src/app/discovery_shell.dart';
 import 'package:outoftheloop/src/app/out_of_the_loop_app.dart';
-import 'package:outoftheloop/src/features/settings/settings_screen.dart';
 import 'package:outoftheloop/src/shared/widgets/otl_discovery_bottom_bar.dart';
 import 'package:outoftheloop/src/theme/app_tokens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,13 +26,15 @@ void main() {
       '/game/final',
       '/how-to-play',
       '/settings',
+      '/packs',
+      '/onboarding',
     ]);
   });
 
   testWidgets('app boots into the initial route with dark shell', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({'onboarding.completed': true});
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
@@ -43,10 +44,12 @@ void main() {
     expect(find.byType(OtlDiscoveryBottomBar), findsOneWidget);
 
     final discoveryScaffold = tester.widget<Scaffold>(
-      find.descendant(
-        of: find.byType(DiscoveryShell),
-        matching: find.byType(Scaffold),
-      ).first,
+      find
+          .descendant(
+            of: find.byType(DiscoveryShell),
+            matching: find.byType(Scaffold),
+          )
+          .first,
     );
     expect(discoveryScaffold.backgroundColor, isNot(Colors.white));
   });
@@ -54,16 +57,16 @@ void main() {
   testWidgets('bottom navigation is scoped to discovery routes', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({'onboarding.completed': true});
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();
 
     expect(find.byType(OtlDiscoveryBottomBar), findsOneWidget);
 
-    GoRouter.of(tester.element(find.byType(OtlDiscoveryBottomBar))).push(
-      AppRoutes.gameReveal,
-    );
+    GoRouter.of(
+      tester.element(find.byType(OtlDiscoveryBottomBar)),
+    ).push(AppRoutes.gameReveal);
     await tester.pumpAndSettle();
 
     expect(find.text('Secret Reveal'), findsWidgets);
@@ -104,9 +107,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('YES, REVEAL'));
       await tester.pumpAndSettle();
-      await tester.tap(
-        find.text(index == 2 ? "I'M DONE" : 'NEXT PLAYER'),
-      );
+      await tester.tap(find.text(index == 2 ? "I'M DONE" : 'NEXT PLAYER'));
       await tester.pumpAndSettle();
     }
 
@@ -163,13 +164,14 @@ void main() {
 
     expect(find.text('TOP SECRET'), findsOneWidget);
     expect(find.text('REVEAL MY ROLE'), findsOneWidget);
-    expect(find.text('PASS TO'), findsWidgets);
+    expect(find.text('will see their word'), findsOneWidget);
   });
 
-  testWidgets('restores saved language preferences on startup', (
-    tester,
-  ) async {
-    SharedPreferences.setMockInitialValues({'settings.language': 'en'});
+  testWidgets('restores saved language preferences on startup', (tester) async {
+    SharedPreferences.setMockInitialValues({
+      'settings.language': 'en',
+      'onboarding.completed': true,
+    });
 
     await tester.pumpWidget(const OutOfTheLoopApp());
     await tester.pumpAndSettle();

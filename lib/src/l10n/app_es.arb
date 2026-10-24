@@ -1,6 +1,7 @@
 {
   "@@locale": "es",
   "appTitle": "Out of the Loop",
+  "homeTagline": "Todos lo saben. Menos uno.",
   "startGame": "INICIAR JUEGO",
   "navPlay": "JUGAR",
   "navCategories": "CATEGORÍAS",
@@ -285,7 +286,7 @@
   "howToPlaySecretBodyBefore": "Cada jugador ve la palabra secreta, excepto uno... que está ",
   "howToPlaySecretBodyHighlight": "¡Fuera del Loop!",
   "howToPlayQuestionTitle": "LA PREGUNTA",
-  "howToPlayQuestionBodyBefore": "Responde preguntas divertidas sobre la palabra sin revelarla del todo. ",
+  "howToPlayQuestionBodyBefore": "En modo guiado, responde las preguntas de la app. En modo libre, da una pista de una palabra. ",
   "howToPlayQuestionBodyEmphasis": "¡Sé listo!",
   "howToPlayVoteTitle": "LA VOTACIÓN",
   "howToPlayVoteBodyBefore": "Intenta descubrir quién no sabe nada y ",
@@ -298,5 +299,81 @@
   "reviewPromptTitle": "¿Les gustó la partida?",
   "reviewPromptMessage": "Si la mesa se divirtió, una reseña en la tienda ayuda a que el juego llegue a más personas.",
   "reviewPromptRate": "VALORAR",
-  "reviewPromptLater": "AHORA NO"
+  "reviewPromptLater": "AHORA NO",
+  "gameModeLabel": "¿Cómo van a jugar?",
+  "guidedMode": "Guiado",
+  "guidedModeDescription": "Respondan las preguntas de la app.",
+  "freeMode": "Modo libre",
+  "freeModeDescription": "Den pistas de una palabra e intenten disimular.",
+  "freeClueTitle": "Una palabra. Elige bien.",
+  "freeClueBody": "Da una pista sin decir la palabra secreta. El impostor debe disimular.",
+  "clueDone": "Ya di mi pista",
+  "anotherLap": "Otra vuelta",
+  "voteNow": "Votar ahora",
+  "cluesReady": "Todos dieron una pista.",
+  "savedGroupHint": "Tu último grupo está listo. Edita los nombres para cambiarlo.",
+  "historySection": "Rondas nuevas",
+  "historyDescription": "Se evitan palabras y preguntas recientes. Al agotar el paquete, vuelven las más antiguas.",
+  "resetHistory": "Reiniciar historial de palabras",
+  "historyReset": "Historial reiniciado.",
+  "forgetGroup": "Olvidar grupo guardado",
+  "groupForgotten": "Grupo guardado eliminado.",
+  "gameNightPacks": "Paquetes para jugar juntos",
+  "packsSubtitle": "Temas nuevos para tu próxima reunión. Contenido en inglés.",
+  "packPurchaseOnce": "Compra única. Sin suscripción.",
+  "packOwned": "Listo para jugar",
+  "packPlay": "Jugar este paquete",
+  "packBuy": "Desbloquear paquete",
+  "packUnavailable": "Las compras no están disponibles ahora. Las categorías gratis siguen disponibles.",
+  "restorePurchases": "Restaurar compras",
+  "purchaseFailed": "No se pudo completar la compra. Inténtalo de nuevo.",
+  "purchasePending": "Tu compra espera aprobación. Puedes seguir jugando gratis.",
+  "purchaseRestored": "Compras verificadas. Tus paquetes disponibles aparecen abajo.",
+  "purchaseSuccess": "Tu paquete está listo. ¡A jugar!",
+  "packEnglishOnly": "Contenido en inglés",
+  "packBundleTitle": "Colección Game Night",
+  "packBundleDescription": "Los tres paquetes mostrados aquí con una sola compra.",
+  "roundsOnlySummary": "{roundCount} rondas · pistas de una palabra",
+  "@roundsOnlySummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      }
+    }
+  },
+  "packWordCount": "{count} palabras · guiado y libre",
+  "@packWordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "readyToPlay": "Para jugar",
+  "explorePacks": "Explorar paquetes",
+  "packEnglishContent": "Paquete con contenido en inglés",
+  "onboardingSkip": "Omitir",
+  "onboardingNext": "Continuar",
+  "onboardingStart": "Empezar partida",
+  "onboardingReplay": "Repetir tutorial interactivo",
+  "onboardingStep": "PASO {step} DE 3",
+  "onboardingSecretTitle": "Todos lo saben. Menos uno.",
+  "onboardingSecretBody": "Reúne de 3 a 9 personas. Todos reciben la misma palabra secreta, excepto una persona: ¡quien está Fuera del Loop tiene que fingir!",
+  "onboardingPassTitle": "Mira tu secreto y pasa el móvil.",
+  "onboardingPassBody": "Toca la tarjeta para practicar. En la partida, mira tu rol en privado, oculta la palabra y pasa el móvil a la siguiente persona.",
+  "onboardingVoteTitle": "Da pistas. Finge. Vota.",
+  "onboardingVoteBody": "En el modo guiado, responde preguntas. En el libre, da una pista de una palabra. Después, voten por quien está Fuera del Loop. ¡Si esa persona adivina la palabra al final, gana!",
+  "onboardingWord": "Pizza",
+  "onboardingOut": "Fuera del Loop",
+  "onboardingReveal": "Toca para revelar",
+  "onboardingHide": "Toca para ocultar",
+  "onboardingVoteLabel": "¿Quién está fingiendo?",
+  "onboardingSaveError": "No se pudo guardar. Inténtalo de nuevo.",
+  "@onboardingStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  }
 }

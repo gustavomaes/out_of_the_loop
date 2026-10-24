@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'Out of the Loop';
 
   @override
+  String get homeTagline => 'Everyone knows. Except one.';
+
+  @override
   String get startGame => 'START GAME';
 
   @override
@@ -549,7 +552,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get howToPlayQuestionBodyBefore =>
-      'Answer funny questions about the word without making it too obvious. ';
+      'In Guided mode, answer the app’s questions. In Free play, give a one-word clue. ';
 
   @override
   String get howToPlayQuestionBodyEmphasis => 'Be clever!';
@@ -591,4 +594,188 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reviewPromptLater => 'NOT NOW';
+
+  @override
+  String get gameModeLabel => 'How will you play?';
+
+  @override
+  String get guidedMode => 'Guided';
+
+  @override
+  String get guidedModeDescription => 'Answer questions picked by the app.';
+
+  @override
+  String get freeMode => 'Free play';
+
+  @override
+  String get freeModeDescription =>
+      'Give one-word clues and bluff your way through.';
+
+  @override
+  String get freeClueTitle => 'One word. Make it count.';
+
+  @override
+  String get freeClueBody =>
+      'Say a clue out loud without saying the secret word. The imposter has to blend in.';
+
+  @override
+  String get clueDone => 'Clue given';
+
+  @override
+  String get anotherLap => 'One more lap';
+
+  @override
+  String get voteNow => 'Vote now';
+
+  @override
+  String get cluesReady => 'Everyone has given a clue.';
+
+  @override
+  String get savedGroupHint =>
+      'Your last group is ready. Add or remove players as needed.';
+
+  @override
+  String get historySection => 'Fresh rounds';
+
+  @override
+  String get historyDescription =>
+      'Recent words and questions are avoided on this device. When a pack runs out, the oldest words return.';
+
+  @override
+  String get resetHistory => 'Reset word history';
+
+  @override
+  String get historyReset => 'Word history reset.';
+
+  @override
+  String get forgetGroup => 'Forget saved group';
+
+  @override
+  String get groupForgotten => 'Saved group removed.';
+
+  @override
+  String get gameNightPacks => 'Game night packs';
+
+  @override
+  String get packsSubtitle =>
+      'Fresh topics for your next hangout. English content.';
+
+  @override
+  String get packPurchaseOnce => 'One-time purchase. No subscription.';
+
+  @override
+  String get packOwned => 'Ready to play';
+
+  @override
+  String get packPlay => 'Play this pack';
+
+  @override
+  String get packBuy => 'Unlock pack';
+
+  @override
+  String get packUnavailable =>
+      'Purchases are unavailable right now. Your free categories are still ready to play.';
+
+  @override
+  String get restorePurchases => 'Restore purchases';
+
+  @override
+  String get purchaseFailed =>
+      'We could not complete that purchase. Please try again.';
+
+  @override
+  String get purchasePending =>
+      'Your purchase is pending approval. You can keep playing free categories.';
+
+  @override
+  String get purchaseRestored =>
+      'Purchases checked. Your available packs are shown below.';
+
+  @override
+  String get purchaseSuccess => 'Your pack is ready. Let’s play!';
+
+  @override
+  String get packEnglishOnly => 'English content';
+
+  @override
+  String get packBundleTitle => 'Game Night Collection';
+
+  @override
+  String get packBundleDescription =>
+      'All three packs listed here. Keep them with a single purchase.';
+
+  @override
+  String roundsOnlySummary(int roundCount) {
+    return '$roundCount rounds · one-word clues';
+  }
+
+  @override
+  String packWordCount(int count) {
+    return '$count words · guided and free play';
+  }
+
+  @override
+  String get readyToPlay => 'Ready to play';
+
+  @override
+  String get explorePacks => 'Explore packs';
+
+  @override
+  String get packEnglishContent => 'Pack with English content';
+
+  @override
+  String get onboardingSkip => 'Skip';
+
+  @override
+  String get onboardingNext => 'Continue';
+
+  @override
+  String get onboardingStart => 'Start a game';
+
+  @override
+  String get onboardingReplay => 'Replay interactive tutorial';
+
+  @override
+  String onboardingStep(int step) {
+    return 'STEP $step OF 3';
+  }
+
+  @override
+  String get onboardingSecretTitle => 'Everyone knows. Except one.';
+
+  @override
+  String get onboardingSecretBody =>
+      'Gather 3 to 9 people. Everyone gets the same secret word except one person: the player Out of the Loop has to bluff!';
+
+  @override
+  String get onboardingPassTitle => 'Peek, hide, and pass the phone.';
+
+  @override
+  String get onboardingPassBody =>
+      'Tap the card to practice. In a real game, check your role privately, hide the word, and pass the phone to the next person.';
+
+  @override
+  String get onboardingVoteTitle => 'Give clues. Bluff. Vote.';
+
+  @override
+  String get onboardingVoteBody =>
+      'In guided mode, answer questions. In free mode, give a one-word clue. Then vote for who is Out of the Loop. If that player guesses the word at the end, they win!';
+
+  @override
+  String get onboardingWord => 'Pizza';
+
+  @override
+  String get onboardingOut => 'Out of the Loop';
+
+  @override
+  String get onboardingReveal => 'Tap to reveal';
+
+  @override
+  String get onboardingHide => 'Tap to hide';
+
+  @override
+  String get onboardingVoteLabel => 'Who is bluffing?';
+
+  @override
+  String get onboardingSaveError => 'Could not save. Please try again.';
 }

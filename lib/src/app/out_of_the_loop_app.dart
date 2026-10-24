@@ -6,6 +6,7 @@ import '../data/analytics/analytics_service.dart';
 import '../data/audio/background_music_service.dart';
 import '../data/audio/sound_effects_service.dart';
 import '../data/preferences/preferences_repository.dart';
+import '../data/session/session_repository.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../l10n/out_of_the_loop_localizations.dart';
 import '../shared/sound/sound_effects_scope.dart';
@@ -13,6 +14,7 @@ import '../theme/theme.dart';
 import 'app_router.dart';
 import 'app_splash_screen.dart';
 import 'game_flow_controller.dart';
+import '../features/packs/packs_controller.dart';
 
 class OutOfTheLoopApp extends StatefulWidget {
   const OutOfTheLoopApp({
@@ -28,14 +30,22 @@ class OutOfTheLoopApp extends StatefulWidget {
 
 class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
     with WidgetsBindingObserver {
-  final _flow = GameFlowController();
+  final _packs = PacksController();
+  late final _flow = GameFlowController(
+    sessionRepository: const SessionRepository(),
+    packAccess: (id) => _packs.owns(id),
+    usPackCatalog: _packs.catalog,
+  );
   final _analytics = AnalyticsService();
   final _soundEffects = SoundEffectsService();
   final _backgroundMusic = BackgroundMusicService();
   final _routerRefresh = ValueNotifier<int>(0);
   var _preferencesReady = false;
+  var _showOnboarding = false;
   late final AppRouter _appRouter = AppRouter(
     flow: _flow,
+    showOnboarding: _showOnboarding,
+    packs: _packs,
     analytics: _analytics,
     preferencesRepository: widget.preferencesRepository,
     soundEffects: _soundEffects,
@@ -54,6 +64,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    _packs.dispose();
     _routerRefresh.dispose();
     _soundEffects.dispose();
     _backgroundMusic.dispose();
@@ -63,6 +74,7 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     unawaited(_backgroundMusic.handleAppLifecycleState(state));
+    if (state == AppLifecycleState.resumed) unawaited(_packs.refresh());
   }
 
   @override
@@ -102,7 +114,11 @@ class _OutOfTheLoopAppState extends State<OutOfTheLoopApp>
       return;
     }
 
+    await _flow.loadSession();
+    if (!mounted) return;
     _flow.language = preferences.language;
+    _showOnboarding = !preferences.onboardingCompleted;
+    unawaited(_packs.refresh());
     _soundEffects.soundEffectsEnabled = preferences.soundEffectsEnabled;
     await _backgroundMusic.applyMusicEnabled(preferences.musicEnabled);
 

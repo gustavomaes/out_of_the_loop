@@ -1,3 +1,4 @@
+import '../../shared/widgets/otl_neon_action.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/models/models.dart';
@@ -9,6 +10,7 @@ import 'widgets/match_setup_footer.dart';
 import 'widgets/match_setup_header.dart';
 import 'widgets/questions_per_player_selector.dart';
 import 'widgets/round_count_selector.dart';
+import 'widgets/game_mode_selector.dart';
 
 typedef MatchSetupContinueCallback =
     void Function(int roundCount, int questionsPerPlayer);
@@ -16,6 +18,10 @@ typedef MatchSetupContinueCallback =
 class MatchSetupScreen extends StatefulWidget {
   const MatchSetupScreen({
     this.categoryWords,
+    this.initialMode = GameMode.guided,
+    this.initialRoundCount = MatchSetup.recommendedRoundCount,
+    this.initialQuestionsPerPlayer = 2,
+    this.onModeChanged,
     this.onContinue,
     this.onBack,
     this.onSettings,
@@ -23,6 +29,10 @@ class MatchSetupScreen extends StatefulWidget {
     super.key,
   }) : setupService = setupService ?? const MatchSetupService();
 
+  final GameMode initialMode;
+  final int initialRoundCount;
+  final int initialQuestionsPerPlayer;
+  final ValueChanged<GameMode>? onModeChanged;
   final List<SecretWord>? categoryWords;
   final MatchSetupContinueCallback? onContinue;
   final VoidCallback? onBack;
@@ -34,9 +44,10 @@ class MatchSetupScreen extends StatefulWidget {
 }
 
 class _MatchSetupScreenState extends State<MatchSetupScreen> {
-  var _roundCount = MatchSetup.recommendedRoundCount;
+  late var _mode = widget.initialMode;
+  late var _roundCount = widget.initialRoundCount;
   var _roundCountTouched = false;
-  var _questionsPerPlayer = MatchSetupService.recommendedQuestionsPerPlayer(0);
+  late var _questionsPerPlayer = widget.initialQuestionsPerPlayer;
 
   List<SecretWord> get _categoryWords =>
       widget.categoryWords ?? _defaultPlayableWords;
@@ -44,12 +55,14 @@ class _MatchSetupScreenState extends State<MatchSetupScreen> {
   int get _maxQuestionsPerPlayer => MatchSetupService.maxQuestionsPerPlayerFor(
     playerCount: MatchSetup.minPlayers,
     categoryWords: _categoryWords,
+    mode: _mode,
   );
 
   int get _maxRoundCount => MatchSetupService.maxRoundCountFor(
     playerCount: MatchSetup.minPlayers,
     questionsPerPlayer: _questionsPerPlayer,
     categoryWords: _categoryWords,
+    mode: _mode,
   );
 
   bool get _canContinue =>
@@ -72,53 +85,66 @@ class _MatchSetupScreenState extends State<MatchSetupScreen> {
         body: Stack(
           children: [
             const OtlPartyAtmosphere.matchSetup(),
-            SingleChildScrollView(
-              padding: EdgeInsets.fromLTRB(
-                20,
-                32,
-                20,
-                160 + MediaQuery.paddingOf(context).bottom,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  MatchSetupHeader(l10n: l10n),
-                  const SizedBox(height: 8),
-                  Text(
-                    l10n.matchSetupSubtitle,
-                    style: DisplayTypography.plusJakartaBody(
-                      color: BrutalistColors.sectionLabel,
-                      fontSize: 16,
+            OtlContentWidth(
+              child: SingleChildScrollView(
+                padding: EdgeInsets.fromLTRB(
+                  20,
+                  32,
+                  20,
+                  160 + MediaQuery.paddingOf(context).bottom,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    MatchSetupHeader(l10n: l10n),
+                    const SizedBox(height: 8),
+                    Text(
+                      l10n.matchSetupSubtitle,
+                      style: DisplayTypography.plusJakartaBody(
+                        color: BrutalistColors.sectionLabel,
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 24),
-                  QuestionsPerPlayerSelector(
-                    l10n: l10n,
-                    value: _questionsPerPlayer,
-                    maxValue: _maxQuestionsPerPlayer,
-                    onChanged: _setQuestionsPerPlayer,
-                  ),
-                  const SizedBox(height: 24),
-                  RoundCountSelector(
-                    l10n: l10n,
-                    value: _roundCount,
-                    maxValue: _maxRoundCount,
-                    onChanged: _setRoundCount,
-                  ),
-                  const SizedBox(height: 24),
-                  Text(
-                    l10n.matchSetupSummary(
-                      _roundCount,
-                      _questionsPerPlayer,
+                    const SizedBox(height: 24),
+                    GameModeSelector(
+                      value: _mode,
+                      onChanged: (mode) {
+                        setState(() => _mode = mode);
+                        _syncRoundCount();
+                        widget.onModeChanged?.call(mode);
+                      },
                     ),
-                    key: const Key('match_setup_summary'),
-                    style: DisplayTypography.plusJakartaBody(
-                      color: BrutalistColors.cardText,
-                      fontSize: 14,
+                    if (_mode == GameMode.guided)
+                      QuestionsPerPlayerSelector(
+                        l10n: l10n,
+                        value: _questionsPerPlayer,
+                        maxValue: _maxQuestionsPerPlayer,
+                        onChanged: _setQuestionsPerPlayer,
+                      ),
+                    const SizedBox(height: 24),
+                    RoundCountSelector(
+                      l10n: l10n,
+                      value: _roundCount,
+                      maxValue: _maxRoundCount,
+                      onChanged: _setRoundCount,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+                    const SizedBox(height: 24),
+                    Text(
+                      _mode == GameMode.free
+                          ? l10n.roundsOnlySummary(_roundCount)
+                          : l10n.matchSetupSummary(
+                              _roundCount,
+                              _questionsPerPlayer,
+                            ),
+                      key: const Key('match_setup_summary'),
+                      style: DisplayTypography.plusJakartaBody(
+                        color: BrutalistColors.cardText,
+                        fontSize: 14,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
             Positioned(

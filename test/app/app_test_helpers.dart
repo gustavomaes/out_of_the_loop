@@ -1,34 +1,27 @@
-import 'package:flutter/material.dart';
+import 'package:outoftheloop/src/features/game/widgets/voting_player_card.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Pins app integration tests to English copy and stable discovery labels.
 void setEnglishAppPreferences() {
-  SharedPreferences.setMockInitialValues({'settings.language': 'en'});
+  SharedPreferences.setMockInitialValues({
+    'settings.language': 'en',
+    'onboarding.completed': true,
+  });
 }
 
-/// Taps the [cardIndex] player card's VOTE control on the voting screen.
+/// Selects a suspect, then explicitly commits the active player's vote.
 Future<void> tapVoteAtCardIndex(WidgetTester tester, int cardIndex) async {
-  final voteLabels = find.text('VOTE');
-  await tester.ensureVisible(voteLabels.at(cardIndex));
-  await tester.tap(voteLabels.at(cardIndex));
+  final candidates = find.byType(VotingPlayerCard);
+  final card = candidates.at(cardIndex);
+  await tester.ensureVisible(card);
+  await tester.tap(card);
+  await tester.pump();
+  final confirm = find.text('VOTE');
+  await tester.ensureVisible(confirm);
+  await tester.tap(confirm);
   await tester.pump();
 }
 
-/// Taps the first enabled VOTE control (skips self-vote disabled buttons).
-Future<void> tapFirstEnabledVote(WidgetTester tester) async {
-  final voteLabels = find.text('VOTE');
-  for (var index = 0; index < voteLabels.evaluate().length; index += 1) {
-    final candidate = voteLabels.at(index);
-    final inkWell = find.ancestor(of: candidate, matching: find.byType(InkWell));
-    final widget = tester.widget<InkWell>(inkWell);
-    if (widget.onTap != null) {
-      await tester.ensureVisible(candidate);
-      await tester.tap(candidate);
-      await tester.pump();
-      return;
-    }
-  }
-
-  fail('No enabled vote button found');
-}
+Future<void> tapFirstEnabledVote(WidgetTester tester) =>
+    tapVoteAtCardIndex(tester, 0);

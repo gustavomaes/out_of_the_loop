@@ -12,6 +12,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get appTitle => 'خارج الحلقة';
 
   @override
+  String get homeTagline => 'الجميع يعرف. إلا واحدًا.';
+
+  @override
   String get startGame => 'ابدأ اللعبة';
 
   @override
@@ -546,7 +549,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get howToPlayQuestionBodyBefore =>
-      'أجب عن أسئلة مضحكة حول الكلمة دون جعلها واضحة جدًا. ';
+      'في اللعب الموجّه، أجب عن أسئلة التطبيق. في اللعب الحر، قدّم تلميحًا من كلمة واحدة. ';
 
   @override
   String get howToPlayQuestionBodyEmphasis => 'كن ذكيًا!';
@@ -588,4 +591,185 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reviewPromptLater => 'ليس الآن';
+
+  @override
+  String get gameModeLabel => 'كيف ستلعبون؟';
+
+  @override
+  String get guidedMode => 'موجّه';
+
+  @override
+  String get guidedModeDescription => 'أجيبوا عن أسئلة التطبيق.';
+
+  @override
+  String get freeMode => 'لعب حر';
+
+  @override
+  String get freeModeDescription =>
+      'قدّموا تلميحات من كلمة واحدة وحاولوا التمويه.';
+
+  @override
+  String get freeClueTitle => 'كلمة واحدة. اخترها بعناية.';
+
+  @override
+  String get freeClueBody =>
+      'قل تلميحًا دون ذكر الكلمة السرية. على المتسلل الاندماج.';
+
+  @override
+  String get clueDone => 'قدّمت تلميحي';
+
+  @override
+  String get anotherLap => 'جولة أخرى';
+
+  @override
+  String get voteNow => 'صوّتوا الآن';
+
+  @override
+  String get cluesReady => 'قدّم الجميع تلميحًا.';
+
+  @override
+  String get savedGroupHint => 'مجموعتك السابقة جاهزة. عدّل الأسماء لتغييرها.';
+
+  @override
+  String get historySection => 'جولات جديدة';
+
+  @override
+  String get historyDescription =>
+      'نتجنب الكلمات والأسئلة الحديثة. عند نفاد الحزمة، تعود الأقدم.';
+
+  @override
+  String get resetHistory => 'إعادة ضبط سجل الكلمات';
+
+  @override
+  String get historyReset => 'تمت إعادة ضبط سجل الكلمات.';
+
+  @override
+  String get forgetGroup => 'نسيان المجموعة المحفوظة';
+
+  @override
+  String get groupForgotten => 'تم حذف المجموعة المحفوظة.';
+
+  @override
+  String get gameNightPacks => 'حزم ليلة الألعاب';
+
+  @override
+  String get packsSubtitle =>
+      'مواضيع جديدة للقائكم القادم. المحتوى بالإنجليزية.';
+
+  @override
+  String get packPurchaseOnce => 'شراء لمرة واحدة. دون اشتراك.';
+
+  @override
+  String get packOwned => 'جاهز للعب';
+
+  @override
+  String get packPlay => 'العب بهذه الحزمة';
+
+  @override
+  String get packBuy => 'افتح الحزمة';
+
+  @override
+  String get packUnavailable =>
+      'الشراء غير متاح حاليًا. الفئات المجانية لا تزال متاحة.';
+
+  @override
+  String get restorePurchases => 'استعادة المشتريات';
+
+  @override
+  String get purchaseFailed => 'تعذّر إتمام الشراء. حاول مجددًا.';
+
+  @override
+  String get purchasePending =>
+      'عملية الشراء بانتظار الموافقة. يمكنك مواصلة اللعب مجانًا.';
+
+  @override
+  String get purchaseRestored => 'تم التحقق من المشتريات. الحزم المتاحة أدناه.';
+
+  @override
+  String get purchaseSuccess => 'حزمتك جاهزة. لنلعب!';
+
+  @override
+  String get packEnglishOnly => 'محتوى بالإنجليزية';
+
+  @override
+  String get packBundleTitle => 'مجموعة ليلة الألعاب';
+
+  @override
+  String get packBundleDescription =>
+      'الحزم الثلاث المعروضة هنا بعملية شراء واحدة.';
+
+  @override
+  String roundsOnlySummary(int roundCount) {
+    return '$roundCount جولات · تلميحات من كلمة واحدة';
+  }
+
+  @override
+  String packWordCount(int count) {
+    return '$count كلمة · لعب موجّه وحر';
+  }
+
+  @override
+  String get readyToPlay => 'جاهز للعب';
+
+  @override
+  String get explorePacks => 'استكشف الحزم';
+
+  @override
+  String get packEnglishContent => 'حزمة بمحتوى باللغة الإنجليزية';
+
+  @override
+  String get onboardingSkip => 'تخطي';
+
+  @override
+  String get onboardingNext => 'متابعة';
+
+  @override
+  String get onboardingStart => 'بدء جولة';
+
+  @override
+  String get onboardingReplay => 'إعادة الشرح التفاعلي';
+
+  @override
+  String onboardingStep(int step) {
+    return 'الخطوة $step من 3';
+  }
+
+  @override
+  String get onboardingSecretTitle => 'الجميع يعرف. إلا واحدًا.';
+
+  @override
+  String get onboardingSecretBody =>
+      'اجمع من 3 إلى 9 أشخاص. يحصل الجميع على الكلمة السرية نفسها باستثناء شخص واحد: على اللاعب خارج الحلقة أن يتظاهر بمعرفتها!';
+
+  @override
+  String get onboardingPassTitle => 'شاهد سرك ومرر الهاتف.';
+
+  @override
+  String get onboardingPassBody =>
+      'اضغط على البطاقة للتدريب. في اللعبة، شاهد دورك وحدك ثم أخفِ الكلمة ومرر الهاتف إلى اللاعب التالي.';
+
+  @override
+  String get onboardingVoteTitle => 'أعطِ تلميحات. خادع. صوّت.';
+
+  @override
+  String get onboardingVoteBody =>
+      'في الوضع الموجّه، أجب عن الأسئلة. في الوضع الحر، أعطِ تلميحًا من كلمة واحدة. ثم صوّتوا لمن هو خارج الحلقة. إذا خمن ذلك اللاعب الكلمة في النهاية، يفوز!';
+
+  @override
+  String get onboardingWord => 'بيتزا';
+
+  @override
+  String get onboardingOut => 'خارج الحلقة';
+
+  @override
+  String get onboardingReveal => 'اضغط للكشف';
+
+  @override
+  String get onboardingHide => 'اضغط للإخفاء';
+
+  @override
+  String get onboardingVoteLabel => 'من يخادع؟';
+
+  @override
+  String get onboardingSaveError => 'تعذر الحفظ. حاول مرة أخرى.';
 }

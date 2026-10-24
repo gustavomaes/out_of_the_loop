@@ -8,18 +8,21 @@ void main() {
   group('PreferencesRepository', () {
     const repository = PreferencesRepository();
 
-    test('uses device locale and persists it when preferences are empty', () async {
-      SharedPreferences.setMockInitialValues({});
-      const deviceRepository = PreferencesRepository(
-        deviceLocale: Locale('es'),
-      );
+    test(
+      'uses device locale and persists it when preferences are empty',
+      () async {
+        SharedPreferences.setMockInitialValues({});
+        const deviceRepository = PreferencesRepository(
+          deviceLocale: Locale('es'),
+        );
 
-      final preferences = await deviceRepository.load();
-      final stored = await SharedPreferences.getInstance();
+        final preferences = await deviceRepository.load();
+        final stored = await SharedPreferences.getInstance();
 
-      expect(preferences.language, SupportedLanguage.es);
-      expect(stored.getString('settings.language'), 'es');
-    });
+        expect(preferences.language, SupportedLanguage.es);
+        expect(stored.getString('settings.language'), 'es');
+      },
+    );
 
     test('returns defaults for audio when preferences are empty', () async {
       SharedPreferences.setMockInitialValues({});
@@ -33,6 +36,16 @@ void main() {
       expect(preferences.soundEffectsEnabled, isTrue);
     });
 
+    test(
+      'onboarding is initially incomplete and persists completion',
+      () async {
+        SharedPreferences.setMockInitialValues({});
+        expect((await repository.load()).onboardingCompleted, isFalse);
+        await repository.completeOnboarding();
+        expect((await repository.load()).onboardingCompleted, isTrue);
+      },
+    );
+
     test('saves and restores language', () async {
       SharedPreferences.setMockInitialValues({});
       await repository.saveLanguage(SupportedLanguage.en);
@@ -42,9 +55,7 @@ void main() {
     });
 
     test('does not overwrite saved language on load', () async {
-      SharedPreferences.setMockInitialValues({
-        'settings.language': 'hi',
-      });
+      SharedPreferences.setMockInitialValues({'settings.language': 'hi'});
       const deviceRepository = PreferencesRepository(
         deviceLocale: Locale('es'),
       );

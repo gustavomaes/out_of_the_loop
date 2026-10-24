@@ -8,6 +8,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/shared_widgets.dart';
 import '../../theme/theme.dart';
 import 'widgets/voting_confirm_cta.dart';
+import '../../shared/widgets/otl_neon_action.dart';
 import 'widgets/voting_headline.dart';
 import 'widgets/voting_player_card.dart';
 import 'widgets/active_player_banner.dart';
@@ -32,6 +33,7 @@ class VotingScreen extends StatefulWidget {
 
 class _VotingScreenState extends State<VotingScreen> {
   var _voterIndex = 0;
+  String? _selectedSuspectId;
   List<Vote> _votes = const [];
 
   Player get _activeVoter => widget.players[_voterIndex];
@@ -66,88 +68,107 @@ class _VotingScreenState extends State<VotingScreen> {
             showSettings: false,
           ),
           body: Stack(
-          fit: StackFit.expand,
-          children: [
-            const OtlPartyAtmosphere.voting(),
-            SafeArea(
-              top: false,
-              child: LayoutBuilder(
-                builder: (context, viewport) {
-                  final compact = viewport.maxHeight < 700;
+            fit: StackFit.expand,
+            children: [
+              const OtlPartyAtmosphere.voting(),
+              SafeArea(
+                top: false,
+                child: LayoutBuilder(
+                  builder: (context, viewport) {
+                    final compact = viewport.maxHeight < 700;
 
-                  return Center(
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 448),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    VotingHeadline(l10n: l10n),
-                                    SizedBox(height: compact ? 16 : 24),
-                                    ActivePlayerBanner(
-                                      player: _activeVoter,
-                                      statusLabel: l10n.votingNow,
-                                    ),
-                                    SizedBox(height: compact ? 16 : 20),
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        l10n.votingCandidatesSection,
-                                        style:
-                                            DisplayTypography
-                                                .spaceGroteskSectionLabel(
-                                          color: BrutalistColors.sectionLabel,
+                    return Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 448),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    children: [
+                                      VotingHeadline(l10n: l10n),
+                                      SizedBox(height: compact ? 16 : 24),
+                                      ActivePlayerBanner(
+                                        player: _activeVoter,
+                                        statusLabel: l10n.votingNow,
+                                      ),
+                                      SizedBox(height: compact ? 16 : 20),
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          l10n.votingCandidatesSection,
+                                          style:
+                                              DisplayTypography.spaceGroteskSectionLabel(
+                                                color: BrutalistColors
+                                                    .sectionLabel,
+                                              ),
                                         ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 12),
-                                    ...voteCandidates.asMap().entries.map(
-                                      (entry) {
+                                      const SizedBox(height: 12),
+                                      ...voteCandidates.asMap().entries.map((
+                                        entry,
+                                      ) {
                                         final candidate = entry.value;
                                         return Padding(
                                           padding: EdgeInsets.only(
-                                            bottom: entry.key <
+                                            bottom:
+                                                entry.key <
                                                     voteCandidates.length - 1
                                                 ? 16
                                                 : 0,
                                           ),
                                           child: VotingPlayerCard(
+                                            key: ValueKey(
+                                              'suspect-${candidate.value.id}',
+                                            ),
                                             player: candidate.value,
                                             index: candidate.key,
                                             voteLabel: l10n.votingVote,
+                                            selected:
+                                                _selectedSuspectId ==
+                                                candidate.value.id,
                                             onVote: votingDisabled
                                                 ? null
-                                                : () => _recordVote(
-                                                    candidate.value.id,
+                                                : () => setState(
+                                                    () => _selectedSuspectId =
+                                                        candidate.value.id,
                                                   ),
                                           ),
                                         );
-                                      },
-                                    ),
-                                  ],
+                                      }),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            if (_allVotesCollected)
-                              VotingConfirmCta(
-                                label: l10n.confirmVotes,
-                                onPressed: () =>
-                                    widget.onComplete?.call(_votes),
-                              ),
-                          ],
+                              if (!_allVotesCollected)
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 16),
+                                  child: OtlNeonAction(
+                                    label: l10n.votingVote,
+                                    onPressed: _selectedSuspectId == null
+                                        ? null
+                                        : () =>
+                                              _recordVote(_selectedSuspectId!),
+                                  ),
+                                ),
+                              if (_allVotesCollected)
+                                VotingConfirmCta(
+                                  label: l10n.confirmVotes,
+                                  onPressed: () =>
+                                      widget.onComplete?.call(_votes),
+                                ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
         ),
       ),
     );
@@ -165,6 +186,7 @@ class _VotingScreenState extends State<VotingScreen> {
     );
     setState(() {
       _votes = nextVotes;
+      _selectedSuspectId = null;
       if (_voterIndex < widget.players.length - 1) {
         _voterIndex += 1;
       }

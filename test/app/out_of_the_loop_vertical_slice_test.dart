@@ -27,7 +27,7 @@ void main() {
     await tester.pumpAndSettle();
 
     for (var index = 0; index < 3; index += 1) {
-      expect(find.text('Make sure nobody else is'), findsOneWidget);
+      expect(find.textContaining('Make sure nobody else is'), findsOneWidget);
       expect(find.textContaining('OUT of the loop'), findsNothing);
 
       await tester.tap(find.text('REVEAL MY ROLE'));
@@ -35,9 +35,7 @@ void main() {
       await tester.tap(find.text('YES, REVEAL'));
       await tester.pumpAndSettle();
 
-      await tester.tap(
-        find.text(index == 2 ? "I'M DONE" : 'NEXT PLAYER'),
-      );
+      await tester.tap(find.text(index == 2 ? "I'M DONE" : 'NEXT PLAYER'));
       await tester.pumpAndSettle();
     }
 

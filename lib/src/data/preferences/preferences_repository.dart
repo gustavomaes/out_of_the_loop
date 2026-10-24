@@ -8,11 +8,13 @@ import '../../l10n/out_of_the_loop_localizations.dart';
 final class PreferencesSnapshot {
   const PreferencesSnapshot({
     required this.language,
+    this.onboardingCompleted = false,
     this.musicEnabled = false,
     this.soundEffectsEnabled = true,
   });
 
   final SupportedLanguage language;
+  final bool onboardingCompleted;
   final bool musicEnabled;
   final bool soundEffectsEnabled;
 }
@@ -23,6 +25,7 @@ final class PreferencesRepository {
 
   final Locale? _deviceLocale;
 
+  static const _onboardingKey = 'onboarding.completed';
   static const _languageKey = 'settings.language';
   static const _musicKey = 'settings.music';
   static const _soundEffectsKey = 'settings.soundEffects';
@@ -38,9 +41,17 @@ final class PreferencesRepository {
 
     return PreferencesSnapshot(
       language: language,
+      onboardingCompleted: preferences.getBool(_onboardingKey) ?? false,
       musicEnabled: preferences.getBool(_musicKey) ?? false,
       soundEffectsEnabled: preferences.getBool(_soundEffectsKey) ?? true,
     );
+  }
+
+  Future<void> completeOnboarding() async {
+    final preferences = await SharedPreferences.getInstance();
+    if (!await preferences.setBool(_onboardingKey, true)) {
+      throw StateError('Could not save onboarding completion');
+    }
   }
 
   Future<void> saveLanguage(SupportedLanguage language) async {

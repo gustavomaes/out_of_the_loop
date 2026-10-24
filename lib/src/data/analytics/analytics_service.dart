@@ -59,10 +59,13 @@ class AnalyticsService {
     required int playerCount,
     required int roundCount,
     required int questionsPerPlayer,
+    GameMode mode = GameMode.guided,
   }) {
     return _logEvent(AnalyticsEvents.startMatch, {
       AnalyticsEvents.categoryId: categoryId,
       AnalyticsEvents.language: language.code,
+      'game_mode': mode.name,
+      'content_version': categoryId.startsWith('us_') ? 'us-1' : 'seed-1',
       AnalyticsEvents.playerCount: playerCount,
       AnalyticsEvents.roundCount: roundCount,
       AnalyticsEvents.questionsPerPlayer: questionsPerPlayer,
@@ -132,10 +135,26 @@ class AnalyticsService {
     });
   }
 
-  Future<void> _logEvent(
-    String name,
-    Map<String, Object> parameters,
-  ) async {
+  Future<void> logPackEvent(
+    String event, {
+    String? packId,
+    String? currency,
+    double? value,
+  }) {
+    final parameters = <String, Object>{};
+    if (packId != null) {
+      parameters['pack_id'] = packId;
+    }
+    if (currency != null) {
+      parameters['currency'] = currency;
+    }
+    if (value != null) {
+      parameters['value'] = value;
+    }
+    return _logEvent(event, parameters);
+  }
+
+  Future<void> _logEvent(String name, Map<String, Object> parameters) async {
     final analytics = _analytics;
     if (analytics == null) {
       return;

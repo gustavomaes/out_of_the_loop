@@ -111,6 +111,12 @@ abstract class AppLocalizations {
   /// **'Out of the Loop'**
   String get appTitle;
 
+  /// No description provided for @homeTagline.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Todo mundo sabe. Menos um.'**
+  String get homeTagline;
+
   /// No description provided for @startGame.
   ///
   /// In pt_BR, this message translates to:
@@ -1044,7 +1050,7 @@ abstract class AppLocalizations {
   /// No description provided for @howToPlayQuestionBodyBefore.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Responda perguntas engraçadas sobre a palavra sem dar na cara o que é. '**
+  /// **'No modo guiado, responda às perguntas do app. No modo livre, dê uma pista de uma palavra. '**
   String get howToPlayQuestionBodyBefore;
 
   /// No description provided for @howToPlayQuestionBodyEmphasis.
@@ -1124,6 +1130,336 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'AGORA NÃO'**
   String get reviewPromptLater;
+
+  /// No description provided for @gameModeLabel.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Como vocês vão jogar?'**
+  String get gameModeLabel;
+
+  /// No description provided for @guidedMode.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Guiado'**
+  String get guidedMode;
+
+  /// No description provided for @guidedModeDescription.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Respondam às perguntas do app.'**
+  String get guidedModeDescription;
+
+  /// No description provided for @freeMode.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Modo livre'**
+  String get freeMode;
+
+  /// No description provided for @freeModeDescription.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Deem pistas de uma palavra e tentem disfarçar.'**
+  String get freeModeDescription;
+
+  /// No description provided for @freeClueTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Uma palavra. Capriche na pista.'**
+  String get freeClueTitle;
+
+  /// No description provided for @freeClueBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Dê uma pista em voz alta sem dizer a palavra secreta. O impostor precisa disfarçar.'**
+  String get freeClueBody;
+
+  /// No description provided for @clueDone.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Já dei minha pista'**
+  String get clueDone;
+
+  /// No description provided for @anotherLap.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Mais uma volta'**
+  String get anotherLap;
+
+  /// No description provided for @voteNow.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Votar agora'**
+  String get voteNow;
+
+  /// No description provided for @cluesReady.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Todos já deram uma pista.'**
+  String get cluesReady;
+
+  /// No description provided for @savedGroupHint.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Seu último grupo está pronto. Adicione ou remova jogadores se quiser.'**
+  String get savedGroupHint;
+
+  /// No description provided for @historySection.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Rodadas diferentes'**
+  String get historySection;
+
+  /// No description provided for @historyDescription.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Palavras e perguntas recentes são evitadas neste aparelho. Ao esgotar o pacote, as mais antigas voltam.'**
+  String get historyDescription;
+
+  /// No description provided for @resetHistory.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Reiniciar histórico de palavras'**
+  String get resetHistory;
+
+  /// No description provided for @historyReset.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Histórico de palavras reiniciado.'**
+  String get historyReset;
+
+  /// No description provided for @forgetGroup.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Esquecer grupo salvo'**
+  String get forgetGroup;
+
+  /// No description provided for @groupForgotten.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Grupo salvo removido.'**
+  String get groupForgotten;
+
+  /// No description provided for @gameNightPacks.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Pacotes para jogar juntos'**
+  String get gameNightPacks;
+
+  /// No description provided for @packsSubtitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Novos assuntos para o próximo encontro. Conteúdo em inglês.'**
+  String get packsSubtitle;
+
+  /// No description provided for @packPurchaseOnce.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Compra única. Sem assinatura.'**
+  String get packPurchaseOnce;
+
+  /// No description provided for @packOwned.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Pronto para jogar'**
+  String get packOwned;
+
+  /// No description provided for @packPlay.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Jogar este pacote'**
+  String get packPlay;
+
+  /// No description provided for @packBuy.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Desbloquear pacote'**
+  String get packBuy;
+
+  /// No description provided for @packUnavailable.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'As compras estão indisponíveis no momento. Suas categorias gratuitas continuam disponíveis.'**
+  String get packUnavailable;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Restaurar compras'**
+  String get restorePurchases;
+
+  /// No description provided for @purchaseFailed.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível concluir a compra. Tente novamente.'**
+  String get purchaseFailed;
+
+  /// No description provided for @purchasePending.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Sua compra aguarda aprovação. Você pode continuar nas categorias gratuitas.'**
+  String get purchasePending;
+
+  /// No description provided for @purchaseRestored.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Compras verificadas. Seus pacotes disponíveis aparecem abaixo.'**
+  String get purchaseRestored;
+
+  /// No description provided for @purchaseSuccess.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Seu pacote está pronto. Vamos jogar!'**
+  String get purchaseSuccess;
+
+  /// No description provided for @packEnglishOnly.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Conteúdo em inglês'**
+  String get packEnglishOnly;
+
+  /// No description provided for @packBundleTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Coleção Game Night'**
+  String get packBundleTitle;
+
+  /// No description provided for @packBundleDescription.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Os três pacotes listados aqui. Uma compra para manter todos.'**
+  String get packBundleDescription;
+
+  /// No description provided for @roundsOnlySummary.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{roundCount} rodadas · pistas de uma palavra'**
+  String roundsOnlySummary(int roundCount);
+
+  /// No description provided for @packWordCount.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'{count} palavras · guiado e livre'**
+  String packWordCount(int count);
+
+  /// No description provided for @readyToPlay.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Para jogar'**
+  String get readyToPlay;
+
+  /// No description provided for @explorePacks.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Explorar pacotes'**
+  String get explorePacks;
+
+  /// No description provided for @packEnglishContent.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Pacote com conteúdo em inglês'**
+  String get packEnglishContent;
+
+  /// No description provided for @onboardingSkip.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Pular'**
+  String get onboardingSkip;
+
+  /// No description provided for @onboardingNext.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Continuar'**
+  String get onboardingNext;
+
+  /// No description provided for @onboardingStart.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Começar partida'**
+  String get onboardingStart;
+
+  /// No description provided for @onboardingReplay.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Rever tutorial interativo'**
+  String get onboardingReplay;
+
+  /// No description provided for @onboardingStep.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'PASSO {step} DE 3'**
+  String onboardingStep(int step);
+
+  /// No description provided for @onboardingSecretTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Todos sabem. Menos um.'**
+  String get onboardingSecretTitle;
+
+  /// No description provided for @onboardingSecretBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Junte de 3 a 9 pessoas. Todos recebem a mesma palavra secreta, exceto uma pessoa: quem está Fora do Loop precisa blefar!'**
+  String get onboardingSecretBody;
+
+  /// No description provided for @onboardingPassTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Veja seu segredo e passe o celular.'**
+  String get onboardingPassTitle;
+
+  /// No description provided for @onboardingPassBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Toque no card para praticar. Na partida, veja seu papel sem mostrar aos outros, esconda a palavra e passe o celular para a próxima pessoa.'**
+  String get onboardingPassBody;
+
+  /// No description provided for @onboardingVoteTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Dê pistas. Blefe. Vote.'**
+  String get onboardingVoteTitle;
+
+  /// No description provided for @onboardingVoteBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'No modo guiado, responda às perguntas. No livre, dê uma pista de uma palavra. Depois, votem em quem está Fora do Loop. Se essa pessoa adivinhar a palavra no final, ela ganha!'**
+  String get onboardingVoteBody;
+
+  /// No description provided for @onboardingWord.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Pizza'**
+  String get onboardingWord;
+
+  /// No description provided for @onboardingOut.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Fora do Loop'**
+  String get onboardingOut;
+
+  /// No description provided for @onboardingReveal.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Toque para revelar'**
+  String get onboardingReveal;
+
+  /// No description provided for @onboardingHide.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Toque para esconder'**
+  String get onboardingHide;
+
+  /// No description provided for @onboardingVoteLabel.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Quem está blefando?'**
+  String get onboardingVoteLabel;
+
+  /// No description provided for @onboardingSaveError.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível salvar. Tente novamente.'**
+  String get onboardingSaveError;
 }
 
 class _AppLocalizationsDelegate

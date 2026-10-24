@@ -12,6 +12,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get appTitle => 'Out of the Loop';
 
   @override
+  String get homeTagline => 'सब जानते हैं। एक को छोड़कर।';
+
+  @override
   String get startGame => 'खेल शुरू करें';
 
   @override
@@ -549,7 +552,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get howToPlayQuestionBodyBefore =>
-      'शब्द के बारे में मज़ेदार सवालों के जवाब दें, बिना सब कुछ बता दिए। ';
+      'निर्देशित मोड में ऐप के सवालों के जवाब दें। स्वतंत्र खेल में एक शब्द का संकेत दें। ';
 
   @override
   String get howToPlayQuestionBodyEmphasis => 'चतुर बनो!';
@@ -591,4 +594,184 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get reviewPromptLater => 'अभी नहीं';
+
+  @override
+  String get gameModeLabel => 'आप कैसे खेलेंगे?';
+
+  @override
+  String get guidedMode => 'निर्देशित';
+
+  @override
+  String get guidedModeDescription => 'ऐप के सवालों के जवाब दें।';
+
+  @override
+  String get freeMode => 'स्वतंत्र खेल';
+
+  @override
+  String get freeModeDescription => 'एक शब्द का संकेत दें और झांसा दें।';
+
+  @override
+  String get freeClueTitle => 'एक शब्द। सोचकर बोलें।';
+
+  @override
+  String get freeClueBody =>
+      'गुप्त शब्द बोले बिना संकेत दें। इम्पोस्टर को घुलना-मिलना होगा।';
+
+  @override
+  String get clueDone => 'संकेत दे दिया';
+
+  @override
+  String get anotherLap => 'एक और दौर';
+
+  @override
+  String get voteNow => 'अब वोट दें';
+
+  @override
+  String get cluesReady => 'सबने संकेत दे दिया है।';
+
+  @override
+  String get savedGroupHint => 'आपका पिछला समूह तैयार है। नाम बदल सकते हैं।';
+
+  @override
+  String get historySection => 'नए दौर';
+
+  @override
+  String get historyDescription =>
+      'हाल के शब्द और सवाल दोहराए नहीं जाते। पैक खत्म होने पर सबसे पुराने शब्द लौटते हैं।';
+
+  @override
+  String get resetHistory => 'शब्द इतिहास रीसेट करें';
+
+  @override
+  String get historyReset => 'शब्द इतिहास रीसेट हो गया।';
+
+  @override
+  String get forgetGroup => 'सहेजा समूह हटाएं';
+
+  @override
+  String get groupForgotten => 'सहेजा समूह हटा दिया गया।';
+
+  @override
+  String get gameNightPacks => 'गेम नाइट पैक';
+
+  @override
+  String get packsSubtitle =>
+      'अगली मुलाकात के लिए नए विषय। सामग्री अंग्रेज़ी में।';
+
+  @override
+  String get packPurchaseOnce => 'एक बार खरीदें। कोई सदस्यता नहीं।';
+
+  @override
+  String get packOwned => 'खेलने के लिए तैयार';
+
+  @override
+  String get packPlay => 'यह पैक खेलें';
+
+  @override
+  String get packBuy => 'पैक अनलॉक करें';
+
+  @override
+  String get packUnavailable =>
+      'खरीद अभी उपलब्ध नहीं है। मुफ़्त श्रेणियां अभी भी खेल सकते हैं।';
+
+  @override
+  String get restorePurchases => 'खरीद बहाल करें';
+
+  @override
+  String get purchaseFailed => 'खरीद पूरी नहीं हो सकी। फिर कोशिश करें।';
+
+  @override
+  String get purchasePending =>
+      'खरीद की स्वीकृति बाकी है। मुफ़्त खेल जारी रखें।';
+
+  @override
+  String get purchaseRestored => 'खरीद जांच ली गई। उपलब्ध पैक नीचे हैं।';
+
+  @override
+  String get purchaseSuccess => 'आपका पैक तैयार है। चलिए खेलें!';
+
+  @override
+  String get packEnglishOnly => 'अंग्रेज़ी सामग्री';
+
+  @override
+  String get packBundleTitle => 'गेम नाइट संग्रह';
+
+  @override
+  String get packBundleDescription =>
+      'यहां दिए तीनों पैक। एक बार खरीदें और रखें।';
+
+  @override
+  String roundsOnlySummary(int roundCount) {
+    return '$roundCount दौर · एक शब्द के संकेत';
+  }
+
+  @override
+  String packWordCount(int count) {
+    return '$count शब्द · निर्देशित और स्वतंत्र खेल';
+  }
+
+  @override
+  String get readyToPlay => 'खेलने के लिए तैयार';
+
+  @override
+  String get explorePacks => 'पैक देखें';
+
+  @override
+  String get packEnglishContent => 'अंग्रेज़ी सामग्री वाला पैक';
+
+  @override
+  String get onboardingSkip => 'छोड़ें';
+
+  @override
+  String get onboardingNext => 'आगे बढ़ें';
+
+  @override
+  String get onboardingStart => 'खेल शुरू करें';
+
+  @override
+  String get onboardingReplay => 'इंटरैक्टिव ट्यूटोरियल फिर देखें';
+
+  @override
+  String onboardingStep(int step) {
+    return 'चरण $step / 3';
+  }
+
+  @override
+  String get onboardingSecretTitle => 'सब जानते हैं। एक को छोड़कर।';
+
+  @override
+  String get onboardingSecretBody =>
+      '3 से 9 लोगों को इकट्ठा करें। एक को छोड़कर सभी को एक ही गुप्त शब्द मिलता है। Out of the Loop खिलाड़ी को जानने का नाटक करना होगा!';
+
+  @override
+  String get onboardingPassTitle => 'अपना राज़ देखें और फ़ोन आगे दें।';
+
+  @override
+  String get onboardingPassBody =>
+      'अभ्यास के लिए कार्ड पर टैप करें। असली खेल में अपना रोल अकेले देखें, शब्द छिपाएँ और फ़ोन अगले खिलाड़ी को दें।';
+
+  @override
+  String get onboardingVoteTitle => 'संकेत दें। झाँसा दें। वोट करें।';
+
+  @override
+  String get onboardingVoteBody =>
+      'गाइडेड मोड में सवालों के जवाब दें। फ़्री मोड में एक शब्द का संकेत दें। फिर Out of the Loop खिलाड़ी को पहचानने के लिए वोट करें। अगर वह अंत में शब्द का अनुमान लगा ले, तो वह जीतता है!';
+
+  @override
+  String get onboardingWord => 'पिज़्ज़ा';
+
+  @override
+  String get onboardingOut => 'Out of the Loop';
+
+  @override
+  String get onboardingReveal => 'दिखाने के लिए टैप करें';
+
+  @override
+  String get onboardingHide => 'छिपाने के लिए टैप करें';
+
+  @override
+  String get onboardingVoteLabel => 'कौन झाँसा दे रहा है?';
+
+  @override
+  String get onboardingSaveError => 'सेव नहीं हो सका। फिर कोशिश करें।';
 }

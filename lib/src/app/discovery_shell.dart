@@ -33,9 +33,7 @@ class DiscoveryShell extends StatelessWidget {
       body: navigationShell,
       bottomNavigationBar: ClipRect(
         clipBehavior: Clip.none,
-        child: OtlDiscoveryBottomBar(
-          navigationShell: navigationShell,
-        ),
+        child: OtlDiscoveryBottomBar(navigationShell: navigationShell),
       ),
     );
   }

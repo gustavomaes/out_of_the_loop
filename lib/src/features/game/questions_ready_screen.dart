@@ -74,7 +74,7 @@ class QuestionsReadyScreen extends StatelessWidget {
                               Text(
                                 l10n.secretRevealRound(roundNumber),
                                 style: DisplayTypography.spaceGroteskRoundLabel(
-                                  color: BrutalistColors.playerCardYellow,
+                                  color: BrutalistColors.sectionLabel,
                                 ),
                                 textAlign: TextAlign.center,
                               ),

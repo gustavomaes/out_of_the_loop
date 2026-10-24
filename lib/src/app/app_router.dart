@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../data/analytics/analytics_events.dart';
+import '../data/content/us_pack_catalog.dart';
 import '../data/analytics/analytics_screens.dart';
 import '../data/analytics/analytics_service.dart';
 import '../data/audio/background_music_service.dart';
@@ -15,12 +16,16 @@ import '../domain/services/match_setup_service.dart';
 import '../features/game/final_leaderboard_review_gate.dart';
 import '../features/game/final_leaderboard_screen.dart';
 import '../features/game/question_round_screen.dart';
+import '../features/game/free_clue_screen.dart';
 import '../features/game/guess_screen.dart';
 import '../features/game/round_results_screen.dart';
 import '../features/game/questions_ready_screen.dart';
 import '../features/game/secret_reveal_screen.dart';
 import '../features/game/voting_screen.dart';
 import '../features/home/home_screen.dart';
+import '../features/onboarding/onboarding_screen.dart';
+import '../features/packs/packs_controller.dart';
+import '../features/packs/packs_screen.dart';
 import '../features/how_to_play/how_to_play_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/setup/category_selection_screen.dart';
@@ -36,6 +41,8 @@ import 'otl_tab_slide_container.dart';
 class AppRouter {
   AppRouter({
     required this.flow,
+    bool showOnboarding = false,
+    PacksController? packs,
     required this.preferencesRepository,
     required this.soundEffects,
     required this.backgroundMusic,
@@ -44,15 +51,17 @@ class AppRouter {
     Listenable? refreshListenable,
     AppReviewPrompt? reviewPrompt,
   }) : reviewPrompt = reviewPrompt ?? AppReviewPrompt() {
+    this.packs = packs ?? PacksController();
     final service = analytics ?? AnalyticsService();
     this.analytics = service;
     router = GoRouter(
-      initialLocation: AppRoutes.home,
+      initialLocation: showOnboarding ? AppRoutes.onboarding : AppRoutes.home,
       refreshListenable: refreshListenable,
       navigatorKey: _rootNavigatorKey,
       observers: [service.routeObserver],
       routes: _routes(
         flow: flow,
+        packs: this.packs,
         analytics: service,
         preferencesRepository: preferencesRepository,
         soundEffects: soundEffects,
@@ -63,6 +72,7 @@ class AppRouter {
     );
   }
 
+  late final PacksController packs;
   final GameFlowController flow;
   late final AnalyticsService analytics;
   final PreferencesRepository preferencesRepository;
@@ -77,6 +87,7 @@ class AppRouter {
 
   static List<RouteBase> _routes({
     required GameFlowController flow,
+    required PacksController packs,
     required AnalyticsService analytics,
     required PreferencesRepository preferencesRepository,
     required SoundEffectsService soundEffects,
@@ -85,6 +96,40 @@ class AppRouter {
     required AppReviewPrompt reviewPrompt,
   }) {
     return [
+      GoRoute(
+        path: AppRoutes.onboarding,
+        name: AnalyticsScreens.onboarding,
+        builder: (context, state) => OnboardingScreen(
+          onComplete: (skipped) async {
+            await preferencesRepository.completeOnboarding();
+            if (!context.mounted) return;
+            context.go(skipped ? AppRoutes.home : AppRoutes.categories);
+          },
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.packs,
+        name: AnalyticsScreens.packs,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => PacksScreen(
+          controller: packs,
+          onBack: () => context.pop(),
+          onPlay: (pack) async {
+            if (!packs.owns(pack.id)) {
+              return;
+            }
+            await flow.selectCategory(
+              pack.category,
+              contentLanguage: SupportedLanguage.en,
+            );
+            if (!context.mounted) return;
+            unawaited(
+              analytics.logPackEvent('owned_pack_selected', packId: pack.id),
+            );
+            context.push(AppRoutes.matchSetup);
+          },
+        ),
+      ),
       StatefulShellRoute(
         builder: (context, state, navigationShell) {
           return DiscoveryShell(navigationShell: navigationShell);
@@ -113,6 +158,7 @@ class AppRouter {
                 path: AppRoutes.categories,
                 pageBuilder: (context, state) => NoTransitionPage(
                   child: _DiscoveryCategoriesRoute(
+                    packs: packs,
                     flow: flow,
                     analytics: analytics,
                     onFlowChanged: onFlowChanged,
@@ -147,6 +193,12 @@ class AppRouter {
         path: AppRoutes.matchSetup,
         builder: (context, state) => MatchSetupScreen(
           categoryWords: flow.categoryWords,
+          initialMode: flow.mode,
+          initialRoundCount: flow.savedRoundCount,
+          initialQuestionsPerPlayer: flow.savedPlayers.isEmpty
+              ? 2
+              : flow.savedQuestionsPerPlayer,
+          onModeChanged: (mode) => flow.mode = mode,
           onBack: () => context.pop(),
           onContinue: (roundCount, questionsPerPlayer) {
             flow.configureMatch(
@@ -178,7 +230,8 @@ class AppRouter {
                 carryOver?.questionsPerPlayer ??
                 flow.pendingQuestionsPerPlayer ??
                 MatchSetupService.recommendedQuestionsPerPlayer(0),
-            initialPlayers: carryOver?.players,
+            initialPlayers: carryOver?.players ?? flow.savedPlayers,
+            mode: flow.mode,
             categoryWords: flow.categoryWords,
             onBack: () {
               flow.clearRematchCarryOver();
@@ -196,10 +249,11 @@ class AppRouter {
                 unawaited(
                   analytics.logStartMatch(
                     categoryId: categoryId,
-                    language: flow.language,
+                    language: flow.setup?.language ?? flow.language,
                     playerCount: players.length,
                     roundCount: roundCount,
                     questionsPerPlayer: questionsPerPlayer,
+                    mode: flow.mode,
                   ),
                 );
               }
@@ -218,14 +272,18 @@ class AppRouter {
           () => SecretRevealScreen(
             players: flow.players,
             round: flow.currentRound!,
-            language: flow.language,
+            language: flow.setup?.language ?? flow.language,
             onBack: () => _cancelMatchAndGoToCategories(
               context,
               flow,
               analytics,
               onFlowChanged,
             ),
-            onComplete: () => context.pushReplacement(AppRoutes.gameReady),
+            onComplete: () => context.pushReplacement(
+              flow.setup?.mode == GameMode.free
+                  ? AppRoutes.gameQuestions
+                  : AppRoutes.gameReady,
+            ),
           ),
         ),
       ),
@@ -233,29 +291,24 @@ class AppRouter {
         name: AnalyticsScreens.gameReady,
         parentNavigatorKey: _rootNavigatorKey,
         path: AppRoutes.gameReady,
-        builder: (context, state) => _gameRoute(
-          flow,
-          AppRoutes.gameReady,
-          () {
-            final category = flow.selectedCategory;
-            if (category == null) {
-              return _placeholder(AppRoutes.gameReady);
-            }
-            return QuestionsReadyScreen(
-              category: category,
-              language: flow.language,
-              roundNumber: flow.currentRound!.roundNumber,
-              onBack: () => _cancelMatchAndGoToCategories(
-                context,
-                flow,
-                analytics,
-                onFlowChanged,
-              ),
-              onStart: () =>
-                  context.pushReplacement(AppRoutes.gameQuestions),
-            );
-          },
-        ),
+        builder: (context, state) => _gameRoute(flow, AppRoutes.gameReady, () {
+          final category = flow.selectedCategory;
+          if (category == null) {
+            return _placeholder(AppRoutes.gameReady);
+          }
+          return QuestionsReadyScreen(
+            category: category,
+            language: flow.setup?.language ?? flow.language,
+            roundNumber: flow.currentRound!.roundNumber,
+            onBack: () => _cancelMatchAndGoToCategories(
+              context,
+              flow,
+              analytics,
+              onFlowChanged,
+            ),
+            onStart: () => context.pushReplacement(AppRoutes.gameQuestions),
+          );
+        }),
       ),
       GoRoute(
         name: AnalyticsScreens.gameQuestions,
@@ -264,18 +317,30 @@ class AppRouter {
         builder: (context, state) => _gameRoute(
           flow,
           AppRoutes.gameQuestions,
-          () => QuestionRoundScreen(
-            players: flow.players,
-            questionTurns: flow.currentRound!.questionTurns,
-            language: flow.language,
-            onBack: () => _cancelMatchAndGoToCategories(
-              context,
-              flow,
-              analytics,
-              onFlowChanged,
-            ),
-            onComplete: () => context.pushReplacement(AppRoutes.gameVote),
-          ),
+          () => flow.setup?.mode == GameMode.free
+              ? FreeClueScreen(
+                  players: flow.players,
+                  outPlayerId: flow.currentRound!.outPlayerId,
+                  onBack: () => _cancelMatchAndGoToCategories(
+                    context,
+                    flow,
+                    analytics,
+                    onFlowChanged,
+                  ),
+                  onComplete: () => context.pushReplacement(AppRoutes.gameVote),
+                )
+              : QuestionRoundScreen(
+                  players: flow.players,
+                  questionTurns: flow.currentRound!.questionTurns,
+                  language: flow.setup?.language ?? flow.language,
+                  onBack: () => _cancelMatchAndGoToCategories(
+                    context,
+                    flow,
+                    analytics,
+                    onFlowChanged,
+                  ),
+                  onComplete: () => context.pushReplacement(AppRoutes.gameVote),
+                ),
         ),
       ),
       GoRoute(
@@ -328,12 +393,8 @@ class AppRouter {
                 analytics,
                 onFlowChanged,
               ),
-              onContinue: () => _finishRound(
-                context,
-                flow,
-                analytics,
-                onFlowChanged,
-              ),
+              onContinue: () =>
+                  _finishRound(context, flow, analytics, onFlowChanged),
               onGuess: () => context.push(AppRoutes.gameGuess),
             ),
           );
@@ -524,11 +585,13 @@ class _DiscoveryHomeRoute extends StatelessWidget {
 class _DiscoveryCategoriesRoute extends StatelessWidget {
   const _DiscoveryCategoriesRoute({
     required this.flow,
+    required this.packs,
     required this.analytics,
     required this.onFlowChanged,
   });
 
   final GameFlowController flow;
+  final PacksController packs;
   final AnalyticsService analytics;
   final VoidCallback onFlowChanged;
 
@@ -537,8 +600,20 @@ class _DiscoveryCategoriesRoute extends StatelessWidget {
     return CategorySelectionScreen(
       repository: flow.repository,
       language: flow.language,
+      packsController: packs,
+      onExplorePacks: () => context.push(AppRoutes.packs),
       onContinue: (category) async {
-        await flow.selectCategory(category);
+        final isPack = UsPackCatalog.ids.contains(category.id);
+        if (isPack && !packs.owns(category.id)) return;
+        await flow.selectCategory(
+          category,
+          contentLanguage: isPack ? SupportedLanguage.en : null,
+        );
+        if (isPack) {
+          unawaited(
+            analytics.logPackEvent('owned_pack_selected', packId: category.id),
+          );
+        }
         unawaited(analytics.logSelectCategory(categoryId: category.id));
         if (!context.mounted) {
           return;
@@ -579,6 +654,9 @@ class _DiscoverySettingsRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return SettingsScreen(
       initialLanguage: flow.language,
+      onResetHistory: flow.resetHistory,
+      onForgetGroup: flow.forgetSavedGroup,
+      onOpenPacks: () => context.push(AppRoutes.packs),
       initialMusicEnabled: backgroundMusic.musicEnabled,
       initialSoundEffectsEnabled: soundEffects.soundEffectsEnabled,
       onLanguageChanged: (language) {

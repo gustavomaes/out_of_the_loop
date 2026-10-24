@@ -1,7 +1,8 @@
 # .notebook
 > Project intelligence - read before every mission
 
-Last updated: 2026-05-18
+Last updated: 2026-10-20
 
-- [stitch-refresh-foundation](stitch-refresh-foundation.md) — Phase 1 visual tokens + shared primitives | pattern | flutter, design
-- [flutter-game-flow](flutter-game-flow.md) — In-memory Flutter game flow + Phase 5 prefs/content | flow | flutter, game, prefs
+- [content-audit](content-audit.md) — Generated banks repeat prompts; editorial audit and checker | gotcha | content, questions
+- [stitch-refresh-foundation](stitch-refresh-foundation.md) — Neon refined theme, shared components, previews and layout checks | pattern | flutter, design
+- [flutter-game-flow](flutter-game-flow.md) — Guided/free play, saved sessions, US packs and purchase configuration | flow | flutter, game, prefs, purchases

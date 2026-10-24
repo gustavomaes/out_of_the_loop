@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "appTitle": "Out of the Loop",
+  "homeTagline": "Everyone knows. Except one.",
   "startGame": "START GAME",
   "navPlay": "PLAY",
   "navCategories": "CATEGORIES",
@@ -285,7 +286,7 @@
   "howToPlaySecretBodyBefore": "Every player sees the secret word, except one... who is ",
   "howToPlaySecretBodyHighlight": "Out of the Loop!",
   "howToPlayQuestionTitle": "THE QUESTION",
-  "howToPlayQuestionBodyBefore": "Answer funny questions about the word without making it too obvious. ",
+  "howToPlayQuestionBodyBefore": "In Guided mode, answer the app’s questions. In Free play, give a one-word clue. ",
   "howToPlayQuestionBodyEmphasis": "Be clever!",
   "howToPlayVoteTitle": "THE VOTE",
   "howToPlayVoteBodyBefore": "Try to spot who knows nothing and ",
@@ -298,5 +299,81 @@
   "reviewPromptTitle": "Enjoyed the match?",
   "reviewPromptMessage": "If the table had fun, a store review helps the game reach more people.",
   "reviewPromptRate": "RATE THE APP",
-  "reviewPromptLater": "NOT NOW"
+  "reviewPromptLater": "NOT NOW",
+  "gameModeLabel": "How will you play?",
+  "guidedMode": "Guided",
+  "guidedModeDescription": "Answer questions picked by the app.",
+  "freeMode": "Free play",
+  "freeModeDescription": "Give one-word clues and bluff your way through.",
+  "freeClueTitle": "One word. Make it count.",
+  "freeClueBody": "Say a clue out loud without saying the secret word. The imposter has to blend in.",
+  "clueDone": "Clue given",
+  "anotherLap": "One more lap",
+  "voteNow": "Vote now",
+  "cluesReady": "Everyone has given a clue.",
+  "savedGroupHint": "Your last group is ready. Add or remove players as needed.",
+  "historySection": "Fresh rounds",
+  "historyDescription": "Recent words and questions are avoided on this device. When a pack runs out, the oldest words return.",
+  "resetHistory": "Reset word history",
+  "historyReset": "Word history reset.",
+  "forgetGroup": "Forget saved group",
+  "groupForgotten": "Saved group removed.",
+  "gameNightPacks": "Game night packs",
+  "packsSubtitle": "Fresh topics for your next hangout. English content.",
+  "packPurchaseOnce": "One-time purchase. No subscription.",
+  "packOwned": "Ready to play",
+  "packPlay": "Play this pack",
+  "packBuy": "Unlock pack",
+  "packUnavailable": "Purchases are unavailable right now. Your free categories are still ready to play.",
+  "restorePurchases": "Restore purchases",
+  "purchaseFailed": "We could not complete that purchase. Please try again.",
+  "purchasePending": "Your purchase is pending approval. You can keep playing free categories.",
+  "purchaseRestored": "Purchases checked. Your available packs are shown below.",
+  "purchaseSuccess": "Your pack is ready. Let’s play!",
+  "packEnglishOnly": "English content",
+  "packBundleTitle": "Game Night Collection",
+  "packBundleDescription": "All three packs listed here. Keep them with a single purchase.",
+  "roundsOnlySummary": "{roundCount} rounds · one-word clues",
+  "@roundsOnlySummary": {
+    "placeholders": {
+      "roundCount": {
+        "type": "int"
+      }
+    }
+  },
+  "packWordCount": "{count} words · guided and free play",
+  "@packWordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "readyToPlay": "Ready to play",
+  "explorePacks": "Explore packs",
+  "packEnglishContent": "Pack with English content",
+  "onboardingSkip": "Skip",
+  "onboardingNext": "Continue",
+  "onboardingStart": "Start a game",
+  "onboardingReplay": "Replay interactive tutorial",
+  "onboardingStep": "STEP {step} OF 3",
+  "onboardingSecretTitle": "Everyone knows. Except one.",
+  "onboardingSecretBody": "Gather 3 to 9 people. Everyone gets the same secret word except one person: the player Out of the Loop has to bluff!",
+  "onboardingPassTitle": "Peek, hide, and pass the phone.",
+  "onboardingPassBody": "Tap the card to practice. In a real game, check your role privately, hide the word, and pass the phone to the next person.",
+  "onboardingVoteTitle": "Give clues. Bluff. Vote.",
+  "onboardingVoteBody": "In guided mode, answer questions. In free mode, give a one-word clue. Then vote for who is Out of the Loop. If that player guesses the word at the end, they win!",
+  "onboardingWord": "Pizza",
+  "onboardingOut": "Out of the Loop",
+  "onboardingReveal": "Tap to reveal",
+  "onboardingHide": "Tap to hide",
+  "onboardingVoteLabel": "Who is bluffing?",
+  "onboardingSaveError": "Could not save. Please try again.",
+  "@onboardingStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  }
 }

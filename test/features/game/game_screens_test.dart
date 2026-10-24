@@ -49,10 +49,7 @@ void main() {
     await tester.tap(find.text('YES, REVEAL'));
     await tester.pumpAndSettle();
 
-    expect(
-      find.textContaining('OUT of the loop'),
-      findsOneWidget,
-    );
+    expect(find.textContaining('OUT of the loop'), findsOneWidget);
   });
 
   testWidgets('question round confirms before leaving the match', (
@@ -200,10 +197,7 @@ void main() {
 
     await tester.pumpWidget(
       _TestApp(
-        child: VotingScreen(
-          players: _players,
-          onBack: () => cancelled = true,
-        ),
+        child: VotingScreen(players: _players, onBack: () => cancelled = true),
       ),
     );
 
@@ -218,6 +212,27 @@ void main() {
 
     expect(cancelled, isTrue);
   });
+
+  testWidgets(
+    'voting requires confirmation and clears selection for the next voter',
+    (tester) async {
+      await tester.pumpWidget(_TestApp(child: VotingScreen(players: _players)));
+      final action = find.widgetWithText(TextButton, 'VOTE');
+      expect(tester.widget<TextButton>(action).onPressed, isNull);
+      await tester.tap(find.byKey(const ValueKey('suspect-p2')));
+      await tester.pump();
+      expect(tester.widget<TextButton>(action).onPressed, isNotNull);
+      expect(find.text('Ana'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('suspect-p3')));
+      await tester.pump();
+      expect(find.text('Ana'), findsOneWidget);
+      await tester.tap(action);
+      await tester.pump();
+      expect(tester.widget<TextButton>(action).onPressed, isNull);
+      expect(find.byKey(const ValueKey('suspect-p2')), findsNothing);
+      expect(find.byKey(const ValueKey('suspect-p1')), findsOneWidget);
+    },
+  );
 
   testWidgets('voting collects one hidden vote per player', (tester) async {
     List<Vote>? votes;
@@ -249,11 +264,16 @@ void main() {
     expect(votes, hasLength(3));
   });
 
-  testWidgets('round results confirms before leaving the match', (tester) async {
+  testWidgets('round results confirms before leaving the match', (
+    tester,
+  ) async {
     var cancelled = false;
     final service = VoteScoringService();
     final round = _roundWithVotes;
-    final result = service.calculateRoundResult(round: round, players: _players);
+    final result = service.calculateRoundResult(
+      round: round,
+      players: _players,
+    );
 
     await tester.pumpWidget(
       _TestApp(
@@ -501,10 +521,8 @@ List<QuestionTurn> _questionTurns({
 }) {
   return List.generate(
     questions.length,
-    (index) => QuestionTurn(
-      question: questions[index],
-      playerId: playerOrder[index],
-    ),
+    (index) =>
+        QuestionTurn(question: questions[index], playerId: playerOrder[index]),
   );
 }
 

@@ -1,3 +1,4 @@
+import '../../shared/widgets/otl_neon_action.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/models/models.dart';
@@ -19,6 +20,7 @@ class PlayerSetupScreen extends StatefulWidget {
     required this.roundCount,
     required this.questionsPerPlayer,
     this.initialPlayers,
+    this.mode = GameMode.guided,
     this.categoryWords,
     this.onStart,
     this.onBack,
@@ -27,6 +29,7 @@ class PlayerSetupScreen extends StatefulWidget {
     super.key,
   }) : setupService = setupService ?? const MatchSetupService();
 
+  final GameMode mode;
   final int roundCount;
   final int questionsPerPlayer;
   final List<Player>? initialPlayers;
@@ -43,6 +46,7 @@ class PlayerSetupScreen extends StatefulWidget {
 class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
   final _controller = TextEditingController();
   final _players = <Player>[];
+  var _nextPlayerId = 1;
   MatchSetupValidationError? _latestError;
   late var _roundCount = widget.roundCount;
   var _roundCountTouched = true;
@@ -55,12 +59,14 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
   int get _maxQuestionsPerPlayer => MatchSetupService.maxQuestionsPerPlayerFor(
     playerCount: _players.length,
     categoryWords: _categoryWords,
+    mode: widget.mode,
   );
 
   int get _maxRoundCount => MatchSetupService.maxRoundCountFor(
     playerCount: _players.length,
     questionsPerPlayer: _questionsPerPlayer,
     categoryWords: _categoryWords,
+    mode: widget.mode,
   );
 
   MatchSetupValidationResult get _validation => widget.setupService.validate(
@@ -68,6 +74,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
     roundCount: _roundCount,
     questionsPerPlayer: _questionsPerPlayer,
     categoryWords: _categoryWords,
+    mode: widget.mode,
   );
 
   @override
@@ -76,6 +83,9 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
     final initialPlayers = widget.initialPlayers;
     if (initialPlayers != null && initialPlayers.isNotEmpty) {
       _players.addAll(initialPlayers);
+      while (_players.any((p) => p.id == 'player-$_nextPlayerId')) {
+        _nextPlayerId++;
+      }
       _syncQuestionsPerPlayer();
       _syncRoundCount();
     }
@@ -116,56 +126,73 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
         body: Stack(
           children: [
             const OtlPartyAtmosphere.matchSetup(),
-            ListView(
-              padding: EdgeInsets.fromLTRB(
-                20,
-                32,
-                20,
-                160 + MediaQuery.paddingOf(context).bottom,
-              ),
-              children: [
-                PlayerSetupHeader(l10n: l10n),
-                const SizedBox(height: 16),
-                PlayerNameField(
-                  controller: _controller,
-                  hintText: l10n.playerNameHint,
-                  onSubmitted: (_) => _addPlayer(),
+            OtlContentWidth(
+              child: ListView(
+                padding: EdgeInsets.fromLTRB(
+                  20,
+                  32,
+                  20,
+                  160 + MediaQuery.paddingOf(context).bottom,
                 ),
-                const SizedBox(height: 16),
-                AddPlayerButton(
-                  label: l10n.addPlayerButton,
-                  onPressed: _addPlayer,
-                ),
-                if (_latestError != null) ...[
-                  const SizedBox(height: 12),
-                  Semantics(
-                    liveRegion: true,
-                    child: Text(
-                      _messageFor(l10n, _latestError!),
-                      key: const Key('player_setup_error'),
-                      style: DisplayTypography.plusJakartaBody(
-                        color: AppColors.error,
-                        fontSize: 14,
+                children: [
+                  PlayerSetupHeader(l10n: l10n),
+                  if (widget.initialPlayers?.isNotEmpty ?? false)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12),
+                      child: Text(
+                        l10n.savedGroupHint,
+                        style: DisplayTypography.plusJakartaBody(
+                          color: BrutalistColors.sectionLabel,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
+                  const SizedBox(height: 16),
+                  PlayerNameField(
+                    controller: _controller,
+                    hintText: l10n.playerNameHint,
+                    onSubmitted: (_) => _addPlayer(),
                   ),
-                ],
-                if (_players.isNotEmpty) ...[
-                  const SizedBox(height: 24),
-                  for (var index = 0; index < _players.length; index += 1) ...[
-                    if (index > 0) const SizedBox(height: 16),
-                    OtlPlayerTile(
-                      name: _players[index].name,
-                      avatarSeed: _players[index].avatarSeed,
-                      backgroundColor: playerCardColorForIndex(index),
-                      removeTooltip: l10n.playerSetupRemovePlayer(
-                        _players[index].name,
+                  const SizedBox(height: 16),
+                  AddPlayerButton(
+                    label: l10n.addPlayerButton,
+                    onPressed: _addPlayer,
+                  ),
+                  if (_latestError != null) ...[
+                    const SizedBox(height: 12),
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        _messageFor(l10n, _latestError!),
+                        key: const Key('player_setup_error'),
+                        style: DisplayTypography.plusJakartaBody(
+                          color: AppColors.error,
+                          fontSize: 14,
+                        ),
                       ),
-                      onRemove: () => _removePlayer(index),
                     ),
                   ],
+                  if (_players.isNotEmpty) ...[
+                    const SizedBox(height: 24),
+                    for (
+                      var index = 0;
+                      index < _players.length;
+                      index += 1
+                    ) ...[
+                      if (index > 0) const SizedBox(height: 16),
+                      OtlPlayerTile(
+                        name: _players[index].name,
+                        avatarSeed: _players[index].avatarSeed,
+                        backgroundColor: playerCardColorForIndex(index),
+                        removeTooltip: l10n.playerSetupRemovePlayer(
+                          _players[index].name,
+                        ),
+                        onRemove: () => _removePlayer(index),
+                      ),
+                    ],
+                  ],
                 ],
-              ],
+              ),
             ),
             Positioned(
               left: 0,
@@ -221,8 +248,11 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
 
   void _addPlayer() {
     final name = _controller.text.trim();
+    while (_players.any((p) => p.id == 'player-$_nextPlayerId')) {
+      _nextPlayerId++;
+    }
     final candidate = Player(
-      id: 'player-${_players.length + 1}',
+      id: 'player-${_nextPlayerId++}',
       name: name,
       avatarSeed: name,
     );
@@ -232,6 +262,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
       roundCount: _roundCount,
       questionsPerPlayer: _questionsPerPlayer,
       categoryWords: _categoryWords,
+      mode: widget.mode,
     );
 
     final blockingError = validation.errors
@@ -265,10 +296,7 @@ class _PlayerSetupScreenState extends State<PlayerSetupScreen> {
     _syncRoundCount();
   }
 
-  String _messageFor(
-    AppLocalizations l10n,
-    MatchSetupValidationError error,
-  ) {
+  String _messageFor(AppLocalizations l10n, MatchSetupValidationError error) {
     return switch (error) {
       MatchSetupValidationError.emptyPlayerName =>
         l10n.playerSetupErrorEmptyName,
