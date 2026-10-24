@@ -10,6 +10,8 @@ enum SupportedLanguage {
   final String code;
 }
 
+enum GameMode { guided, free }
+
 enum PlayerRole { inside, out }
 
 enum RoundPhase { reveal, questions, voting, results, guess, complete }
@@ -156,6 +158,7 @@ final class MatchSetup {
     required this.questionsPerPlayer,
     required List<Player> players,
     required this.language,
+    this.mode = GameMode.guided,
   }) : players = List.unmodifiable(players);
 
   static const minPlayers = 3;
@@ -171,6 +174,7 @@ final class MatchSetup {
   final int questionsPerPlayer;
   final List<Player> players;
   final SupportedLanguage language;
+  final GameMode mode;
 
   int get questionsPerRound => players.length * questionsPerPlayer;
 
@@ -187,7 +191,8 @@ final class MatchSetup {
           roundCount == other.roundCount &&
           questionsPerPlayer == other.questionsPerPlayer &&
           _listEquals(players, other.players) &&
-          language == other.language;
+          language == other.language &&
+          mode == other.mode;
 
   @override
   int get hashCode => Object.hash(
@@ -196,6 +201,7 @@ final class MatchSetup {
     questionsPerPlayer,
     Object.hashAll(players),
     language,
+    mode,
   );
 }
 

@@ -34,6 +34,7 @@ final class MatchSetupService {
     required int playerCount,
     required int questionsPerPlayer,
     required List<SecretWord> categoryWords,
+    GameMode mode = GameMode.guided,
   }) {
     if (categoryWords.isEmpty) {
       return MatchSetup.minRoundCount;
@@ -44,7 +45,10 @@ final class MatchSetupService {
         : playerCount;
     final questionsNeeded = effectivePlayerCount * questionsPerPlayer;
     final playableWords = categoryWords
-        .where((word) => word.questions.length >= questionsNeeded)
+        .where(
+          (word) =>
+              mode == GameMode.free || word.questions.length >= questionsNeeded,
+        )
         .length;
 
     return playableWords.clamp(
@@ -71,7 +75,9 @@ final class MatchSetupService {
   static int maxQuestionsPerPlayerFor({
     required int playerCount,
     required List<SecretWord> categoryWords,
+    GameMode mode = GameMode.guided,
   }) {
+    if (mode == GameMode.free) return MatchSetup.maxQuestionsPerPlayer;
     if (playerCount < 1 || categoryWords.isEmpty) {
       return MatchSetup.maxQuestionsPerPlayer;
     }
@@ -97,6 +103,7 @@ final class MatchSetupService {
     required int roundCount,
     required int questionsPerPlayer,
     required List<SecretWord> categoryWords,
+    GameMode mode = GameMode.guided,
   }) {
     final errors = <MatchSetupValidationError>[];
 
@@ -128,12 +135,16 @@ final class MatchSetupService {
 
     final questionsNeeded = players.length * questionsPerPlayer;
     final playableWords = categoryWords
-        .where((word) => word.questions.length >= questionsNeeded)
+        .where(
+          (word) =>
+              mode == GameMode.free || word.questions.length >= questionsNeeded,
+        )
         .length;
     if (roundCount > playableWords) {
       errors.add(MatchSetupValidationError.insufficientPlayableWords);
     }
-    if (players.isNotEmpty &&
+    if (mode == GameMode.guided &&
+        players.isNotEmpty &&
         questionsPerPlayer >
             maxQuestionsPerPlayerFor(
               playerCount: players.length,
