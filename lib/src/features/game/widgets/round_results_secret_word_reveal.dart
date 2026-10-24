@@ -32,7 +32,7 @@ class RoundResultsSecretWordReveal extends StatelessWidget {
             Text(
               secretWord.toUpperCase(),
               style: DisplayTypography.rubikResultsSecretWord(
-                color: BrutalistColors.playerCountBadgeBackground,
+                color: BrutalistColors.lime,
               ),
               textAlign: TextAlign.center,
             ),

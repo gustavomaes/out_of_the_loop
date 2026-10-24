@@ -39,7 +39,7 @@ class OtlCard extends StatelessWidget {
           color: highlighted ? highlight : AppColors.borderDefault,
           width: highlighted ? 2 : 1,
         ),
-        boxShadow: highlighted ? AppShadows.glow : AppShadows.sm,
+        boxShadow: AppShadows.none,
       ),
       child: child,
     );

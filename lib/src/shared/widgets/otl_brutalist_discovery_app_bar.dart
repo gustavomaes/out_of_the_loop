@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../../app/app_routes.dart';
 import '../../app/discovery_shell.dart';
-import '../icons/icons.dart';
-import '../sound/sound_effects_scope.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../theme/theme.dart';
+import '../sound/sound_effects_scope.dart';
 
-/// Figma top bar: back, fixed app name, settings.
 class OtlBrutalistDiscoveryAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   const OtlBrutalistDiscoveryAppBar({
@@ -16,87 +14,48 @@ class OtlBrutalistDiscoveryAppBar extends StatelessWidget
     this.showSettings = true,
     super.key,
   });
-
   static const appName = 'OUT OF THE LOOP';
-  static const _sideSlotWidth = 48.0;
-
   final VoidCallback? onBack;
   final VoidCallback? onSettings;
   final bool showBack;
   final bool showSettings;
-
   @override
-  Size get preferredSize => const Size.fromHeight(80);
-
+  Size get preferredSize => const Size.fromHeight(64);
   @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: BrutalistColors.headerBackground,
-      child: DecoratedBox(
-        decoration: const BoxDecoration(
-          color: BrutalistColors.headerBackground,
-          border: Border(
-            bottom: BorderSide(color: BrutalistColors.headerBorder, width: 4),
-          ),
-        ),
-        child: SafeArea(
-          bottom: false,
-          child: SizedBox(
-            height: 80,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Row(
-                children: [
-                  if (showBack)
-                    IconButton(
-                      onPressed: otlTap(
-                        context,
-                        onBack ??
-                            () => context.goDiscoveryTab(AppRoutes.home),
-                      ),
-                      icon: const Icon(
-                        OtlIcons.arrowBack,
-                        color: Colors.white,
-                        size: 22,
-                      ),
-                      tooltip:
-                          MaterialLocalizations.of(context).backButtonTooltip,
-                    )
-                  else
-                    const SizedBox(width: _sideSlotWidth),
-                  Expanded(
-                    child: Text(
-                      appName,
-                      style: DisplayTypography.rubikDiscoveryAppBarTitle(
-                        color: BrutalistColors.lime,
-                      ),
-                      textAlign: TextAlign.center,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  if (showSettings)
-                    IconButton(
-                      onPressed: otlTap(
-                        context,
-                        onSettings ??
-                            () => context.goDiscoveryTab(AppRoutes.settings),
-                      ),
-                      icon: const Icon(
-                        OtlIcons.settings,
-                        color: Colors.white,
-                        size: 22,
-                      ),
-                      tooltip: 'Settings',
-                    )
-                  else
-                    const SizedBox(width: _sideSlotWidth),
-                ],
-              ),
+  Widget build(BuildContext context) => AppBar(
+    toolbarHeight: 64,
+    centerTitle: true,
+    automaticallyImplyLeading: false,
+    leading: showBack
+        ? BackButton(
+            onPressed: otlTap(
+              context,
+              onBack ?? () => context.goDiscoveryTab(AppRoutes.home),
             ),
+          )
+        : null,
+    title: Text(
+      appName,
+      style: DisplayTypography.rubikDiscoveryAppBarTitle(
+        color: BrutalistColors.cardText,
+      ),
+    ),
+    actions: [
+      if (showSettings)
+        IconButton(
+          tooltip: AppLocalizations.of(context)!.settings,
+          onPressed: otlTap(
+            context,
+            onSettings ?? () => context.goDiscoveryTab(AppRoutes.settings),
+          ),
+          icon: const Icon(
+            Icons.settings_outlined,
+            color: BrutalistColors.sectionLabel,
           ),
         ),
-      ),
-    );
-  }
+      const SizedBox(width: 8),
+    ],
+    backgroundColor: BrutalistColors.screenBackground,
+    surfaceTintColor: Colors.transparent,
+  );
 }

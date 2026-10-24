@@ -32,15 +32,12 @@ class FinalLeaderboardAvatar extends StatelessWidget {
       decoration: BoxDecoration(
         color: frameColor,
         shape: BoxShape.circle,
-        border: Border.all(color: Colors.black, width: 2),
+        border: Border.all(color: BrutalistColors.headerBorder),
       ),
       child: Padding(
         padding: const EdgeInsets.all(2),
         child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: fillColor,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: fillColor, shape: BoxShape.circle),
           child: PlayerAvatar(name: name, seed: seed, size: 36),
         ),
       ),

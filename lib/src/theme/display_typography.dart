@@ -106,7 +106,7 @@ abstract final class DisplayTypography {
     required Color color,
     double fontSize = 14,
     FontWeight fontWeight = FontWeight.w700,
-    double letterSpacing = 1.4,
+    double letterSpacing = 0.8,
   }) {
     return _spaceGrotesk(
       color: color,
@@ -121,9 +121,9 @@ abstract final class DisplayTypography {
   static TextStyle rubikDiscoveryAppBarTitle({required Color color}) {
     return rubikTitle(
       color: color,
-      fontSize: 28,
-      height: 32 / 28,
-      letterSpacing: -1.4,
+      fontSize: 18,
+      height: 24 / 18,
+      letterSpacing: -0.5,
     );
   }
 
@@ -132,7 +132,7 @@ abstract final class DisplayTypography {
     required Color color,
     double fontSize = 14,
     FontWeight fontWeight = FontWeight.w700,
-    double letterSpacing = 1.4,
+    double letterSpacing = 0.8,
   }) {
     return spaceGroteskSectionLabel(
       color: color,
@@ -211,8 +211,8 @@ abstract final class DisplayTypography {
   static TextStyle rubikPlayerSetupTitle({required Color color}) {
     return _rubik(
       color: color,
-      fontSize: 40,
-      height: 50 / 40,
+      fontSize: 34,
+      height: 39 / 34,
       fontWeight: FontWeight.w700,
     );
   }
@@ -231,9 +231,9 @@ abstract final class DisplayTypography {
   static TextStyle rubikPlayerSetupCta({required Color color}) {
     return rubikTitle(
       color: color,
-      fontSize: 28,
-      height: 32 / 28,
-      letterSpacing: -0.7,
+      fontSize: 18,
+      height: 24 / 18,
+      letterSpacing: -0.3,
     );
   }
 
@@ -241,7 +241,7 @@ abstract final class DisplayTypography {
     required Color color,
     double fontSize = 14,
     FontWeight fontWeight = FontWeight.w700,
-    double letterSpacing = 1.4,
+    double letterSpacing = 0.8,
   }) {
     return _spaceGrotesk(
       color: color,
@@ -254,18 +254,15 @@ abstract final class DisplayTypography {
 
   /// Figma secret reveal round label (Space Grotesk Bold 14 / 2.8 tracking).
   static TextStyle spaceGroteskRoundLabel({required Color color}) {
-    return spaceGroteskMeta(
-      color: color,
-      letterSpacing: 2.8,
-    );
+    return spaceGroteskMeta(color: color, letterSpacing: 2.8);
   }
 
   /// Figma secret reveal heading (Rubik Black 48 / 52).
   static TextStyle rubikSecretRevealHeading({required Color color}) {
     return _rubik(
       color: color,
-      fontSize: 48,
-      height: 52 / 48,
+      fontSize: 34,
+      height: 39 / 34,
       fontWeight: FontWeight.w900,
       letterSpacing: -0.96,
     );
@@ -275,8 +272,8 @@ abstract final class DisplayTypography {
   static TextStyle plusJakartaSecretRevealBody({required Color color}) {
     return _plusJakarta(
       color: color,
-      fontSize: 18,
-      height: 28 / 18,
+      fontSize: 16,
+      height: 1.5,
       fontWeight: FontWeight.w500,
     );
   }
@@ -296,8 +293,8 @@ abstract final class DisplayTypography {
   static TextStyle rubikQuestionCard({required Color color}) {
     return _rubik(
       color: color,
-      fontSize: 28,
-      height: 35 / 28,
+      fontSize: 26,
+      height: 34 / 26,
       fontWeight: FontWeight.w800,
     );
   }
@@ -342,8 +339,8 @@ abstract final class DisplayTypography {
   static TextStyle rubikVotingHeadlineMain({required Color color}) {
     return _rubik(
       color: color,
-      fontSize: 48,
-      height: 60 / 48,
+      fontSize: 36,
+      height: 40 / 36,
       fontWeight: FontWeight.w900,
       letterSpacing: -0.96,
     );
@@ -363,8 +360,8 @@ abstract final class DisplayTypography {
   static TextStyle plusJakartaVotingPlayerName({required Color color}) {
     return _plusJakarta(
       color: color,
-      fontSize: 18,
-      height: 28 / 18,
+      fontSize: 16,
+      height: 1.5,
       fontWeight: FontWeight.w700,
     );
   }

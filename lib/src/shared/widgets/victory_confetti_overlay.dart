@@ -29,7 +29,7 @@ class _VictoryConfettiOverlayState extends State<VictoryConfettiOverlay> {
     super.initState();
     _controller = ConfettiController(duration: const Duration(seconds: 4));
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
+      if (mounted && !MediaQuery.disableAnimationsOf(context)) {
         _controller.play();
       }
     });
@@ -43,6 +43,7 @@ class _VictoryConfettiOverlayState extends State<VictoryConfettiOverlay> {
 
   @override
   Widget build(BuildContext context) {
+    if (MediaQuery.disableAnimationsOf(context)) return widget.child;
     return Stack(
       children: [
         widget.child,

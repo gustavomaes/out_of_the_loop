@@ -69,8 +69,8 @@ abstract final class AppCurves {
 }
 
 abstract final class AppTypography {
-  static const primaryFontFamily = 'Poppins';
-  static const fallbackFontFamily = <String>['Inter'];
+  static const primaryFontFamily = 'PlusJakartaSans';
+  static const fallbackFontFamily = <String>['Rubik'];
 
   static const h1 = TextStyle(
     fontFamily: primaryFontFamily,

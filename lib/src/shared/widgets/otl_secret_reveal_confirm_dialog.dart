@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../sound/sound_effects_scope.dart';
+import 'otl_neon_action.dart';
 import '../../theme/theme.dart';
 
 /// Confirms the active player is holding the phone before revealing their word.
@@ -18,46 +18,48 @@ Future<bool> showSecretRevealConfirmDialog(
         backgroundColor: BrutalistColors.cardBackground,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
-          side: const BorderSide(color: Colors.black, width: 4),
+          side: const BorderSide(color: BrutalistColors.headerBorder),
         ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                l10n.secretRevealConfirmTitle(playerName),
-                style: DisplayTypography.rubikTitle(
-                  color: BrutalistColors.cardText,
-                  fontSize: 22,
-                  height: 1.2,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  l10n.secretRevealConfirmTitle(playerName),
+                  style: DisplayTypography.rubikTitle(
+                    color: BrutalistColors.cardText,
+                    fontSize: 22,
+                    height: 1.2,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                l10n.secretRevealConfirmMessage,
-                style: DisplayTypography.rubikSettingLabel(
-                  color: BrutalistColors.sectionLabel,
+                const SizedBox(height: 16),
+                Text(
+                  l10n.secretRevealConfirmMessage,
+                  style: DisplayTypography.rubikSettingLabel(
+                    color: BrutalistColors.sectionLabel,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 28),
-              _SecretRevealConfirmButton(
-                label: l10n.secretRevealConfirmYes,
-                backgroundColor: BrutalistColors.lime,
-                foregroundColor: Colors.black,
-                onPressed: () => Navigator.of(dialogContext).pop(true),
-              ),
-              const SizedBox(height: 12),
-              _SecretRevealConfirmButton(
-                label: l10n.secretRevealConfirmNo,
-                backgroundColor: BrutalistColors.playerCardPink,
-                foregroundColor: Colors.white,
-                onPressed: () => Navigator.of(dialogContext).pop(false),
-              ),
-            ],
+                const SizedBox(height: 28),
+                _SecretRevealConfirmButton(
+                  label: l10n.secretRevealConfirmYes,
+                  backgroundColor: BrutalistColors.lime,
+                  foregroundColor: Colors.black,
+                  onPressed: () => Navigator.of(dialogContext).pop(true),
+                ),
+                const SizedBox(height: 12),
+                _SecretRevealConfirmButton(
+                  label: l10n.secretRevealConfirmNo,
+                  backgroundColor: BrutalistColors.playerCardPink,
+                  foregroundColor: Colors.white,
+                  onPressed: () => Navigator.of(dialogContext).pop(false),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -81,29 +83,9 @@ class _SecretRevealConfirmButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 52,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: otlTap(context, onPressed),
-          borderRadius: BorderRadius.circular(16),
-          child: Ink(
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.black, width: 4),
-            ),
-            child: Center(
-              child: Text(
-                label,
-                style: DisplayTypography.rubikHomeButton(color: foregroundColor),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => OtlNeonAction(
+    label: label,
+    onPressed: onPressed,
+    primary: backgroundColor == BrutalistColors.lime,
+  );
 }

@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../theme/theme.dart';
 
 class SettingsSection extends StatelessWidget {
-  const SettingsSection({
-    required this.label,
-    required this.child,
-    super.key,
-  });
+  const SettingsSection({required this.label, required this.child, super.key});
 
   final String label;
   final Widget child;

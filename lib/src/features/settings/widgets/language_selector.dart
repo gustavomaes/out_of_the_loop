@@ -4,11 +4,7 @@ import '../../../shared/widgets/shared_widgets.dart';
 import '../../../theme/theme.dart';
 
 class LanguageSelector extends StatelessWidget {
-  const LanguageSelector({
-    required this.label,
-    required this.onTap,
-    super.key,
-  });
+  const LanguageSelector({required this.label, required this.onTap, super.key});
 
   final String label;
   final VoidCallback onTap;
@@ -19,7 +15,6 @@ class LanguageSelector extends StatelessWidget {
       backgroundColor: BrutalistColors.cardBackground,
       shadowOffset: 6,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      height: 64,
       onTap: onTap,
       child: Row(
         children: [

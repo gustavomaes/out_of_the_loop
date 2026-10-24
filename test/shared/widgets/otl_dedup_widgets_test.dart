@@ -4,7 +4,9 @@ import 'package:outoftheloop/src/shared/widgets/shared_widgets.dart';
 import 'package:outoftheloop/src/theme/theme.dart';
 
 void main() {
-  testWidgets('OtlShadowedText renders foreground and shadow', (tester) async {
+  testWidgets('OtlShadowedText renders one accessible foreground label', (
+    tester,
+  ) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
@@ -17,14 +19,12 @@ void main() {
       ),
     );
 
-    expect(find.text('VOTE'), findsNWidgets(2));
+    expect(find.text('VOTE'), findsOneWidget);
   });
 
   testWidgets('OtlBrutalistToggle renders', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(body: OtlBrutalistToggle(value: true)),
-      ),
+      const MaterialApp(home: Scaffold(body: OtlBrutalistToggle(value: true))),
     );
 
     expect(find.byType(OtlBrutalistToggle), findsOneWidget);

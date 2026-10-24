@@ -1,88 +1,29 @@
 import 'package:flutter/material.dart';
-
-import '../icons/icons.dart';
-import '../sound/sound_effects_scope.dart';
 import '../../theme/theme.dart';
+import '../sound/sound_effects_scope.dart';
 
-class OtlBrutalistAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const OtlBrutalistAppBar({
-    required this.title,
-    this.onBack,
-    super.key,
-  });
-
-  static const _sideSlotWidth = 48.0;
-
+class OtlBrutalistAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const OtlBrutalistAppBar({required this.title, this.onBack, super.key});
   final String title;
   final VoidCallback? onBack;
-
   @override
-  Size get preferredSize => const Size.fromHeight(72);
-
+  Size get preferredSize => const Size.fromHeight(64);
   @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: BrutalistColors.headerBackground,
-      child: DecoratedBox(
-        decoration: const BoxDecoration(
-          color: BrutalistColors.headerBackground,
-          border: Border(
-            bottom: BorderSide(color: BrutalistColors.headerBorder, width: 4),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black,
-              offset: Offset(4, 4),
-              blurRadius: 0,
-            ),
-          ],
-        ),
-        child: SafeArea(
-          bottom: false,
-          child: SizedBox(
-            height: 72,
-            child: onBack == null
-                ? Center(
-                    child: Text(
-                      title,
-                      style: DisplayTypography.rubikDiscoveryAppBarTitle(
-                        color: BrutalistColors.lime,
-                      ),
-                    ),
-                  )
-                : Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: otlTap(context, onBack),
-                          icon: const Icon(
-                            OtlIcons.arrowBack,
-                            color: Colors.white,
-                            size: 22,
-                          ),
-                          tooltip: MaterialLocalizations.of(
-                            context,
-                          ).backButtonTooltip,
-                        ),
-                        Expanded(
-                          child: Text(
-                            title,
-                            style: DisplayTypography.rubikDiscoveryAppBarTitle(
-                              color: BrutalistColors.lime,
-                            ),
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        const SizedBox(width: _sideSlotWidth),
-                      ],
-                    ),
-                  ),
-          ),
-        ),
+  Widget build(BuildContext context) => AppBar(
+    toolbarHeight: 64,
+    automaticallyImplyLeading: false,
+    centerTitle: true,
+    leading: onBack == null
+        ? null
+        : BackButton(onPressed: otlTap(context, onBack)),
+    title: Text(
+      title,
+      style: DisplayTypography.rubikDiscoveryAppBarTitle(
+        color: BrutalistColors.cardText,
       ),
-    );
-  }
+    ),
+    backgroundColor: BrutalistColors.screenBackground,
+    surfaceTintColor: Colors.transparent,
+  );
 }

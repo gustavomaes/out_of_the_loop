@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../shared/widgets/shared_widgets.dart';
+import '../../../shared/widgets/otl_brutalist_surface.dart';
 import '../../../theme/theme.dart';
 
-/// Colored rule explainer card on the how-to-play screen.
 class HowToPlayRuleCard extends StatelessWidget {
   const HowToPlayRuleCard({
     required this.backgroundColor,
@@ -13,40 +11,51 @@ class HowToPlayRuleCard extends StatelessWidget {
     required this.bodySpans,
     super.key,
   });
-
   final Color backgroundColor;
   final Color foregroundColor;
   final IconData icon;
   final String title;
   final List<InlineSpan> bodySpans;
-
   @override
-  Widget build(BuildContext context) {
-    final bodyStyle = DisplayTypography.plusJakartaBody(color: foregroundColor);
-
-    return OtlBrutalistSurface(
-      backgroundColor: backgroundColor,
-      shadowOffset: 6,
-      padding: const EdgeInsets.all(28),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(icon, color: foregroundColor, size: 22),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  title,
-                  style: DisplayTypography.rubikTitle(color: foregroundColor),
-                ),
-              ),
-            ],
+  Widget build(BuildContext context) => OtlBrutalistSurface(
+    backgroundColor: BrutalistColors.cardBackground,
+    shadowOffset: 0,
+    padding: const EdgeInsets.all(20),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, color: backgroundColor, size: 28),
+        const SizedBox(height: 16),
+        Text(
+          title,
+          style: DisplayTypography.rubikTitle(
+            color: BrutalistColors.cardText,
+            fontSize: 24,
           ),
-          const SizedBox(height: 3),
-          Text.rich(TextSpan(style: bodyStyle, children: bodySpans)),
-        ],
-      ),
-    );
-  }
+        ),
+        const SizedBox(height: 12),
+        Text.rich(
+          TextSpan(
+            style: DisplayTypography.plusJakartaBody(
+              color: BrutalistColors.sectionLabel,
+              fontSize: 16,
+            ),
+            children: bodySpans
+                .map(
+                  (span) => span is TextSpan
+                      ? TextSpan(
+                          text: span.text,
+                          style: span.style?.copyWith(
+                            color: BrutalistColors.cardText,
+                          ),
+                          children: span.children,
+                        )
+                      : span,
+                )
+                .toList(),
+          ),
+        ),
+      ],
+    ),
+  );
 }

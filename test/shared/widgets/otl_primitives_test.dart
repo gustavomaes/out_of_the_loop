@@ -72,7 +72,9 @@ void main() {
     expect((avatar.decoration! as BoxDecoration).shape, BoxShape.circle);
   });
 
-  testWidgets('selected and accented cards expose glow states', (tester) async {
+  testWidgets('selected and accented cards expose clear border states', (
+    tester,
+  ) async {
     await tester.pumpWidget(
       const _TestApp(
         child: Column(
@@ -94,9 +96,9 @@ void main() {
     final selectedDecoration = cards.first.decoration! as BoxDecoration;
     final accentDecoration = cards.last.decoration! as BoxDecoration;
 
-    expect(selectedDecoration.boxShadow, AppShadows.glow);
+    expect(selectedDecoration.boxShadow, AppShadows.none);
     expect(selectedDecoration.border!.top.color, AppColors.primaryMain);
-    expect(accentDecoration.boxShadow, AppShadows.glow);
+    expect(accentDecoration.boxShadow, AppShadows.none);
     expect(accentDecoration.border!.top.color, AppColors.secondaryMain);
   });
 }

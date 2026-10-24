@@ -1,35 +1,33 @@
 import 'package:flutter/material.dart';
-
 import '../../theme/theme.dart';
 
-/// Neubrutalist on/off pill used in settings rows (display-only; tap handled by parent).
 class OtlBrutalistToggle extends StatelessWidget {
   const OtlBrutalistToggle({required this.value, super.key});
-
   final bool value;
-
   @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      toggled: value,
-      child: AnimatedContainer(
+  Widget build(BuildContext context) => Semantics(
+    toggled: value,
+    child: AnimatedContainer(
+      duration: const Duration(milliseconds: 150),
+      width: 48,
+      height: 28,
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: value ? BrutalistColors.lime : BrutalistColors.toggleOff,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: AnimatedAlign(
         duration: const Duration(milliseconds: 150),
-        width: 64,
-        height: 32,
-        padding: EdgeInsets.fromLTRB(value ? 38 : 6, 6, value ? 10 : 42, 6),
-        decoration: BoxDecoration(
-          color: value ? BrutalistColors.lime : BrutalistColors.toggleOff,
-          borderRadius: BorderRadius.circular(9999),
-          border: Border.all(color: Colors.black, width: 2),
-        ),
+        alignment: value ? Alignment.centerRight : Alignment.centerLeft,
         child: Container(
+          width: 20,
+          height: 20,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: value ? BrutalistColors.limeText : BrutalistColors.cardText,
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.black, width: 2),
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
 }

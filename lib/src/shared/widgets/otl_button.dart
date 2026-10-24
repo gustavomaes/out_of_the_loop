@@ -82,7 +82,7 @@ class OtlButton extends StatelessWidget {
         overlayColor: WidgetStateProperty.resolveWith(_overlayColor),
         side: WidgetStateProperty.resolveWith(_side),
         shape: const WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: AppRadius.borderFull),
+          RoundedRectangleBorder(borderRadius: AppRadius.borderMd),
         ),
         elevation: WidgetStateProperty.resolveWith(_elevation),
         shadowColor: const WidgetStatePropertyAll(AppColors.primaryMain),
@@ -187,6 +187,6 @@ class OtlButton extends StatelessWidget {
         states.contains(WidgetState.disabled)) {
       return 0;
     }
-    return states.contains(WidgetState.pressed) ? 1 : 4;
+    return 0;
   }
 }

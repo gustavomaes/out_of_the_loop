@@ -27,11 +27,7 @@ class AboutCard extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       child: Column(
         children: [
-          AboutRow(
-            label: privacyLabel,
-            onTap: onPrivacyTap,
-            showChevron: true,
-          ),
+          AboutRow(label: privacyLabel, onTap: onPrivacyTap, showChevron: true),
           const AboutDivider(),
           AboutRow(
             label: versionLabel,

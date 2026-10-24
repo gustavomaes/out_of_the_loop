@@ -34,7 +34,7 @@ class FinalLeaderboardRevealSection extends StatelessWidget {
             Text(
               secretWord.toUpperCase(),
               style: DisplayTypography.rubikResultsSecretWord(
-                color: BrutalistColors.playerCountBadgeBackground,
+                color: BrutalistColors.lime,
               ),
               textAlign: TextAlign.center,
             ),
@@ -44,7 +44,7 @@ class FinalLeaderboardRevealSection extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: BrutalistColors.cardBackground,
                   borderRadius: BorderRadius.circular(32),
-                  border: Border.all(color: Colors.black, width: 2),
+                  border: Border.all(color: BrutalistColors.headerBorder),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(14),

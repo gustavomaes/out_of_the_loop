@@ -23,7 +23,7 @@ class SecretRevealInstructions extends StatelessWidget {
         Text(
           l10n.secretRevealRound(roundNumber),
           style: DisplayTypography.spaceGroteskRoundLabel(
-            color: BrutalistColors.playerCardYellow,
+            color: BrutalistColors.sectionLabel,
           ),
           textAlign: TextAlign.center,
         ),
@@ -40,7 +40,7 @@ class SecretRevealInstructions extends StatelessWidget {
               Text(
                 l10n.secretRevealHandPhoneLine,
                 style: DisplayTypography.plusJakartaSecretRevealBody(
-                  color: BrutalistColors.playerCardYellow,
+                  color: BrutalistColors.sectionLabel,
                 ).copyWith(fontWeight: FontWeight.w700),
                 textAlign: TextAlign.center,
               ),

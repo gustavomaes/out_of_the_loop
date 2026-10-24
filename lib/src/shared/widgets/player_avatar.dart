@@ -35,12 +35,6 @@ class PlayerAvatar extends StatelessWidget {
         color: color,
         shape: BoxShape.circle,
         border: Border.all(color: AppColors.backgroundPrimary, width: 2),
-        boxShadow: [
-          BoxShadow(
-            color: color.withValues(alpha: 0.45),
-            blurRadius: size * 0.25,
-          ),
-        ],
       ),
       child: Text(
         initials,
@@ -80,9 +74,7 @@ class PlayerAvatar extends StatelessWidget {
   }
 
   static Color _foregroundFor(Color color) {
-    return color == AppColors.primaryMain ||
-            color == AppColors.success ||
-            color == AppColors.warning
+    return color.computeLuminance() > 0.179
         ? AppColors.backgroundPrimary
         : AppColors.textPrimary;
   }

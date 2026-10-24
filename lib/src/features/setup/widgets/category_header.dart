@@ -16,18 +16,22 @@ class CategoryHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
-          style: DisplayTypography.rubikCategoryTitle(color: Colors.white),
+          style: DisplayTypography.rubikTitle(
+            color: BrutalistColors.cardText,
+            fontSize: 28,
+          ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Text(
           subtitle,
           style: DisplayTypography.plusJakartaBody(
             color: BrutalistColors.sectionLabel,
-            fontSize: 16,
+            fontSize: 14,
           ),
           textAlign: TextAlign.center,
         ),
