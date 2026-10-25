@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "status": "blocked",
+  "bundleId": "com.mathsquirrels.outoftheloop",
+  "sourceRevision": "d1cbb82f82e861db5cf4659c043ffb7e5af55d73",
+  "sourceVersion": "1.2.1+7",
+  "storeVersionVerified": false,
+  "signedCandidate": null,
+  "launchAt": null,
+  "screenshots": [
+    {
+      "path": "../emoji-fixed-home.jpg",
+      "sha256": "eac1f9699a0e10fb528fdd61604cc1ed9ca506a0028fc71a30928e1652aba025",
+      "locale": "pt-BR",
+      "device": "iPhone 17 simulator / iOS 26.3",
+      "sourceRevision": "d1cbb82f82e861db5cf4659c043ffb7e5af55d73",
+      "status": "historical_simulator_evidence_not_store_ready",
+      "provenance": "../EMOJI_FIX.md"
+    },
+    {
+      "path": "../emoji-fixed-categories.jpg",
+      "sha256": "efc9d6771bc4f7d7b1ed47a1619f303ad0b9d7c9932df34d4ce1ae2b9b8af4f1",
+      "locale": "pt-BR",
+      "device": "iPhone 17 simulator / iOS 26.3",
+      "sourceRevision": "d1cbb82f82e861db5cf4659c043ffb7e5af55d73",
+      "status": "historical_simulator_evidence_not_store_ready",
+      "provenance": "../EMOJI_FIX.md"
+    }
+  ],
+  "blockers": [
+    "commerce_sandbox_legacy",
+    "physical_privacy_upgrade_qa",
+    "editorial_localization",
+    "brand_legal_contacts",
+    "signed_ipa_testflight_unique_build",
+    "five_hosts_two_groups",
+    "final_store_screenshots",
+    "owner_review_and_publication_authorization"
+  ]
+}
