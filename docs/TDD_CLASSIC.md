@@ -214,6 +214,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 3 — primeiro jogo completo
 
+**Evidência da execução (25/10/2026):** [partida gratuita, replay e validação](classic/STAGE_3.md). Implementação disponível em `lib/main_classic.dart`, com testes automatizados e build/inspeção em simulador iOS; aceite em aparelho físico permanece pendente. Persistência pertence à etapa 4.
+
 **Objetivo:** entregar uma versão jogável gratuita do início ao replay.
 
 **Entregáveis:** sorteio, seleção multicategoria, S05–S08, timer, Troll, confirmação final, alternativa acessível para revelar e Play again. Catálogo inicial real mínimo; catálogo completo chega na etapa 5.
