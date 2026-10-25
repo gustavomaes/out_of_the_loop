@@ -2,9 +2,9 @@
 
 - Entry: `lib/main_classic.dart:main()` bypasses the legacy Firebase bootstrap; default `lib/main.dart` still enters Guided until stage 8.
 - `ClassicHome` owns its default controller/demo gateway and leaves injected instances to the caller; `ClassicGallery` owns its stage-one controller; the catalog initial catalog is synchronous/offline and deliberately English-only. UI strings use the existing generated ARB system.
-- `ClassicConfig` copies collections into unmodifiable views; controller updates validate configuration, known presentation category IDs and fixture language. Premium labels have no words yet; `ClassicRoundFactory.create()` rejects any selected category without actual content.
+- `ClassicConfig` copies collections into unmodifiable views; controller updates validate configuration, known presentation category IDs and supported runtime language. All 23 categories now have real content; `ClassicRoundFactory.create()` rejects any selected category without actual content.
 - Home sheets: `classic_home.dart` keeps names/categories/impostors as drafts; timer changes are immediate. `_ConfigSheet` fixes actions outside its scrolling body and above keyboard insets. The transparent Scaffold dock reserves its actual height, including text scaling.
-- `ClassicDemoPremium` is a nonpersisted development fake. The 23 presentation categories mirror the prototype; food/animals/sports have 12 playable words each. Content is English, independently of UI locale.
+- `ClassicDemoPremium` is a nonpersisted development fake. The 23 categories mirror the prototype; the stage-five catalog supplies all words. Runtime content remains English, independently of UI locale.
 - Previews: `lib/previews/classic_previews.dart`. Text scaling is injected inside MaterialApp via its builder so the app's MediaQuery does not overwrite the 200% preview.
 - Tests with the gallery loading spinner must use bounded pumps; pumpAndSettle never settles an indeterminate progress indicator. ListView children are lazy; scroll before locating lower actions.
 - Runtime: `ClassicHome` switches to `ClassicRoundScreen` based on controller phase; no route parameters carry secrets. `ClassicRoundFactory.create()` owns pure rules/recency; controller owns progress, serialized persistence and monotonic clock; screen owns ephemeral visibility.
@@ -20,3 +20,7 @@ Updated: 2026-10-25
 - Legacy history keys use colons; Classic uses language/category/word ID separated by slashes. Explicit equivalents live in `classic_legacy_migration.dart`; unmapped count is local metadata, source remains available for stage 5. UI-language migration must not switch the English-only content language.
 - `classicResume` already means Resume timer; the stage-four CTA uses `classicResumeGame` to avoid changing the existing discussion control.
 - Stage-four evidence: `docs/classic/STAGE_4.md`; physical update/kill scenarios are pending, simulator update and revealing-process restart were checked.
+
+- Stage 5: `assets/content/classic_catalog.json` is the editable source; `tool/classic_catalog.py` validates and generates the synchronous Dart bundle and editorial report. Run `--check` to detect drift. There are 959 category entries / 920 distinct English texts, with 120 free and 800 exclusive Premium texts. Translations do not inflate counts.
+- `classic_catalog_parser.dart:ClassicCatalog.parse()` validates schema/IDs/localized values/examples/mapping. The full mapping preserves all 960 legacy localized references; `classic_convert_legacy.py` exports question-free equivalents. Existing completed migrations are not replayed. Human review is pending, see `docs/classic/STAGE_5.md`.
+- Restored rounds keep their frozen catalog version; `ClassicController._create()` switches the next new round to the current version. Free categories have full five-language values; three Premium categories retain partial legacy translations, others are English-only. Billing rights are still stage 6.

@@ -238,6 +238,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 5 — conteúdo pronto para comercialização
 
+**Evidência da execução (25/10/2026):** [catálogo versionado, mapping, checker e validação](classic/STAGE_5.md). Implementação técnica entregue com 120 textos ingleses gratuitos e 800 adicionais exclusivos do Premium; etapa em validação até revisão humana editorial/traduções e aceite cultural. Direitos de compra reais permanecem para a etapa 6.
+
 **Objetivo:** substituir amostras por biblioteca coerente com a oferta.
 
 **Entregáveis:** schema Classic, conversor/mapping de IDs antigos, catálogo versionado, validador e relatório editorial por categoria/idioma. Meta proposta do PRD: 120 palavras gratuitas + 800 Premium, com revisão humana; não contar tradução como palavra nova.
