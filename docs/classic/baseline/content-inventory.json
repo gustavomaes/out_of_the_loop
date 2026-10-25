@@ -1,0 +1,225 @@
+{
+  "assets": [
+    {
+      "asset": "assets/content/seed_content.json",
+      "sha256": "7924c289840cc8751114c48990a62bcbd3ac95e0250d6d635cd5d5a6c47d0a4c",
+      "schemaVersion": 1,
+      "contentVersion": null,
+      "languages": [
+        "pt-BR",
+        "en",
+        "es",
+        "hi",
+        "ar"
+      ],
+      "categories": [
+        {
+          "id": "food",
+          "words": 30,
+          "questions": 270,
+          "localized": {
+            "pt-BR": {
+              "words": 30,
+              "questions": 270
+            },
+            "en": {
+              "words": 30,
+              "questions": 270
+            },
+            "es": {
+              "words": 30,
+              "questions": 270
+            },
+            "hi": {
+              "words": 30,
+              "questions": 270
+            },
+            "ar": {
+              "words": 30,
+              "questions": 270
+            }
+          }
+        },
+        {
+          "id": "movies",
+          "words": 30,
+          "questions": 270,
+          "localized": {
+            "pt-BR": {
+              "words": 30,
+              "questions": 270
+            },
+            "en": {
+              "words": 30,
+              "questions": 270
+            },
+            "es": {
+              "words": 30,
+              "questions": 270
+            },
+            "hi": {
+              "words": 30,
+              "questions": 270
+            },
+            "ar": {
+              "words": 30,
+              "questions": 270
+            }
+          }
+        },
+        {
+          "id": "sports",
+          "words": 30,
+          "questions": 270,
+          "localized": {
+            "pt-BR": {
+              "words": 30,
+              "questions": 270
+            },
+            "en": {
+              "words": 30,
+              "questions": 270
+            },
+            "es": {
+              "words": 30,
+              "questions": 270
+            },
+            "hi": {
+              "words": 30,
+              "questions": 270
+            },
+            "ar": {
+              "words": 30,
+              "questions": 270
+            }
+          }
+        },
+        {
+          "id": "music",
+          "words": 30,
+          "questions": 270,
+          "localized": {
+            "pt-BR": {
+              "words": 30,
+              "questions": 270
+            },
+            "en": {
+              "words": 30,
+              "questions": 270
+            },
+            "es": {
+              "words": 30,
+              "questions": 270
+            },
+            "hi": {
+              "words": 30,
+              "questions": 270
+            },
+            "ar": {
+              "words": 30,
+              "questions": 270
+            }
+          }
+        },
+        {
+          "id": "travel",
+          "words": 30,
+          "questions": 270,
+          "localized": {
+            "pt-BR": {
+              "words": 30,
+              "questions": 270
+            },
+            "en": {
+              "words": 30,
+              "questions": 270
+            },
+            "es": {
+              "words": 30,
+              "questions": 270
+            },
+            "hi": {
+              "words": 30,
+              "questions": 270
+            },
+            "ar": {
+              "words": 30,
+              "questions": 270
+            }
+          }
+        },
+        {
+          "id": "animals",
+          "words": 30,
+          "questions": 270,
+          "localized": {
+            "pt-BR": {
+              "words": 30,
+              "questions": 270
+            },
+            "en": {
+              "words": 30,
+              "questions": 270
+            },
+            "es": {
+              "words": 30,
+              "questions": 270
+            },
+            "hi": {
+              "words": 30,
+              "questions": 270
+            },
+            "ar": {
+              "words": 30,
+              "questions": 270
+            }
+          }
+        }
+      ]
+    },
+    {
+      "asset": "assets/content/us_game_night.json",
+      "sha256": "16785631793425e5f521a7deae7af1793440df616590efe109207f4142159737",
+      "schemaVersion": 1,
+      "contentVersion": "us-1",
+      "languages": [
+        "en"
+      ],
+      "categories": [
+        {
+          "id": "us_backyard",
+          "words": 20,
+          "questions": 180,
+          "localized": {
+            "en": {
+              "words": 20,
+              "questions": 180
+            }
+          }
+        },
+        {
+          "id": "us_roadtrip",
+          "words": 20,
+          "questions": 180,
+          "localized": {
+            "en": {
+              "words": 20,
+              "questions": 180
+            }
+          }
+        },
+        {
+          "id": "us_holidays",
+          "words": 20,
+          "questions": 180,
+          "localized": {
+            "en": {
+              "words": 20,
+              "questions": 180
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
