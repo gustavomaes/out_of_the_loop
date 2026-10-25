@@ -375,5 +375,13 @@
         "type": "int"
       }
     }
-  }
+  },
+  "classicDevTitle": "Classic · development",
+  "classicFixtureNotice": "Offline fixture · not the launch catalog",
+  "classicHint": "Category hint",
+  "classicSheet": "Component sheet",
+  "classicUnavailable": "Game available in stage 3",
+  "classicLoading": "Loading",
+  "classicError": "Example error",
+  "classicRetry": "Retry"
 }

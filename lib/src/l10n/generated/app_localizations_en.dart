@@ -778,4 +778,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboardingSaveError => 'Could not save. Please try again.';
+
+  @override
+  String get classicDevTitle => 'Classic · development';
+
+  @override
+  String get classicFixtureNotice => 'Offline fixture · not the launch catalog';
+
+  @override
+  String get classicHint => 'Category hint';
+
+  @override
+  String get classicSheet => 'Component sheet';
+
+  @override
+  String get classicUnavailable => 'Game available in stage 3';
+
+  @override
+  String get classicLoading => 'Loading';
+
+  @override
+  String get classicError => 'Example error';
+
+  @override
+  String get classicRetry => 'Retry';
 }

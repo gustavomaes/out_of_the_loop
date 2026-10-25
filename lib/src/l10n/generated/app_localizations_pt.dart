@@ -784,6 +784,30 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get onboardingSaveError => 'Não foi possível salvar. Tente novamente.';
+
+  @override
+  String get classicDevTitle => 'Classic · desenvolvimento';
+
+  @override
+  String get classicFixtureNotice => 'Fixture offline · não é o catálogo final';
+
+  @override
+  String get classicHint => 'Dica da categoria';
+
+  @override
+  String get classicSheet => 'Sheet de componentes';
+
+  @override
+  String get classicUnavailable => 'Jogo disponível na etapa 3';
+
+  @override
+  String get classicLoading => 'Carregando';
+
+  @override
+  String get classicError => 'Erro de exemplo';
+
+  @override
+  String get classicRetry => 'Tentar novamente';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1567,4 +1591,28 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get onboardingSaveError => 'Não foi possível salvar. Tente novamente.';
+
+  @override
+  String get classicDevTitle => 'Classic · desenvolvimento';
+
+  @override
+  String get classicFixtureNotice => 'Fixture offline · não é o catálogo final';
+
+  @override
+  String get classicHint => 'Dica da categoria';
+
+  @override
+  String get classicSheet => 'Sheet de componentes';
+
+  @override
+  String get classicUnavailable => 'Jogo disponível na etapa 3';
+
+  @override
+  String get classicLoading => 'Carregando';
+
+  @override
+  String get classicError => 'Erro de exemplo';
+
+  @override
+  String get classicRetry => 'Tentar novamente';
 }

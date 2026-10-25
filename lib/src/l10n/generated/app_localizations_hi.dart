@@ -774,4 +774,28 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get onboardingSaveError => 'सेव नहीं हो सका। फिर कोशिश करें।';
+
+  @override
+  String get classicDevTitle => 'Classic · विकास';
+
+  @override
+  String get classicFixtureNotice => 'ऑफ़लाइन नमूना · अंतिम कैटलॉग नहीं';
+
+  @override
+  String get classicHint => 'श्रेणी संकेत';
+
+  @override
+  String get classicSheet => 'घटक पैनल';
+
+  @override
+  String get classicUnavailable => 'चरण 3 में खेल उपलब्ध होगा';
+
+  @override
+  String get classicLoading => 'लोड हो रहा है';
+
+  @override
+  String get classicError => 'उदाहरण त्रुटि';
+
+  @override
+  String get classicRetry => 'फिर कोशिश करें';
 }

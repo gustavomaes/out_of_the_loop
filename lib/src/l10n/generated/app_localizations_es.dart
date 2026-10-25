@@ -783,4 +783,29 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get onboardingSaveError => 'No se pudo guardar. Inténtalo de nuevo.';
+
+  @override
+  String get classicDevTitle => 'Classic · desarrollo';
+
+  @override
+  String get classicFixtureNotice =>
+      'Datos locales de prueba · no es el catálogo final';
+
+  @override
+  String get classicHint => 'Pista de categoría';
+
+  @override
+  String get classicSheet => 'Panel de componentes';
+
+  @override
+  String get classicUnavailable => 'Juego disponible en la etapa 3';
+
+  @override
+  String get classicLoading => 'Cargando';
+
+  @override
+  String get classicError => 'Error de ejemplo';
+
+  @override
+  String get classicRetry => 'Reintentar';
 }

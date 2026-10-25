@@ -1460,6 +1460,54 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'Não foi possível salvar. Tente novamente.'**
   String get onboardingSaveError;
+
+  /// No description provided for @classicDevTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Classic · desenvolvimento'**
+  String get classicDevTitle;
+
+  /// No description provided for @classicFixtureNotice.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Fixture offline · não é o catálogo final'**
+  String get classicFixtureNotice;
+
+  /// No description provided for @classicHint.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Dica da categoria'**
+  String get classicHint;
+
+  /// No description provided for @classicSheet.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Sheet de componentes'**
+  String get classicSheet;
+
+  /// No description provided for @classicUnavailable.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Jogo disponível na etapa 3'**
+  String get classicUnavailable;
+
+  /// No description provided for @classicLoading.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Carregando'**
+  String get classicLoading;
+
+  /// No description provided for @classicError.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Erro de exemplo'**
+  String get classicError;
+
+  /// No description provided for @classicRetry.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Tentar novamente'**
+  String get classicRetry;
 }
 
 class _AppLocalizationsDelegate

@@ -375,5 +375,13 @@
         "type": "int"
       }
     }
-  }
+  },
+  "classicDevTitle": "Classic · desarrollo",
+  "classicFixtureNotice": "Datos locales de prueba · no es el catálogo final",
+  "classicHint": "Pista de categoría",
+  "classicSheet": "Panel de componentes",
+  "classicUnavailable": "Juego disponible en la etapa 3",
+  "classicLoading": "Cargando",
+  "classicError": "Error de ejemplo",
+  "classicRetry": "Reintentar"
 }

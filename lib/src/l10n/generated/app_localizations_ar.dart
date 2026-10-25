@@ -772,4 +772,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onboardingSaveError => 'تعذر الحفظ. حاول مرة أخرى.';
+
+  @override
+  String get classicDevTitle => 'Classic · تطوير';
+
+  @override
+  String get classicFixtureNotice => 'عينة دون اتصال · ليست القائمة النهائية';
+
+  @override
+  String get classicHint => 'تلميح الفئة';
+
+  @override
+  String get classicSheet => 'لوحة المكونات';
+
+  @override
+  String get classicUnavailable => 'اللعبة متاحة في المرحلة 3';
+
+  @override
+  String get classicLoading => 'جارٍ التحميل';
+
+  @override
+  String get classicError => 'خطأ تجريبي';
+
+  @override
+  String get classicRetry => 'إعادة المحاولة';
 }

@@ -375,5 +375,13 @@
         "type": "int"
       }
     }
-  }
+  },
+  "classicDevTitle": "Classic · विकास",
+  "classicFixtureNotice": "ऑफ़लाइन नमूना · अंतिम कैटलॉग नहीं",
+  "classicHint": "श्रेणी संकेत",
+  "classicSheet": "घटक पैनल",
+  "classicUnavailable": "चरण 3 में खेल उपलब्ध होगा",
+  "classicLoading": "लोड हो रहा है",
+  "classicError": "उदाहरण त्रुटि",
+  "classicRetry": "फिर कोशिश करें"
 }

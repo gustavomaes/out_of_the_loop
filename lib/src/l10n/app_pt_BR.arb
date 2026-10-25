@@ -378,5 +378,13 @@
         "type": "int"
       }
     }
-  }
+  },
+  "classicDevTitle": "Classic · desenvolvimento",
+  "classicFixtureNotice": "Fixture offline · não é o catálogo final",
+  "classicHint": "Dica da categoria",
+  "classicSheet": "Sheet de componentes",
+  "classicUnavailable": "Jogo disponível na etapa 3",
+  "classicLoading": "Carregando",
+  "classicError": "Erro de exemplo",
+  "classicRetry": "Tentar novamente"
 }

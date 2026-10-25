@@ -375,5 +375,13 @@
         "type": "int"
       }
     }
-  }
+  },
+  "classicDevTitle": "Classic · تطوير",
+  "classicFixtureNotice": "عينة دون اتصال · ليست القائمة النهائية",
+  "classicHint": "تلميح الفئة",
+  "classicSheet": "لوحة المكونات",
+  "classicUnavailable": "اللعبة متاحة في المرحلة 3",
+  "classicLoading": "جارٍ التحميل",
+  "classicError": "خطأ تجريبي",
+  "classicRetry": "إعادة المحاولة"
 }
