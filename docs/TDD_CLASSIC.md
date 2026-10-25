@@ -252,6 +252,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 6 — Premium real
 
+**Evidência da execução (25/10/2026):** [integração Premium, configuração e validação](classic/STAGE_6.md). Gateway, direitos, paywall contextual, restore e gestão integrados à entrada Classic. Etapa em validação: configuração comercial, auditoria legada e cenários reais em sandbox permanecem pendentes.
+
 **Objetivo:** validar pagamento e acesso completo, além do layout do paywall.
 
 **Entregáveis:** gateway adaptado; `PremiumAccess`; S16–S18; entradas voluntárias por categoria/home/settings/resultado; restore e gestão; matriz de direitos legados; evidências sandbox com revisão do build/produtos usados.

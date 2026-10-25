@@ -12,6 +12,7 @@ class ClassicController extends ChangeNotifier {
     Duration Function()? now,
     ClassicHistory? history,
     this.repository,
+    this.categoryAllowed,
     ClassicSession? restored,
   }) : _config = config,
        factory = factory ?? ClassicRoundFactory(),
@@ -142,10 +143,24 @@ class ClassicController extends ChangeNotifier {
     return true;
   }
 
+  final bool Function(String)? categoryAllowed;
+  bool accessAdjusted = false;
   bool start() => _create(ClassicPhase.home);
   bool playAgain() => _create(ClassicPhase.result);
   bool _create(ClassicPhase expected) {
     if (blocked || phase != expected || !_foreground) return false;
+    accessAdjusted = false;
+    if (categoryAllowed != null) {
+      final valid = config.categoryIds.where(categoryAllowed!).toSet();
+      if (valid.length != config.categoryIds.length) {
+        _config = config.copyWith(
+          categoryIds: valid.isEmpty ? {'food', 'animals', 'sports'} : valid,
+        );
+        accessAdjusted = true;
+        notifyListeners();
+        return false;
+      }
+    }
     _phase = ClassicPhase.preparing;
     notifyListeners();
     try {

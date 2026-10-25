@@ -4,6 +4,9 @@ import 'package:outoftheloop/src/data/classic/classic_content_repository.dart';
 import 'package:outoftheloop/src/domain/classic/classic_models.dart';
 import 'package:outoftheloop/src/features/classic/application/classic_controller.dart';
 import 'package:outoftheloop/src/features/classic/application/classic_demo_premium.dart';
+import 'package:outoftheloop/src/features/premium/premium_access.dart';
+import 'package:outoftheloop/src/data/purchases/purchase_gateway.dart';
+import 'premium_access_test.dart' show BillingFake;
 import 'package:outoftheloop/src/features/classic/presentation/classic_dev_app.dart';
 import 'package:outoftheloop/src/features/classic/presentation/classic_home.dart';
 
@@ -75,10 +78,24 @@ void main() {
     },
   );
   testWidgets(
-    'locked category returns from fake Premium to unchanged draft and all 23',
+    'contextual store purchase preserves draft until Confirm and unlocks all 23',
     (t) async {
       final c = makeController();
-      final p = ClassicDemoPremium();
+      final gateway = BillingFake()
+        ..value = const PurchaseSnapshot(
+          offers: {
+            'annual': PackOffer(
+              id: 'annual',
+              price: '\$19.99',
+              currencyCode: 'USD',
+              amount: 19.99,
+              productId: 'annual.store',
+              period: 'P1Y',
+            ),
+          },
+        );
+      final p = PremiumAccess(gateway: gateway, entitlement: 'premium');
+      await p.refresh();
       addTearDown(c.dispose);
       addTearDown(p.dispose);
       await t.pumpWidget(
@@ -88,7 +105,10 @@ void main() {
       );
       await tapVisible(t, find.byKey(const Key('edit-categories')));
       await tapVisible(t, find.byKey(const Key('category-movies')));
-      await tapVisible(t, find.text('Enable Premium demo'));
+      gateway.value = const PurchaseSnapshot(entitlements: {'premium'});
+      await tapVisible(t, find.text('Annual · \$19.99'));
+      await t.tap(find.byIcon(Icons.close).last);
+      await t.pumpAndSettle();
       expect(p.enabled, isTrue);
       expect(c.config.categoryIds.length, 3);
       expect(find.byType(BottomSheet), findsOneWidget);
@@ -251,7 +271,11 @@ void main() {
     );
     await t.tap(find.text('Add player'));
     await t.pumpAndSettle();
-    await t.scrollUntilVisible(find.text('Add player'), 160, scrollable: sheetScroll);
+    await t.scrollUntilVisible(
+      find.text('Add player'),
+      160,
+      scrollable: sheetScroll,
+    );
     await t.pumpAndSettle();
     expect(
       t

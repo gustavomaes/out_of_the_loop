@@ -3,14 +3,16 @@ import '../../../data/classic/classic_content_repository.dart';
 import '../../../domain/classic/classic_models.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../application/classic_controller.dart';
-import '../application/classic_demo_premium.dart';
+import '../../premium/premium_access.dart';
+import '../../premium/premium_sheet.dart';
+import '../../../data/purchases/purchase_gateway.dart';
 import 'classic_components.dart';
 import 'classic_round_screen.dart';
 
 class ClassicHome extends StatefulWidget {
   const ClassicHome({super.key, this.controller, this.premium});
   final ClassicController? controller;
-  final ClassicDemoPremium? premium;
+  final PremiumAccess? premium;
   @override
   State<ClassicHome> createState() => _ClassicHomeState();
 }
@@ -29,7 +31,9 @@ class _ClassicHomeState extends State<ClassicHome> {
           categoryIds: {'food', 'animals', 'sports'},
         ),
       );
-  late final premium = widget.premium ?? ClassicDemoPremium();
+  late final premium =
+      widget.premium ??
+      PremiumAccess(gateway: RevenueCatPurchaseGateway(), entitlement: '');
   late int lastMinutes = controller.config.timerMinutes ?? 3;
   AppLocalizations get l => AppLocalizations.of(context)!;
   ClassicConfig get config => controller.config;
@@ -43,19 +47,7 @@ class _ClassicHomeState extends State<ClassicHome> {
   Future<void> showPremium() => showClassicSheet(
     context,
     title: l.classicPremium,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(l.classicDemoNotice),
-        ClassicButton(
-          label: l.classicDemoBuy,
-          onPressed: () {
-            premium.enable();
-            Navigator.pop(context);
-          },
-        ),
-      ],
-    ),
+    child: PremiumSheet(access: premium),
   );
 
   Future<void> editNames() async {
@@ -109,7 +101,9 @@ class _ClassicHomeState extends State<ClassicHome> {
                         ..clear()
                         ..addAll(
                           classicCategories
-                              .where((c) => premium.enabled || !c.premium)
+                              .where(
+                                (c) => premium.allows(c.id, free: !c.premium),
+                              )
                               .map((c) => c.id),
                         );
                     }),
@@ -130,15 +124,22 @@ class _ClassicHomeState extends State<ClassicHome> {
                   key: ValueKey('category-${category.id}'),
                   contentPadding: EdgeInsets.zero,
                   title: Text('${category.emoji} ${category.name}'),
-                  secondary: category.premium && !premium.enabled
+                  secondary:
+                      !premium.allows(category.id, free: !category.premium)
                       ? const Icon(Icons.lock_outline)
                       : null,
                   value: draft.contains(category.id),
                   onChanged: (selected) async {
-                    if (category.premium && !premium.enabled) {
+                    if (!premium.allows(category.id, free: !category.premium)) {
                       await showPremium();
-                      // Returning from the fake gateway retains the draft. Selection
-                      // still requires an explicit tap and Confirm.
+                      if (!mounted || !sheetContext.mounted) return;
+                      // The sheet remains mounted, retaining draft and scroll.
+                      if (premium.allows(
+                        category.id,
+                        free: !category.premium,
+                      )) {
+                        refresh(() => draft.add(category.id));
+                      }
                       return;
                     }
                     refresh(
@@ -242,7 +243,10 @@ class _ClassicHomeState extends State<ClassicHome> {
   Widget build(BuildContext context) => ListenableBuilder(
     listenable: Listenable.merge([controller, premium]),
     builder: (context, _) => controller.phase != ClassicPhase.home
-        ? ClassicRoundScreen(controller: controller)
+        ? ClassicRoundScreen(
+            controller: controller,
+            onPremium: premium.enabled ? null : showPremium,
+          )
         : Scaffold(
             appBar: AppBar(
               title: const Text('Classic'),
@@ -264,7 +268,6 @@ class _ClassicHomeState extends State<ClassicHome> {
                     title: l.classicSettings,
                     child: Column(
                       children: [
-                        Text(l.classicDemoNotice),
                         ClassicButton(
                           label: l.classicResetHistory,
                           onPressed: () async {
@@ -290,11 +293,10 @@ class _ClassicHomeState extends State<ClassicHome> {
                             if (confirmed == true) controller.resetHistory();
                           },
                         ),
-                        if (!premium.enabled)
-                          ClassicButton(
-                            label: l.classicPremium,
-                            onPressed: showPremium,
-                          ),
+                        ClassicButton(
+                          label: l.classicPremium,
+                          onPressed: showPremium,
+                        ),
                       ],
                     ),
                   ),
@@ -325,7 +327,13 @@ class _ClassicHomeState extends State<ClassicHome> {
                         if (!controller.start() &&
                             controller.phase == ClassicPhase.home) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(l.classicContentMissing)),
+                            SnackBar(
+                              content: Text(
+                                controller.accessAdjusted
+                                    ? 'Access changed. Selection updated; tap again to continue.'
+                                    : l.classicContentMissing,
+                              ),
+                            ),
                           );
                         }
                       },

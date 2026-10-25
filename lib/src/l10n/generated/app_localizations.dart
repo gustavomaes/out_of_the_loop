@@ -1632,7 +1632,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicPremium.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Premium · demo'**
+  /// **'Premium'**
   String get classicPremium;
 
   /// No description provided for @classicDemoBuy.

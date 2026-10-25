@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'src/features/classic/presentation/classic_dev_app.dart';
 import 'src/features/classic/presentation/classic_session_host.dart';
 
-/// Explicit offline entry: no Firebase, purchases or network bootstrap.
+/// Classic entry: offline gameplay; optional RevenueCat configuration from build defines.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Locale? locale;

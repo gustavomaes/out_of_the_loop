@@ -871,7 +871,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get classicSettings => 'Configurações';
 
   @override
-  String get classicPremium => 'Premium · demo';
+  String get classicPremium => 'Premium';
 
   @override
   String get classicDemoBuy => 'Ativar Premium de demonstração';
@@ -1912,7 +1912,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get classicSettings => 'Configurações';
 
   @override
-  String get classicPremium => 'Premium · demo';
+  String get classicPremium => 'Premium';
 
   @override
   String get classicDemoBuy => 'Ativar Premium de demonstração';

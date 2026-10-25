@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
+import '../../../data/purchases/purchase_gateway.dart';
+import '../../../data/purchases/classic_billing_config.dart';
+import '../../premium/premium_access.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../data/classic/classic_content_repository.dart';
 import '../../../data/classic/classic_session_repository.dart';
@@ -18,7 +22,40 @@ class ClassicSessionHost extends StatefulWidget {
   State<ClassicSessionHost> createState() => _ClassicSessionHostState();
 }
 
-class _ClassicSessionHostState extends State<ClassicSessionHost> {
+class _ClassicSessionHostState extends State<ClassicSessionHost>
+    with WidgetsBindingObserver {
+  static const entitlement = String.fromEnvironment(
+    'CLASSIC_PREMIUM_ENTITLEMENT',
+  );
+  late final premium = PremiumAccess(
+    entitlement: entitlement,
+    legacyCategories: classicLegacyRights(
+      const String.fromEnvironment(
+        'CLASSIC_LEGACY_RIGHTS_JSON',
+        defaultValue: '{}',
+      ),
+    ),
+    gateway: RevenueCatPurchaseGateway(
+      includeLegacyOffers: false,
+      subscriptionProducts: {
+        if (const String.fromEnvironment('CLASSIC_ANNUAL_PRODUCT') != '' &&
+            entitlement != '')
+          const String.fromEnvironment('CLASSIC_ANNUAL_PRODUCT'): entitlement,
+        if (const String.fromEnvironment('CLASSIC_WEEKLY_PRODUCT') != '' &&
+            entitlement != '')
+          const String.fromEnvironment('CLASSIC_WEEKLY_PRODUCT'): entitlement,
+      },
+    ),
+  );
+  void customerChanged(CustomerInfo _) {
+    premium.refresh();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) premium.refresh();
+  }
+
   ClassicSessionRepository? repository;
   ClassicController? controller;
   bool loading = true;
@@ -28,6 +65,9 @@ class _ClassicSessionHostState extends State<ClassicSessionHost> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    Purchases.addCustomerInfoUpdateListener(customerChanged);
+    premium.refresh();
     load();
   }
 
@@ -66,6 +106,10 @@ class _ClassicSessionHostState extends State<ClassicSessionHost> {
       controller?.dispose();
       controller = ClassicController(
         content: const ClassicContentRepository(),
+        categoryAllowed: (id) => premium.allows(
+          id,
+          free: classicCategories.any((c) => c.id == id && !c.premium),
+        ),
         config: result.session.config,
         restored: result.session,
         // Future schemas stay untouched if the user chooses a temporary game.
@@ -89,6 +133,9 @@ class _ClassicSessionHostState extends State<ClassicSessionHost> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    Purchases.removeCustomerInfoUpdateListener(customerChanged);
+    premium.dispose();
     controller?.dispose();
     super.dispose();
   }
@@ -176,7 +223,9 @@ class _ClassicSessionHostState extends State<ClassicSessionHost> {
                       ),
                     ),
                   ),
-                Expanded(child: ClassicHome(controller: c)),
+                Expanded(
+                  child: ClassicHome(controller: c, premium: premium),
+                ),
               ],
             ),
             if (c.saving)

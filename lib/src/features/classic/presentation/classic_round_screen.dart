@@ -9,7 +9,12 @@ import 'classic_components.dart';
 
 /// Secrets exist only in this mounted screen's ephemeral presentation state.
 class ClassicRoundScreen extends StatefulWidget {
-  const ClassicRoundScreen({super.key, required this.controller});
+  const ClassicRoundScreen({
+    super.key,
+    required this.controller,
+    this.onPremium,
+  });
+  final VoidCallback? onPremium;
   final ClassicController controller;
   @override
   State<ClassicRoundScreen> createState() => _ClassicRoundScreenState();
@@ -345,12 +350,23 @@ class _ClassicRoundScreenState extends State<ClassicRoundScreen>
           onPressed: () {
             _hide();
             if (!c.playAgain() && c.phase == ClassicPhase.result) {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(l.classicContentMissing)));
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    c.accessAdjusted
+                        ? 'Access changed. Selection updated; tap again to continue.'
+                        : l.classicContentMissing,
+                  ),
+                ),
+              );
             }
           },
         ),
+        if (widget.onPremium != null)
+          TextButton(
+            onPressed: widget.onPremium,
+            child: Text(l.classicPremium),
+          ),
         TextButton(onPressed: c.endRound, child: Text(l.classicEditGame)),
       ],
     );

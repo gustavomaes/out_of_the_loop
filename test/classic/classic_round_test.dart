@@ -55,6 +55,31 @@ void distribute(ClassicController c) {
 
 void main() {
   test(
+    'revocation preserves frozen round and requires acknowledging valid replay selection',
+    () {
+      var paid = true;
+      final c = ClassicController(
+        content: const ClassicContentRepository(),
+        config: group(3, categories: {'movies'}),
+        categoryAllowed: (id) => paid || id != 'movies',
+      );
+      addTearDown(c.dispose);
+      expect(c.start(), isTrue);
+      final round = c.round;
+      paid = false;
+      distribute(c);
+      c.revealResult();
+      expect(c.round, same(round));
+      expect(c.playAgain(), isFalse);
+      expect(c.phase, ClassicPhase.result);
+      expect(c.accessAdjusted, isTrue);
+      expect(c.config.categoryIds, {'food', 'animals', 'sports'});
+      expect(c.playAgain(), isTrue);
+      expect(c.round!.config.categoryIds, {'food', 'animals', 'sports'});
+    },
+  );
+
+  test(
     'Auto/manual draw without replacement for every group size; starter independent',
     () {
       for (var n = 3; n <= 20; n++) {

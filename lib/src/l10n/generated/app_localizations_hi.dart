@@ -860,7 +860,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get classicSettings => 'Settings';
 
   @override
-  String get classicPremium => 'Premium · demo';
+  String get classicPremium => 'Premium';
 
   @override
   String get classicDemoBuy => 'Enable Premium demo';

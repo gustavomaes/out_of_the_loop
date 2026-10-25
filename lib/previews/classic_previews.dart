@@ -1,3 +1,6 @@
+import '../src/features/premium/premium_access.dart';
+import '../src/features/premium/premium_sheet.dart';
+import '../src/data/purchases/purchase_gateway.dart';
 import 'dart:convert';
 import '../src/data/classic/classic_session_repository.dart';
 import '../src/features/classic/presentation/classic_session_host.dart';
@@ -114,4 +117,50 @@ Widget _sessionPreview(bool corrupt) {
       ),
     ),
   );
+}
+
+@Preview(
+  name: 'Premium / store unavailable / 200%',
+  group: 'Classic',
+  size: Size(320, 640),
+)
+Widget classicPremiumPreview() => const ClassicDevApp(
+  textScaler: TextScaler.linear(2),
+  home: _PremiumPreview(),
+);
+
+class _PremiumPreview extends StatefulWidget {
+  const _PremiumPreview();
+  @override
+  State<_PremiumPreview> createState() => _PremiumPreviewState();
+}
+
+class _PremiumPreviewState extends State<_PremiumPreview> {
+  late final access = PremiumAccess(
+    gateway: _PreviewPurchases(),
+    entitlement: 'preview',
+  );
+  @override
+  void dispose() {
+    access.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: SafeArea(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: PremiumSheet(access: access),
+      ),
+    ),
+  );
+}
+
+class _PreviewPurchases implements PurchaseGateway {
+  @override
+  Future<PurchaseSnapshot> load({bool restore = false}) async =>
+      const PurchaseSnapshot();
+  @override
+  Future<PurchaseOutcome> buy(String id) async => PurchaseOutcome.unavailable;
 }
