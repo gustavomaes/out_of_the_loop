@@ -1,0 +1,14 @@
+{
+  "bundleId": "com.mathsquirrels.outoftheloop",
+  "version": "1.2.1",
+  "build": "7",
+  "platform": [
+    "iPhoneOS"
+  ],
+  "sha256": {
+    "Runner": "08e5d78640881b42e0d2d271ba98ce822ae0a8845bf4fb6440004299cd38389d",
+    "Frameworks/App.framework/App": "a320920127636681f3d5f5dd7fd65112b6083e1868b94dc91bee76b7a467055d"
+  },
+  "retiredAssetsAndCrashlyticsAbsent": true,
+  "note": "Local .app inspection only; signing, IPA, commerce and TestFlight unverified."
+}

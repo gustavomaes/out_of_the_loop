@@ -280,6 +280,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 8 — integração final e release candidate
 
+**Evidência da execução (25/10/2026):** [integração Classic, candidato local, matriz de QA e bloqueadores](classic/STAGE_8.md). Entrada padrão trocada e runtime Guided removido. Implementação técnica entregue; etapa em validação até sandbox, QA físico, teste com cinco anfitriões em dois grupos e candidato TestFlight conferido. Nenhuma publicação realizada.
+
 **Objetivo:** produzir um binário Classic consistente e verificável.
 
 **Entregáveis:** troca definitiva da entrada/rotas; remoção de Guided e dependências sem uso; suíte atualizada; matriz de QA preenchida; teste com cinco anfitriões em pelo menos dois grupos; build TestFlight candidato e lista de problemas priorizados.
