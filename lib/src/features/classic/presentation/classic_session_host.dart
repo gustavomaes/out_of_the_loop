@@ -89,7 +89,7 @@ class _ClassicSessionHostState extends State<ClassicSessionHost>
           categoryIds: {'food', 'animals', 'sports'},
         ),
         history: ClassicHistory(),
-        // Keep the existing preference keys authoritative for Guided/Classic.
+        // Keep the existing preference keys authoritative across the migration.
         preferences: {
           for (final key in [
             'settings.language',

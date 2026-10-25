@@ -1,3 +1,4 @@
+import 'classic_gallery.dart';
 import '../src/features/classic/application/classic_experience.dart';
 import '../src/features/classic/presentation/classic_settings.dart';
 import '../src/features/premium/premium_access.dart';
@@ -8,14 +9,14 @@ import '../src/data/classic/classic_session_repository.dart';
 import '../src/features/classic/presentation/classic_session_host.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
-import '../src/features/classic/presentation/classic_dev_app.dart';
+import '../src/features/classic/presentation/classic_app.dart';
 import '../src/features/classic/presentation/classic_home.dart';
 import '../src/features/classic/application/classic_controller.dart';
 import '../src/domain/classic/classic_models.dart';
 import '../src/data/classic/classic_content_repository.dart';
 
 @Preview(name: 'Coral Social / 320', group: 'Classic', size: Size(320, 640))
-Widget classicSmallPreview() => const ClassicDevApp();
+Widget classicSmallPreview() => const ClassicApp();
 
 @Preview(
   name: 'Coral Social / text 200%',
@@ -23,22 +24,21 @@ Widget classicSmallPreview() => const ClassicDevApp();
   size: Size(320, 640),
 )
 Widget classicLargeTextPreview() =>
-    const ClassicDevApp(textScaler: TextScaler.linear(2));
+    const ClassicApp(textScaler: TextScaler.linear(2));
 
 @Preview(
   name: 'Coral Social / components',
   group: 'Classic',
   size: Size(320, 640),
 )
-Widget classicComponentsPreview() =>
-    const ClassicDevApp(home: ClassicGallery());
+Widget classicComponentsPreview() => const ClassicApp(home: ClassicGallery());
 
 @Preview(name: 'Classic / private role', group: 'Classic', size: Size(320, 640))
-Widget classicRolePreview() => const ClassicDevApp(home: _RoundPreview());
+Widget classicRolePreview() => const ClassicApp(home: _RoundPreview());
 
 @Preview(name: 'Classic / discussion', group: 'Classic', size: Size(320, 640))
 Widget classicDiscussionPreview() =>
-    const ClassicDevApp(home: _RoundPreview(discussion: true));
+    const ClassicApp(home: _RoundPreview(discussion: true));
 
 class _RoundPreview extends StatefulWidget {
   const _RoundPreview({this.discussion = false});
@@ -108,7 +108,7 @@ Widget _sessionPreview(bool corrupt) {
   c.start();
   String? raw = corrupt ? '{broken' : jsonEncode(c.session.toJson());
   c.dispose();
-  return ClassicDevApp(
+  return ClassicApp(
     textScaler: const TextScaler.linear(2),
     home: ClassicSessionHost(
       repository: ClassicSessionRepository(
@@ -126,10 +126,8 @@ Widget _sessionPreview(bool corrupt) {
   group: 'Classic',
   size: Size(320, 640),
 )
-Widget classicPremiumPreview() => const ClassicDevApp(
-  textScaler: TextScaler.linear(2),
-  home: _PremiumPreview(),
-);
+Widget classicPremiumPreview() =>
+    const ClassicApp(textScaler: TextScaler.linear(2), home: _PremiumPreview());
 
 class _PremiumPreview extends StatefulWidget {
   const _PremiumPreview();
@@ -173,7 +171,7 @@ class _PreviewPurchases implements PurchaseGateway {
   size: Size(768, 1024),
 )
 Widget classicArabicPreview() =>
-    const ClassicDevApp(locale: Locale('ar'), textScaler: TextScaler.linear(2));
+    const ClassicApp(locale: Locale('ar'), textScaler: TextScaler.linear(2));
 
 @Preview(
   name: 'Classic / settings 200%',
@@ -197,7 +195,7 @@ class _SettingsPreviewState extends State<_SettingsPreview> {
   }
 
   @override
-  Widget build(BuildContext context) => ClassicDevApp(
+  Widget build(BuildContext context) => ClassicApp(
     experience: experience,
     textScaler: const TextScaler.linear(2),
     home: const Scaffold(

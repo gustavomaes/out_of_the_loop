@@ -48,23 +48,8 @@ void main() {
     );
   });
 
-  test('generated localizations expose core MVP strings', () {
-    final localizations = lookupAppLocalizations(const Locale('pt', 'BR'));
-
-    expect(localizations.appTitle, 'Out of the Loop');
-    expect(localizations.startGame, 'JOGAR');
-    expect(localizations.navPlay, 'INÍCIO');
-    expect(localizations.navCategories, 'CATEGORIAS');
-    expect(localizations.navProfile, 'PERFIL');
-    expect(localizations.howToPlay, 'COMO JOGAR');
-    expect(localizations.revealMyWord, 'REVELAR MEU PAPEL');
-    expect(localizations.secretRevealRound(1), 'RODADA 1');
-    expect(localizations.secretRevealPassTo, 'PASSE PARA');
-    expect(localizations.secretRevealTopSecret, 'TOP SECREDO');
-    expect(localizations.confirmVotes, 'CONFIRMAR VOTOS');
-    expect(localizations.votingVote, 'VOTAR');
-    expect(localizations.settings, 'Configuracoes');
-    expect(localizations.howToPlayScreenTitle, 'COMO JOGAR');
-    expect(localizations.howToPlaySecretBodyHighlight, 'Fora do Loop!');
+  test('generated localizations expose Classic runtime strings', () {
+    final l = lookupAppLocalizations(const Locale('en'));
+    expect(l.classicStart, 'Start game');
   });
 }

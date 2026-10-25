@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:outoftheloop/src/domain/models/models.dart';
+import 'package:outoftheloop/src/l10n/supported_language.dart';
 import 'package:outoftheloop/src/l10n/out_of_the_loop_localizations.dart';
 
 void main() {
   group('OutOfTheLoopLocalizations.supportedLanguageFrom', () {
     test('maps supported device locales', () {
       expect(
-        OutOfTheLoopLocalizations.supportedLanguageFrom(const Locale('pt', 'BR')),
+        OutOfTheLoopLocalizations.supportedLanguageFrom(
+          const Locale('pt', 'BR'),
+        ),
         SupportedLanguage.ptBr,
       );
       expect(
-        OutOfTheLoopLocalizations.supportedLanguageFrom(const Locale('en', 'US')),
+        OutOfTheLoopLocalizations.supportedLanguageFrom(
+          const Locale('en', 'US'),
+        ),
         SupportedLanguage.en,
       );
       expect(

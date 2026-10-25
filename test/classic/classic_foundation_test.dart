@@ -1,9 +1,10 @@
+import 'package:outoftheloop/previews/classic_gallery.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/domain/classic/classic_models.dart';
 import 'package:outoftheloop/src/data/classic/classic_content_repository.dart';
 import 'package:outoftheloop/src/features/classic/application/classic_controller.dart';
-import 'package:outoftheloop/src/features/classic/presentation/classic_dev_app.dart';
+import 'package:outoftheloop/src/features/classic/presentation/classic_app.dart';
 import 'package:outoftheloop/src/features/classic/presentation/classic_components.dart';
 
 ClassicConfig config(
@@ -89,7 +90,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
-      await tester.pumpWidget(const ClassicDevApp(home: ClassicGallery()));
+      await tester.pumpWidget(const ClassicApp(home: ClassicGallery()));
       expect(find.byType(ClassicCard), findsWidgets);
       await tester.tap(find.byType(Switch).first);
       await tester.pump();

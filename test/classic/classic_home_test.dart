@@ -7,7 +7,7 @@ import 'package:outoftheloop/src/features/classic/application/classic_demo_premi
 import 'package:outoftheloop/src/features/premium/premium_access.dart';
 import 'package:outoftheloop/src/data/purchases/purchase_gateway.dart';
 import 'premium_access_test.dart' show BillingFake;
-import 'package:outoftheloop/src/features/classic/presentation/classic_dev_app.dart';
+import 'package:outoftheloop/src/features/classic/presentation/classic_app.dart';
 import 'package:outoftheloop/src/features/classic/presentation/classic_home.dart';
 
 ClassicController makeController([int count = 3]) => ClassicController(
@@ -47,7 +47,7 @@ void main() {
     (t) async {
       final c = makeController();
       addTearDown(c.dispose);
-      await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+      await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
       await tapVisible(t, find.byKey(const Key('edit-categories')));
       await t.tap(find.text('Clear'));
       await t.pumpAndSettle();
@@ -99,7 +99,7 @@ void main() {
       addTearDown(c.dispose);
       addTearDown(p.dispose);
       await t.pumpWidget(
-        ClassicDevApp(
+        ClassicApp(
           home: ClassicHome(controller: c, premium: p),
         ),
       );
@@ -135,7 +135,7 @@ void main() {
   ) async {
     final c = makeController();
     addTearDown(c.dispose);
-    await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+    await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
     await tapVisible(t, find.byKey(const Key('edit-duration')));
     expect(find.byType(BottomSheet), findsNothing);
     await tapVisible(t, find.byKey(const Key('timer-switch')));
@@ -165,7 +165,7 @@ void main() {
           addTearDown(c.dispose);
           addTearDown(p.dispose);
           await t.pumpWidget(
-            ClassicDevApp(
+            ClassicApp(
               textScaler: TextScaler.linear(scale),
               home: ClassicHome(controller: c, premium: p),
             ),
@@ -217,7 +217,7 @@ void main() {
       final c = makeController(4);
       c.updateConfig(c.config.copyWith(manualImpostors: 1));
       addTearDown(c.dispose);
-      await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+      await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
       await tapVisible(t, find.byKey(const Key('edit-names')));
       await t.enterText(find.byKey(const Key('name-0')), '   ');
       await t.tap(find.byTooltip('Remove player').last);
@@ -256,7 +256,7 @@ void main() {
   ) async {
     final c = makeController(19);
     addTearDown(c.dispose);
-    await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+    await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
     await tapVisible(t, find.byKey(const Key('edit-names')));
     final sheetScroll = find
         .descendant(

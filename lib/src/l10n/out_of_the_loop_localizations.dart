@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../domain/models/models.dart';
+import 'supported_language.dart';
 
 abstract final class OutOfTheLoopLocalizations {
   static const fallbackLocale = Locale('en');

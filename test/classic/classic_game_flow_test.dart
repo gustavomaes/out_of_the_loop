@@ -5,7 +5,7 @@ import 'package:outoftheloop/src/data/classic/classic_content_repository.dart';
 import 'package:outoftheloop/src/domain/classic/classic_models.dart';
 import 'package:outoftheloop/src/domain/classic/classic_round_factory.dart';
 import 'package:outoftheloop/src/features/classic/application/classic_controller.dart';
-import 'package:outoftheloop/src/features/classic/presentation/classic_dev_app.dart';
+import 'package:outoftheloop/src/features/classic/presentation/classic_app.dart';
 import 'package:outoftheloop/src/features/classic/presentation/classic_home.dart';
 import 'classic_round_test.dart' show FixedRandom;
 
@@ -74,7 +74,7 @@ void main() {
         final c = game(count: count);
         addTearDown(c.dispose);
         await t.pumpWidget(
-          ClassicDevApp(
+          ClassicApp(
             textScaler: const TextScaler.linear(2),
             home: ClassicHome(controller: c),
           ),
@@ -130,7 +130,7 @@ void main() {
     (t) async {
       final c = game();
       addTearDown(c.dispose);
-      await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+      await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
       await t.tap(button('Start game'));
       await t.pumpAndSettle();
       Finder card() =>
@@ -168,7 +168,7 @@ void main() {
     (t) async {
       final c = game();
       addTearDown(c.dispose);
-      await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+      await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
       await t.tap(button('Start game'));
       await t.pumpAndSettle();
       await tap(t, find.byKey(const Key('accessible-reveal')));
@@ -220,7 +220,7 @@ void main() {
   ) async {
     final c = game();
     addTearDown(c.dispose);
-    await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+    await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
     await t.tap(button('Start game'));
     await t.pumpAndSettle();
     final reveal = find.byKey(const Key('accessible-reveal'));
@@ -238,7 +238,7 @@ void main() {
     (t) async {
       final c = game(troll: true, hint: true);
       addTearDown(c.dispose);
-      await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+      await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
       await t.tap(button('Start game'));
       await t.pumpAndSettle();
       for (var i = 0; i < 3; i++) {
@@ -266,7 +266,7 @@ void main() {
     var time = Duration.zero;
     final c = game(timer: 1, now: () => time);
     addTearDown(c.dispose);
-    await t.pumpWidget(ClassicDevApp(home: ClassicHome(controller: c)));
+    await t.pumpWidget(ClassicApp(home: ClassicHome(controller: c)));
     await t.tap(button('Start game'));
     await t.pumpAndSettle();
     for (var i = 0; i < 3; i++) {

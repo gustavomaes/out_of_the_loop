@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:outoftheloop/src/l10n/generated/app_localizations.dart';
 import 'package:outoftheloop/src/features/classic/application/classic_experience.dart';
-import 'package:outoftheloop/src/features/classic/presentation/classic_dev_app.dart';
+import 'package:outoftheloop/src/features/classic/presentation/classic_app.dart';
 import 'package:outoftheloop/src/features/classic/presentation/classic_settings.dart';
 import 'package:outoftheloop/src/features/classic/presentation/classic_home.dart';
 import 'package:outoftheloop/src/features/premium/premium_sheet.dart';
@@ -67,7 +67,7 @@ void main() {
           addTearDown(premium.dispose);
           final l = lookupAppLocalizations(locale);
           await t.pumpWidget(
-            ClassicDevApp(
+            ClassicApp(
               experience: e,
               textScaler: const TextScaler.linear(2),
               home: const Scaffold(
@@ -86,7 +86,7 @@ void main() {
           await t.scrollUntilVisible(find.text(l.classicSupport), 250);
           expect(t.takeException(), isNull);
           await t.pumpWidget(
-            ClassicDevApp(
+            ClassicApp(
               locale: locale,
               textScaler: const TextScaler.linear(2),
               home: Scaffold(
@@ -105,7 +105,7 @@ void main() {
           final c = game();
           addTearDown(c.dispose);
           await t.pumpWidget(
-            ClassicDevApp(
+            ClassicApp(
               locale: locale,
               textScaler: const TextScaler.linear(2),
               home: ClassicHome(controller: c),
@@ -140,7 +140,7 @@ void main() {
       final e = ClassicExperience(persist: false);
       addTearDown(e.dispose);
       await t.pumpWidget(
-        ClassicDevApp(
+        ClassicApp(
           experience: e,
           home: const Scaffold(
             body: SingleChildScrollView(child: ClassicSettings()),

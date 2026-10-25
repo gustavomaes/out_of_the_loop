@@ -1,5 +1,5 @@
 name: outoftheloop
-description: "A new Flutter project."
+description: "Offline Classic party game for 3–20 players."
 publish_to: 'none'
 version: 1.2.1+7
 
@@ -8,15 +8,12 @@ environment:
 
 dependencies:
   audioplayers: ^6.6.0
-  confetti: ^0.8.0
   firebase_analytics: ^12.4.1
   firebase_core: ^4.9.0
-  firebase_crashlytics: ^5.2.2
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  go_router: ^17.2.3
   in_app_review: ^2.0.11
   intl: any
   purchases_flutter: ^10.17.0
@@ -40,17 +37,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/content/
-    - assets/images/
+    - assets/images/app_icon.png
     - assets/sounds/
 
   fonts:
-    - family: Rubik
-      fonts:
-        - asset: assets/fonts/Rubik[wght].ttf
     - family: PlusJakartaSans
       fonts:
         - asset: assets/fonts/PlusJakartaSans[wght].ttf
-    - family: SpaceGrotesk
-      fonts:
-        - asset: assets/fonts/SpaceGrotesk[wght].ttf

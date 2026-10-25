@@ -6,7 +6,7 @@ import 'package:outoftheloop/src/data/classic/classic_session_repository.dart';
 import 'package:outoftheloop/src/data/classic/classic_content_repository.dart';
 import 'package:outoftheloop/src/domain/classic/classic_models.dart';
 import 'package:outoftheloop/src/features/classic/application/classic_controller.dart';
-import 'package:outoftheloop/src/features/classic/presentation/classic_dev_app.dart';
+import 'package:outoftheloop/src/features/classic/presentation/classic_app.dart';
 import 'package:outoftheloop/src/features/classic/presentation/classic_session_host.dart';
 
 void main() {
@@ -35,9 +35,7 @@ void main() {
       },
     );
     initial.dispose();
-    await t.pumpWidget(
-      ClassicDevApp(home: ClassicSessionHost(repository: repo)),
-    );
+    await t.pumpWidget(ClassicApp(home: ClassicSessionHost(repository: repo)));
     await t.pumpAndSettle();
     expect(find.text('Game in progress'), findsOneWidget);
     expect(find.text(secret), findsNothing);
@@ -67,9 +65,7 @@ void main() {
     expect(find.text(secret), findsNothing);
     // Replace the entire widget tree: no surviving controller can supply state.
     await t.pumpWidget(const SizedBox());
-    await t.pumpWidget(
-      ClassicDevApp(home: ClassicSessionHost(repository: repo)),
-    );
+    await t.pumpWidget(ClassicApp(home: ClassicSessionHost(repository: repo)));
     await t.pumpAndSettle();
     expect(find.text('Game in progress'), findsOneWidget);
     await t.tap(find.text('End round'));
@@ -98,7 +94,7 @@ void main() {
         },
       );
       await t.pumpWidget(
-        ClassicDevApp(home: ClassicSessionHost(repository: repo)),
+        ClassicApp(home: ClassicSessionHost(repository: repo)),
       );
       await t.pumpAndSettle();
       expect(find.text('Saved game recovery'), findsOneWidget);
@@ -126,9 +122,7 @@ void main() {
         raw = value;
       },
     );
-    await t.pumpWidget(
-      ClassicDevApp(home: ClassicSessionHost(repository: repo)),
-    );
+    await t.pumpWidget(ClassicApp(home: ClassicSessionHost(repository: repo)));
     await t.pumpAndSettle();
     await t.tap(find.text('Start game'));
     await t.pumpAndSettle();
@@ -164,7 +158,7 @@ void main() {
       write: (_, _) async {},
     );
     await t.pumpWidget(
-      ClassicDevApp(
+      ClassicApp(
         textScaler: const TextScaler.linear(2),
         home: ClassicSessionHost(repository: repo),
       ),
