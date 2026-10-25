@@ -442,5 +442,18 @@
   "classicTrollResult": "Rodada Troll — todo mundo!",
   "classicAgain": "Jogar novamente",
   "classicEditGame": "Editar jogo",
-  "classicContentMissing": "Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar."
+  "classicContentMissing": "Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.",
+  "classicRecoveryTitle": "Recuperar jogo salvo",
+  "classicFutureSave": "Este save exige uma versão mais nova. Tente novamente ou jogue temporariamente sem substituí-lo.",
+  "classicRecoveryBody": "Não foi possível ler o jogo salvo. Tente novamente ou comece com o grupo e histórico válidos. Compras e preferências serão preservadas.",
+  "classicNewGame": "Nova partida",
+  "classicDiscardBody": "Descartar apenas a rodada salva? Grupo, histórico, preferências e compras serão mantidos.",
+  "classicResumeTitle": "Partida em andamento",
+  "classicResumeBody": "Retome com os cartões cobertos e o timer pausado, ou encerre esta rodada.",
+  "classicWriteFailure": "Não foi possível salvar. Tente novamente ou continue sabendo que reabrir pode voltar à última transição salva.",
+  "classicContinueUnsaved": "Continuar sem salvar",
+  "classicUnsavedNotice": "Progresso não salvo. Reabrir pode perder as últimas ações.",
+  "classicResetHistory": "Limpar histórico de palavras",
+  "classicResetHistoryBody": "Limpar apenas o histórico de palavras e impostores? Grupo, preferências e compras serão mantidos.",
+  "classicResumeGame": "Retomar partida"
 }

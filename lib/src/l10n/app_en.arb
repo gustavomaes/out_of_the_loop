@@ -442,5 +442,18 @@
   "classicTrollResult": "Troll round — everyone!",
   "classicAgain": "Play again",
   "classicEditGame": "Edit game",
-  "classicContentMissing": "Some selected categories have no playable English content yet. Choose the free categories to start."
+  "classicContentMissing": "Some selected categories have no playable English content yet. Choose the free categories to start.",
+  "classicRecoveryTitle": "Saved game recovery",
+  "classicFutureSave": "This save needs a newer app. You can retry or play temporarily without replacing it.",
+  "classicRecoveryBody": "The saved game could not be read. Retry or start a new game with the valid group and history. Purchases and settings are preserved.",
+  "classicNewGame": "New game",
+  "classicDiscardBody": "Discard only the saved round? Your group, history, settings and purchases will stay.",
+  "classicResumeTitle": "Game in progress",
+  "classicResumeBody": "Resume with cards covered and the timer paused, or end this round.",
+  "classicWriteFailure": "The game could not be saved. Retry, or continue knowing reopening may return to the last saved transition.",
+  "classicContinueUnsaved": "Continue without saving",
+  "classicUnsavedNotice": "Progress is not saved. Reopening may lose recent progress.",
+  "classicResetHistory": "Reset word history",
+  "classicResetHistoryBody": "Clear only word and impostor history? Your group, settings and purchases will stay.",
+  "classicResumeGame": "Resume game"
 }

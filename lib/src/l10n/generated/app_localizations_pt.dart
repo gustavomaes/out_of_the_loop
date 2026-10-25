@@ -995,6 +995,52 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get classicContentMissing =>
       'Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.';
+
+  @override
+  String get classicRecoveryTitle => 'Recuperar jogo salvo';
+
+  @override
+  String get classicFutureSave =>
+      'Este save exige uma versão mais nova. Tente novamente ou jogue temporariamente sem substituí-lo.';
+
+  @override
+  String get classicRecoveryBody =>
+      'Não foi possível ler o jogo salvo. Tente novamente ou comece com o grupo e histórico válidos. Compras e preferências serão preservadas.';
+
+  @override
+  String get classicNewGame => 'Nova partida';
+
+  @override
+  String get classicDiscardBody =>
+      'Descartar apenas a rodada salva? Grupo, histórico, preferências e compras serão mantidos.';
+
+  @override
+  String get classicResumeTitle => 'Partida em andamento';
+
+  @override
+  String get classicResumeBody =>
+      'Retome com os cartões cobertos e o timer pausado, ou encerre esta rodada.';
+
+  @override
+  String get classicWriteFailure =>
+      'Não foi possível salvar. Tente novamente ou continue sabendo que reabrir pode voltar à última transição salva.';
+
+  @override
+  String get classicContinueUnsaved => 'Continuar sem salvar';
+
+  @override
+  String get classicUnsavedNotice =>
+      'Progresso não salvo. Reabrir pode perder as últimas ações.';
+
+  @override
+  String get classicResetHistory => 'Limpar histórico de palavras';
+
+  @override
+  String get classicResetHistoryBody =>
+      'Limpar apenas o histórico de palavras e impostores? Grupo, preferências e compras serão mantidos.';
+
+  @override
+  String get classicResumeGame => 'Retomar partida';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1989,4 +2035,50 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get classicContentMissing =>
       'Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.';
+
+  @override
+  String get classicRecoveryTitle => 'Recuperar jogo salvo';
+
+  @override
+  String get classicFutureSave =>
+      'Este save exige uma versão mais nova. Tente novamente ou jogue temporariamente sem substituí-lo.';
+
+  @override
+  String get classicRecoveryBody =>
+      'Não foi possível ler o jogo salvo. Tente novamente ou comece com o grupo e histórico válidos. Compras e preferências serão preservadas.';
+
+  @override
+  String get classicNewGame => 'Nova partida';
+
+  @override
+  String get classicDiscardBody =>
+      'Descartar apenas a rodada salva? Grupo, histórico, preferências e compras serão mantidos.';
+
+  @override
+  String get classicResumeTitle => 'Partida em andamento';
+
+  @override
+  String get classicResumeBody =>
+      'Retome com os cartões cobertos e o timer pausado, ou encerre esta rodada.';
+
+  @override
+  String get classicWriteFailure =>
+      'Não foi possível salvar. Tente novamente ou continue sabendo que reabrir pode voltar à última transição salva.';
+
+  @override
+  String get classicContinueUnsaved => 'Continuar sem salvar';
+
+  @override
+  String get classicUnsavedNotice =>
+      'Progresso não salvo. Reabrir pode perder as últimas ações.';
+
+  @override
+  String get classicResetHistory => 'Limpar histórico de palavras';
+
+  @override
+  String get classicResetHistoryBody =>
+      'Limpar apenas o histórico de palavras e impostores? Grupo, preferências e compras serão mantidos.';
+
+  @override
+  String get classicResumeGame => 'Retomar partida';
 }

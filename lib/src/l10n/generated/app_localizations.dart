@@ -1862,6 +1862,84 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.'**
   String get classicContentMissing;
+
+  /// No description provided for @classicRecoveryTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Recuperar jogo salvo'**
+  String get classicRecoveryTitle;
+
+  /// No description provided for @classicFutureSave.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Este save exige uma versão mais nova. Tente novamente ou jogue temporariamente sem substituí-lo.'**
+  String get classicFutureSave;
+
+  /// No description provided for @classicRecoveryBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível ler o jogo salvo. Tente novamente ou comece com o grupo e histórico válidos. Compras e preferências serão preservadas.'**
+  String get classicRecoveryBody;
+
+  /// No description provided for @classicNewGame.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Nova partida'**
+  String get classicNewGame;
+
+  /// No description provided for @classicDiscardBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Descartar apenas a rodada salva? Grupo, histórico, preferências e compras serão mantidos.'**
+  String get classicDiscardBody;
+
+  /// No description provided for @classicResumeTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Partida em andamento'**
+  String get classicResumeTitle;
+
+  /// No description provided for @classicResumeBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Retome com os cartões cobertos e o timer pausado, ou encerre esta rodada.'**
+  String get classicResumeBody;
+
+  /// No description provided for @classicWriteFailure.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível salvar. Tente novamente ou continue sabendo que reabrir pode voltar à última transição salva.'**
+  String get classicWriteFailure;
+
+  /// No description provided for @classicContinueUnsaved.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Continuar sem salvar'**
+  String get classicContinueUnsaved;
+
+  /// No description provided for @classicUnsavedNotice.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Progresso não salvo. Reabrir pode perder as últimas ações.'**
+  String get classicUnsavedNotice;
+
+  /// No description provided for @classicResetHistory.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Limpar histórico de palavras'**
+  String get classicResetHistory;
+
+  /// No description provided for @classicResetHistoryBody.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Limpar apenas o histórico de palavras e impostores? Grupo, preferências e compras serão mantidos.'**
+  String get classicResetHistoryBody;
+
+  /// No description provided for @classicResumeGame.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Retomar partida'**
+  String get classicResumeGame;
 }
 
 class _AppLocalizationsDelegate

@@ -1,3 +1,6 @@
+import 'dart:convert';
+import '../src/data/classic/classic_session_repository.dart';
+import '../src/features/classic/presentation/classic_session_host.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import '../src/features/classic/presentation/classic_dev_app.dart';
@@ -73,4 +76,42 @@ class _RoundPreviewState extends State<_RoundPreview> {
 
   @override
   Widget build(BuildContext context) => ClassicHome(controller: controller);
+}
+
+@Preview(name: 'Classic / resume 200%', group: 'Classic', size: Size(320, 640))
+Widget classicResumePreview() => _sessionPreview(false);
+
+@Preview(
+  name: 'Classic / recovery 200%',
+  group: 'Classic',
+  size: Size(320, 640),
+)
+Widget classicRecoveryPreview() => _sessionPreview(true);
+
+Widget _sessionPreview(bool corrupt) {
+  final c = ClassicController(
+    content: const ClassicContentRepository(),
+    config: ClassicConfig(
+      players: const [
+        ClassicPlayer(id: '1', name: 'Alex'),
+        ClassicPlayer(id: '2', name: 'Sam'),
+        ClassicPlayer(id: '3', name: 'Robin'),
+      ],
+      categoryIds: {'food'},
+    ),
+  );
+  c.start();
+  String? raw = corrupt ? '{broken' : jsonEncode(c.session.toJson());
+  c.dispose();
+  return ClassicDevApp(
+    textScaler: const TextScaler.linear(2),
+    home: ClassicSessionHost(
+      repository: ClassicSessionRepository(
+        read: (_) async => raw,
+        write: (_, value) async {
+          raw = value;
+        },
+      ),
+    ),
+  );
 }

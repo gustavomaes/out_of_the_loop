@@ -265,6 +265,31 @@ class _ClassicHomeState extends State<ClassicHome> {
                     child: Column(
                       children: [
                         Text(l.classicDemoNotice),
+                        ClassicButton(
+                          label: l.classicResetHistory,
+                          onPressed: () async {
+                            final confirmed = await showDialog<bool>(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: Text(l.classicResetHistory),
+                                content: Text(l.classicResetHistoryBody),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, false),
+                                    child: Text(l.classicCancel),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, true),
+                                    child: Text(l.classicConfirm),
+                                  ),
+                                ],
+                              ),
+                            );
+                            if (confirmed == true) controller.resetHistory();
+                          },
+                        ),
                         if (!premium.enabled)
                           ClassicButton(
                             label: l.classicPremium,

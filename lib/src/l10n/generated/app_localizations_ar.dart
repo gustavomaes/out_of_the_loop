@@ -981,4 +981,50 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get classicContentMissing =>
       'Some selected categories have no playable English content yet. Choose the free categories to start.';
+
+  @override
+  String get classicRecoveryTitle => 'Saved game recovery';
+
+  @override
+  String get classicFutureSave =>
+      'This save needs a newer app. You can retry or play temporarily without replacing it.';
+
+  @override
+  String get classicRecoveryBody =>
+      'The saved game could not be read. Retry or start a new game with the valid group and history. Purchases and settings are preserved.';
+
+  @override
+  String get classicNewGame => 'New game';
+
+  @override
+  String get classicDiscardBody =>
+      'Discard only the saved round? Your group, history, settings and purchases will stay.';
+
+  @override
+  String get classicResumeTitle => 'Game in progress';
+
+  @override
+  String get classicResumeBody =>
+      'Resume with cards covered and the timer paused, or end this round.';
+
+  @override
+  String get classicWriteFailure =>
+      'The game could not be saved. Retry, or continue knowing reopening may return to the last saved transition.';
+
+  @override
+  String get classicContinueUnsaved => 'Continue without saving';
+
+  @override
+  String get classicUnsavedNotice =>
+      'Progress is not saved. Reopening may lose recent progress.';
+
+  @override
+  String get classicResetHistory => 'Reset word history';
+
+  @override
+  String get classicResetHistoryBody =>
+      'Clear only word and impostor history? Your group, settings and purchases will stay.';
+
+  @override
+  String get classicResumeGame => 'Resume game';
 }

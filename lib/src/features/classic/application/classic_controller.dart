@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import '../../../data/classic/classic_session_repository.dart';
 import '../../../domain/classic/classic_models.dart';
 import '../../../domain/classic/classic_round_factory.dart';
 import '../../../data/classic/classic_content_repository.dart';
@@ -10,12 +11,93 @@ class ClassicController extends ChangeNotifier {
     ClassicRoundFactory? factory,
     Duration Function()? now,
     ClassicHistory? history,
+    this.repository,
+    ClassicSession? restored,
   }) : _config = config,
        factory = factory ?? ClassicRoundFactory(),
        _history = history ?? ClassicHistory() {
     final watch = Stopwatch()..start();
     _now = now ?? (() => watch.elapsed);
+    if (restored != null) {
+      _config = restored.config;
+      _history = restored.history;
+      _round = restored.round;
+      _phase = restored.phase;
+      _index = restored.index;
+      _remaining = restored.remaining;
+      _sequence = restored.revision;
+      _revision = restored.revision;
+      _preferences = restored.preferences;
+      _catalogVersion = restored.catalogVersion;
+    }
   }
+  final ClassicSessionRepository? repository;
+  int _revision = 0;
+  int _pending = 0;
+  bool _disposed = false;
+  bool persistenceError = false;
+  bool continuingWithoutSave = false;
+  bool get saving => _pending > 0;
+  bool get blocked => saving || (persistenceError && !continuingWithoutSave);
+  Map<String, Object> _preferences = const {};
+  String _catalogVersion = 'classic-initial-1';
+  ClassicSession get session => ClassicSession(
+    config: config,
+    history: history,
+    round: round,
+    phase: phase,
+    index: revealIndex,
+    remaining: remaining,
+    revision: _revision,
+    preferences: _preferences,
+    catalogVersion: _catalogVersion,
+  );
+  Future<void> flush() async {
+    if (repository == null || phase == ClassicPhase.preparing) return;
+    _revision++;
+    final snapshot = session;
+    _pending++;
+    try {
+      await repository!.save(snapshot);
+      persistenceError = false;
+      continuingWithoutSave = false;
+    } on Object {
+      persistenceError = true;
+      // Pause in memory without triggering another write after a failure.
+      _remaining = remaining;
+      _runningSince = null;
+    } finally {
+      _pending--;
+      if (!_disposed) super.notifyListeners();
+    }
+  }
+
+  void continueWithoutSave() {
+    continuingWithoutSave = true;
+    super.notifyListeners();
+  }
+
+  void resetHistory() {
+    if (blocked || phase != ClassicPhase.home) return;
+    _history = ClassicHistory();
+    notifyListeners();
+  }
+
+  @override
+  void notifyListeners() {
+    if (repository != null && phase != ClassicPhase.preparing) {
+      // flush captures the envelope synchronously before its first await.
+      flush();
+    }
+    super.notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    super.dispose();
+  }
+
   final ClassicContentRepository content;
   final ClassicRoundFactory factory;
   late final Duration Function() _now;
@@ -46,7 +128,8 @@ class ClassicController extends ChangeNotifier {
   }
 
   bool updateConfig(ClassicConfig candidate) {
-    if (phase != ClassicPhase.home ||
+    if (blocked ||
+        phase != ClassicPhase.home ||
         !candidate.isValid ||
         candidate.categoryIds.any(
           (id) => !classicCategories.any((c) => c.id == id),
@@ -62,7 +145,7 @@ class ClassicController extends ChangeNotifier {
   bool start() => _create(ClassicPhase.home);
   bool playAgain() => _create(ClassicPhase.result);
   bool _create(ClassicPhase expected) {
-    if (phase != expected || !_foreground) return false;
+    if (blocked || phase != expected || !_foreground) return false;
     _phase = ClassicPhase.preparing;
     notifyListeners();
     try {
@@ -92,7 +175,10 @@ class ClassicController extends ChangeNotifier {
   }
 
   bool markViewed(int index) {
-    if (!_foreground || phase != ClassicPhase.revealing || index != _index) {
+    if (blocked ||
+        !_foreground ||
+        phase != ClassicPhase.revealing ||
+        index != _index) {
       return false;
     }
     _viewed = true;
@@ -100,7 +186,8 @@ class ClassicController extends ChangeNotifier {
   }
 
   bool nextPlayer(int expectedIndex) {
-    if (!_foreground ||
+    if (blocked ||
+        !_foreground ||
         phase != ClassicPhase.revealing ||
         !_viewed ||
         expectedIndex != _index) {
@@ -124,7 +211,8 @@ class ClassicController extends ChangeNotifier {
   }
 
   void resumeTimer() {
-    if (!_foreground ||
+    if (blocked ||
+        !_foreground ||
         phase != ClassicPhase.discussion ||
         timerRunning ||
         remaining == null ||
@@ -143,12 +231,14 @@ class ClassicController extends ChangeNotifier {
       _viewed = false;
       pauseTimer();
     } else {
-      notifyListeners();
+      super.notifyListeners();
     }
   }
 
   bool revealResult() {
-    if (!_foreground || phase != ClassicPhase.discussion) return false;
+    if (blocked || !_foreground || phase != ClassicPhase.discussion) {
+      return false;
+    }
     _remaining = remaining;
     _runningSince = null;
     _phase = ClassicPhase.result;

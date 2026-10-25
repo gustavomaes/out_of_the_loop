@@ -7,12 +7,14 @@ import 'classic_components.dart';
 import 'classic_home.dart';
 
 class ClassicDevApp extends StatelessWidget {
-  const ClassicDevApp({super.key, this.textScaler, this.home});
+  const ClassicDevApp({super.key, this.textScaler, this.home, this.locale});
+  final Locale? locale;
   final TextScaler? textScaler;
   final Widget? home;
   @override
   Widget build(BuildContext context) => MaterialApp(
     theme: CoralTokens.theme,
+    locale: locale,
     builder: (context, child) => MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaler: textScaler),
       child: child!,
