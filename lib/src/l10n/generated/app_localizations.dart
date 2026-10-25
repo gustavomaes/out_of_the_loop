@@ -1508,6 +1508,210 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'Tentar novamente'**
   String get classicRetry;
+
+  /// No description provided for @classicCrew.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Seu grupo'**
+  String get classicCrew;
+
+  /// No description provided for @classicNames.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Editar nomes'**
+  String get classicNames;
+
+  /// No description provided for @classicCategories.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Categorias'**
+  String get classicCategories;
+
+  /// No description provided for @classicImpostors.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Impostores'**
+  String get classicImpostors;
+
+  /// No description provided for @classicAuto.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Auto (recomendado)'**
+  String get classicAuto;
+
+  /// No description provided for @classicTimer.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Tempo de discussão'**
+  String get classicTimer;
+
+  /// No description provided for @classicDuration.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Duração'**
+  String get classicDuration;
+
+  /// No description provided for @classicTroll.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Modo Troll'**
+  String get classicTroll;
+
+  /// No description provided for @classicSave.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Salvar nomes'**
+  String get classicSave;
+
+  /// No description provided for @classicConfirm.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Confirmar'**
+  String get classicConfirm;
+
+  /// No description provided for @classicClear.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Limpar'**
+  String get classicClear;
+
+  /// No description provided for @classicSelectFree.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Selecionar todas grátis'**
+  String get classicSelectFree;
+
+  /// No description provided for @classicSelectAll.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Selecionar todas'**
+  String get classicSelectAll;
+
+  /// No description provided for @classicAll.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Todas'**
+  String get classicAll;
+
+  /// No description provided for @classicDone.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Concluir'**
+  String get classicDone;
+
+  /// No description provided for @classicAdd.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Adicionar jogador'**
+  String get classicAdd;
+
+  /// No description provided for @classicRemove.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Remover jogador'**
+  String get classicRemove;
+
+  /// No description provided for @classicPlayer.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Jogador'**
+  String get classicPlayer;
+
+  /// No description provided for @classicHelp.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Como jogar'**
+  String get classicHelp;
+
+  /// No description provided for @classicSettings.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Configurações'**
+  String get classicSettings;
+
+  /// No description provided for @classicPremium.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Premium · demo'**
+  String get classicPremium;
+
+  /// No description provided for @classicDemoBuy.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Ativar Premium de demonstração'**
+  String get classicDemoBuy;
+
+  /// No description provided for @classicDemoNotice.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Demonstração de desenvolvimento. Nenhuma compra ou direito real é concedido. Categorias têm amostras em inglês; o catálogo completo chega na etapa 5. Iniciar partida estará disponível na etapa 3.'**
+  String get classicDemoNotice;
+
+  /// No description provided for @classicStart.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Iniciar partida'**
+  String get classicStart;
+
+  /// No description provided for @classicTitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Quem é o impostor?'**
+  String get classicTitle;
+
+  /// No description provided for @classicSubtitle.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Um telefone. Seus amigos. Uma palavra secreta.'**
+  String get classicSubtitle;
+
+  /// No description provided for @classicOff.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Desligado'**
+  String get classicOff;
+
+  /// No description provided for @classicMinutes.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'minutos'**
+  String get classicMinutes;
+
+  /// No description provided for @classicShare.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Compartilhar · disponível na etapa 7'**
+  String get classicShare;
+
+  /// No description provided for @classicRate.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Avaliar · disponível na etapa 7'**
+  String get classicRate;
+
+  /// No description provided for @classicFooter.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Conversem, blefem e votem juntos. A discussão acontece fora da tela.'**
+  String get classicFooter;
+
+  /// No description provided for @classicHelpSteps.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'1. Reúna 3–20 jogadores com um telefone.\n2. Segure para ver seu papel; solte para esconder.\n3. Dê pistas sobre a palavra secreta.\n4. Impostores blefam para se misturar.\n5. Conversem e votem presencialmente.\n6. Confirme a revelação para ver a palavra e os impostores.\n\nA dica mostra só a categoria. Troll pode tornar todos impostores.'**
+  String get classicHelpSteps;
+
+  /// No description provided for @classicEnglish.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Idioma do conteúdo: inglês (demo)'**
+  String get classicEnglish;
+
+  /// No description provided for @classicClose.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Fechar'**
+  String get classicClose;
 }
 
 class _AppLocalizationsDelegate

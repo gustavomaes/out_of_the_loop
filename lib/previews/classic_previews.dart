@@ -12,3 +12,11 @@ Widget classicSmallPreview() => const ClassicDevApp();
 )
 Widget classicLargeTextPreview() =>
     const ClassicDevApp(textScaler: TextScaler.linear(2));
+
+@Preview(
+  name: 'Coral Social / components',
+  group: 'Classic',
+  size: Size(320, 640),
+)
+Widget classicComponentsPreview() =>
+    const ClassicDevApp(home: ClassicGallery());

@@ -63,7 +63,7 @@ void main() {
     );
   });
   test(
-    'configuration freezes collections and controller rejects unavailable content',
+    'configuration freezes collections and controller rejects unknown categories',
     () {
       final c = config(3);
       expect(() => c.players.clear(), throwsUnsupportedError);
@@ -89,7 +89,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
-      await tester.pumpWidget(const ClassicDevApp());
+      await tester.pumpWidget(const ClassicDevApp(home: ClassicGallery()));
       expect(find.byType(ClassicCard), findsWidgets);
       await tester.tap(find.byType(Switch).first);
       await tester.pump();

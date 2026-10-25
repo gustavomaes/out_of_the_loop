@@ -4,10 +4,12 @@ import '../../../domain/classic/classic_models.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../application/classic_controller.dart';
 import 'classic_components.dart';
+import 'classic_home.dart';
 
 class ClassicDevApp extends StatelessWidget {
-  const ClassicDevApp({super.key, this.textScaler});
+  const ClassicDevApp({super.key, this.textScaler, this.home});
   final TextScaler? textScaler;
+  final Widget? home;
   @override
   Widget build(BuildContext context) => MaterialApp(
     theme: CoralTokens.theme,
@@ -17,7 +19,7 @@ class ClassicDevApp extends StatelessWidget {
     ),
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
-    home: const ClassicGallery(),
+    home: home ?? const ClassicHome(),
   );
 }
 
@@ -36,7 +38,7 @@ class _ClassicGalleryState extends State<ClassicGallery> {
         ClassicPlayer(id: '2', name: 'Sam'),
         ClassicPlayer(id: '3', name: 'Robin'),
       ],
-      categoryIds: {'food', 'animals', 'places'},
+      categoryIds: {'food', 'animals', 'sports'},
     ),
   );
   @override

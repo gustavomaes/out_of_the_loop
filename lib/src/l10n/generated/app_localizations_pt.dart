@@ -808,6 +808,112 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get classicRetry => 'Tentar novamente';
+
+  @override
+  String get classicCrew => 'Seu grupo';
+
+  @override
+  String get classicNames => 'Editar nomes';
+
+  @override
+  String get classicCategories => 'Categorias';
+
+  @override
+  String get classicImpostors => 'Impostores';
+
+  @override
+  String get classicAuto => 'Auto (recomendado)';
+
+  @override
+  String get classicTimer => 'Tempo de discussão';
+
+  @override
+  String get classicDuration => 'Duração';
+
+  @override
+  String get classicTroll => 'Modo Troll';
+
+  @override
+  String get classicSave => 'Salvar nomes';
+
+  @override
+  String get classicConfirm => 'Confirmar';
+
+  @override
+  String get classicClear => 'Limpar';
+
+  @override
+  String get classicSelectFree => 'Selecionar todas grátis';
+
+  @override
+  String get classicSelectAll => 'Selecionar todas';
+
+  @override
+  String get classicAll => 'Todas';
+
+  @override
+  String get classicDone => 'Concluir';
+
+  @override
+  String get classicAdd => 'Adicionar jogador';
+
+  @override
+  String get classicRemove => 'Remover jogador';
+
+  @override
+  String get classicPlayer => 'Jogador';
+
+  @override
+  String get classicHelp => 'Como jogar';
+
+  @override
+  String get classicSettings => 'Configurações';
+
+  @override
+  String get classicPremium => 'Premium · demo';
+
+  @override
+  String get classicDemoBuy => 'Ativar Premium de demonstração';
+
+  @override
+  String get classicDemoNotice =>
+      'Demonstração de desenvolvimento. Nenhuma compra ou direito real é concedido. Categorias têm amostras em inglês; o catálogo completo chega na etapa 5. Iniciar partida estará disponível na etapa 3.';
+
+  @override
+  String get classicStart => 'Iniciar partida';
+
+  @override
+  String get classicTitle => 'Quem é o impostor?';
+
+  @override
+  String get classicSubtitle =>
+      'Um telefone. Seus amigos. Uma palavra secreta.';
+
+  @override
+  String get classicOff => 'Desligado';
+
+  @override
+  String get classicMinutes => 'minutos';
+
+  @override
+  String get classicShare => 'Compartilhar · disponível na etapa 7';
+
+  @override
+  String get classicRate => 'Avaliar · disponível na etapa 7';
+
+  @override
+  String get classicFooter =>
+      'Conversem, blefem e votem juntos. A discussão acontece fora da tela.';
+
+  @override
+  String get classicHelpSteps =>
+      '1. Reúna 3–20 jogadores com um telefone.\n2. Segure para ver seu papel; solte para esconder.\n3. Dê pistas sobre a palavra secreta.\n4. Impostores blefam para se misturar.\n5. Conversem e votem presencialmente.\n6. Confirme a revelação para ver a palavra e os impostores.\n\nA dica mostra só a categoria. Troll pode tornar todos impostores.';
+
+  @override
+  String get classicEnglish => 'Idioma do conteúdo: inglês (demo)';
+
+  @override
+  String get classicClose => 'Fechar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1615,4 +1721,110 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get classicRetry => 'Tentar novamente';
+
+  @override
+  String get classicCrew => 'Seu grupo';
+
+  @override
+  String get classicNames => 'Editar nomes';
+
+  @override
+  String get classicCategories => 'Categorias';
+
+  @override
+  String get classicImpostors => 'Impostores';
+
+  @override
+  String get classicAuto => 'Auto (recomendado)';
+
+  @override
+  String get classicTimer => 'Tempo de discussão';
+
+  @override
+  String get classicDuration => 'Duração';
+
+  @override
+  String get classicTroll => 'Modo Troll';
+
+  @override
+  String get classicSave => 'Salvar nomes';
+
+  @override
+  String get classicConfirm => 'Confirmar';
+
+  @override
+  String get classicClear => 'Limpar';
+
+  @override
+  String get classicSelectFree => 'Selecionar todas grátis';
+
+  @override
+  String get classicSelectAll => 'Selecionar todas';
+
+  @override
+  String get classicAll => 'Todas';
+
+  @override
+  String get classicDone => 'Concluir';
+
+  @override
+  String get classicAdd => 'Adicionar jogador';
+
+  @override
+  String get classicRemove => 'Remover jogador';
+
+  @override
+  String get classicPlayer => 'Jogador';
+
+  @override
+  String get classicHelp => 'Como jogar';
+
+  @override
+  String get classicSettings => 'Configurações';
+
+  @override
+  String get classicPremium => 'Premium · demo';
+
+  @override
+  String get classicDemoBuy => 'Ativar Premium de demonstração';
+
+  @override
+  String get classicDemoNotice =>
+      'Demonstração de desenvolvimento. Nenhuma compra ou direito real é concedido. Categorias têm amostras em inglês; o catálogo completo chega na etapa 5. Iniciar partida estará disponível na etapa 3.';
+
+  @override
+  String get classicStart => 'Iniciar partida';
+
+  @override
+  String get classicTitle => 'Quem é o impostor?';
+
+  @override
+  String get classicSubtitle =>
+      'Um telefone. Seus amigos. Uma palavra secreta.';
+
+  @override
+  String get classicOff => 'Desligado';
+
+  @override
+  String get classicMinutes => 'minutos';
+
+  @override
+  String get classicShare => 'Compartilhar · disponível na etapa 7';
+
+  @override
+  String get classicRate => 'Avaliar · disponível na etapa 7';
+
+  @override
+  String get classicFooter =>
+      'Conversem, blefem e votem juntos. A discussão acontece fora da tela.';
+
+  @override
+  String get classicHelpSteps =>
+      '1. Reúna 3–20 jogadores com um telefone.\n2. Segure para ver seu papel; solte para esconder.\n3. Dê pistas sobre a palavra secreta.\n4. Impostores blefam para se misturar.\n5. Conversem e votem presencialmente.\n6. Confirme a revelação para ver a palavra e os impostores.\n\nA dica mostra só a categoria. Troll pode tornar todos impostores.';
+
+  @override
+  String get classicEnglish => 'Idioma do conteúdo: inglês (demo)';
+
+  @override
+  String get classicClose => 'Fechar';
 }

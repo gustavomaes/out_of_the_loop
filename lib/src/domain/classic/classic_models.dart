@@ -26,6 +26,27 @@ class ClassicConfig {
   final int? timerMinutes;
   final bool troll;
 
+  ClassicConfig copyWith({
+    List<ClassicPlayer>? players,
+    Set<String>? categoryIds,
+    int? manualImpostors,
+    bool autoImpostors = false,
+    bool? hint,
+    int? timerMinutes,
+    bool timerOff = false,
+    bool? troll,
+  }) => ClassicConfig(
+    players: players ?? this.players,
+    categoryIds: categoryIds ?? this.categoryIds,
+    contentLanguage: contentLanguage,
+    manualImpostors: autoImpostors
+        ? null
+        : manualImpostors ?? this.manualImpostors,
+    hint: hint ?? this.hint,
+    timerMinutes: timerOff ? null : timerMinutes ?? this.timerMinutes,
+    troll: troll ?? this.troll,
+  );
+
   int get maximumImpostors => ((players.length - 1) ~/ 2).clamp(1, 6);
   int get impostors =>
       manualImpostors ??

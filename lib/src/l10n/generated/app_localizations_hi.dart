@@ -798,4 +798,109 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get classicRetry => 'फिर कोशिश करें';
+
+  @override
+  String get classicCrew => 'Your crew';
+
+  @override
+  String get classicNames => 'Edit names';
+
+  @override
+  String get classicCategories => 'Categories';
+
+  @override
+  String get classicImpostors => 'Imposters';
+
+  @override
+  String get classicAuto => 'Auto (recommended)';
+
+  @override
+  String get classicTimer => 'Discussion timer';
+
+  @override
+  String get classicDuration => 'Duration';
+
+  @override
+  String get classicTroll => 'Troll mode';
+
+  @override
+  String get classicSave => 'Save names';
+
+  @override
+  String get classicConfirm => 'Confirm';
+
+  @override
+  String get classicClear => 'Clear';
+
+  @override
+  String get classicSelectFree => 'Select all free';
+
+  @override
+  String get classicSelectAll => 'Select all';
+
+  @override
+  String get classicAll => 'All';
+
+  @override
+  String get classicDone => 'Done';
+
+  @override
+  String get classicAdd => 'Add player';
+
+  @override
+  String get classicRemove => 'Remove player';
+
+  @override
+  String get classicPlayer => 'Player';
+
+  @override
+  String get classicHelp => 'How to play';
+
+  @override
+  String get classicSettings => 'Settings';
+
+  @override
+  String get classicPremium => 'Premium · demo';
+
+  @override
+  String get classicDemoBuy => 'Enable Premium demo';
+
+  @override
+  String get classicDemoNotice =>
+      'Development demo only. No purchase or real access is granted. Categories contain English samples; the full catalog arrives in stage 5. Start game becomes available in stage 3.';
+
+  @override
+  String get classicStart => 'Start game';
+
+  @override
+  String get classicTitle => 'Who is the impostor?';
+
+  @override
+  String get classicSubtitle => 'One phone. Your friends. A secret word.';
+
+  @override
+  String get classicOff => 'Off';
+
+  @override
+  String get classicMinutes => 'minutes';
+
+  @override
+  String get classicShare => 'Share · available in stage 7';
+
+  @override
+  String get classicRate => 'Rate us · available in stage 7';
+
+  @override
+  String get classicFooter =>
+      'Talk, bluff and vote together. No screens needed for the discussion.';
+
+  @override
+  String get classicHelpSteps =>
+      '1. Gather 3–20 players around one phone.\n2. Hold to see your role; release to hide it.\n3. Give clues about the secret word.\n4. Impostors bluff and blend in.\n5. Discuss and vote in person.\n6. Confirm the reveal to see the word and impostors.\n\nHint shows only the category. Troll may make everyone an impostor.';
+
+  @override
+  String get classicEnglish => 'Content language: English (demo)';
+
+  @override
+  String get classicClose => 'Close';
 }
