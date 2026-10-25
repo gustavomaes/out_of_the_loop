@@ -871,7 +871,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get classicDemoNotice =>
-      'Development demo only. No purchase or real access is granted. Categories contain English samples; the full catalog arrives in stage 5. Start game becomes available in stage 3.';
+      'Development demo. Premium is simulated, with no real purchase. Three free categories have English content. Full catalog arrives in stage 5; resuming after closing the app arrives in stage 4.';
 
   @override
   String get classicStart => 'Start game';
@@ -907,4 +907,84 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get classicClose => 'Close';
+
+  @override
+  String get classicHold => 'Hold here to see your role';
+
+  @override
+  String get classicRelease =>
+      'Release to hide. Only pass the phone when the card is covered.';
+
+  @override
+  String get classicShowRole => 'Reveal role · accessible alternative';
+
+  @override
+  String get classicHideRole => 'Hide role';
+
+  @override
+  String get classicYouImpostor => 'You’re an impostor';
+
+  @override
+  String get classicYourWord => 'Secret word';
+
+  @override
+  String get classicNext => 'Next player';
+
+  @override
+  String get classicDiscuss => 'Start discussion';
+
+  @override
+  String get classicStarts => 'First to give a clue';
+
+  @override
+  String get classicInPerson =>
+      'Give clues, bluff, discuss and vote in person. When everyone is ready, reveal the result together.';
+
+  @override
+  String get classicPause => 'Pause timer';
+
+  @override
+  String get classicResume => 'Resume timer';
+
+  @override
+  String get classicTimeUp => 'Time is up. Keep talking or reveal when ready.';
+
+  @override
+  String get classicReveal => 'Reveal result';
+
+  @override
+  String get classicRevealQuestion => 'Reveal the secret?';
+
+  @override
+  String get classicRevealWarning =>
+      'Everyone will see the word and all impostors. Finish your vote first.';
+
+  @override
+  String get classicCancel => 'Cancel';
+
+  @override
+  String get classicEnd => 'End round';
+
+  @override
+  String get classicExitQuestion => 'End this round?';
+
+  @override
+  String get classicExitWarning =>
+      'Return to setup without revealing any secrets. This round cannot be resumed.';
+
+  @override
+  String get classicResult => 'The impostors were…';
+
+  @override
+  String get classicTrollResult => 'Troll round — everyone!';
+
+  @override
+  String get classicAgain => 'Play again';
+
+  @override
+  String get classicEditGame => 'Edit game';
+
+  @override
+  String get classicContentMissing =>
+      'Some selected categories have no playable English content yet. Choose the free categories to start.';
 }

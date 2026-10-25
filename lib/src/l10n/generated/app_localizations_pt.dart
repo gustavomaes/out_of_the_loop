@@ -877,7 +877,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get classicDemoNotice =>
-      'Demonstração de desenvolvimento. Nenhuma compra ou direito real é concedido. Categorias têm amostras em inglês; o catálogo completo chega na etapa 5. Iniciar partida estará disponível na etapa 3.';
+      'Demonstração de desenvolvimento. Premium simulado, sem compra real. As três categorias grátis têm conteúdo em inglês. Catálogo completo na etapa 5; retomada após fechar o app na etapa 4.';
 
   @override
   String get classicStart => 'Iniciar partida';
@@ -914,6 +914,87 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get classicClose => 'Fechar';
+
+  @override
+  String get classicHold => 'Segure aqui para ver seu papel';
+
+  @override
+  String get classicRelease =>
+      'Solte para ocultar. Só passe o telefone com o cartão coberto.';
+
+  @override
+  String get classicShowRole => 'Revelar papel · alternativa acessível';
+
+  @override
+  String get classicHideRole => 'Ocultar papel';
+
+  @override
+  String get classicYouImpostor => 'Você é um impostor';
+
+  @override
+  String get classicYourWord => 'Palavra secreta';
+
+  @override
+  String get classicNext => 'Próximo jogador';
+
+  @override
+  String get classicDiscuss => 'Começar discussão';
+
+  @override
+  String get classicStarts => 'Primeiro a dar uma pista';
+
+  @override
+  String get classicInPerson =>
+      'Deem pistas, blefem, conversem e votem presencialmente. Quando todos estiverem prontos, revelem o resultado juntos.';
+
+  @override
+  String get classicPause => 'Pausar timer';
+
+  @override
+  String get classicResume => 'Retomar timer';
+
+  @override
+  String get classicTimeUp =>
+      'O tempo acabou. Continuem conversando ou revelem quando quiserem.';
+
+  @override
+  String get classicReveal => 'Revelar resultado';
+
+  @override
+  String get classicRevealQuestion => 'Revelar o segredo?';
+
+  @override
+  String get classicRevealWarning =>
+      'Todos verão a palavra e todos os impostores. Terminem a votação antes.';
+
+  @override
+  String get classicCancel => 'Cancelar';
+
+  @override
+  String get classicEnd => 'Encerrar rodada';
+
+  @override
+  String get classicExitQuestion => 'Encerrar esta rodada?';
+
+  @override
+  String get classicExitWarning =>
+      'Voltar à configuração sem revelar segredos. Esta rodada não poderá ser retomada.';
+
+  @override
+  String get classicResult => 'Os impostores eram…';
+
+  @override
+  String get classicTrollResult => 'Rodada Troll — todo mundo!';
+
+  @override
+  String get classicAgain => 'Jogar novamente';
+
+  @override
+  String get classicEditGame => 'Editar jogo';
+
+  @override
+  String get classicContentMissing =>
+      'Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1790,7 +1871,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get classicDemoNotice =>
-      'Demonstração de desenvolvimento. Nenhuma compra ou direito real é concedido. Categorias têm amostras em inglês; o catálogo completo chega na etapa 5. Iniciar partida estará disponível na etapa 3.';
+      'Demonstração de desenvolvimento. Premium simulado, sem compra real. As três categorias grátis têm conteúdo em inglês. Catálogo completo na etapa 5; retomada após fechar o app na etapa 4.';
 
   @override
   String get classicStart => 'Iniciar partida';
@@ -1827,4 +1908,85 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get classicClose => 'Fechar';
+
+  @override
+  String get classicHold => 'Segure aqui para ver seu papel';
+
+  @override
+  String get classicRelease =>
+      'Solte para ocultar. Só passe o telefone com o cartão coberto.';
+
+  @override
+  String get classicShowRole => 'Revelar papel · alternativa acessível';
+
+  @override
+  String get classicHideRole => 'Ocultar papel';
+
+  @override
+  String get classicYouImpostor => 'Você é um impostor';
+
+  @override
+  String get classicYourWord => 'Palavra secreta';
+
+  @override
+  String get classicNext => 'Próximo jogador';
+
+  @override
+  String get classicDiscuss => 'Começar discussão';
+
+  @override
+  String get classicStarts => 'Primeiro a dar uma pista';
+
+  @override
+  String get classicInPerson =>
+      'Deem pistas, blefem, conversem e votem presencialmente. Quando todos estiverem prontos, revelem o resultado juntos.';
+
+  @override
+  String get classicPause => 'Pausar timer';
+
+  @override
+  String get classicResume => 'Retomar timer';
+
+  @override
+  String get classicTimeUp =>
+      'O tempo acabou. Continuem conversando ou revelem quando quiserem.';
+
+  @override
+  String get classicReveal => 'Revelar resultado';
+
+  @override
+  String get classicRevealQuestion => 'Revelar o segredo?';
+
+  @override
+  String get classicRevealWarning =>
+      'Todos verão a palavra e todos os impostores. Terminem a votação antes.';
+
+  @override
+  String get classicCancel => 'Cancelar';
+
+  @override
+  String get classicEnd => 'Encerrar rodada';
+
+  @override
+  String get classicExitQuestion => 'Encerrar esta rodada?';
+
+  @override
+  String get classicExitWarning =>
+      'Voltar à configuração sem revelar segredos. Esta rodada não poderá ser retomada.';
+
+  @override
+  String get classicResult => 'Os impostores eram…';
+
+  @override
+  String get classicTrollResult => 'Rodada Troll — todo mundo!';
+
+  @override
+  String get classicAgain => 'Jogar novamente';
+
+  @override
+  String get classicEditGame => 'Editar jogo';
+
+  @override
+  String get classicContentMissing =>
+      'Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.';
 }

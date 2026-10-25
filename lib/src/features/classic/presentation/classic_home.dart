@@ -5,6 +5,7 @@ import '../../../l10n/generated/app_localizations.dart';
 import '../application/classic_controller.dart';
 import '../application/classic_demo_premium.dart';
 import 'classic_components.dart';
+import 'classic_round_screen.dart';
 
 class ClassicHome extends StatefulWidget {
   const ClassicHome({super.key, this.controller, this.premium});
@@ -240,183 +241,200 @@ class _ClassicHomeState extends State<ClassicHome> {
   @override
   Widget build(BuildContext context) => ListenableBuilder(
     listenable: Listenable.merge([controller, premium]),
-    builder: (context, _) => Scaffold(
-      appBar: AppBar(
-        title: const Text('Classic'),
-        actions: [
-          IconButton(
-            tooltip: l.classicHelp,
-            icon: const Icon(Icons.help_outline),
-            onPressed: () => showClassicSheet(
-              context,
-              title: l.classicHelp,
-              child: Text(l.classicHelpSteps),
-            ),
-          ),
-          IconButton(
-            tooltip: l.classicSettings,
-            icon: const Icon(Icons.settings_outlined),
-            onPressed: () => showClassicSheet(
-              context,
-              title: l.classicSettings,
-              child: Column(
-                children: [
-                  Text(l.classicDemoNotice),
-                  if (!premium.enabled)
-                    ClassicButton(
-                      label: l.classicPremium,
-                      onPressed: showPremium,
-                    ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-      // The transparent dock takes its actual height in the layout, including
-      // large text and safe area. Every scroll action can move above it.
-      bottomNavigationBar: SafeArea(
-        top: false,
-        child: Padding(
-          key: const Key('classic-dock'),
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (!premium.enabled) ...[
-                ClassicButton(label: l.classicPremium, onPressed: showPremium),
-                const SizedBox(height: 8),
-              ],
-              ClassicButton(label: l.classicStart),
-            ],
-          ),
-        ),
-      ),
-      body: SafeArea(
-        bottom: false,
-        child: ListView(
-          key: const Key('classic-home-scroll'),
-          padding: const EdgeInsets.all(20),
-          children: [
-            Text(
-              l.classicTitle,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(l.classicSubtitle),
-            const SizedBox(height: 20),
-            option(
-              '👥 ${l.classicCrew}',
-              '${config.players.length} · ${l.classicNames}',
-              editNames,
-              key: const Key('edit-names'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: ClassicCard(
-                child: Material(
-                  type: MaterialType.transparency,
-                  child: InkWell(
-                    key: const Key('edit-categories'),
-                    onTap: categories,
+    builder: (context, _) => controller.phase != ClassicPhase.home
+        ? ClassicRoundScreen(controller: controller)
+        : Scaffold(
+            appBar: AppBar(
+              title: const Text('Classic'),
+              actions: [
+                IconButton(
+                  tooltip: l.classicHelp,
+                  icon: const Icon(Icons.help_outline),
+                  onPressed: () => showClassicSheet(
+                    context,
+                    title: l.classicHelp,
+                    child: Text(l.classicHelpSteps),
+                  ),
+                ),
+                IconButton(
+                  tooltip: l.classicSettings,
+                  icon: const Icon(Icons.settings_outlined),
+                  onPressed: () => showClassicSheet(
+                    context,
+                    title: l.classicSettings,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(
-                          '🗂️ ${l.classicCategories}',
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        const SizedBox(height: 8),
-                        Wrap(
-                          spacing: 8,
-                          runSpacing: 8,
-                          children: [
-                            if (config.categoryIds.length ==
-                                classicCategories.length)
-                              Chip(label: Text(l.classicAll))
-                            else
-                              for (final category in classicCategories.where(
-                                (c) => config.categoryIds.contains(c.id),
-                              ))
-                                Chip(
-                                  label: Text(
-                                    '${category.emoji} ${category.name}',
-                                  ),
-                                ),
-                          ],
-                        ),
+                        Text(l.classicDemoNotice),
+                        if (!premium.enabled)
+                          ClassicButton(
+                            label: l.classicPremium,
+                            onPressed: showPremium,
+                          ),
                       ],
                     ),
                   ),
                 ),
-              ),
-            ),
-            option(
-              '🥷 ${l.classicImpostors}',
-              config.manualImpostors == null
-                  ? '${l.classicAuto} · ${config.impostors}'
-                  : '${config.impostors}',
-              impostors,
-              key: const Key('edit-impostors'),
-            ),
-            ClassicSwitch(
-              label: '💡 ${l.classicHint}',
-              value: config.hint,
-              onChanged: (v) =>
-                  controller.updateConfig(config.copyWith(hint: v)),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: ListTile(
-                    key: const Key('edit-duration'),
-                    contentPadding: EdgeInsets.zero,
-                    title: Text('⏱️ ${l.classicTimer}'),
-                    subtitle: Text(
-                      config.timerMinutes == null
-                          ? l.classicOff
-                          : '${config.timerMinutes} ${l.classicMinutes}',
-                    ),
-                    onTap: config.timerMinutes == null ? null : duration,
-                  ),
-                ),
-                Semantics(
-                  label: l.classicTimer,
-                  child: Switch(
-                    key: const Key('timer-switch'),
-                    value: config.timerMinutes != null,
-                    onChanged: (v) {
-                      controller.updateConfig(
-                        config.copyWith(
-                          timerMinutes: lastMinutes,
-                          timerOff: !v,
-                        ),
-                      );
-                    },
-                  ),
-                ),
               ],
             ),
-            ClassicSwitch(
-              label: '😈 ${l.classicTroll}',
-              value: config.troll,
-              onChanged: (v) =>
-                  controller.updateConfig(config.copyWith(troll: v)),
+            // The transparent dock takes its actual height in the layout, including
+            // large text and safe area. Every scroll action can move above it.
+            bottomNavigationBar: SafeArea(
+              top: false,
+              child: Padding(
+                key: const Key('classic-dock'),
+                padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (!premium.enabled) ...[
+                      ClassicButton(
+                        label: l.classicPremium,
+                        onPressed: showPremium,
+                      ),
+                      const SizedBox(height: 8),
+                    ],
+                    ClassicButton(
+                      label: l.classicStart,
+                      onPressed: () {
+                        if (!controller.start() &&
+                            controller.phase == ClassicPhase.home) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(l.classicContentMissing)),
+                          );
+                        }
+                      },
+                    ),
+                  ],
+                ),
+              ),
             ),
-            TextButton(onPressed: null, child: Text(l.classicShare)),
-            TextButton(
-              key: const Key('classic-last-action'),
-              onPressed: null,
-              child: Text(l.classicRate),
+            body: SafeArea(
+              bottom: false,
+              child: ListView(
+                key: const Key('classic-home-scroll'),
+                padding: const EdgeInsets.all(20),
+                children: [
+                  Text(
+                    l.classicTitle,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  Text(l.classicSubtitle),
+                  const SizedBox(height: 20),
+                  option(
+                    '👥 ${l.classicCrew}',
+                    '${config.players.length} · ${l.classicNames}',
+                    editNames,
+                    key: const Key('edit-names'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: ClassicCard(
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: InkWell(
+                          key: const Key('edit-categories'),
+                          onTap: categories,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                '🗂️ ${l.classicCategories}',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              const SizedBox(height: 8),
+                              Wrap(
+                                spacing: 8,
+                                runSpacing: 8,
+                                children: [
+                                  if (config.categoryIds.length ==
+                                      classicCategories.length)
+                                    Chip(label: Text(l.classicAll))
+                                  else
+                                    for (final category
+                                        in classicCategories.where(
+                                          (c) =>
+                                              config.categoryIds.contains(c.id),
+                                        ))
+                                      Chip(
+                                        label: Text(
+                                          '${category.emoji} ${category.name}',
+                                        ),
+                                      ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  option(
+                    '🥷 ${l.classicImpostors}',
+                    config.manualImpostors == null
+                        ? '${l.classicAuto} · ${config.impostors}'
+                        : '${config.impostors}',
+                    impostors,
+                    key: const Key('edit-impostors'),
+                  ),
+                  ClassicSwitch(
+                    label: '💡 ${l.classicHint}',
+                    value: config.hint,
+                    onChanged: (v) =>
+                        controller.updateConfig(config.copyWith(hint: v)),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: ListTile(
+                          key: const Key('edit-duration'),
+                          contentPadding: EdgeInsets.zero,
+                          title: Text('⏱️ ${l.classicTimer}'),
+                          subtitle: Text(
+                            config.timerMinutes == null
+                                ? l.classicOff
+                                : '${config.timerMinutes} ${l.classicMinutes}',
+                          ),
+                          onTap: config.timerMinutes == null ? null : duration,
+                        ),
+                      ),
+                      Semantics(
+                        label: l.classicTimer,
+                        child: Switch(
+                          key: const Key('timer-switch'),
+                          value: config.timerMinutes != null,
+                          onChanged: (v) {
+                            controller.updateConfig(
+                              config.copyWith(
+                                timerMinutes: lastMinutes,
+                                timerOff: !v,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  ClassicSwitch(
+                    label: '😈 ${l.classicTroll}',
+                    value: config.troll,
+                    onChanged: (v) =>
+                        controller.updateConfig(config.copyWith(troll: v)),
+                  ),
+                  TextButton(onPressed: null, child: Text(l.classicShare)),
+                  TextButton(
+                    key: const Key('classic-last-action'),
+                    onPressed: null,
+                    child: Text(l.classicRate),
+                  ),
+                  Text(l.classicFooter, key: const Key('classic-footer')),
+                  const SizedBox(height: 16),
+                  Text(l.classicDemoNotice),
+                ],
+              ),
             ),
-            Text(l.classicFooter, key: const Key('classic-footer')),
-            const SizedBox(height: 16),
-            Text(l.classicDemoNotice),
-          ],
-        ),
-      ),
-    ),
+          ),
   );
 }
 

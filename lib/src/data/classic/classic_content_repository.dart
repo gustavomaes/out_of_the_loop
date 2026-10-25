@@ -1,6 +1,6 @@
 import '../../domain/classic/classic_models.dart';
 
-/// Offline development fixture, not the commercial launch catalog.
+/// Initial offline English catalog. Full editorial launch catalog arrives in stage five.
 class ClassicContentRepository {
   const ClassicContentRepository();
   List<ClassicWord> wordsFor(ClassicConfig config) => fixture
@@ -13,22 +13,220 @@ class ClassicContentRepository {
 
   static const fixture = [
     ClassicWord(
-      id: 'fixture.apple',
+      id: 'classic.food.pizza',
       categoryId: 'food',
       language: 'en',
-      text: 'Apple',
+      text: 'Pizza',
     ),
     ClassicWord(
-      id: 'fixture.cat',
+      id: 'classic.food.pancakes',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Pancakes',
+    ),
+    ClassicWord(
+      id: 'classic.food.popcorn',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Popcorn',
+    ),
+    ClassicWord(
+      id: 'classic.food.sushi',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Sushi',
+    ),
+    ClassicWord(
+      id: 'classic.food.tacos',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Tacos',
+    ),
+    ClassicWord(
+      id: 'classic.food.ice_cream',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Ice cream',
+    ),
+    ClassicWord(
+      id: 'classic.food.spaghetti',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Spaghetti',
+    ),
+    ClassicWord(
+      id: 'classic.food.watermelon',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Watermelon',
+    ),
+    ClassicWord(
+      id: 'classic.food.cheese',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Cheese',
+    ),
+    ClassicWord(
+      id: 'classic.food.chocolate',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Chocolate',
+    ),
+    ClassicWord(
+      id: 'classic.food.hamburger',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Hamburger',
+    ),
+    ClassicWord(
+      id: 'classic.food.lemonade',
+      categoryId: 'food',
+      language: 'en',
+      text: 'Lemonade',
+    ),
+    ClassicWord(
+      id: 'classic.animals.elephant',
       categoryId: 'animals',
       language: 'en',
-      text: 'Cat',
+      text: 'Elephant',
     ),
     ClassicWord(
-      id: 'fixture.ball',
+      id: 'classic.animals.penguin',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Penguin',
+    ),
+    ClassicWord(
+      id: 'classic.animals.dolphin',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Dolphin',
+    ),
+    ClassicWord(
+      id: 'classic.animals.giraffe',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Giraffe',
+    ),
+    ClassicWord(
+      id: 'classic.animals.kangaroo',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Kangaroo',
+    ),
+    ClassicWord(
+      id: 'classic.animals.butterfly',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Butterfly',
+    ),
+    ClassicWord(
+      id: 'classic.animals.octopus',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Octopus',
+    ),
+    ClassicWord(
+      id: 'classic.animals.turtle',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Turtle',
+    ),
+    ClassicWord(
+      id: 'classic.animals.rabbit',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Rabbit',
+    ),
+    ClassicWord(
+      id: 'classic.animals.lion',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Lion',
+    ),
+    ClassicWord(
+      id: 'classic.animals.panda',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Panda',
+    ),
+    ClassicWord(
+      id: 'classic.animals.flamingo',
+      categoryId: 'animals',
+      language: 'en',
+      text: 'Flamingo',
+    ),
+    ClassicWord(
+      id: 'classic.sports.basketball',
       categoryId: 'sports',
       language: 'en',
-      text: 'Ball',
+      text: 'Basketball',
+    ),
+    ClassicWord(
+      id: 'classic.sports.swimming',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Swimming',
+    ),
+    ClassicWord(
+      id: 'classic.sports.tennis',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Tennis',
+    ),
+    ClassicWord(
+      id: 'classic.sports.soccer',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Soccer',
+    ),
+    ClassicWord(
+      id: 'classic.sports.baseball',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Baseball',
+    ),
+    ClassicWord(
+      id: 'classic.sports.volleyball',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Volleyball',
+    ),
+    ClassicWord(
+      id: 'classic.sports.surfing',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Surfing',
+    ),
+    ClassicWord(
+      id: 'classic.sports.boxing',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Boxing',
+    ),
+    ClassicWord(
+      id: 'classic.sports.cycling',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Cycling',
+    ),
+    ClassicWord(
+      id: 'classic.sports.skiing',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Skiing',
+    ),
+    ClassicWord(
+      id: 'classic.sports.golf',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Golf',
+    ),
+    ClassicWord(
+      id: 'classic.sports.skateboarding',
+      categoryId: 'sports',
+      language: 'en',
+      text: 'Skateboarding',
     ),
   ];
 }

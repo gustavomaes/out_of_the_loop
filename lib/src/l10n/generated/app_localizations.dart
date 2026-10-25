@@ -1644,7 +1644,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicDemoNotice.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Demonstração de desenvolvimento. Nenhuma compra ou direito real é concedido. Categorias têm amostras em inglês; o catálogo completo chega na etapa 5. Iniciar partida estará disponível na etapa 3.'**
+  /// **'Demonstração de desenvolvimento. Premium simulado, sem compra real. As três categorias grátis têm conteúdo em inglês. Catálogo completo na etapa 5; retomada após fechar o app na etapa 4.'**
   String get classicDemoNotice;
 
   /// No description provided for @classicStart.
@@ -1712,6 +1712,156 @@ abstract class AppLocalizations {
   /// In pt_BR, this message translates to:
   /// **'Fechar'**
   String get classicClose;
+
+  /// No description provided for @classicHold.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Segure aqui para ver seu papel'**
+  String get classicHold;
+
+  /// No description provided for @classicRelease.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Solte para ocultar. Só passe o telefone com o cartão coberto.'**
+  String get classicRelease;
+
+  /// No description provided for @classicShowRole.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Revelar papel · alternativa acessível'**
+  String get classicShowRole;
+
+  /// No description provided for @classicHideRole.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Ocultar papel'**
+  String get classicHideRole;
+
+  /// No description provided for @classicYouImpostor.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Você é um impostor'**
+  String get classicYouImpostor;
+
+  /// No description provided for @classicYourWord.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Palavra secreta'**
+  String get classicYourWord;
+
+  /// No description provided for @classicNext.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Próximo jogador'**
+  String get classicNext;
+
+  /// No description provided for @classicDiscuss.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Começar discussão'**
+  String get classicDiscuss;
+
+  /// No description provided for @classicStarts.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Primeiro a dar uma pista'**
+  String get classicStarts;
+
+  /// No description provided for @classicInPerson.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Deem pistas, blefem, conversem e votem presencialmente. Quando todos estiverem prontos, revelem o resultado juntos.'**
+  String get classicInPerson;
+
+  /// No description provided for @classicPause.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Pausar timer'**
+  String get classicPause;
+
+  /// No description provided for @classicResume.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Retomar timer'**
+  String get classicResume;
+
+  /// No description provided for @classicTimeUp.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O tempo acabou. Continuem conversando ou revelem quando quiserem.'**
+  String get classicTimeUp;
+
+  /// No description provided for @classicReveal.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Revelar resultado'**
+  String get classicReveal;
+
+  /// No description provided for @classicRevealQuestion.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Revelar o segredo?'**
+  String get classicRevealQuestion;
+
+  /// No description provided for @classicRevealWarning.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Todos verão a palavra e todos os impostores. Terminem a votação antes.'**
+  String get classicRevealWarning;
+
+  /// No description provided for @classicCancel.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Cancelar'**
+  String get classicCancel;
+
+  /// No description provided for @classicEnd.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Encerrar rodada'**
+  String get classicEnd;
+
+  /// No description provided for @classicExitQuestion.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Encerrar esta rodada?'**
+  String get classicExitQuestion;
+
+  /// No description provided for @classicExitWarning.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Voltar à configuração sem revelar segredos. Esta rodada não poderá ser retomada.'**
+  String get classicExitWarning;
+
+  /// No description provided for @classicResult.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Os impostores eram…'**
+  String get classicResult;
+
+  /// No description provided for @classicTrollResult.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Rodada Troll — todo mundo!'**
+  String get classicTrollResult;
+
+  /// No description provided for @classicAgain.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Jogar novamente'**
+  String get classicAgain;
+
+  /// No description provided for @classicEditGame.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Editar jogo'**
+  String get classicEditGame;
+
+  /// No description provided for @classicContentMissing.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.'**
+  String get classicContentMissing;
 }
 
 class _AppLocalizationsDelegate

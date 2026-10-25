@@ -77,9 +77,11 @@ class ClassicWord {
     required this.categoryId,
     required this.language,
     required this.text,
+    this.commercialExample = false,
   });
   final String id;
   final String categoryId;
   final String language;
   final String text;
+  final bool commercialExample;
 }
