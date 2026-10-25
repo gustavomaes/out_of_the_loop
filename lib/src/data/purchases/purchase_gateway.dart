@@ -1,3 +1,4 @@
+import 'classic_billing_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
@@ -8,8 +9,12 @@ class PackOffer {
     required this.price,
     required this.currencyCode,
     required this.amount,
+    this.productId,
+    this.period,
   });
   final String id;
+  final String? productId;
+  final String? period;
   final String price;
   final String currencyCode;
   final double amount;
@@ -40,6 +45,16 @@ class RevenueCatPurchaseGateway implements PurchaseGateway {
   static const _androidKey = String.fromEnvironment(
     'REVENUECAT_ANDROID_API_KEY',
   );
+  RevenueCatPurchaseGateway({
+    this.subscriptionProducts = const {},
+    this.packageEntitlements = const {},
+    this.includeLegacyOffers = true,
+  });
+
+  /// Explicit store product → entitlement mapping; empty keeps legacy behavior.
+  final Map<String, String> subscriptionProducts;
+  final Map<String, String> packageEntitlements;
+  final bool includeLegacyOffers;
   final Map<String, Package> _packages = {};
   bool _configured = false;
   String get _key => kIsWeb
@@ -78,9 +93,11 @@ class RevenueCatPurchaseGateway implements PurchaseGateway {
       final offerings = await Purchases.getOfferings();
       for (final package
           in offerings.current?.availablePackages ?? <Package>[]) {
-        if (package.storeProduct.productCategory ==
-                ProductCategory.nonSubscription &&
-            package.storeProduct.subscriptionPeriod == null) {
+        if (includeLegacyOffers &&
+                package.storeProduct.productCategory ==
+                    ProductCategory.nonSubscription &&
+                package.storeProduct.subscriptionPeriod == null ||
+            subscriptionProducts.containsKey(package.storeProduct.identifier)) {
           _packages[package.identifier] = package;
         }
       }
@@ -94,6 +111,8 @@ class RevenueCatPurchaseGateway implements PurchaseGateway {
         for (final entry in _packages.entries)
           entry.key: PackOffer(
             id: entry.key,
+            productId: entry.value.storeProduct.identifier,
+            period: entry.value.storeProduct.subscriptionPeriod,
             price: entry.value.storeProduct.priceString,
             currencyCode: entry.value.storeProduct.currencyCode,
             amount: entry.value.storeProduct.price,
@@ -110,7 +129,15 @@ class RevenueCatPurchaseGateway implements PurchaseGateway {
     }
     try {
       final result = await Purchases.purchase(PurchaseParams.package(package));
-      return _active(result.customerInfo).contains(id)
+      return _active(result.customerInfo).contains(
+            purchaseEntitlement(
+                  packageId: id,
+                  productId: package.storeProduct.identifier,
+                  subscriptions: subscriptionProducts,
+                  packages: packageEntitlements,
+                ) ??
+                id,
+          )
           ? PurchaseOutcome.purchased
           : PurchaseOutcome.failed;
     } on PlatformException catch (error) {
