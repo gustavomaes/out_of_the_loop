@@ -14,3 +14,5 @@ Last updated: 2026-10-25
 - [content-audit](content-audit.md) — Generated banks repeat prompts; editorial audit and checker | gotcha | content, questions
 - [stitch-refresh-foundation](stitch-refresh-foundation.md) — Neon refined theme, shared components, previews and layout checks | pattern | flutter, design
 - [flutter-game-flow](flutter-game-flow.md) — Guided/free play, saved sessions, US packs and purchase configuration | flow | flutter, game, prefs, purchases
+
+- [classic-foundation](classic-foundation.md) — Offline Classic entry, configuration and Coral previews | pattern | classic, flutter, design

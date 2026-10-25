@@ -190,6 +190,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 1 — base técnica e design system
 
+**Evidência da execução (25/10/2026):** [base Classic, demonstração e validação](classic/STAGE_1.md). Entrada independente em `lib/main_classic.dart`; integração na `main` solicitada pelo proprietário.
+
 **Objetivo:** permitir desenvolvimento Classic sem acoplar o novo jogo ao Guided.
 
 **Entregáveis:** modelos/contratos mínimos, controller inicial, catálogo fixture sem perguntas, injeção de dependências e entrada de desenvolvimento; tokens Coral Social, botões, cards, switches e sheet padrão. Estrutura de localização desde o início.
