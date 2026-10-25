@@ -7,9 +7,16 @@
 - `ClassicDemoPremium` is a nonpersisted development fake. The 23 presentation categories mirror the prototype; food/animals/sports have 12 playable words each. Content is English, independently of UI locale.
 - Previews: `lib/previews/classic_previews.dart`. Text scaling is injected inside MaterialApp via its builder so the app's MediaQuery does not overwrite the 200% preview.
 - Tests with the gallery loading spinner must use bounded pumps; pumpAndSettle never settles an indeterminate progress indicator. ListView children are lazy; scroll before locating lower actions.
-- Runtime: `ClassicHome` switches to `ClassicRoundScreen` based on controller phase; no route parameters carry secrets. `ClassicRoundFactory.create()` owns pure rules/recency; controller owns in-memory progress and monotonic clock; screen owns ephemeral visibility.
+- Runtime: `ClassicHome` switches to `ClassicRoundScreen` based on controller phase; no route parameters carry secrets. `ClassicRoundFactory.create()` owns pure rules/recency; controller owns progress, serialized persistence and monotonic clock; screen owns ephemeral visibility.
 - Privacy handshake: `ClassicRoundScreen._nativePrivacy()` → iOS `AppDelegate` channel → `SceneDelegate` cover. Resume sends ready after a safe frame; native cover must not be removed on a time delay. Android activity uses FLAG_SECURE for both entries.
 - Lifecycle tests use synchronous `handleAppLifecycleStateChanged`; focus events use dart:ui `ViewFocusEvent.state`. Physical background/preview acceptance is pending; simulator evidence is in `docs/classic/STAGE_3.md`.
 - Delivery evidence and demos: `docs/classic/STAGE_1.md`, `STAGE_2.md`, `STAGE_3.md`.
 
 Updated: 2026-10-25
+
+- Stage 4: executable entry wraps `ClassicHome` in `ClassicSessionHost`; plain `ClassicDevApp` remains isolated for existing tests/previews. Injected host repositories bypass native preferences; main reads the existing UI language key.
+- `ClassicSessionRepository` validates complete envelopes and queues captured JSON; write errors are observed by controller/host. The saved envelope is the migration marker after read-back verification; no separate marker can race a failed write. Future schemas remain untouched during explicitly temporary play.
+- Session lifecycle: keep the round screen mounted beneath saving/error overlays so native privacy observers remain active; replacing it with a spinner would remove those observers. Role visibility/viewed and running timer origin never persist. `markViewed` deliberately does not enqueue a write.
+- Legacy history keys use colons; Classic uses language/category/word ID separated by slashes. Explicit equivalents live in `classic_legacy_migration.dart`; unmapped count is local metadata, source remains available for stage 5. UI-language migration must not switch the English-only content language.
+- `classicResume` already means Resume timer; the stage-four CTA uses `classicResumeGame` to avoid changing the existing discussion control.
+- Stage-four evidence: `docs/classic/STAGE_4.md`; physical update/kill scenarios are pending, simulator update and revealing-process restart were checked.

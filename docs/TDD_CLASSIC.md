@@ -226,6 +226,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 4 — persistência, migração e retomada
 
+**Evidência da execução (25/10/2026):** [persistência, migração, retomada e validação](classic/STAGE_4.md). Código e testes entregues em `lib/main_classic.dart`; atualização e reinício de processo verificados no simulador. Etapa em validação: atualização de versão publicada e aceite em aparelho físico permanecem pendentes.
+
 **Objetivo:** não perder ou alterar silenciosamente uma rodada em interrupções.
 
 **Entregáveis:** envelope versionado, fila de gravação, migração, S09/S20/S21 e tratamento de lifecycle; relatório de atualização sobre instalação anterior.
