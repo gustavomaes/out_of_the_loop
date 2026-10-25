@@ -15,4 +15,4 @@ Last updated: 2026-10-25
 - [stitch-refresh-foundation](stitch-refresh-foundation.md) — Neon refined theme, shared components, previews and layout checks | pattern | flutter, design
 - [flutter-game-flow](flutter-game-flow.md) — Guided/free play, saved sessions, US packs and purchase configuration | flow | flutter, game, prefs, purchases
 
-- [classic-foundation](classic-foundation.md) — Offline Classic entry, configuration and Coral previews | pattern | classic, flutter, design
+- [classic-foundation](classic-foundation.md) — Offline Classic home, configuration sheets, demo Premium and Coral previews | pattern | classic, flutter, design

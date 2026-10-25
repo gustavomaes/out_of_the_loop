@@ -202,6 +202,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 2 — home e configuração completas
 
+**Evidência da execução (25/10/2026):** [home Classic, sheets e validação](classic/STAGE_2.md). Demonstração offline em `lib/main_classic.dart`; Start indisponível até a etapa 3 e Premium explicitamente fake.
+
 **Objetivo:** demonstrar todo o preparo de uma partida antes de integrar o sorteio.
 
 **Entregáveis:** S01/S02/S03/S04/S15/S22; nomes 3–20; categorias com rascunho; impostores Auto/manual; hint, timer e Troll; dock transparente; ajuda pelo header. Premium usa gateway fake apenas na demonstração até a etapa 6. Start pode permanecer explicitamente indisponível nesta etapa.
