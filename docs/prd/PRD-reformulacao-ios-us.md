@@ -247,7 +247,11 @@ Pesquisa: dois grupos de 3–6 pessoas próximas, cinco anfitriões; tarefas sem
 
 ## 12. Compartilhamento, feedback e avaliação — ressalva de publicação
 
-### Comportamento solicitado e representado
+### Implementação técnica Classic — etapa 7 (25/10/2026)
+
+A entrada Classic implementa a alternativa sem filtragem: avaliação disponível a todos na home/settings e feedback independente por e-mail editável, sem ramificação por satisfação. Abrir e-mail não confirma envio; chamar a API não confirma avaliação. Link público, contato e aceite final de publicação continuam pendentes. Ver [evidências](../classic/STAGE_7.md) e [contrato efetivamente instrumentado](../classic/METRICS.md); a tabela analítica acima é a proposta ampliada, não comprovação de coleta de todas as dimensões.
+
+### Comportamento histórico solicitado e representado no protótipo
 
 Rate us na home abre “Enjoying Oddly?”; Yes abre preview do prompt nativo; Not quite abre formulário de sugestão. Cancelar qualquer etapa volta à home sem perder grupo/scroll. Campo vazio não envia; após envio mostrar confirmação ou erro com retry. Nenhum incentivo, pacote ou Troll desbloqueado por avaliação. No HTML, confirmação de feedback e estrelas são simulações; nada é enviado.
 

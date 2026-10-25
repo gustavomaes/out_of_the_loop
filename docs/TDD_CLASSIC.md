@@ -266,6 +266,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 7 — experiência completa e observabilidade
 
+**Evidência da execução (25/10/2026):** [settings, suporte, idiomas, acessibilidade e validação](classic/STAGE_7.md), com [contrato de coleta e roteiro de métricas](classic/METRICS.md). Implementação técnica entregue na entrada Classic; etapa em validação até QA físico, revisão linguística humana e confirmação dos contatos/links. Review implementado sem filtragem, com feedback independente; isso não é aprovação de publicação.
+
 **Objetivo:** tornar a versão utilizável e diagnosticável no público-alvo.
 
 **Entregáveis:** S19/S23 e suporte/avaliação conforme decisão de produto; en/pt-BR/es/hi/ar; áudio/haptics; analytics com lista permitida de parâmetros; documentação de coleta e painel/roteiro de leitura de métricas.
@@ -274,7 +276,7 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 **Verificação:** testes de contrato l10n; widgets representativos nos cinco idiomas; inspeção de eventos; aparelho com VoiceOver, movimento reduzido, áudio off e rede indisponível. Eventos não são duplicados por rebuild/retomada. Rodada continuada após erro de persistência deve ter diagnóstico distinto do início duravelmente salvo.
 
-**Pendência:** resolver a bifurcação de review do mockup antes da implementação de produção. Proposta: avaliação disponível a todos e feedback independente. Não copiar a filtragem como requisito já liberado para publicação.
+**Decisão técnica implementada nesta etapa:** avaliação disponível a todos e feedback independente, sem bifurcação por satisfação. Aceite final de produto/publicação e contatos reais permanecem pendentes. A filtragem do mockup não foi copiada para o runtime Classic.
 
 ### Etapa 8 — integração final e release candidate
 
@@ -333,7 +335,7 @@ Não fixar datas neste TDD. O plano anterior contém estimativas preliminares; r
 | Troll | 15% é proposta operacional | Validar em testes de jogo antes do RC |
 | Catálogo | 40 palavras/categoria é meta; amostras insuficientes para venda final | Etapa 5 |
 | IDs e lifetime | Mapping real precisa de auditoria | Iniciar em 0; concluir antes do aceite de 6 |
-| Review | Mockup filtra feedback; alternativa de produção ainda precisa ser consolidada | Antes do fluxo de produção da etapa 7 |
+| Review | Alternativa sem filtragem implementada na etapa 7; aceite de publicação permanece pendente | Antes do RC |
 | Contatos/links legais | Confirmar endereço e URLs da marca | Etapas 6–7 |
 | Build publicado | Fonte local não garante equivalência com versão instalada | Etapas 0 e 8 |
 | Texto residual no PRD | Seção de riscos ainda cita Premium como coleção | Usar monetização v3; reconciliar PRD na próxima revisão documental |
