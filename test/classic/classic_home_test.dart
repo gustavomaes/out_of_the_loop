@@ -288,12 +288,9 @@ void main() {
     expect(c.config.players.length, 19);
     expect(c.config.hint, isFalse);
     expect(c.config.troll, isFalse);
-    await tapVisible(
-      t,
-      find.widgetWithText(SwitchListTile, '💡 Category hint'),
-    );
+    await tapVisible(t, find.widgetWithText(SwitchListTile, 'Category hint'));
     expect(c.config.hint, isTrue);
-    await tapVisible(t, find.widgetWithText(SwitchListTile, '😈 Troll mode'));
+    await tapVisible(t, find.widgetWithText(SwitchListTile, 'Troll mode'));
     expect(c.config.troll, isTrue);
     expect(find.byType(BottomSheet), findsNothing);
   });

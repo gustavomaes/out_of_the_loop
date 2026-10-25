@@ -1,3 +1,4 @@
+import 'classic_emoji.dart';
 import '../application/classic_experience.dart';
 import 'package:flutter/material.dart';
 
@@ -109,17 +110,21 @@ class ClassicCard extends StatelessWidget {
 class ClassicSwitch extends StatelessWidget {
   const ClassicSwitch({
     super.key,
+    this.emoji,
     required this.label,
     required this.value,
     this.onChanged,
   });
   final String label;
   final bool value;
+  final String? emoji;
   final ValueChanged<bool>? onChanged;
   @override
   Widget build(BuildContext context) => SwitchListTile.adaptive(
     contentPadding: EdgeInsets.zero,
-    title: Text(label),
+    title: emoji == null
+        ? Text(label)
+        : ClassicEmojiLabel(emoji: emoji!, label: label),
     value: value,
     onChanged: onChanged,
   );

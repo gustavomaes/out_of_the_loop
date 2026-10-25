@@ -82,6 +82,10 @@ class ClassicSettings extends StatelessWidget {
         ),
         Text(l.classicFeedbackNotice),
         TextButton(
+          onPressed: () => showLicensePage(context: context),
+          child: Text(MaterialLocalizations.of(context).licensesPageTitle),
+        ),
+        TextButton(
           onPressed: () => classicAction(context, (e) => e.review()),
           child: Text(l.classicRate),
         ),

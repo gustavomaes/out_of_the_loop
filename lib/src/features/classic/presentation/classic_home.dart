@@ -1,3 +1,4 @@
+import 'classic_emoji.dart';
 import '../../../data/analytics/classic_analytics.dart';
 import 'classic_settings.dart';
 import 'package:flutter/material.dart';
@@ -138,7 +139,10 @@ class _ClassicHomeState extends State<ClassicHome> {
                 CheckboxListTile(
                   key: ValueKey('category-${category.id}'),
                   contentPadding: EdgeInsets.zero,
-                  title: Text('${category.emoji} ${category.name}'),
+                  title: ClassicEmojiLabel(
+                    emoji: category.emoji,
+                    label: category.name,
+                  ),
                   secondary:
                       !premium.allows(category.id, free: !category.premium)
                       ? const Icon(Icons.lock_outline)
@@ -236,23 +240,28 @@ class _ClassicHomeState extends State<ClassicHome> {
     ),
   );
 
-  Widget option(String title, String value, VoidCallback onTap, {Key? key}) =>
-      Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: ClassicCard(
-          child: Material(
-            type: MaterialType.transparency,
-            child: ListTile(
-              key: key,
-              contentPadding: EdgeInsets.zero,
-              title: Text(title),
-              subtitle: Text(value),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: onTap,
-            ),
-          ),
+  Widget option(
+    String emoji,
+    String title,
+    String value,
+    VoidCallback onTap, {
+    Key? key,
+  }) => Padding(
+    padding: const EdgeInsets.only(bottom: 12),
+    child: ClassicCard(
+      child: Material(
+        type: MaterialType.transparency,
+        child: ListTile(
+          key: key,
+          contentPadding: EdgeInsets.zero,
+          title: ClassicEmojiLabel(emoji: emoji, label: title),
+          subtitle: Text(value),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: onTap,
         ),
-      );
+      ),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) => ListenableBuilder(
@@ -373,7 +382,8 @@ class _ClassicHomeState extends State<ClassicHome> {
                   Text(l.classicSubtitle),
                   const SizedBox(height: 20),
                   option(
-                    '👥 ${l.classicCrew}',
+                    '👥',
+                    l.classicCrew,
                     '${config.players.length} · ${l.classicNames}',
                     editNames,
                     key: const Key('edit-names'),
@@ -389,8 +399,9 @@ class _ClassicHomeState extends State<ClassicHome> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Text(
-                                '🗂️ ${l.classicCategories}',
+                              ClassicEmojiLabel(
+                                emoji: '🗂️',
+                                label: l.classicCategories,
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                               const SizedBox(height: 8),
@@ -408,8 +419,9 @@ class _ClassicHomeState extends State<ClassicHome> {
                                               config.categoryIds.contains(c.id),
                                         ))
                                       Chip(
-                                        label: Text(
-                                          '${category.emoji} ${category.name}',
+                                        label: ClassicEmojiLabel(
+                                          emoji: category.emoji,
+                                          label: category.name,
                                         ),
                                       ),
                                 ],
@@ -421,7 +433,8 @@ class _ClassicHomeState extends State<ClassicHome> {
                     ),
                   ),
                   option(
-                    '🥷 ${l.classicImpostors}',
+                    '🥷',
+                    l.classicImpostors,
                     config.manualImpostors == null
                         ? '${l.classicAuto} · ${config.impostors}'
                         : '${config.impostors}',
@@ -429,7 +442,8 @@ class _ClassicHomeState extends State<ClassicHome> {
                     key: const Key('edit-impostors'),
                   ),
                   ClassicSwitch(
-                    label: '💡 ${l.classicHint}',
+                    emoji: '💡',
+                    label: l.classicHint,
                     value: config.hint,
                     onChanged: (v) =>
                         controller.updateConfig(config.copyWith(hint: v)),
@@ -441,7 +455,10 @@ class _ClassicHomeState extends State<ClassicHome> {
                         child: ListTile(
                           key: const Key('edit-duration'),
                           contentPadding: EdgeInsets.zero,
-                          title: Text('⏱️ ${l.classicTimer}'),
+                          title: ClassicEmojiLabel(
+                            emoji: '⏱️',
+                            label: l.classicTimer,
+                          ),
                           subtitle: Text(
                             config.timerMinutes == null
                                 ? l.classicOff
@@ -468,7 +485,8 @@ class _ClassicHomeState extends State<ClassicHome> {
                     ],
                   ),
                   ClassicSwitch(
-                    label: '😈 ${l.classicTroll}',
+                    emoji: '😈',
+                    label: l.classicTroll,
                     value: config.troll,
                     onChanged: (v) =>
                         controller.updateConfig(config.copyWith(troll: v)),

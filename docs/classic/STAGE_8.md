@@ -4,6 +4,8 @@ Data: 25/10/2026. **Implementação técnica entregue; em validação.** A entra
 padrão agora é Classic. O aceite de RC/TestFlight continua bloqueado pelos itens
 externos abaixo; não houve upload, publicação nem alteração de produtos reais.
 
+**Correção posterior:** o P2 de emojis foi corrigido com assets locais e conferido no simulador. Ver [evidências e validação](EMOJI_FIX.md). A captura e os hashes da validação original abaixo são históricos.
+
 ## Integração
 
 - `lib/main.dart` inicializa Classic com experiência, sessão persistida e analytics
@@ -98,7 +100,7 @@ são reaproveitados como certificação do novo binário.
 | P1 — bloqueia distribuição | Marca, URLs legais, contato e build único | Valores confirmados, versão conciliada com a loja e conferência dos links no candidato |
 | P1 — bloqueia aceite | Teste com pessoas e QA físico | Cinco anfitriões em dois grupos, VoiceOver/iPad/áudio/share e resolução de fricção crítica |
 | P1 — bloqueia TestFlight | Assinatura/export/upload e instalação do candidato | IPA, hash, versão/build, processamento TestFlight e instalação física |
-| P2 — visual confirmado no simulador | Emojis decorativos com glifos ausentes reproduzidos na captura do novo build | Inspeção do novo build por idioma/dispositivo; rótulos textuais continuam disponíveis |
+| P2 — corrigido | Emojis decorativos agora usam imagens locais | [Home/categorias conferidas e testes de escala/RTL](EMOJI_FIX.md) |
 
 Não foi detectado defeito crítico nos cenários automatizados executados. Isso não
 comprova ausência de defeitos nos cenários pendentes nem satisfaz o aceite

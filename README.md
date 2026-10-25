@@ -27,3 +27,9 @@ from the Flutter asset bundle. Regenerate/check with `tool/classic_catalog.py`.
 See [stage 8](docs/classic/STAGE_8.md) for candidate evidence, QA and remaining
 release blockers. A local unsigned build is not a TestFlight candidate or release
 approval. Bundle ID and native distribution settings remain those of the existing app.
+
+Emoji artwork: [Twemoji v14.0.2](https://github.com/twitter/twemoji/tree/v14.0.2),
+Copyright 2019 Twitter, Inc and other contributors,
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+The 29 unchanged PNGs are bundled offline; attribution and full license are
+available in Settings → Licenses and `assets/emoji/LICENSE-GRAPHICS.txt`.
