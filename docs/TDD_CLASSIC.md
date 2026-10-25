@@ -178,6 +178,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 0 — baseline e preparação
 
+**Evidência da execução (25/10/2026):** [baseline e inventário de migração](classic/BASELINE_STAGE_0.md), com contagens reproduzíveis em [content-inventory.json](classic/baseline/content-inventory.json). Pendências externas da loja e do RevenueCat permanecem identificadas no relatório; não representam aprovação comercial ou de publicação.
+
 **Objetivo:** conhecer o ponto de partida e preservar o que permite atualizar o app existente.
 
 **Entregáveis:** inventário do build publicado versus fonte local; IDs de app/produtos/entitlements; chaves de preferências; contagem de conteúdo por idioma; matriz de reaproveitamento; registro inicial de pendências. Guardar referência Git e instrução de build sem segredos.
