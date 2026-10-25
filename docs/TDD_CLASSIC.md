@@ -292,6 +292,8 @@ A produção editorial da etapa 5 pode avançar durante as etapas 2–4. Preços
 
 ### Etapa 9 — publicação e leitura dos resultados
 
+**Evidência da execução (25/10/2026):** [pacote de publicação, verificação e acompanhamento](classic/STAGE_9.md). Checklist, metadados en-US, notas de revisão, manifesto de capturas reais históricas, plano de hotfix e modelos D7/D14/D30 entregues. Etapa em validação: bloqueadores da etapa 8, capturas do candidato final, IPA/TestFlight, aprovação do proprietário e resultados pós-lançamento permanecem pendentes. Nenhuma publicação realizada.
+
 **Objetivo:** deixar a atualização pronta e acompanhar o efeito do novo produto.
 
 **Entregáveis:** checklist de submissão, screenshots reais, metadata coerente, notas de revisão sobre assinatura, versão/build identificados, plano de hotfix e relatório D7/D14/D30 após lançamento.
