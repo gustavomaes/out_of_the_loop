@@ -1,0 +1,558 @@
+{
+  "catalogVersion": "classic-1",
+  "freeConcepts": 120,
+  "premiumExclusiveConcepts": 800,
+  "categoryEntries": 959,
+  "legacyLocalizedReferences": 960,
+  "distinctEnglishTexts": 920,
+  "crossCategoryReuse": {
+    "popcorn": [
+      "food",
+      "movies"
+    ],
+    "watermelon": [
+      "food",
+      "us_backyard"
+    ],
+    "burger": [
+      "food",
+      "us_backyard"
+    ],
+    "lemonade": [
+      "food",
+      "us_backyard"
+    ],
+    "hot dog": [
+      "food",
+      "us_backyard"
+    ],
+    "apple": [
+      "food",
+      "brands"
+    ],
+    "donut": [
+      "food",
+      "sweet"
+    ],
+    "dolphin": [
+      "animals",
+      "ocean"
+    ],
+    "octopus": [
+      "animals",
+      "ocean"
+    ],
+    "shark": [
+      "animals",
+      "ocean"
+    ],
+    "whale": [
+      "animals",
+      "ocean"
+    ],
+    "martial arts": [
+      "sports",
+      "movies"
+    ],
+    "yoga": [
+      "sports",
+      "hobbies"
+    ],
+    "road trip": [
+      "movies",
+      "travel"
+    ],
+    "movie theater": [
+      "movies",
+      "places"
+    ],
+    "remote control": [
+      "movies",
+      "technology"
+    ],
+    "microphone": [
+      "music",
+      "technology"
+    ],
+    "headphones": [
+      "music",
+      "technology"
+    ],
+    "beyoncé": [
+      "music",
+      "famous"
+    ],
+    "taylor swift": [
+      "music",
+      "famous"
+    ],
+    "beach": [
+      "travel",
+      "ocean"
+    ],
+    "mountain": [
+      "travel",
+      "nature"
+    ],
+    "airport": [
+      "travel",
+      "places"
+    ],
+    "camping": [
+      "travel",
+      "hobbies"
+    ],
+    "museum": [
+      "travel",
+      "places"
+    ],
+    "train": [
+      "travel",
+      "transport"
+    ],
+    "backpack": [
+      "travel",
+      "objects",
+      "fashion"
+    ],
+    "souvenir": [
+      "travel",
+      "us_roadtrip"
+    ],
+    "desert": [
+      "travel",
+      "nature"
+    ],
+    "waterfall": [
+      "travel",
+      "nature"
+    ],
+    "bus": [
+      "travel",
+      "transport"
+    ],
+    "taxi": [
+      "travel",
+      "transport"
+    ],
+    "hiking": [
+      "travel",
+      "hobbies"
+    ],
+    "cave": [
+      "travel",
+      "nature"
+    ],
+    "lake": [
+      "travel",
+      "nature"
+    ],
+    "gas station": [
+      "places",
+      "us_roadtrip"
+    ],
+    "car wash": [
+      "places",
+      "us_roadtrip"
+    ],
+    "sunglasses": [
+      "fashion",
+      "us_roadtrip"
+    ]
+  },
+  "humanReview": "pending",
+  "categories": [
+    {
+      "category": "food",
+      "premium": false,
+      "concepts": 40,
+      "localizedValues": {
+        "pt-BR": 40,
+        "en": 40,
+        "es": 40,
+        "hi": 40,
+        "ar": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "animals",
+      "premium": false,
+      "concepts": 40,
+      "localizedValues": {
+        "pt-BR": 40,
+        "en": 40,
+        "es": 40,
+        "hi": 40,
+        "ar": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "sports",
+      "premium": false,
+      "concepts": 40,
+      "localizedValues": {
+        "pt-BR": 40,
+        "en": 40,
+        "es": 40,
+        "hi": 40,
+        "ar": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "movies",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "pt-BR": 30,
+        "en": 40,
+        "es": 30,
+        "hi": 30,
+        "ar": 30
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "music",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "pt-BR": 30,
+        "en": 40,
+        "es": 30,
+        "hi": 30,
+        "ar": 30
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "travel",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "pt-BR": 30,
+        "en": 40,
+        "es": 30,
+        "hi": 30,
+        "ar": 30
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "famous",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "objects",
+      "premium": true,
+      "concepts": 47,
+      "localizedValues": {
+        "en": 47
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "brands",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "jobs",
+      "premium": true,
+      "concepts": 47,
+      "localizedValues": {
+        "en": 47
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "hobbies",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "places",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "nature",
+      "premium": true,
+      "concepts": 47,
+      "localizedValues": {
+        "en": 47
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "technology",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "fashion",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "transport",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "school",
+      "premium": true,
+      "concepts": 46,
+      "localizedValues": {
+        "en": 46
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "games",
+      "premium": true,
+      "concepts": 46,
+      "localizedValues": {
+        "en": 46
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "us_backyard",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "us_roadtrip",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "us_holidays",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "sweet",
+      "premium": true,
+      "concepts": 40,
+      "localizedValues": {
+        "en": 40
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    },
+    {
+      "category": "ocean",
+      "premium": true,
+      "concepts": 46,
+      "localizedValues": {
+        "en": 46
+      },
+      "humanReview": "pending",
+      "reviewTopics": [
+        "ambiguity",
+        "age suitability",
+        "cultural familiarity",
+        "translation quality",
+        "US audience testing"
+      ]
+    }
+  ]
+}

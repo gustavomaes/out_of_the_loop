@@ -783,7 +783,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get classicDevTitle => 'Classic · development';
 
   @override
-  String get classicFixtureNotice => 'Offline fixture · not the launch catalog';
+  String get classicFixtureNotice =>
+      'Offline catalog · editorial review pending';
 
   @override
   String get classicHint => 'Category hint';

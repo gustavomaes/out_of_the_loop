@@ -40,7 +40,7 @@ class ClassicController extends ChangeNotifier {
   bool get saving => _pending > 0;
   bool get blocked => saving || (persistenceError && !continuingWithoutSave);
   Map<String, Object> _preferences = const {};
-  String _catalogVersion = 'classic-initial-1';
+  String _catalogVersion = ClassicContentRepository.catalog.version;
   ClassicSession get session => ClassicSession(
     config: config,
     history: history,
@@ -156,6 +156,7 @@ class ClassicController extends ChangeNotifier {
         categoryNames: {for (final c in classicCategories) c.id: c.name},
         history: _history,
       );
+      _catalogVersion = ClassicContentRepository.catalog.version;
       _round = created.round;
       _history = created.history;
       _index = 0;

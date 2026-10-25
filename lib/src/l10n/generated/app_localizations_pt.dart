@@ -789,7 +789,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get classicDevTitle => 'Classic · desenvolvimento';
 
   @override
-  String get classicFixtureNotice => 'Fixture offline · não é o catálogo final';
+  String get classicFixtureNotice =>
+      'Catálogo offline · revisão editorial pendente';
 
   @override
   String get classicHint => 'Dica da categoria';
@@ -1829,7 +1830,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get classicDevTitle => 'Classic · desenvolvimento';
 
   @override
-  String get classicFixtureNotice => 'Fixture offline · não é o catálogo final';
+  String get classicFixtureNotice =>
+      'Catálogo offline · revisão editorial pendente';
 
   @override
   String get classicHint => 'Dica da categoria';

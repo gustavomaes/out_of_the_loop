@@ -777,7 +777,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get classicDevTitle => 'Classic · تطوير';
 
   @override
-  String get classicFixtureNotice => 'عينة دون اتصال · ليست القائمة النهائية';
+  String get classicFixtureNotice =>
+      'قائمة دون اتصال · المراجعة التحريرية معلقة';
 
   @override
   String get classicHint => 'تلميح الفئة';

@@ -1470,7 +1470,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicFixtureNotice.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Fixture offline · não é o catálogo final'**
+  /// **'Catálogo offline · revisão editorial pendente'**
   String get classicFixtureNotice;
 
   /// No description provided for @classicHint.

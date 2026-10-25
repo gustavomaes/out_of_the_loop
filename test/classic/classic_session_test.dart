@@ -118,7 +118,10 @@ void main() {
       final first = await load();
       expect(first.issue, false);
       expect(first.session.config.players.first.name, 'Ana');
-      expect(first.session.history.seen.keys, ['en/food/classic.food.pizza']);
+      expect(first.session.history.seen.keys, [
+        'en/food/classic.food.pizza',
+        'pt-BR/food/classic.food.pizza',
+      ]);
       expect((await load()).session.toJson(), first.session.toJson());
       expect(calls, 1);
       expect(storage['game.session.v1'], legacy);

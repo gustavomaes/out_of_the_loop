@@ -131,16 +131,16 @@ void main() {
       var history = ClassicHistory();
       final config = group(3, categories: {'food', 'animals', 'sports'});
       final seen = <String>{};
-      for (var i = 0; i < 80; i++) {
+      for (var i = 0; i < 160; i++) {
         final previous = history.lastWord;
         final next = create(config, history: history);
         final key = ClassicHistory.wordKey(next.round.word);
         expect(key, isNot(previous));
-        if (i < 36) expect(seen.add(key), isTrue);
+        if (i < 120) expect(seen.add(key), isTrue);
         history = next.history;
       }
-      expect(history.rounds, 80);
-      expect(history.seen.length, 36);
+      expect(history.rounds, 160);
+      expect(history.seen.length, 120);
     },
   );
   test(
@@ -159,7 +159,7 @@ void main() {
         history: ClassicHistory(),
       );
       expect(r.round.word.categoryId, 'animals');
-      expect(() => create(group(3, categories: {'movies'})), throwsStateError);
+      expect(() => create(group(3, categories: {'missing'})), throwsStateError);
       expect(
         () => ClassicRoundFactory().create(
           id: 'r',
@@ -295,7 +295,7 @@ void main() {
     () {
       final c = ClassicController(
         content: const ClassicContentRepository(),
-        config: group(3, categories: {'food', 'movies'}),
+        config: group(3, categories: {'food', 'missing'}),
       );
       addTearDown(c.dispose);
       expect(c.start(), isFalse);

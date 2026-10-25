@@ -789,7 +789,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get classicFixtureNotice =>
-      'Datos locales de prueba · no es el catálogo final';
+      'Catálogo sin conexión · revisión editorial pendiente';
 
   @override
   String get classicHint => 'Pista de categoría';

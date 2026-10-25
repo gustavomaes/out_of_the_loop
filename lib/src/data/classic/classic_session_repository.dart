@@ -13,7 +13,7 @@ class ClassicSession {
     this.index = 0,
     this.remaining,
     this.revision = 0,
-    this.catalogVersion = 'classic-initial-1',
+    this.catalogVersion = 'classic-1',
     this.preferences = const {},
   });
   final ClassicConfig config;

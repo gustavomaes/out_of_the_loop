@@ -779,7 +779,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get classicDevTitle => 'Classic · विकास';
 
   @override
-  String get classicFixtureNotice => 'ऑफ़लाइन नमूना · अंतिम कैटलॉग नहीं';
+  String get classicFixtureNotice => 'ऑफ़लाइन कैटलॉग · संपादकीय समीक्षा लंबित';
 
   @override
   String get classicHint => 'श्रेणी संकेत';
