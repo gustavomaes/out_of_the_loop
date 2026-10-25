@@ -1,0 +1,10 @@
+{
+  "tool": "Built-in image_gen; no CLI",
+  "type": "Static home-screen art direction concepts, not implementation",
+  "shared_brief": "Portrait front-on iPhone home for Suslo in US English. Who’s bluffing? One phone. Your whole crew. Classic, 3–20 players; Your crew, Edit names, 6 players; Categories: Food, Animals, Sports; Imposters Auto 1; Imposter hint, Discussion timer, Troll mode off; subtle Explore Premium; dominant Start game. Help and settings. No online play or competitor characters.",
+  "directions": [
+    {"file": "01-coral-social.png", "brief": "Warm ivory, coral primary, brown ink, butter yellow details. Expressive playing cards with sideways eyes; no words on decorative cards. Friendly rounded type and restrained borders."},
+    {"file": "02-suspeitos-de-bolso.png", "brief": "Retain Coral home layout and all English controls. Butter yellow canvas, cream panels, black outlines and CTA, lavender offset shadows, coral accents. Three small original pebble suspects with expressive eyes. No Among Us resemblance, no trademark sign, no Portuguese copy."},
+    {"file": "03-clube-secreto.png", "brief": "Deep forest charcoal, pale mint text and chartreuse CTA. Confident condensed type, geometric eye playing cards. Adult social mystery rather than horror or casino. Remove generated explanatory lines under hint, timer and Troll to preserve actual product behavior."}
+  ]
+}

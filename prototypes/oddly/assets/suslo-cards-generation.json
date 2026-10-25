@@ -1,0 +1,5 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "prototypes/suslo-art-directions/01-coral-social.png",
+  "prompt": "Extract/recreate only the decorative hero illustration of three expressive playing cards. Transparent PNG, tight landscape framing. Ivory side cards, coral center card, brown side-eye eyes, small gold/coral rays, soft ground shadow. No words, UI or opaque background. Intended display 320 by 140 CSS pixels."
+}
