@@ -799,233 +799,316 @@ class AppLocalizationsAr extends AppLocalizations {
   String get classicRetry => 'إعادة المحاولة';
 
   @override
-  String get classicCrew => 'Your crew';
+  String get classicCrew => 'مجموعتك';
 
   @override
-  String get classicNames => 'Edit names';
+  String get classicNames => 'تعديل الأسماء';
 
   @override
-  String get classicCategories => 'Categories';
+  String get classicCategories => 'الفئات';
 
   @override
-  String get classicImpostors => 'Imposters';
+  String get classicImpostors => 'المحتالون';
 
   @override
-  String get classicAuto => 'Auto (recommended)';
+  String get classicAuto => 'تلقائي (موصى به)';
 
   @override
-  String get classicTimer => 'Discussion timer';
+  String get classicTimer => 'مؤقت النقاش';
 
   @override
-  String get classicDuration => 'Duration';
+  String get classicDuration => 'المدة';
 
   @override
-  String get classicTroll => 'Troll mode';
+  String get classicTroll => 'وضع المقلب';
 
   @override
-  String get classicSave => 'Save names';
+  String get classicSave => 'حفظ الأسماء';
 
   @override
-  String get classicConfirm => 'Confirm';
+  String get classicConfirm => 'تأكيد';
 
   @override
-  String get classicClear => 'Clear';
+  String get classicClear => 'مسح';
 
   @override
-  String get classicSelectFree => 'Select all free';
+  String get classicSelectFree => 'تحديد كل المجاني';
 
   @override
-  String get classicSelectAll => 'Select all';
+  String get classicSelectAll => 'تحديد الكل';
 
   @override
-  String get classicAll => 'All';
+  String get classicAll => 'الكل';
 
   @override
-  String get classicDone => 'Done';
+  String get classicDone => 'تم';
 
   @override
-  String get classicAdd => 'Add player';
+  String get classicAdd => 'إضافة لاعب';
 
   @override
-  String get classicRemove => 'Remove player';
+  String get classicRemove => 'إزالة لاعب';
 
   @override
-  String get classicPlayer => 'Player';
+  String get classicPlayer => 'لاعب';
 
   @override
-  String get classicHelp => 'How to play';
+  String get classicHelp => 'طريقة اللعب';
 
   @override
-  String get classicSettings => 'Settings';
+  String get classicSettings => 'الإعدادات';
 
   @override
   String get classicPremium => 'Premium';
 
   @override
-  String get classicDemoBuy => 'Enable Premium demo';
+  String get classicDemoBuy => 'تفعيل عرض Premium التجريبي';
 
   @override
-  String get classicDemoNotice =>
-      'Development demo. Premium is simulated, with no real purchase. Three free categories have English content. Full catalog arrives in stage 5; resuming after closing the app arrives in stage 4.';
+  String get classicDemoNotice => 'عرض تطوير بمشتريات تجريبية.';
 
   @override
-  String get classicStart => 'Start game';
+  String get classicStart => 'بدء اللعبة';
 
   @override
-  String get classicTitle => 'Who is the impostor?';
+  String get classicTitle => 'من هو المحتال؟';
 
   @override
-  String get classicSubtitle => 'One phone. Your friends. A secret word.';
+  String get classicSubtitle => 'هاتف واحد. أصدقاؤك. كلمة سرية.';
 
   @override
-  String get classicOff => 'Off';
+  String get classicOff => 'إيقاف';
 
   @override
-  String get classicMinutes => 'minutes';
+  String get classicMinutes => 'دقائق';
 
   @override
-  String get classicShare => 'Share · available in stage 7';
+  String get classicShare => 'مشاركة';
 
   @override
-  String get classicRate => 'Rate us · available in stage 7';
+  String get classicRate => 'تقييم التطبيق';
 
   @override
   String get classicFooter =>
-      'Talk, bluff and vote together. No screens needed for the discussion.';
+      'تحدثوا وخادعوا وصوتوا معًا دون الحاجة للشاشة أثناء النقاش.';
 
   @override
   String get classicHelpSteps =>
-      '1. Gather 3–20 players around one phone.\n2. Hold to see your role; release to hide it.\n3. Give clues about the secret word.\n4. Impostors bluff and blend in.\n5. Discuss and vote in person.\n6. Confirm the reveal to see the word and impostors.\n\nHint shows only the category. Troll may make everyone an impostor.';
+      '1. اجمعوا 3–20 لاعبًا مع هاتف واحد.\n2. اضغط مطولًا لكشف الدور وارفع إصبعك لإخفائه.\n3. قدموا تلميحات عن الكلمة.\n4. يخادع المحتالون.\n5. ناقشوا وصوتوا وجهًا لوجه.\n6. أكدوا لكشف الكلمة والمحتالين.\n\nالتلميح يعرض الفئة فقط. قد يجعل المقلب الجميع محتالين.';
 
   @override
-  String get classicEnglish => 'Content language: English (demo)';
+  String get classicEnglish => 'المحتوى باللغة الإنجليزية';
 
   @override
-  String get classicClose => 'Close';
+  String get classicClose => 'إغلاق';
 
   @override
-  String get classicHold => 'Hold here to see your role';
+  String get classicHold => 'اضغط مطولًا هنا لرؤية دورك';
 
   @override
   String get classicRelease =>
-      'Release to hide. Only pass the phone when the card is covered.';
+      'ارفع إصبعك للإخفاء. مرر الهاتف فقط بعد تغطية البطاقة.';
 
   @override
-  String get classicShowRole => 'Reveal role · accessible alternative';
+  String get classicShowRole => 'كشف الدور · خيار ميسر';
 
   @override
-  String get classicHideRole => 'Hide role';
+  String get classicHideRole => 'إخفاء الدور';
 
   @override
-  String get classicYouImpostor => 'You’re an impostor';
+  String get classicYouImpostor => 'أنت محتال';
 
   @override
-  String get classicYourWord => 'Secret word';
+  String get classicYourWord => 'الكلمة السرية';
 
   @override
-  String get classicNext => 'Next player';
+  String get classicNext => 'اللاعب التالي';
 
   @override
-  String get classicDiscuss => 'Start discussion';
+  String get classicDiscuss => 'بدء النقاش';
 
   @override
-  String get classicStarts => 'First to give a clue';
+  String get classicStarts => 'أول من يعطي تلميحًا';
 
   @override
   String get classicInPerson =>
-      'Give clues, bluff, discuss and vote in person. When everyone is ready, reveal the result together.';
+      'قدموا تلميحات وخادعوا وناقشوا وصوتوا وجهًا لوجه. ثم اكشفوا النتيجة معًا.';
 
   @override
-  String get classicPause => 'Pause timer';
+  String get classicPause => 'إيقاف المؤقت مؤقتًا';
 
   @override
-  String get classicResume => 'Resume timer';
+  String get classicResume => 'استئناف المؤقت';
 
   @override
-  String get classicTimeUp => 'Time is up. Keep talking or reveal when ready.';
+  String get classicTimeUp =>
+      'انتهى الوقت. واصلوا الحديث أو اكشفوا النتيجة عندما تستعدون.';
 
   @override
-  String get classicReveal => 'Reveal result';
+  String get classicReveal => 'كشف النتيجة';
 
   @override
-  String get classicRevealQuestion => 'Reveal the secret?';
+  String get classicRevealQuestion => 'كشف السر؟';
 
   @override
   String get classicRevealWarning =>
-      'Everyone will see the word and all impostors. Finish your vote first.';
+      'سيرى الجميع الكلمة والمحتالين. أنهوا التصويت أولًا.';
 
   @override
-  String get classicCancel => 'Cancel';
+  String get classicCancel => 'إلغاء';
 
   @override
-  String get classicEnd => 'End round';
+  String get classicEnd => 'إنهاء الجولة';
 
   @override
-  String get classicExitQuestion => 'End this round?';
+  String get classicExitQuestion => 'إنهاء هذه الجولة؟';
 
   @override
   String get classicExitWarning =>
-      'Return to setup without revealing any secrets. This round cannot be resumed.';
+      'العودة للإعداد دون كشف الأسرار. لا يمكن استئناف هذه الجولة.';
 
   @override
-  String get classicResult => 'The impostors were…';
+  String get classicResult => 'المحتالون هم…';
 
   @override
-  String get classicTrollResult => 'Troll round — everyone!';
+  String get classicTrollResult => 'جولة المقلب — الجميع!';
 
   @override
-  String get classicAgain => 'Play again';
+  String get classicAgain => 'العبوا مجددًا';
 
   @override
-  String get classicEditGame => 'Edit game';
+  String get classicEditGame => 'تعديل اللعبة';
 
   @override
   String get classicContentMissing =>
-      'Some selected categories have no playable English content yet. Choose the free categories to start.';
+      'بعض الفئات بلا محتوى إنجليزي متاح. اختر الفئات المجانية للبدء.';
 
   @override
-  String get classicRecoveryTitle => 'Saved game recovery';
+  String get classicRecoveryTitle => 'استعادة اللعبة المحفوظة';
 
   @override
   String get classicFutureSave =>
-      'This save needs a newer app. You can retry or play temporarily without replacing it.';
+      'يتطلب هذا الحفظ تطبيقًا أحدث. أعد المحاولة أو العب مؤقتًا دون استبداله.';
 
   @override
   String get classicRecoveryBody =>
-      'The saved game could not be read. Retry or start a new game with the valid group and history. Purchases and settings are preserved.';
+      'تعذرت قراءة اللعبة المحفوظة. أعد المحاولة أو ابدأ لعبة جديدة بالمجموعة والسجل الصالحين. تبقى المشتريات والإعدادات.';
 
   @override
-  String get classicNewGame => 'New game';
+  String get classicNewGame => 'لعبة جديدة';
 
   @override
   String get classicDiscardBody =>
-      'Discard only the saved round? Your group, history, settings and purchases will stay.';
+      'تجاهل الجولة المحفوظة فقط؟ ستبقى المجموعة والسجل والإعدادات والمشتريات.';
 
   @override
-  String get classicResumeTitle => 'Game in progress';
+  String get classicResumeTitle => 'لعبة جارية';
 
   @override
   String get classicResumeBody =>
-      'Resume with cards covered and the timer paused, or end this round.';
+      'استأنف ببطاقات مغطاة ومؤقت متوقف أو أنهِ الجولة.';
 
   @override
   String get classicWriteFailure =>
-      'The game could not be saved. Retry, or continue knowing reopening may return to the last saved transition.';
+      'تعذر الحفظ. أعد المحاولة أو تابع مع العلم أن إعادة الفتح قد تعيدك إلى آخر خطوة محفوظة.';
 
   @override
-  String get classicContinueUnsaved => 'Continue without saving';
+  String get classicContinueUnsaved => 'المتابعة دون حفظ';
 
   @override
   String get classicUnsavedNotice =>
-      'Progress is not saved. Reopening may lose recent progress.';
+      'التقدم غير محفوظ. قد تفقد التقدم الأخير عند إعادة الفتح.';
 
   @override
-  String get classicResetHistory => 'Reset word history';
+  String get classicResetHistory => 'مسح سجل الكلمات';
 
   @override
   String get classicResetHistoryBody =>
-      'Clear only word and impostor history? Your group, settings and purchases will stay.';
+      'مسح سجل الكلمات والمحتالين فقط؟ ستبقى المجموعة والإعدادات والمشتريات.';
 
   @override
-  String get classicResumeGame => 'Resume game';
+  String get classicResumeGame => 'استئناف اللعبة';
+
+  @override
+  String get classicAccessChanged =>
+      'تغير الوصول. تم تحديث الاختيار؛ اضغط مجددًا للمتابعة.';
+
+  @override
+  String get classicHaptics => 'الاهتزاز';
+
+  @override
+  String get classicSupport => 'التواصل مع الدعم';
+
+  @override
+  String get classicFeedbackNotice =>
+      'يفتح رسالة بريد قابلة للتعديل. أنت تقرر إرسالها؛ لا يمكن للتطبيق تأكيد وصولها.';
+
+  @override
+  String get classicLinkCopied => 'تم نسخ رابط التطبيق.';
+
+  @override
+  String get classicActionUnavailable =>
+      'هذا الإجراء غير مهيأ أو غير متاح على هذا الجهاز.';
+
+  @override
+  String get classicActionFailed => 'تعذر إكمال الإجراء. أعد المحاولة.';
+
+  @override
+  String get classicCatalogNotice =>
+      '3 فئات مجانية. المحتوى الإضافي بالإنجليزية؛ تتبع العناوين والكلمات لغة المحتوى.';
+
+  @override
+  String get premiumSummary => '20 فئة إضافية · 800 كلمة إنجليزية إضافية';
+
+  @override
+  String get premiumRenewal =>
+      'اشتراك سنوي أو أسبوعي. يتجدد تلقائيًا ما لم يُلغَ في إعدادات المتجر.';
+
+  @override
+  String get premiumActive => 'Premium مفعّل.';
+
+  @override
+  String get premiumAnnual => 'سنوي';
+
+  @override
+  String get premiumWeekly => 'أسبوعي';
+
+  @override
+  String get premiumUnavailable =>
+      'خطط المتجر غير متاحة. يبقى اللعب المجاني متاحًا.';
+
+  @override
+  String get premiumRestore => 'استعادة المشتريات';
+
+  @override
+  String get premiumManage => 'إدارة الاشتراك';
+
+  @override
+  String get premiumTerms => 'شروط الاستخدام';
+
+  @override
+  String get premiumNone => 'لم يتم العثور على مشتريات.';
+
+  @override
+  String get premiumRestored => 'تمت استعادة المشتريات.';
+
+  @override
+  String get premiumRefreshError => 'تعذر تحديث المشتريات. أعد المحاولة.';
+
+  @override
+  String get premiumVerifying =>
+      'الشراء ينتظر التحقق من الوصول. استعد المشتريات أو أعد المحاولة.';
+
+  @override
+  String get premiumCancelled => 'تم إلغاء الشراء.';
+
+  @override
+  String get premiumPending => 'الدفع بانتظار الموافقة.';
+
+  @override
+  String get premiumBuyError => 'الشراء غير متاح. أعد المحاولة.';
+
+  @override
+  String get premiumVerifyError =>
+      'تعذر التحقق من الشراء. استعد المشتريات أو أعد المحاولة.';
 }

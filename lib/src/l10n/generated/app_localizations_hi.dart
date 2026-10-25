@@ -800,233 +800,317 @@ class AppLocalizationsHi extends AppLocalizations {
   String get classicRetry => 'फिर कोशिश करें';
 
   @override
-  String get classicCrew => 'Your crew';
+  String get classicCrew => 'आपका समूह';
 
   @override
-  String get classicNames => 'Edit names';
+  String get classicNames => 'नाम बदलें';
 
   @override
-  String get classicCategories => 'Categories';
+  String get classicCategories => 'श्रेणियाँ';
 
   @override
-  String get classicImpostors => 'Imposters';
+  String get classicImpostors => 'धोखेबाज़';
 
   @override
-  String get classicAuto => 'Auto (recommended)';
+  String get classicAuto => 'अपने आप (सुझाया गया)';
 
   @override
-  String get classicTimer => 'Discussion timer';
+  String get classicTimer => 'चर्चा का समय';
 
   @override
-  String get classicDuration => 'Duration';
+  String get classicDuration => 'अवधि';
 
   @override
-  String get classicTroll => 'Troll mode';
+  String get classicTroll => 'ट्रोल मोड';
 
   @override
-  String get classicSave => 'Save names';
+  String get classicSave => 'नाम सहेजें';
 
   @override
-  String get classicConfirm => 'Confirm';
+  String get classicConfirm => 'पुष्टि करें';
 
   @override
-  String get classicClear => 'Clear';
+  String get classicClear => 'साफ़ करें';
 
   @override
-  String get classicSelectFree => 'Select all free';
+  String get classicSelectFree => 'सभी मुफ़्त चुनें';
 
   @override
-  String get classicSelectAll => 'Select all';
+  String get classicSelectAll => 'सभी चुनें';
 
   @override
-  String get classicAll => 'All';
+  String get classicAll => 'सभी';
 
   @override
-  String get classicDone => 'Done';
+  String get classicDone => 'हो गया';
 
   @override
-  String get classicAdd => 'Add player';
+  String get classicAdd => 'खिलाड़ी जोड़ें';
 
   @override
-  String get classicRemove => 'Remove player';
+  String get classicRemove => 'खिलाड़ी हटाएँ';
 
   @override
-  String get classicPlayer => 'Player';
+  String get classicPlayer => 'खिलाड़ी';
 
   @override
-  String get classicHelp => 'How to play';
+  String get classicHelp => 'कैसे खेलें';
 
   @override
-  String get classicSettings => 'Settings';
+  String get classicSettings => 'सेटिंग';
 
   @override
   String get classicPremium => 'Premium';
 
   @override
-  String get classicDemoBuy => 'Enable Premium demo';
+  String get classicDemoBuy => 'Premium डेमो चालू करें';
 
   @override
-  String get classicDemoNotice =>
-      'Development demo. Premium is simulated, with no real purchase. Three free categories have English content. Full catalog arrives in stage 5; resuming after closing the app arrives in stage 4.';
+  String get classicDemoNotice => 'नकली खरीद वाला विकास डेमो।';
 
   @override
-  String get classicStart => 'Start game';
+  String get classicStart => 'खेल शुरू करें';
 
   @override
-  String get classicTitle => 'Who is the impostor?';
+  String get classicTitle => 'धोखेबाज़ कौन है?';
 
   @override
-  String get classicSubtitle => 'One phone. Your friends. A secret word.';
+  String get classicSubtitle => 'एक फ़ोन। आपके दोस्त। एक गुप्त शब्द।';
 
   @override
-  String get classicOff => 'Off';
+  String get classicOff => 'बंद';
 
   @override
-  String get classicMinutes => 'minutes';
+  String get classicMinutes => 'मिनट';
 
   @override
-  String get classicShare => 'Share · available in stage 7';
+  String get classicShare => 'साझा करें';
 
   @override
-  String get classicRate => 'Rate us · available in stage 7';
+  String get classicRate => 'ऐप की समीक्षा करें';
 
   @override
   String get classicFooter =>
-      'Talk, bluff and vote together. No screens needed for the discussion.';
+      'साथ में बात करें, झाँसा दें और वोट करें। चर्चा में स्क्रीन की ज़रूरत नहीं।';
 
   @override
   String get classicHelpSteps =>
-      '1. Gather 3–20 players around one phone.\n2. Hold to see your role; release to hide it.\n3. Give clues about the secret word.\n4. Impostors bluff and blend in.\n5. Discuss and vote in person.\n6. Confirm the reveal to see the word and impostors.\n\nHint shows only the category. Troll may make everyone an impostor.';
+      '1. एक फ़ोन के साथ 3–20 खिलाड़ी जुटें।\n2. भूमिका देखने के लिए दबाएँ, छिपाने के लिए छोड़ें।\n3. गुप्त शब्द के संकेत दें।\n4. धोखेबाज़ झाँसा दें।\n5. आमने-सामने चर्चा और वोट करें।\n6. पुष्टि करके शब्द और धोखेबाज़ देखें।\n\nसंकेत में केवल श्रेणी दिखती है। ट्रोल में सभी धोखेबाज़ हो सकते हैं।';
 
   @override
-  String get classicEnglish => 'Content language: English (demo)';
+  String get classicEnglish => 'सामग्री अंग्रेज़ी में';
 
   @override
-  String get classicClose => 'Close';
+  String get classicClose => 'बंद करें';
 
   @override
-  String get classicHold => 'Hold here to see your role';
+  String get classicHold => 'अपनी भूमिका देखने के लिए दबाकर रखें';
 
   @override
   String get classicRelease =>
-      'Release to hide. Only pass the phone when the card is covered.';
+      'छिपाने के लिए छोड़ें। कार्ड ढका होने पर ही फ़ोन आगे दें।';
 
   @override
-  String get classicShowRole => 'Reveal role · accessible alternative';
+  String get classicShowRole => 'भूमिका दिखाएँ · सुलभ विकल्प';
 
   @override
-  String get classicHideRole => 'Hide role';
+  String get classicHideRole => 'भूमिका छिपाएँ';
 
   @override
-  String get classicYouImpostor => 'You’re an impostor';
+  String get classicYouImpostor => 'आप धोखेबाज़ हैं';
 
   @override
-  String get classicYourWord => 'Secret word';
+  String get classicYourWord => 'गुप्त शब्द';
 
   @override
-  String get classicNext => 'Next player';
+  String get classicNext => 'अगला खिलाड़ी';
 
   @override
-  String get classicDiscuss => 'Start discussion';
+  String get classicDiscuss => 'चर्चा शुरू करें';
 
   @override
-  String get classicStarts => 'First to give a clue';
+  String get classicStarts => 'पहला संकेत देने वाला';
 
   @override
   String get classicInPerson =>
-      'Give clues, bluff, discuss and vote in person. When everyone is ready, reveal the result together.';
+      'आमने-सामने संकेत दें, झाँसा दें, चर्चा करें और वोट करें। तैयार होने पर साथ में नतीजा देखें।';
 
   @override
-  String get classicPause => 'Pause timer';
+  String get classicPause => 'समय रोकें';
 
   @override
-  String get classicResume => 'Resume timer';
+  String get classicResume => 'समय फिर चलाएँ';
 
   @override
-  String get classicTimeUp => 'Time is up. Keep talking or reveal when ready.';
+  String get classicTimeUp =>
+      'समय पूरा हुआ। बात जारी रखें या तैयार होने पर नतीजा देखें।';
 
   @override
-  String get classicReveal => 'Reveal result';
+  String get classicReveal => 'नतीजा दिखाएँ';
 
   @override
-  String get classicRevealQuestion => 'Reveal the secret?';
+  String get classicRevealQuestion => 'राज़ दिखाएँ?';
 
   @override
   String get classicRevealWarning =>
-      'Everyone will see the word and all impostors. Finish your vote first.';
+      'सभी शब्द और धोखेबाज़ों को देखेंगे। पहले वोट पूरा करें।';
 
   @override
-  String get classicCancel => 'Cancel';
+  String get classicCancel => 'रद्द करें';
 
   @override
-  String get classicEnd => 'End round';
+  String get classicEnd => 'दौर समाप्त करें';
 
   @override
-  String get classicExitQuestion => 'End this round?';
+  String get classicExitQuestion => 'यह दौर समाप्त करें?';
 
   @override
   String get classicExitWarning =>
-      'Return to setup without revealing any secrets. This round cannot be resumed.';
+      'राज़ दिखाए बिना सेटिंग पर लौटें। यह दौर फिर शुरू नहीं किया जा सकेगा।';
 
   @override
-  String get classicResult => 'The impostors were…';
+  String get classicResult => 'धोखेबाज़ थे…';
 
   @override
-  String get classicTrollResult => 'Troll round — everyone!';
+  String get classicTrollResult => 'ट्रोल दौर — सभी!';
 
   @override
-  String get classicAgain => 'Play again';
+  String get classicAgain => 'फिर खेलें';
 
   @override
-  String get classicEditGame => 'Edit game';
+  String get classicEditGame => 'खेल बदलें';
 
   @override
   String get classicContentMissing =>
-      'Some selected categories have no playable English content yet. Choose the free categories to start.';
+      'कुछ श्रेणियों में अंग्रेज़ी सामग्री नहीं है। शुरू करने के लिए मुफ़्त श्रेणियाँ चुनें।';
 
   @override
-  String get classicRecoveryTitle => 'Saved game recovery';
+  String get classicRecoveryTitle => 'सहेजा खेल बहाल करें';
 
   @override
   String get classicFutureSave =>
-      'This save needs a newer app. You can retry or play temporarily without replacing it.';
+      'इस सेव के लिए नया ऐप चाहिए। फिर कोशिश करें या इसे बदले बिना अस्थायी रूप से खेलें।';
 
   @override
   String get classicRecoveryBody =>
-      'The saved game could not be read. Retry or start a new game with the valid group and history. Purchases and settings are preserved.';
+      'सहेजा खेल पढ़ा नहीं जा सका। फिर कोशिश करें या सही समूह और इतिहास के साथ नया खेल शुरू करें। खरीद और सेटिंग सुरक्षित हैं।';
 
   @override
-  String get classicNewGame => 'New game';
+  String get classicNewGame => 'नया खेल';
 
   @override
   String get classicDiscardBody =>
-      'Discard only the saved round? Your group, history, settings and purchases will stay.';
+      'केवल सहेजा दौर हटाएँ? समूह, इतिहास, सेटिंग और खरीद सुरक्षित रहेंगे।';
 
   @override
-  String get classicResumeTitle => 'Game in progress';
+  String get classicResumeTitle => 'खेल जारी है';
 
   @override
   String get classicResumeBody =>
-      'Resume with cards covered and the timer paused, or end this round.';
+      'ढके कार्ड और रुके समय के साथ जारी रखें या दौर समाप्त करें।';
 
   @override
   String get classicWriteFailure =>
-      'The game could not be saved. Retry, or continue knowing reopening may return to the last saved transition.';
+      'सहेजा नहीं जा सका। फिर कोशिश करें या जारी रखें। दोबारा खोलने पर आखिरी सहेजे चरण पर लौट सकते हैं।';
 
   @override
-  String get classicContinueUnsaved => 'Continue without saving';
+  String get classicContinueUnsaved => 'बिना सहेजे जारी रखें';
 
   @override
   String get classicUnsavedNotice =>
-      'Progress is not saved. Reopening may lose recent progress.';
+      'प्रगति सहेजी नहीं गई है। दोबारा खोलने पर हाल की प्रगति खो सकती है।';
 
   @override
-  String get classicResetHistory => 'Reset word history';
+  String get classicResetHistory => 'शब्दों का इतिहास मिटाएँ';
 
   @override
   String get classicResetHistoryBody =>
-      'Clear only word and impostor history? Your group, settings and purchases will stay.';
+      'केवल शब्द और धोखेबाज़ों का इतिहास मिटाएँ? समूह, सेटिंग और खरीद सुरक्षित रहेंगे।';
 
   @override
-  String get classicResumeGame => 'Resume game';
+  String get classicResumeGame => 'खेल जारी रखें';
+
+  @override
+  String get classicAccessChanged =>
+      'पहुँच बदली। चयन अपडेट हुआ; जारी रखने के लिए फिर टैप करें।';
+
+  @override
+  String get classicHaptics => 'कंपन';
+
+  @override
+  String get classicSupport => 'सहायता से संपर्क करें';
+
+  @override
+  String get classicFeedbackNotice =>
+      'संपादन योग्य ईमेल खुलता है। भेजना आप तय करते हैं; ऐप डिलीवरी की पुष्टि नहीं कर सकता।';
+
+  @override
+  String get classicLinkCopied => 'ऐप लिंक कॉपी हुआ।';
+
+  @override
+  String get classicActionUnavailable =>
+      'यह क्रिया कॉन्फ़िगर नहीं है या इस डिवाइस पर उपलब्ध नहीं है।';
+
+  @override
+  String get classicActionFailed => 'क्रिया पूरी नहीं हुई। फिर कोशिश करें।';
+
+  @override
+  String get classicCatalogNotice =>
+      '3 मुफ़्त श्रेणियाँ। अतिरिक्त सामग्री अंग्रेज़ी में है; शीर्षक और शब्द सामग्री की भाषा में हैं।';
+
+  @override
+  String get premiumSummary =>
+      '20 अतिरिक्त श्रेणियाँ · 800 अतिरिक्त अंग्रेज़ी शब्द';
+
+  @override
+  String get premiumRenewal =>
+      'वार्षिक या साप्ताहिक सदस्यता। स्टोर सेटिंग में रद्द न करने तक अपने आप नवीनीकृत होती है।';
+
+  @override
+  String get premiumActive => 'Premium सक्रिय है।';
+
+  @override
+  String get premiumAnnual => 'वार्षिक';
+
+  @override
+  String get premiumWeekly => 'साप्ताहिक';
+
+  @override
+  String get premiumUnavailable =>
+      'स्टोर प्लान उपलब्ध नहीं। मुफ़्त खेल उपलब्ध है।';
+
+  @override
+  String get premiumRestore => 'खरीद बहाल करें';
+
+  @override
+  String get premiumManage => 'सदस्यता प्रबंधित करें';
+
+  @override
+  String get premiumTerms => 'उपयोग की शर्तें';
+
+  @override
+  String get premiumNone => 'कोई खरीद नहीं मिली।';
+
+  @override
+  String get premiumRestored => 'खरीद बहाल हुई।';
+
+  @override
+  String get premiumRefreshError => 'खरीद अपडेट नहीं हुई। फिर कोशिश करें।';
+
+  @override
+  String get premiumVerifying =>
+      'खरीद की पहुँच सत्यापन की प्रतीक्षा है। बहाल करें या फिर कोशिश करें।';
+
+  @override
+  String get premiumCancelled => 'खरीद रद्द हुई।';
+
+  @override
+  String get premiumPending => 'भुगतान स्वीकृति की प्रतीक्षा में है।';
+
+  @override
+  String get premiumBuyError => 'खरीद उपलब्ध नहीं। फिर कोशिश करें।';
+
+  @override
+  String get premiumVerifyError =>
+      'खरीद सत्यापित नहीं हुई। बहाल करें या फिर कोशिश करें।';
 }

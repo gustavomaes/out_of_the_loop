@@ -1,3 +1,4 @@
+import 'package:outoftheloop/src/features/classic/presentation/classic_dev_app.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:outoftheloop/src/features/premium/premium_sheet.dart';
@@ -40,7 +41,7 @@ void main() {
       addTearDown(access.dispose);
       await access.refresh();
       await t.pumpWidget(
-        MaterialApp(
+        ClassicDevApp(
           home: Scaffold(
             body: SingleChildScrollView(child: PremiumSheet(access: access)),
           ),

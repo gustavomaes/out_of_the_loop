@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'firebase_options.dart';
+import 'src/features/classic/application/classic_experience.dart';
 import 'src/features/classic/presentation/classic_dev_app.dart';
 import 'src/features/classic/presentation/classic_session_host.dart';
 
 /// Classic entry: offline gameplay; optional RevenueCat configuration from build defines.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Locale? locale;
+  final experience = ClassicExperience();
+  await experience.load();
+  // Firebase initializes separately: offline commerce/metrics never delay free play.
+  initializeClassicAnalytics();
+  runApp(
+    ClassicDevApp(experience: experience, home: const ClassicSessionHost()),
+  );
+}
+
+Future<void> initializeClassicAnalytics() async {
   try {
-    final prefs = await SharedPreferences.getInstance();
-    final code = prefs.getString('settings.language');
-    if (code != null) {
-      final parts = code.split('-');
-      locale = Locale(parts.first, parts.length > 1 ? parts[1] : null);
-    }
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(!kDebugMode);
   } on Object {
-    // The host presents storage recovery; a preference failure cannot block boot.
+    // No raw errors or crash payloads containing round state are collected.
   }
-  runApp(ClassicDevApp(locale: locale, home: const ClassicSessionHost()));
 }

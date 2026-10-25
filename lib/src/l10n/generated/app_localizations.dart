@@ -1596,7 +1596,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicDone.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Concluir'**
+  /// **'Pronto'**
   String get classicDone;
 
   /// No description provided for @classicAdd.
@@ -1638,19 +1638,19 @@ abstract class AppLocalizations {
   /// No description provided for @classicDemoBuy.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Ativar Premium de demonstração'**
+  /// **'Ativar demonstração Premium'**
   String get classicDemoBuy;
 
   /// No description provided for @classicDemoNotice.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Demonstração de desenvolvimento. Premium simulado, sem compra real. As três categorias grátis têm conteúdo em inglês. Catálogo completo na etapa 5; retomada após fechar o app na etapa 4.'**
+  /// **'Demonstração de desenvolvimento com compras simuladas.'**
   String get classicDemoNotice;
 
   /// No description provided for @classicStart.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Iniciar partida'**
+  /// **'Iniciar jogo'**
   String get classicStart;
 
   /// No description provided for @classicTitle.
@@ -1680,31 +1680,31 @@ abstract class AppLocalizations {
   /// No description provided for @classicShare.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Compartilhar · disponível na etapa 7'**
+  /// **'Compartilhar'**
   String get classicShare;
 
   /// No description provided for @classicRate.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Avaliar · disponível na etapa 7'**
+  /// **'Avaliar o app'**
   String get classicRate;
 
   /// No description provided for @classicFooter.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Conversem, blefem e votem juntos. A discussão acontece fora da tela.'**
+  /// **'Conversem, blefem e votem juntos, sem precisar de telas na discussão.'**
   String get classicFooter;
 
   /// No description provided for @classicHelpSteps.
   ///
   /// In pt_BR, this message translates to:
-  /// **'1. Reúna 3–20 jogadores com um telefone.\n2. Segure para ver seu papel; solte para esconder.\n3. Dê pistas sobre a palavra secreta.\n4. Impostores blefam para se misturar.\n5. Conversem e votem presencialmente.\n6. Confirme a revelação para ver a palavra e os impostores.\n\nA dica mostra só a categoria. Troll pode tornar todos impostores.'**
+  /// **'1. Reúna 3–20 jogadores com um telefone.\n2. Segure para revelar seu papel e solte para ocultar.\n3. Deem dicas sobre a palavra secreta.\n4. Impostores blefam.\n5. Discutam e votem presencialmente.\n6. Confirmem para revelar palavra e impostores.\n\nA dica mostra só a categoria. Troll pode tornar todos impostores.'**
   String get classicHelpSteps;
 
   /// No description provided for @classicEnglish.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Idioma do conteúdo: inglês (demo)'**
+  /// **'Conteúdo em inglês'**
   String get classicEnglish;
 
   /// No description provided for @classicClose.
@@ -1722,7 +1722,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicRelease.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Solte para ocultar. Só passe o telefone com o cartão coberto.'**
+  /// **'Solte para ocultar. Passe o telefone só com o cartão coberto.'**
   String get classicRelease;
 
   /// No description provided for @classicShowRole.
@@ -1758,31 +1758,31 @@ abstract class AppLocalizations {
   /// No description provided for @classicDiscuss.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Começar discussão'**
+  /// **'Iniciar discussão'**
   String get classicDiscuss;
 
   /// No description provided for @classicStarts.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Primeiro a dar uma pista'**
+  /// **'Primeiro a dar uma dica'**
   String get classicStarts;
 
   /// No description provided for @classicInPerson.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Deem pistas, blefem, conversem e votem presencialmente. Quando todos estiverem prontos, revelem o resultado juntos.'**
+  /// **'Deem dicas, blefem, discutam e votem presencialmente. Depois revelem o resultado juntos.'**
   String get classicInPerson;
 
   /// No description provided for @classicPause.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Pausar timer'**
+  /// **'Pausar tempo'**
   String get classicPause;
 
   /// No description provided for @classicResume.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Retomar timer'**
+  /// **'Retomar tempo'**
   String get classicResume;
 
   /// No description provided for @classicTimeUp.
@@ -1806,7 +1806,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicRevealWarning.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Todos verão a palavra e todos os impostores. Terminem a votação antes.'**
+  /// **'Todos verão a palavra e os impostores. Terminem a votação primeiro.'**
   String get classicRevealWarning;
 
   /// No description provided for @classicCancel.
@@ -1842,13 +1842,13 @@ abstract class AppLocalizations {
   /// No description provided for @classicTrollResult.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Rodada Troll — todo mundo!'**
+  /// **'Rodada Troll — todos!'**
   String get classicTrollResult;
 
   /// No description provided for @classicAgain.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Jogar novamente'**
+  /// **'Jogar de novo'**
   String get classicAgain;
 
   /// No description provided for @classicEditGame.
@@ -1860,7 +1860,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicContentMissing.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Algumas categorias selecionadas ainda não têm conteúdo jogável em inglês. Escolha as gratuitas para começar.'**
+  /// **'Há categorias sem conteúdo disponível em inglês. Escolha as gratuitas para iniciar.'**
   String get classicContentMissing;
 
   /// No description provided for @classicRecoveryTitle.
@@ -1872,43 +1872,43 @@ abstract class AppLocalizations {
   /// No description provided for @classicFutureSave.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Este save exige uma versão mais nova. Tente novamente ou jogue temporariamente sem substituí-lo.'**
+  /// **'Este jogo salvo exige um app mais recente. Tente novamente ou jogue temporariamente sem substituí-lo.'**
   String get classicFutureSave;
 
   /// No description provided for @classicRecoveryBody.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Não foi possível ler o jogo salvo. Tente novamente ou comece com o grupo e histórico válidos. Compras e preferências serão preservadas.'**
+  /// **'Não foi possível ler o jogo salvo. Tente novamente ou inicie outro mantendo grupo e histórico válidos. Compras e configurações serão preservadas.'**
   String get classicRecoveryBody;
 
   /// No description provided for @classicNewGame.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Nova partida'**
+  /// **'Novo jogo'**
   String get classicNewGame;
 
   /// No description provided for @classicDiscardBody.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Descartar apenas a rodada salva? Grupo, histórico, preferências e compras serão mantidos.'**
+  /// **'Descartar apenas a rodada salva? Grupo, histórico, configurações e compras serão preservados.'**
   String get classicDiscardBody;
 
   /// No description provided for @classicResumeTitle.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Partida em andamento'**
+  /// **'Jogo em andamento'**
   String get classicResumeTitle;
 
   /// No description provided for @classicResumeBody.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Retome com os cartões cobertos e o timer pausado, ou encerre esta rodada.'**
+  /// **'Retome com cartões cobertos e tempo pausado, ou encerre esta rodada.'**
   String get classicResumeBody;
 
   /// No description provided for @classicWriteFailure.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Não foi possível salvar. Tente novamente ou continue sabendo que reabrir pode voltar à última transição salva.'**
+  /// **'Não foi possível salvar. Tente novamente ou continue sabendo que reabrir pode retornar à última transição salva.'**
   String get classicWriteFailure;
 
   /// No description provided for @classicContinueUnsaved.
@@ -1920,7 +1920,7 @@ abstract class AppLocalizations {
   /// No description provided for @classicUnsavedNotice.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Progresso não salvo. Reabrir pode perder as últimas ações.'**
+  /// **'O progresso não está salvo. Reabrir pode perder avanços recentes.'**
   String get classicUnsavedNotice;
 
   /// No description provided for @classicResetHistory.
@@ -1932,14 +1932,164 @@ abstract class AppLocalizations {
   /// No description provided for @classicResetHistoryBody.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Limpar apenas o histórico de palavras e impostores? Grupo, preferências e compras serão mantidos.'**
+  /// **'Limpar apenas histórico de palavras e impostores? Grupo, configurações e compras serão preservados.'**
   String get classicResetHistoryBody;
 
   /// No description provided for @classicResumeGame.
   ///
   /// In pt_BR, this message translates to:
-  /// **'Retomar partida'**
+  /// **'Retomar jogo'**
   String get classicResumeGame;
+
+  /// No description provided for @classicAccessChanged.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'O acesso mudou. Seleção atualizada; toque novamente para continuar.'**
+  String get classicAccessChanged;
+
+  /// No description provided for @classicHaptics.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Vibração'**
+  String get classicHaptics;
+
+  /// No description provided for @classicSupport.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Contatar suporte'**
+  String get classicSupport;
+
+  /// No description provided for @classicFeedbackNotice.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Abre um e-mail editável. Você decide enviar; o app não confirma a entrega.'**
+  String get classicFeedbackNotice;
+
+  /// No description provided for @classicLinkCopied.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Link do app copiado.'**
+  String get classicLinkCopied;
+
+  /// No description provided for @classicActionUnavailable.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Esta ação não está configurada ou não está disponível neste dispositivo.'**
+  String get classicActionUnavailable;
+
+  /// No description provided for @classicActionFailed.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível concluir. Tente novamente.'**
+  String get classicActionFailed;
+
+  /// No description provided for @classicCatalogNotice.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'3 categorias grátis. Conteúdo extra em inglês; títulos e palavras seguem o idioma do conteúdo.'**
+  String get classicCatalogNotice;
+
+  /// No description provided for @premiumSummary.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'20 categorias extras · 800 palavras adicionais em inglês'**
+  String get premiumSummary;
+
+  /// No description provided for @premiumRenewal.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Assinatura anual ou semanal. Renova automaticamente até cancelar nos ajustes da loja.'**
+  String get premiumRenewal;
+
+  /// No description provided for @premiumActive.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Premium está ativo.'**
+  String get premiumActive;
+
+  /// No description provided for @premiumAnnual.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Anual'**
+  String get premiumAnnual;
+
+  /// No description provided for @premiumWeekly.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Semanal'**
+  String get premiumWeekly;
+
+  /// No description provided for @premiumUnavailable.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Planos indisponíveis. O jogo gratuito continua disponível.'**
+  String get premiumUnavailable;
+
+  /// No description provided for @premiumRestore.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Restaurar compras'**
+  String get premiumRestore;
+
+  /// No description provided for @premiumManage.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Gerenciar assinatura'**
+  String get premiumManage;
+
+  /// No description provided for @premiumTerms.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Termos de uso'**
+  String get premiumTerms;
+
+  /// No description provided for @premiumNone.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Nenhuma compra encontrada.'**
+  String get premiumNone;
+
+  /// No description provided for @premiumRestored.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Compras restauradas.'**
+  String get premiumRestored;
+
+  /// No description provided for @premiumRefreshError.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível atualizar compras. Tente novamente.'**
+  String get premiumRefreshError;
+
+  /// No description provided for @premiumVerifying.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Compra aguardando verificação de acesso. Restaure ou tente novamente.'**
+  String get premiumVerifying;
+
+  /// No description provided for @premiumCancelled.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Compra cancelada.'**
+  String get premiumCancelled;
+
+  /// No description provided for @premiumPending.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Pagamento aguardando aprovação.'**
+  String get premiumPending;
+
+  /// No description provided for @premiumBuyError.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Compra indisponível. Tente novamente.'**
+  String get premiumBuyError;
+
+  /// No description provided for @premiumVerifyError.
+  ///
+  /// In pt_BR, this message translates to:
+  /// **'Não foi possível verificar a compra. Restaure ou tente novamente.'**
+  String get premiumVerifyError;
 }
 
 class _AppLocalizationsDelegate

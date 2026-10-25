@@ -88,6 +88,9 @@ class _ClassicRoundScreenState extends State<ClassicRoundScreen>
     }
   }
 
+  @override
+  void didChangeMetrics() => _hide();
+
   void _hide() {
     _pointer = null;
     if (_visible && mounted) setState(() => _visible = false);
@@ -354,7 +357,7 @@ class _ClassicRoundScreenState extends State<ClassicRoundScreen>
                 SnackBar(
                   content: Text(
                     c.accessAdjusted
-                        ? 'Access changed. Selection updated; tap again to continue.'
+                        ? l.classicAccessChanged
                         : l.classicContentMissing,
                   ),
                 ),

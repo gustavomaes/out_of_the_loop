@@ -1,3 +1,4 @@
+import '../application/classic_experience.dart';
 import 'package:flutter/material.dart';
 
 abstract final class CoralTokens {
@@ -16,6 +17,7 @@ abstract final class CoralTokens {
     useMaterial3: true,
     scaffoldBackgroundColor: canvas,
     fontFamily: 'PlusJakartaSans',
+    fontFamilyFallback: const ['Arial', 'Apple Color Emoji'],
     colorScheme: ColorScheme.fromSeed(seedColor: primary).copyWith(
       primary: primary,
       surface: surface,
@@ -51,7 +53,12 @@ class ClassicButton extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       ElevatedButton(
-        onPressed: loading ? null : onPressed,
+        onPressed: loading || onPressed == null
+            ? null
+            : () {
+                ClassicExperienceScope.of(context)?.tap();
+                onPressed!();
+              },
         child: loading
             ? Semantics(
                 label: label,

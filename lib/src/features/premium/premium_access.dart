@@ -1,3 +1,4 @@
+import '../../data/analytics/classic_analytics.dart';
 import 'package:flutter/foundation.dart';
 import '../../data/purchases/purchase_gateway.dart';
 
@@ -7,7 +8,10 @@ class PremiumAccess extends ChangeNotifier {
     required this.gateway,
     required this.entitlement,
     this.legacyCategories = const {},
-  });
+    ClassicAnalytics? analytics,
+  }) : analytics = analytics ?? ClassicAnalytics();
+  final ClassicAnalytics analytics;
+  ClassicOrigin origin = ClassicOrigin.home;
   final PurchaseGateway gateway;
   final String entitlement;
 
@@ -29,17 +33,31 @@ class PremiumAccess extends ChangeNotifier {
       );
   Future<void> refresh({bool restore = false}) async {
     if (busy) return;
+    if (restore) {
+      analytics.record(ClassicEvent.restoreRequested, origin: origin);
+    }
     busy = true;
     message = null;
     notifyListeners();
     try {
-      snapshot = await gateway.load(restore: restore);
+      final loaded = await gateway.load(restore: restore);
+      if (!setEquals(snapshot.entitlements, loaded.entitlements)) {
+        analytics.record(ClassicEvent.entitlementChanged);
+      }
+      snapshot = loaded;
       if (restore) {
+        analytics.record(
+          snapshot.entitlements.isEmpty
+              ? ClassicEvent.restoreEmpty
+              : ClassicEvent.restoreFound,
+          origin: origin,
+        );
         message = snapshot.entitlements.isEmpty
             ? 'No purchases found.'
             : 'Purchases restored.';
       }
     } on Object {
+      if (restore) analytics.record(ClassicEvent.restoreFailed, origin: origin);
       // A network error cannot revoke a previously validated cached SDK snapshot.
       message = 'Unable to refresh purchases. Please retry.';
     } finally {
@@ -50,6 +68,18 @@ class PremiumAccess extends ChangeNotifier {
 
   Future<void> buy(String id) async {
     if (busy) return;
+    final plan = switch (snapshot.offers[id]?.period) {
+      'P1Y' => ClassicPlan.annual,
+      'P1W' => ClassicPlan.weekly,
+      _ => null,
+    };
+    final source = origin;
+    analytics.record(ClassicEvent.planSelected, origin: source, plan: plan);
+    analytics.record(
+      ClassicEvent.purchaseRequested,
+      origin: source,
+      plan: plan,
+    );
     busy = true;
     message = null;
     notifyListeners();
@@ -57,10 +87,26 @@ class PremiumAccess extends ChangeNotifier {
       final outcome = await gateway.buy(id);
       if (outcome == PurchaseOutcome.purchased) {
         snapshot = await gateway.load();
+        analytics.record(
+          enabled
+              ? ClassicEvent.purchaseVerified
+              : ClassicEvent.purchasePending,
+          origin: source,
+          plan: plan,
+        );
         message = enabled
             ? 'Premium is active.'
             : 'Purchase awaiting access verification. Restore or retry.';
       } else {
+        analytics.record(
+          switch (outcome) {
+            PurchaseOutcome.cancelled => ClassicEvent.purchaseCancelled,
+            PurchaseOutcome.pending => ClassicEvent.purchasePending,
+            _ => ClassicEvent.purchaseFailed,
+          },
+          origin: source,
+          plan: plan,
+        );
         message = switch (outcome) {
           PurchaseOutcome.cancelled => 'Purchase cancelled.',
           PurchaseOutcome.pending => 'Payment pending approval.',
@@ -68,6 +114,7 @@ class PremiumAccess extends ChangeNotifier {
         };
       }
     } on Object {
+      analytics.record(ClassicEvent.purchaseFailed, origin: source, plan: plan);
       message = 'Purchase could not be verified. Restore or retry.';
     } finally {
       busy = false;

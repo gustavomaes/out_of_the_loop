@@ -1,3 +1,4 @@
+import '../../../data/analytics/classic_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import '../../../data/purchases/purchase_gateway.dart';
@@ -94,6 +95,7 @@ class _ClassicSessionHostState extends State<ClassicSessionHost>
             'settings.language',
             'settings.music',
             'settings.soundEffects',
+            'settings.haptics',
           ])
             if (prefs?.get(key) != null) key: prefs!.get(key)!,
         },
@@ -193,7 +195,10 @@ class _ClassicSessionHostState extends State<ClassicSessionHost>
             Text(l.classicResumeBody),
             ClassicButton(
               label: l.classicResumeGame,
-              onPressed: () => setState(() => resumePrompt = false),
+              onPressed: () {
+                c.analytics.record(ClassicEvent.gameResumed);
+                setState(() => resumePrompt = false);
+              },
             ),
             ClassicButton(
               label: l.classicEnd,

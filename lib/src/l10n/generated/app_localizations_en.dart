@@ -871,8 +871,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get classicDemoBuy => 'Enable Premium demo';
 
   @override
-  String get classicDemoNotice =>
-      'Development demo. Premium is simulated, with no real purchase. Three free categories have English content. Full catalog arrives in stage 5; resuming after closing the app arrives in stage 4.';
+  String get classicDemoNotice => 'Development demo with simulated purchases.';
 
   @override
   String get classicStart => 'Start game';
@@ -890,10 +889,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get classicMinutes => 'minutes';
 
   @override
-  String get classicShare => 'Share · available in stage 7';
+  String get classicShare => 'Share';
 
   @override
-  String get classicRate => 'Rate us · available in stage 7';
+  String get classicRate => 'Rate this app';
 
   @override
   String get classicFooter =>
@@ -904,7 +903,7 @@ class AppLocalizationsEn extends AppLocalizations {
       '1. Gather 3–20 players around one phone.\n2. Hold to see your role; release to hide it.\n3. Give clues about the secret word.\n4. Impostors bluff and blend in.\n5. Discuss and vote in person.\n6. Confirm the reveal to see the word and impostors.\n\nHint shows only the category. Troll may make everyone an impostor.';
 
   @override
-  String get classicEnglish => 'Content language: English (demo)';
+  String get classicEnglish => 'Content language: English';
 
   @override
   String get classicClose => 'Close';
@@ -1034,4 +1033,90 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get classicResumeGame => 'Resume game';
+
+  @override
+  String get classicAccessChanged =>
+      'Access changed. Selection updated; tap again to continue.';
+
+  @override
+  String get classicHaptics => 'Haptics';
+
+  @override
+  String get classicSupport => 'Contact support';
+
+  @override
+  String get classicFeedbackNotice =>
+      'Opens an editable email. Sending is up to you; the app cannot confirm delivery.';
+
+  @override
+  String get classicLinkCopied => 'App link copied.';
+
+  @override
+  String get classicActionUnavailable =>
+      'This action is not configured or is unavailable on this device.';
+
+  @override
+  String get classicActionFailed =>
+      'Could not complete this action. Please retry.';
+
+  @override
+  String get classicCatalogNotice =>
+      '3 free categories. Extra content is in English; category titles and secret words follow the content language.';
+
+  @override
+  String get premiumSummary =>
+      '20 extra categories · 800 additional English words';
+
+  @override
+  String get premiumRenewal =>
+      'Annual or weekly subscription. Renews automatically unless cancelled in store settings.';
+
+  @override
+  String get premiumActive => 'Premium is active.';
+
+  @override
+  String get premiumAnnual => 'Annual';
+
+  @override
+  String get premiumWeekly => 'Weekly';
+
+  @override
+  String get premiumUnavailable =>
+      'Store plans unavailable. Free play remains available.';
+
+  @override
+  String get premiumRestore => 'Restore purchases';
+
+  @override
+  String get premiumManage => 'Manage subscription';
+
+  @override
+  String get premiumTerms => 'Terms of use';
+
+  @override
+  String get premiumNone => 'No purchases found.';
+
+  @override
+  String get premiumRestored => 'Purchases restored.';
+
+  @override
+  String get premiumRefreshError =>
+      'Unable to refresh purchases. Please retry.';
+
+  @override
+  String get premiumVerifying =>
+      'Purchase awaiting access verification. Restore or retry.';
+
+  @override
+  String get premiumCancelled => 'Purchase cancelled.';
+
+  @override
+  String get premiumPending => 'Payment pending approval.';
+
+  @override
+  String get premiumBuyError => 'Purchase unavailable. Please retry.';
+
+  @override
+  String get premiumVerifyError =>
+      'Purchase could not be verified. Restore or retry.';
 }

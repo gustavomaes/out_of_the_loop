@@ -1,3 +1,5 @@
+import '../src/features/classic/application/classic_experience.dart';
+import '../src/features/classic/presentation/classic_settings.dart';
 import '../src/features/premium/premium_access.dart';
 import '../src/features/premium/premium_sheet.dart';
 import '../src/data/purchases/purchase_gateway.dart';
@@ -163,4 +165,47 @@ class _PreviewPurchases implements PurchaseGateway {
       const PurchaseSnapshot();
   @override
   Future<PurchaseOutcome> buy(String id) async => PurchaseOutcome.unavailable;
+}
+
+@Preview(
+  name: 'Classic / Arabic RTL 200%',
+  group: 'Classic',
+  size: Size(768, 1024),
+)
+Widget classicArabicPreview() =>
+    const ClassicDevApp(locale: Locale('ar'), textScaler: TextScaler.linear(2));
+
+@Preview(
+  name: 'Classic / settings 200%',
+  group: 'Classic',
+  size: Size(320, 640),
+)
+Widget classicSettingsPreview() => const _SettingsPreview();
+
+class _SettingsPreview extends StatefulWidget {
+  const _SettingsPreview();
+  @override
+  State<_SettingsPreview> createState() => _SettingsPreviewState();
+}
+
+class _SettingsPreviewState extends State<_SettingsPreview> {
+  final experience = ClassicExperience(persist: false);
+  @override
+  void dispose() {
+    experience.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => ClassicDevApp(
+    experience: experience,
+    textScaler: const TextScaler.linear(2),
+    home: const Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(padding: EdgeInsets.all(24), child: ClassicSettings()),
+        ),
+      ),
+    ),
+  );
 }

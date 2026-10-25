@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import '../../../data/analytics/classic_analytics.dart';
 import '../../../data/classic/classic_session_repository.dart';
 import '../../../domain/classic/classic_models.dart';
 import '../../../domain/classic/classic_round_factory.dart';
@@ -12,9 +13,11 @@ class ClassicController extends ChangeNotifier {
     Duration Function()? now,
     ClassicHistory? history,
     this.repository,
+    ClassicAnalytics? analytics,
     this.categoryAllowed,
     ClassicSession? restored,
-  }) : _config = config,
+  }) : analytics = analytics ?? ClassicAnalytics(),
+       _config = config,
        factory = factory ?? ClassicRoundFactory(),
        _history = history ?? ClassicHistory() {
     final watch = Stopwatch()..start();
@@ -23,6 +26,7 @@ class ClassicController extends ChangeNotifier {
       _config = restored.config;
       _history = restored.history;
       _round = restored.round;
+      if (restored.round != null) _savedStarts.add(restored.round!.id);
       _phase = restored.phase;
       _index = restored.index;
       _remaining = restored.remaining;
@@ -32,6 +36,9 @@ class ClassicController extends ChangeNotifier {
       _catalogVersion = restored.catalogVersion;
     }
   }
+  final ClassicAnalytics analytics;
+  final Set<String> _savedStarts = {};
+  final Set<String> _unsavedStarts = {};
   final ClassicSessionRepository? repository;
   int _revision = 0;
   int _pending = 0;
@@ -60,9 +67,13 @@ class ClassicController extends ChangeNotifier {
     _pending++;
     try {
       await repository!.save(snapshot);
+      if (snapshot.round != null && _savedStarts.add(snapshot.round!.id)) {
+        analytics.record(ClassicEvent.roundSaved);
+      }
       persistenceError = false;
       continuingWithoutSave = false;
     } on Object {
+      if (!persistenceError) analytics.record(ClassicEvent.persistenceFailed);
       persistenceError = true;
       // Pause in memory without triggering another write after a failure.
       _remaining = remaining;
@@ -74,7 +85,12 @@ class ClassicController extends ChangeNotifier {
   }
 
   void continueWithoutSave() {
+    if (!persistenceError || continuingWithoutSave) return;
     continuingWithoutSave = true;
+    final id = round?.id;
+    if (id != null && _unsavedStarts.add(id)) {
+      analytics.record(ClassicEvent.roundUnsaved);
+    }
     super.notifyListeners();
   }
 
@@ -138,7 +154,21 @@ class ClassicController extends ChangeNotifier {
         candidate.contentLanguage != 'en') {
       return false;
     }
+    final changes = <ClassicOption>[
+      if (!listEquals(_config.players, candidate.players))
+        ClassicOption.players,
+      if (!setEquals(_config.categoryIds, candidate.categoryIds))
+        ClassicOption.categories,
+      if (_config.manualImpostors != candidate.manualImpostors)
+        ClassicOption.impostors,
+      if (_config.hint != candidate.hint) ClassicOption.hint,
+      if (_config.timerMinutes != candidate.timerMinutes) ClassicOption.timer,
+      if (_config.troll != candidate.troll) ClassicOption.troll,
+    ];
     _config = candidate;
+    for (final option in changes) {
+      analytics.record(ClassicEvent.setupOptionChanged, option: option);
+    }
     notifyListeners();
     return true;
   }
@@ -181,6 +211,14 @@ class ClassicController extends ChangeNotifier {
           : Duration(minutes: config.timerMinutes!);
       _runningSince = null;
       _phase = ClassicPhase.revealing;
+      analytics.record(ClassicEvent.roundStarted);
+      if (expected == ClassicPhase.result) {
+        analytics.record(ClassicEvent.replayStarted);
+      }
+      if (repository == null) {
+        _unsavedStarts.add(_round!.id);
+        analytics.record(ClassicEvent.roundUnsaved);
+      }
       notifyListeners();
       return true;
     } on StateError {
@@ -214,6 +252,7 @@ class ClassicController extends ChangeNotifier {
       _index++;
     } else {
       _phase = ClassicPhase.discussion;
+      analytics.record(ClassicEvent.discussionStarted);
       if (_remaining != null) _runningSince = _now();
     }
     notifyListeners();
@@ -258,11 +297,13 @@ class ClassicController extends ChangeNotifier {
     _remaining = remaining;
     _runningSince = null;
     _phase = ClassicPhase.result;
+    analytics.record(ClassicEvent.roundCompleted);
     notifyListeners();
     return true;
   }
 
   void endRound() {
+    if (round != null) analytics.record(ClassicEvent.roundEnded);
     _round = null;
     _phase = ClassicPhase.home;
     _viewed = false;

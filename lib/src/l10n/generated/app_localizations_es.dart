@@ -810,233 +810,318 @@ class AppLocalizationsEs extends AppLocalizations {
   String get classicRetry => 'Reintentar';
 
   @override
-  String get classicCrew => 'Your crew';
+  String get classicCrew => 'Tu grupo';
 
   @override
-  String get classicNames => 'Edit names';
+  String get classicNames => 'Editar nombres';
 
   @override
-  String get classicCategories => 'Categories';
+  String get classicCategories => 'Categorías';
 
   @override
-  String get classicImpostors => 'Imposters';
+  String get classicImpostors => 'Impostores';
 
   @override
-  String get classicAuto => 'Auto (recommended)';
+  String get classicAuto => 'Auto (recomendado)';
 
   @override
-  String get classicTimer => 'Discussion timer';
+  String get classicTimer => 'Tiempo de discusión';
 
   @override
-  String get classicDuration => 'Duration';
+  String get classicDuration => 'Duración';
 
   @override
-  String get classicTroll => 'Troll mode';
+  String get classicTroll => 'Modo Troll';
 
   @override
-  String get classicSave => 'Save names';
+  String get classicSave => 'Guardar nombres';
 
   @override
-  String get classicConfirm => 'Confirm';
+  String get classicConfirm => 'Confirmar';
 
   @override
-  String get classicClear => 'Clear';
+  String get classicClear => 'Borrar';
 
   @override
-  String get classicSelectFree => 'Select all free';
+  String get classicSelectFree => 'Seleccionar todas gratis';
 
   @override
-  String get classicSelectAll => 'Select all';
+  String get classicSelectAll => 'Seleccionar todas';
 
   @override
-  String get classicAll => 'All';
+  String get classicAll => 'Todas';
 
   @override
-  String get classicDone => 'Done';
+  String get classicDone => 'Listo';
 
   @override
-  String get classicAdd => 'Add player';
+  String get classicAdd => 'Añadir jugador';
 
   @override
-  String get classicRemove => 'Remove player';
+  String get classicRemove => 'Eliminar jugador';
 
   @override
-  String get classicPlayer => 'Player';
+  String get classicPlayer => 'Jugador';
 
   @override
-  String get classicHelp => 'How to play';
+  String get classicHelp => 'Cómo jugar';
 
   @override
-  String get classicSettings => 'Settings';
+  String get classicSettings => 'Ajustes';
 
   @override
   String get classicPremium => 'Premium';
 
   @override
-  String get classicDemoBuy => 'Enable Premium demo';
+  String get classicDemoBuy => 'Activar demo Premium';
 
   @override
-  String get classicDemoNotice =>
-      'Development demo. Premium is simulated, with no real purchase. Three free categories have English content. Full catalog arrives in stage 5; resuming after closing the app arrives in stage 4.';
+  String get classicDemoNotice => 'Demostración con compras simuladas.';
 
   @override
-  String get classicStart => 'Start game';
+  String get classicStart => 'Empezar juego';
 
   @override
-  String get classicTitle => 'Who is the impostor?';
+  String get classicTitle => '¿Quién es el impostor?';
 
   @override
-  String get classicSubtitle => 'One phone. Your friends. A secret word.';
+  String get classicSubtitle => 'Un teléfono. Tus amigos. Una palabra secreta.';
 
   @override
-  String get classicOff => 'Off';
+  String get classicOff => 'Desactivado';
 
   @override
-  String get classicMinutes => 'minutes';
+  String get classicMinutes => 'minutos';
 
   @override
-  String get classicShare => 'Share · available in stage 7';
+  String get classicShare => 'Compartir';
 
   @override
-  String get classicRate => 'Rate us · available in stage 7';
+  String get classicRate => 'Valorar la app';
 
   @override
   String get classicFooter =>
-      'Talk, bluff and vote together. No screens needed for the discussion.';
+      'Hablen, engañen y voten juntos, sin pantallas durante la discusión.';
 
   @override
   String get classicHelpSteps =>
-      '1. Gather 3–20 players around one phone.\n2. Hold to see your role; release to hide it.\n3. Give clues about the secret word.\n4. Impostors bluff and blend in.\n5. Discuss and vote in person.\n6. Confirm the reveal to see the word and impostors.\n\nHint shows only the category. Troll may make everyone an impostor.';
+      '1. Reúne 3–20 jugadores con un teléfono.\n2. Mantén pulsado para revelar tu papel y suelta para ocultar.\n3. Den pistas sobre la palabra.\n4. Los impostores engañan.\n5. Hablen y voten en persona.\n6. Confirmen para revelar palabra e impostores.\n\nLa pista muestra solo la categoría. Troll puede hacer que todos sean impostores.';
 
   @override
-  String get classicEnglish => 'Content language: English (demo)';
+  String get classicEnglish => 'Contenido en inglés';
 
   @override
-  String get classicClose => 'Close';
+  String get classicClose => 'Cerrar';
 
   @override
-  String get classicHold => 'Hold here to see your role';
+  String get classicHold => 'Mantén pulsado para ver tu papel';
 
   @override
   String get classicRelease =>
-      'Release to hide. Only pass the phone when the card is covered.';
+      'Suelta para ocultar. Pasa el teléfono con la tarjeta cubierta.';
 
   @override
-  String get classicShowRole => 'Reveal role · accessible alternative';
+  String get classicShowRole => 'Revelar papel · alternativa accesible';
 
   @override
-  String get classicHideRole => 'Hide role';
+  String get classicHideRole => 'Ocultar papel';
 
   @override
-  String get classicYouImpostor => 'You’re an impostor';
+  String get classicYouImpostor => 'Eres un impostor';
 
   @override
-  String get classicYourWord => 'Secret word';
+  String get classicYourWord => 'Palabra secreta';
 
   @override
-  String get classicNext => 'Next player';
+  String get classicNext => 'Siguiente jugador';
 
   @override
-  String get classicDiscuss => 'Start discussion';
+  String get classicDiscuss => 'Iniciar discusión';
 
   @override
-  String get classicStarts => 'First to give a clue';
+  String get classicStarts => 'Primero en dar una pista';
 
   @override
   String get classicInPerson =>
-      'Give clues, bluff, discuss and vote in person. When everyone is ready, reveal the result together.';
+      'Den pistas, engañen, hablen y voten en persona. Después revelen el resultado juntos.';
 
   @override
-  String get classicPause => 'Pause timer';
+  String get classicPause => 'Pausar tiempo';
 
   @override
-  String get classicResume => 'Resume timer';
+  String get classicResume => 'Reanudar tiempo';
 
   @override
-  String get classicTimeUp => 'Time is up. Keep talking or reveal when ready.';
+  String get classicTimeUp =>
+      'Se acabó el tiempo. Sigan hablando o revelen cuando quieran.';
 
   @override
-  String get classicReveal => 'Reveal result';
+  String get classicReveal => 'Revelar resultado';
 
   @override
-  String get classicRevealQuestion => 'Reveal the secret?';
+  String get classicRevealQuestion => '¿Revelar el secreto?';
 
   @override
   String get classicRevealWarning =>
-      'Everyone will see the word and all impostors. Finish your vote first.';
+      'Todos verán la palabra y los impostores. Terminen de votar primero.';
 
   @override
-  String get classicCancel => 'Cancel';
+  String get classicCancel => 'Cancelar';
 
   @override
-  String get classicEnd => 'End round';
+  String get classicEnd => 'Terminar ronda';
 
   @override
-  String get classicExitQuestion => 'End this round?';
+  String get classicExitQuestion => '¿Terminar esta ronda?';
 
   @override
   String get classicExitWarning =>
-      'Return to setup without revealing any secrets. This round cannot be resumed.';
+      'Volver a los ajustes sin revelar secretos. Esta ronda no se podrá reanudar.';
 
   @override
-  String get classicResult => 'The impostors were…';
+  String get classicResult => 'Los impostores eran…';
 
   @override
-  String get classicTrollResult => 'Troll round — everyone!';
+  String get classicTrollResult => '¡Ronda Troll — todos!';
 
   @override
-  String get classicAgain => 'Play again';
+  String get classicAgain => 'Jugar de nuevo';
 
   @override
-  String get classicEditGame => 'Edit game';
+  String get classicEditGame => 'Editar juego';
 
   @override
   String get classicContentMissing =>
-      'Some selected categories have no playable English content yet. Choose the free categories to start.';
+      'Hay categorías sin contenido en inglés. Elige las gratuitas para empezar.';
 
   @override
-  String get classicRecoveryTitle => 'Saved game recovery';
+  String get classicRecoveryTitle => 'Recuperar partida';
 
   @override
   String get classicFutureSave =>
-      'This save needs a newer app. You can retry or play temporarily without replacing it.';
+      'Esta partida requiere una app más reciente. Reintenta o juega temporalmente sin reemplazarla.';
 
   @override
   String get classicRecoveryBody =>
-      'The saved game could not be read. Retry or start a new game with the valid group and history. Purchases and settings are preserved.';
+      'No se pudo leer la partida. Reintenta o inicia otra conservando grupo e historial válidos. Se conservan compras y ajustes.';
 
   @override
-  String get classicNewGame => 'New game';
+  String get classicNewGame => 'Nueva partida';
 
   @override
   String get classicDiscardBody =>
-      'Discard only the saved round? Your group, history, settings and purchases will stay.';
+      '¿Descartar solo la ronda guardada? Se conservan grupo, historial, ajustes y compras.';
 
   @override
-  String get classicResumeTitle => 'Game in progress';
+  String get classicResumeTitle => 'Partida en curso';
 
   @override
   String get classicResumeBody =>
-      'Resume with cards covered and the timer paused, or end this round.';
+      'Reanuda con tarjetas cubiertas y tiempo pausado, o termina esta ronda.';
 
   @override
   String get classicWriteFailure =>
-      'The game could not be saved. Retry, or continue knowing reopening may return to the last saved transition.';
+      'No se pudo guardar. Reintenta o continúa sabiendo que al reabrir puedes volver al último paso guardado.';
 
   @override
-  String get classicContinueUnsaved => 'Continue without saving';
+  String get classicContinueUnsaved => 'Continuar sin guardar';
 
   @override
   String get classicUnsavedNotice =>
-      'Progress is not saved. Reopening may lose recent progress.';
+      'El progreso no está guardado. Al reabrir puedes perder avances recientes.';
 
   @override
-  String get classicResetHistory => 'Reset word history';
+  String get classicResetHistory => 'Borrar historial de palabras';
 
   @override
   String get classicResetHistoryBody =>
-      'Clear only word and impostor history? Your group, settings and purchases will stay.';
+      '¿Borrar solo el historial de palabras e impostores? Se conservan grupo, ajustes y compras.';
 
   @override
-  String get classicResumeGame => 'Resume game';
+  String get classicResumeGame => 'Reanudar partida';
+
+  @override
+  String get classicAccessChanged =>
+      'El acceso cambió. Selección actualizada; toca de nuevo para continuar.';
+
+  @override
+  String get classicHaptics => 'Vibración';
+
+  @override
+  String get classicSupport => 'Contactar con soporte';
+
+  @override
+  String get classicFeedbackNotice =>
+      'Abre un correo editable. Tú decides enviarlo; la app no confirma la entrega.';
+
+  @override
+  String get classicLinkCopied => 'Enlace de la app copiado.';
+
+  @override
+  String get classicActionUnavailable =>
+      'Esta acción no está configurada o no está disponible en este dispositivo.';
+
+  @override
+  String get classicActionFailed => 'No se pudo completar. Reintenta.';
+
+  @override
+  String get classicCatalogNotice =>
+      '3 categorías gratis. Contenido extra en inglés; títulos y palabras siguen el idioma del contenido.';
+
+  @override
+  String get premiumSummary =>
+      '20 categorías extra · 800 palabras adicionales en inglés';
+
+  @override
+  String get premiumRenewal =>
+      'Suscripción anual o semanal. Se renueva automáticamente hasta cancelarla en la tienda.';
+
+  @override
+  String get premiumActive => 'Premium está activo.';
+
+  @override
+  String get premiumAnnual => 'Anual';
+
+  @override
+  String get premiumWeekly => 'Semanal';
+
+  @override
+  String get premiumUnavailable =>
+      'Planes no disponibles. El juego gratis sigue disponible.';
+
+  @override
+  String get premiumRestore => 'Restaurar compras';
+
+  @override
+  String get premiumManage => 'Gestionar suscripción';
+
+  @override
+  String get premiumTerms => 'Términos de uso';
+
+  @override
+  String get premiumNone => 'No se encontraron compras.';
+
+  @override
+  String get premiumRestored => 'Compras restauradas.';
+
+  @override
+  String get premiumRefreshError =>
+      'No se pudieron actualizar las compras. Reintenta.';
+
+  @override
+  String get premiumVerifying =>
+      'Compra pendiente de verificar acceso. Restaura o reintenta.';
+
+  @override
+  String get premiumCancelled => 'Compra cancelada.';
+
+  @override
+  String get premiumPending => 'Pago pendiente de aprobación.';
+
+  @override
+  String get premiumBuyError => 'Compra no disponible. Reintenta.';
+
+  @override
+  String get premiumVerifyError =>
+      'No se pudo verificar la compra. Restaura o reintenta.';
 }

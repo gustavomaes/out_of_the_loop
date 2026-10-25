@@ -1,3 +1,5 @@
+import '../../../data/analytics/classic_analytics.dart';
+import 'classic_settings.dart';
 import 'package:flutter/material.dart';
 import '../../../data/classic/classic_content_repository.dart';
 import '../../../domain/classic/classic_models.dart';
@@ -38,17 +40,30 @@ class _ClassicHomeState extends State<ClassicHome> {
   AppLocalizations get l => AppLocalizations.of(context)!;
   ClassicConfig get config => controller.config;
   @override
+  void initState() {
+    super.initState();
+    if (controller.phase == ClassicPhase.home) {
+      controller.analytics.record(ClassicEvent.setupViewed);
+    }
+  }
+
+  @override
   void dispose() {
     if (widget.controller == null) controller.dispose();
     if (widget.premium == null) premium.dispose();
     super.dispose();
   }
 
-  Future<void> showPremium() => showClassicSheet(
-    context,
-    title: l.classicPremium,
-    child: PremiumSheet(access: premium),
-  );
+  Future<void> showPremium([ClassicOrigin origin = ClassicOrigin.home]) async {
+    premium.origin = origin;
+    premium.analytics.record(ClassicEvent.paywallOpened, origin: origin);
+    await showClassicSheet(
+      context,
+      title: l.classicPremium,
+      child: PremiumSheet(access: premium),
+    );
+    premium.analytics.record(ClassicEvent.paywallDismissed, origin: origin);
+  }
 
   Future<void> editNames() async {
     final players = await showModalBottomSheet<List<ClassicPlayer>>(
@@ -131,7 +146,7 @@ class _ClassicHomeState extends State<ClassicHome> {
                   value: draft.contains(category.id),
                   onChanged: (selected) async {
                     if (!premium.allows(category.id, free: !category.premium)) {
-                      await showPremium();
+                      await showPremium(ClassicOrigin.categories);
                       if (!mounted || !sheetContext.mounted) return;
                       // The sheet remains mounted, retaining draft and scroll.
                       if (premium.allows(
@@ -245,7 +260,9 @@ class _ClassicHomeState extends State<ClassicHome> {
     builder: (context, _) => controller.phase != ClassicPhase.home
         ? ClassicRoundScreen(
             controller: controller,
-            onPremium: premium.enabled ? null : showPremium,
+            onPremium: premium.enabled
+                ? null
+                : () => showPremium(ClassicOrigin.result),
           )
         : Scaffold(
             appBar: AppBar(
@@ -268,6 +285,7 @@ class _ClassicHomeState extends State<ClassicHome> {
                     title: l.classicSettings,
                     child: Column(
                       children: [
+                        const ClassicSettings(),
                         ClassicButton(
                           label: l.classicResetHistory,
                           onPressed: () async {
@@ -295,7 +313,7 @@ class _ClassicHomeState extends State<ClassicHome> {
                         ),
                         ClassicButton(
                           label: l.classicPremium,
-                          onPressed: showPremium,
+                          onPressed: () => showPremium(ClassicOrigin.settings),
                         ),
                       ],
                     ),
@@ -330,7 +348,7 @@ class _ClassicHomeState extends State<ClassicHome> {
                             SnackBar(
                               content: Text(
                                 controller.accessAdjusted
-                                    ? 'Access changed. Selection updated; tap again to continue.'
+                                    ? l.classicAccessChanged
                                     : l.classicContentMissing,
                               ),
                             ),
@@ -455,15 +473,18 @@ class _ClassicHomeState extends State<ClassicHome> {
                     onChanged: (v) =>
                         controller.updateConfig(config.copyWith(troll: v)),
                   ),
-                  TextButton(onPressed: null, child: Text(l.classicShare)),
+                  TextButton(
+                    onPressed: () => classicAction(context, (e) => e.share()),
+                    child: Text(l.classicShare),
+                  ),
                   TextButton(
                     key: const Key('classic-last-action'),
-                    onPressed: null,
+                    onPressed: () => classicAction(context, (e) => e.review()),
                     child: Text(l.classicRate),
                   ),
                   Text(l.classicFooter, key: const Key('classic-footer')),
                   const SizedBox(height: 16),
-                  Text(l.classicDemoNotice),
+                  Text(l.classicCatalogNotice),
                 ],
               ),
             ),
